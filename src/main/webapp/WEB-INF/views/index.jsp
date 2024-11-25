@@ -4,6 +4,6 @@
     <title>Title</title>
 </head>
 <body>
-<h1>This is index.jsp_</h1>
+<h1>This is index.jsp</h1>
 </body>
 </html>
