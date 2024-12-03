@@ -15,25 +15,57 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
-    <div class="profilepicturecontainer">
-    <br>
-        <img id="profile-img-btn" src="https://i1.sndcdn.com/avatars-000373392764-zp0p80-t200x200.jpg"
-            class="defaultprofilepicture">
-        <form>
-            <input id="profile-img-input" type="file" class="my_hidden" />
-        </form>
+
+    <div class=bodycontainer>
+        <h2 class=bodyTitle>마이페이지</h2>
+
+            <div class="imgcontainer">
+                <img id="profile-img-btn"
+                    src="https://i1.sndcdn.com/avatars-000373392764-zp0p80-t200x200.jpg"
+                    class="defaultprofilepicture">
+                <form>
+                    <input id="profile-img-input" type="file" class="my_hidden"/>
+                </form>
+            </div>
     </div>
-    <br>
-    <div class="nickname">
-        <input><placeholder=닉네임></input><button>닉네임수정하기</button>
+
+    <div class="upper">
+        <div class="nickname">
+            <input placeholder="야메로"
+            style="width:200px; height:30px;">
+            <button style="width:200px; height:30px;">닉네임 수정하기</button>
+        </div>
+        <div class="email">
+                <input placeholder="이메일 수정하기"
+                style="width:200px; height:30px;">
+                <button style="width:200px; height:30px;">이메일 수정하기</button>
+        </div>
     </div>
-    <br>
+
     <div class="password">
-         <input><placeholder=닉네임></input><button>비밀번호 수정하기</button>
+         <input placeholder="비밀번호"
+         style="width:200px; height:30px;">
+         <button style="width:200px; height:30px;">비밀번호 수정하기</button>
     </div>
-    <br>
+
     <div class="address">
-         <input><placeholder=닉네임></input><button>주소 수정하기</button>
+         <input placeholder="경기도 수원시"
+         style="width:200px; height:30px;">
+         <button style="width:200px; height:30px;">주소 수정하기</button>
+    </div>
+
+    <div class="introduction">
+        <input placeholder="한줄소개"
+         style="width:200px; height: 60px;">
+        <button style="width:200px; height:60px;">소개 수정하기</button>
+    </div>
+
+    <div class="recentlyRegisteredPosts">
+        <div class="title">
+    </div>
+
+    <div class="recentlyRegisteredComments">
+        <div class="title">
     </div>
 </body>
 </html>
