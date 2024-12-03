@@ -11,6 +11,12 @@
     font-style: normal;
 }
 @font-face {
+    font-family: 'Paperlogy-8ExtraBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
     font-family: 'GabiaCheongyeon';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/GabiaCheongyeon.woff2') format('woff2');
     font-weight: normal;
@@ -25,11 +31,12 @@
 
 :root {
     --font-head: 'MYArirang-Medium', sans-serif;
-    --font-menu: 'GabiaCheongyeon', sans-serif;
+    --font-menu: 'Paperlogy-8ExtraBold', sans-serif;
     --font-text: 'Gyeonggi_Batang_Regular', serif;
+    --font-itelic: 'GabiaCheongyeon', sans-serif;
     --font-hightlight: 'Hangeuljaemin4-Regular', sans-serif;
 
-    --background-color: #EFC7C2;
+    --background-color: #FBF5F3;
     --text-color: #402E2A;
     --main-color: #B892FF;
     --sub-color: #D64933;
