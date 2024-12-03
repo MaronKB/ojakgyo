@@ -8,9 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>마이페이지</title>
 </head>
 <body>
-
+    <div class="profilepicturecontainer">
+        <div class="profilepicture"></div><br>
+        <div class="changebutton"></div>
+    </div>
 </body>
 </html>
