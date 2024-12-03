@@ -2,6 +2,7 @@
 @import "./landing.css";
 @import "./includes/header.css";
 @import "./user/mypage.css";
+@import "./community/main.css";
 
 :root {
     --font-head: 'MYArirang-Medium', sans-serif;
