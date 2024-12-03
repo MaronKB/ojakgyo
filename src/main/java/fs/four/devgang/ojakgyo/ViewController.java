@@ -47,7 +47,6 @@ public class ViewController {
     @GetMapping("/main")
     public String mainForm(@CookieValue(value = "token", required = false) String token, @RequestHeader(value = "User-Agent", required = false) String userAgent) {
         // 로그인 토큰이 존재하지 않을 경우 로그인 페이지로 리디렉션
-
         /*
         if (token != null) {
             System.out.println("token: " + token);
