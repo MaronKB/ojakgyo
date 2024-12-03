@@ -1,7 +1,9 @@
-package fs.four.devgang.ojakgyo.view;
+package fs.four.devgang.ojakgyo;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 
 @Controller
 public class ViewController {
@@ -43,7 +45,16 @@ public class ViewController {
     // main
 
     @GetMapping("/main")
-    public String mainForm() {
+    public String mainForm(@CookieValue(value = "token", required = false) String token, @RequestHeader(value = "User-Agent", required = false) String userAgent) {
+        // 로그인 토큰이 존재하지 않을 경우 로그인 페이지로 리디렉션
+        /*
+        if (token != null) {
+            System.out.println("token: " + token);
+        } else {
+            return "redirect:/login";
+        }
+        */
+
         System.out.println("main");
         return "main/form";
     }
