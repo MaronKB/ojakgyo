@@ -1,3 +1,26 @@
+.bodycontainer{
+    display:inline-block;
+    margin-top: 150px;
+    margin-left: 50px;
+}
+
+.imgcontainer{
+
+}
+
+.upper{
+    display:flex;          /*닉네임, 이메일 한줄로 나란히*/
+}
+
+.lower{
+    display:flex          /*비밀번호, 자주쓰는주소 나란히*/
+}
+
 .defaultprofilepicture {
+    display:inline-block;
     border: 2px solid red /* 빨간색 테두리 추가 */
+}
+
+.recentlyRegisteredPosts.title{
+    border: 2px solid black;
 }
