@@ -1,5 +1,4 @@
 .bodycontainer{
-    display:inline-block;
     margin-top: 150px;
     margin-left: 50px;
 }
@@ -13,8 +12,13 @@
 }
 
 .lower{
-    display:flex          /*비밀번호, 자주쓰는주소 나란히*/
+    display:flex;         /*비밀번호, 자주쓰는주소 나란히*/
 }
+
+.introduction{
+    display:flex;
+}
+
 
 .defaultprofilepicture {
     display:inline-block;
@@ -23,4 +27,53 @@
 
 .recentlyRegisteredPosts.title{
     border: 2px solid black;
+}
+
+.email{
+    margin-left: 10px;
+}
+
+.address{
+    margin-left: 10px;
+}
+
+.password{
+
+}
+
+
+/*수정버튼 css*/
+.nicknamebutton{
+    background-color:#ff95ba;
+    border-radius:5px;
+    margin-left:10px;
+}
+
+.emailbutton{
+    background-color:#ff95ba;
+    border-radius:5px;
+    margin-left:10px;
+}
+
+.passwordbutton{
+    background-color:#ff95ba;
+    border-radius:5px;
+    margin-left:10px;
+}
+
+.addressbutton{
+    background-color:#ff95ba;
+    border-radius:5px;
+    margin-left:10px;
+}
+
+.introbutton{
+    background-color:#ff95ba;
+    border-radius:5px;
+    margin-left:10px;
+}
+/*수정버튼 css 끝*/
+
+.recentlyRegisteredPosts{
+    border-color:2px solid blue;
 }
