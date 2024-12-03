@@ -1,5 +1,7 @@
 #header {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 60px;
     display: flex;
@@ -9,13 +11,12 @@
     background: white;
     color: var(--text-color);
     padding: 4px 12px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
     box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
     overflow: hidden;
+    z-index: 100;
 }
 #header-title {
+    position: relative;
     flex: none;
     width: fit-content;
     height: 100%;
@@ -27,10 +28,22 @@
     object-fit: contain;
 }
 #header-title-text {
+    /*
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     */
+    align-self: flex-end;
     font-family: var(--font-head), sans-serif;
-    font-size: 36px;
-    font-weight: bold;
-    margin: 0;
+    font-size: 24px;
+    font-weight: normal;
+    color: #3E3E3E;
+    margin: 0 5px 0 -30px;
 }
 #header-navs {
     flex: 1;
@@ -49,6 +62,7 @@
     overflow: visible;
 }
 #header-top {
+    font-family: var(--font-menu), sans-serif;
     font-size: 12px;
     gap: 5px;
 }
@@ -80,7 +94,10 @@
     width: 140px;
     height: 100%;
     opacity: 0;
-    background: linear-gradient(115deg, transparent 30%, var(--background-color) 30% 50%, white 50% 55%, var(--background-color) 55% 70%, transparent 70%);
+    transform: translateX(-20px);
+    background:
+            linear-gradient(135deg, transparent 50%, var(--sub-color) 50% 70%, transparent 70%),
+            linear-gradient(65deg, transparent 35%, var(--bright-color) 35% 65%, transparent 65%);
     pointer-events: none;
     transition: all 0.3s;
 }
