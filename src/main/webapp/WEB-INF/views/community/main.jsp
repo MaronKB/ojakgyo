@@ -16,7 +16,7 @@
 <body>
 <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
 
-    <div class="container mt-4">
+    <div class="container">
         <div class="category-buttons">
             <button class="btn btn-outline-primary">전체</button>
             <button class="btn btn-outline-primary">인기</button>
