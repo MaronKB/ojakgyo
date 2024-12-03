@@ -1,17 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<html>
-<head>
-    <title>Header</title>
-    <script src="<c:url value="/js/header.js"/>"></script>
-    <link type="text/css" rel="stylesheet" href="<c:url value="/css/header.css"/>"/>
-</head>
-<body>
+<script src="<c:url value="/js/header.js"/>"></script>
 <header id="header">
-    <div id="header-title">
+    <a id="header-title" href="<c:url value="/"/>">
         <img id="header-title-img" src="<c:url value="/images/ojakgyo_logo_1000_320.png"/>" alt="로고"/>
         <h1 id="header-title-text">오작교</h1>
-    </div>
+    </a>
     <nav id="header-menu">
         <a href="<c:url value="/main"/>">장소찾기</a>
         <a href="<c:url value="/community"/>">커뮤니티</a>
@@ -36,5 +30,3 @@
     </nav>
     <div id="header-selector"></div>
 </header>
-</body>
-</html>

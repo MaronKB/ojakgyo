@@ -1,16 +1,15 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: MRKB
-  Date: 24. 11. 25.
-  Time: 오후 3:15
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/css/index.css"/>"/>
 </head>
 <body>
-
+<jsp:include page="/WEB-INF/views/includes/header.jsp"/>
+<main>
+<%--여기에 내용 작성--%>
+</main>
+<jsp:include page="/WEB-INF/views/includes/footer.jsp"/>
 </body>
 </html>

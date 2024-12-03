@@ -9,7 +9,8 @@
     align-items: center;
     gap: 30px;
     color: var(--text-color);
-    background-color: #fff4;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 4px 12px;
     overflow: hidden;
     z-index: 100;
