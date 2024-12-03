@@ -28,20 +28,41 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GmarketSansExtraBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansExtraBold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
 
 :root {
     --font-head: 'MYArirang-Medium', sans-serif;
     --font-menu: 'Paperlogy-8ExtraBold', sans-serif;
-    --font-text: 'Gyeonggi_Batang_Regular', serif;
+    --font-light: 'GmarketSansLight', sans-serif;
+    --font-normal: 'GmarketSansMedium', sans-serif;
+    --font-bold: 'GmarketSansMedium', sans-serif;
+    --font-batang: 'Gyeonggi_Batang_Regular', serif;
     --font-itelic: 'GabiaCheongyeon', sans-serif;
     --font-hightlight: 'Hangeuljaemin4-Regular', sans-serif;
 
-    --background-color: #FBF5F3;
+    --background-color-dark: #3E3E3E;
+    --background-color-bright: #FBF5F3;
     --text-color: #402E2A;
     --main-color: #B892FF;
     --sub-color: #D64933;
     --bright-color: #EFC7C2;
-
 }
 * {
     box-sizing: border-box;
@@ -49,7 +70,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    background-color: var(--background-color);
+    background-color: var(--background-color-bright);
     padding: 0;
     margin: 0;
 }

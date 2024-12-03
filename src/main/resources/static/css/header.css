@@ -8,10 +8,9 @@
     justify-content: center;
     align-items: center;
     gap: 30px;
-    background: white;
     color: var(--text-color);
+    background-color: #fff4;
     padding: 4px 12px;
-    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
     overflow: hidden;
     z-index: 100;
 }
@@ -45,34 +44,18 @@
     color: #3E3E3E;
     margin: 0 5px 0 -30px;
 }
-#header-navs {
-    flex: 1;
+#header > nav {
     height: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: end;
+    align-items: center;
     z-index: 1;
-}
-#header-navs > nav {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    overflow: visible;
-}
-#header-top {
-    font-family: var(--font-menu), sans-serif;
-    font-size: 12px;
-    gap: 5px;
 }
 #header-menu {
     flex: 1;
     width: 100%;
     justify-content: left;
     align-items: center;
-    gap: 20px;
-    padding: 0 20px;
 }
 #header-menu > a {
     flex: none;
@@ -80,12 +63,47 @@
     font-family: var(--font-menu), sans-serif;
     font-size: 18px;
     font-weight: bold;
+    padding: 0 20px;
 }
 #header-menu > a:hover {
     mix-blend-mode: difference;
 }
 #header-menu > a:first-letter {
     color: var(--sub-color);
+}
+#header-user {
+    flex: none;
+    width: fit-content;
+    gap: 10px;
+}
+#header-user > a {
+    flex: none;
+    width: fit-content;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-normal), sans-serif;
+    font-size: 14px;
+    padding: 0 20px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    transition: 0.3s all;
+}
+#header-user > a:first-child {
+    color: white;
+    background-color: var(--text-color);
+}
+#header-user > a:last-child {
+    color: var(--text-color);
+    background-color: transparent;
+    border-color: #6a6a6a;
+}
+#header-user > a:hover {
+    font-family: var(--font-bold), sans-serif;
+    color: white;
+    background-color: var(--sub-color);
+    border-color: transparent;
 }
 #header-selector {
     position: absolute;

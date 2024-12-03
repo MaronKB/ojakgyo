@@ -1,4 +1,4 @@
-package fs.four.devgang.ojakgyo.controller;
+package fs.four.devgang.ojakgyo.ad;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

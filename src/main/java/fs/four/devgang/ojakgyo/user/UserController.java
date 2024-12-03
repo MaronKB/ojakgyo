@@ -1,4 +1,4 @@
-package fs.four.devgang.ojakgyo.controller;
+package fs.four.devgang.ojakgyo.user;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
