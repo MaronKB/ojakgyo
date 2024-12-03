@@ -11,7 +11,6 @@
 <head>
     <title>마이페이지</title>
     <link rel="stylesheet" type="text/css" href="<c:url value="/css/index.css"/>"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/css/mypage/mypage.css"/>"/>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
