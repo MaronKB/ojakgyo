@@ -47,6 +47,22 @@
     <%--                <td>${post.recommendations}</td>--%>
     <%--            </tr>--%>
     <%--        </c:forEach>--%>
+                <tr>
+                    <td>1</td>
+                    <td>프로젝트 야메로!!!!!!!!!!</td>
+                    <td>야메로456</td>
+                    <td>2024-12-04</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>다스케뗴!!!!!!</td>
+                    <td>제라툴</td>
+                    <td>2024-12-04</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
             </tbody>
         </table>
 
@@ -56,11 +72,11 @@
 
         <nav class="pagination">
             <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">이전</a></li>
+                <li class="page-item"><a class="page-link" href="#"><</a></li>
                 <li class="page-item active"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">다음</a></li>
+                <li class="page-item"><a class="page-link" href="#">></a></li>
             </ul>
         </nav>
 
