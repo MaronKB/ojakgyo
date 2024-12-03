@@ -91,19 +91,19 @@ public class ViewController {
 
     // admin
 
-    @GetMapping("/ad")
+    @GetMapping("/admin/ad")
     public String ads() {
         System.out.println("ads");
         return "admin/ads";
     }
 
-    @GetMapping("/users")
+    @GetMapping("/admin/users")
     public String users() {
         System.out.println("user");
         return "admin/users";
     }
 
-    @GetMapping("/reports")
+    @GetMapping("/admin/reports")
     public String reports() {
         System.out.println("reports");
         return "admin/reports";
