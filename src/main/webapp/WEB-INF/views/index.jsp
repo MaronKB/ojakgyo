@@ -4,7 +4,6 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="<c:url value="/css/index.css"/>"/>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/css/landing.css"/>"/>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
