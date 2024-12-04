@@ -50,7 +50,7 @@
     <%--        </c:forEach>--%>
                 <tr data-category="자유">
                     <td>1</td>
-                    <td>프로젝트 야메로!!!!!!!!!!</td>
+                    <td>취업은 못할것같습니다</td>
                     <td>야메로456</td>
                     <td>2024-12-04</td>
                     <td>0</td>
@@ -58,7 +58,7 @@
                 </tr>
                 <tr data-category="질문">
                     <td>2</td>
-                    <td>다스케뗴!!!!!!</td>
+                    <td>코딩이란 무엇인가</td>
                     <td>제라툴</td>
                     <td>2024-12-04</td>
                     <td>0</td>
@@ -83,9 +83,11 @@
         </nav>
 
         <div class="search-bar">
-            <input type="text" class="form-control" placeholder="검색을 야메로~!!!!!">
+            <input type="text" class="form-control" placeholder="검색어를 입력해주세요.">
             <button class="btn btn-primary">검색</button>
         </div>
     </div>
+
+<script src="<c:url value='/js/community.js'/>"></script>
 </body>
 </html>
