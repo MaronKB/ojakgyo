@@ -19,11 +19,11 @@
     <div class="container">
 
         <div class="category-buttons">
-            <button class="btn btn-outline-primary">전체</button>
-            <button class="btn btn-outline-primary">인기</button>
-            <button class="btn btn-outline-primary">리뷰</button>
-            <button class="btn btn-outline-primary">자유</button>
-            <button class="btn btn-outline-primary">질문</button>
+            <button class="btn btn-outline-primary category-btn" data-category="전체">전체</button>
+            <button class="btn btn-outline-primary category-btn" data-category="인기">인기</button>
+            <button class="btn btn-outline-primary category-btn" data-category="리뷰">리뷰</button>
+            <button class="btn btn-outline-primary category-btn" data-category="자유">자유</button>
+            <button class="btn btn-outline-primary category-btn" data-category="질문">질문</button>
         </div>
 
         <table class="table table-hover">
@@ -37,7 +37,7 @@
                     <th>추천수</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="postList">
     <%--        <c:forEach var="post" items="${postList}">--%>
     <%--            <tr>--%>
     <%--                <td>${post.id}</td>--%>
@@ -48,7 +48,7 @@
     <%--                <td>${post.recommendations}</td>--%>
     <%--            </tr>--%>
     <%--        </c:forEach>--%>
-                <tr>
+                <tr data-category="자유">
                     <td>1</td>
                     <td>프로젝트 야메로!!!!!!!!!!</td>
                     <td>야메로456</td>
@@ -56,7 +56,7 @@
                     <td>0</td>
                     <td>0</td>
                 </tr>
-                <tr>
+                <tr data-category="질문">
                     <td>2</td>
                     <td>다스케뗴!!!!!!</td>
                     <td>제라툴</td>
