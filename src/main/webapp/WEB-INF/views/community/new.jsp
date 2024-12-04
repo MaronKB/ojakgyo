@@ -5,12 +5,41 @@
   Time: 오후 3:17
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>오작교-글쓰기</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<c:url value="/css/index.css"/>"/>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/includes/header.jsp"/>
+    <div class="container mt-5">
 
+        <div class="mb-3">
+            <select id="category" class="form-select">
+                <option value="자유">자유</option>
+                <option value="리뷰">리뷰</option>
+                <option value="질문">질문</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <input type="text" id="title" class="form-control" placeholder="제목">
+        </div>
+
+        <div class="mb-3">
+            <div class="d-flex mb-2">
+                <button type="button" class="btn btn-outline-secondary me-2">이미지 첨부</button>
+            </div>
+            <textarea id="content" class="form-control" rows="10" placeholder="내용"></textarea>
+        </div>
+
+        <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-secondary me-2">취소</button>
+            <button type="button" class="btn btn-primary">작성</button>
+        </div>
+    </div>
 </body>
 </html>
