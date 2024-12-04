@@ -1,4 +1,5 @@
 .container {
+    width: 70%;
     margin-top: 100px;
 }
 
@@ -8,18 +9,28 @@
     margin-bottom: 0;
 }
 
+.category-buttons .btn{
+    border-color: black;
+    border-radius: 3px;
+}
+
 .table {
     width: 100%;
     margin-bottom: 10px;
 }
-/** 아 이거 왜 적용이 안되냐 시발!!! **/
-.table thead{
+
+.table thead {
     background-color: #343a40;
     color: #ffffff;
 }
 
 .table-hover tbody tr:hover {
     background-color: #f5f5f5;
+}
+
+.table thead tr,
+ table tbody tr {
+    text-align: center;
 }
 
 .write-btn {

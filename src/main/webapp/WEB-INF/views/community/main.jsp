@@ -67,7 +67,8 @@
         </table>
 
         <div class="write-btn">
-            <a href="new.jsp" class="btn btn-success">글쓰기</a>
+<%--            <a href="new.jsp" class="btn btn-success">글쓰기</a>--%>
+                <a href="<c:url value="/community/new"/>" class="btn btn-success">글쓰기</a>
         </div>
 
         <nav class="pagination">
