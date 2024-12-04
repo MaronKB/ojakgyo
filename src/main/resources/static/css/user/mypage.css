@@ -27,6 +27,8 @@
 
 /*최근 등록한 게시물*/
 .recentlyRegisteredPosts {
+  display:inline-block;
+
   background-color: white;
   width: 400px;
   height : 600px;
@@ -35,14 +37,15 @@
 }
 
 /*최근 등록한 댓글*/
-.recentlyRegisteredComments {
+/*.recentlyRegisteredComments {
   background-color: white;
   width: 400px;
   height : 1000px;
   border: 1px solid red;
   margin-top : 10px;
-  /*display:inline-block;*/
-}
+  display:flex;
+  *//*display:inline-block;*//*
+}*/
 
 /*최근 등록한 게시물, 댓글 - 목록*/
 .title {
@@ -51,7 +54,7 @@
   width: 200px;
   height: 30px;
   padding: 20px;
-  border: 5px solid black;
+  border: 2px solid black;
   margin: 15px;
 }
 

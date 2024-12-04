@@ -57,16 +57,17 @@
 
                 <div class="introduction">
                     <input placeholder="한줄소개"
-                     style="width:660px; height: 30px;">
+                     style="width:626px; height: 30px;">
                     <button class="introbutton" style="width:200px; height:30px;">소개 수정하기</button>
                 </div>
 
-                <div class="recentlyRegisteredPosts">
-                    <div class="title">
-                </div>
-                <br>
-                <div class="recentlyRegisteredComments">
-                    <div class="title">
+                <div class="recents">
+                    <div class="recentlyRegisteredPosts">
+                        <div class="title">
+                    </div>
+                    <div class="recentlyRegisteredPosts">
+                        <div class="title">
+                    </div>
                 </div>
     </div>
 </body>
