@@ -1,0 +1,29 @@
+main#main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    background-image:
+        linear-gradient(#fff4, #fff4),
+        url("/images/main_photo_0.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.location-box {
+    position: relative;
+    width: 400px;
+    height: 460px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.location-box h3 {
+    font-family: var(--font-menu), sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}

@@ -1,6 +1,5 @@
 const onMenuHover = () => {
     const menus = document.querySelectorAll('#header-menu > a');
-    console.log(menus);
     const selector = document.querySelector('#header-selector');
     menus.forEach((menu) => {
         menu.addEventListener("mouseover", () => {

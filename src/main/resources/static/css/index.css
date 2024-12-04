@@ -1,11 +1,15 @@
 @import "./fonts.css";
 @import "./landing.css";
 @import "./includes/header.css";
+@import "./includes/footer.css";
+@import "./includes/modal.css";
+@import "./includes/juso.css";
+@import "./main/form.css";
 @import "./user/mypage.css";
 @import "./community/main.css";
 @import "./community/new.css";
-@import "/.mypage.css";
-@import "./hotplace.css";
+@import "./user/mypage.css";
+@import "./hotplace/hotplace.css";
 
 
 :root {
