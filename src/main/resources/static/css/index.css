@@ -3,6 +3,9 @@
 @import "./includes/header.css";
 @import "./user/mypage.css";
 @import "./community/main.css";
+@import "/.mypage.css";
+@import "./hotplace.css";
+
 
 :root {
     --font-head: 'MYArirang-Medium', sans-serif;

@@ -17,7 +17,6 @@
 
     <div class="bodycontainer">
         <h2 class=bodyTitle>마이페이지</h2>
-
                 <div class="imgcontainer">
                     <img id="profile-img-btn"
                         src="https://i1.sndcdn.com/avatars-000373392764-zp0p80-t200x200.jpg"
@@ -63,10 +62,19 @@
 
                 <div class="recents">
                     <div class="recentlyRegisteredPosts">
-                        <div class="title">
+                        <div class="title">2차프로젝트 ㅈㄴ어려워</div>
+                        <div class="title">게시글</div>
+                        <div class="title">게시글</div>
+                        <div class="title">게시글</div>
+                        <div class="title">게시글</div>
                     </div>
-                    <div class="recentlyRegisteredPosts">
-                        <div class="title">
+
+                    <div class="recentlyRegisteredComments">
+                        <div class="title">댓글</div>
+                        <div class="title">댓글</div>
+                        <div class="title">댓글</div>
+                        <div class="title">댓글</div>
+                        <div class="title">댓글</div>
                     </div>
                 </div>
     </div>

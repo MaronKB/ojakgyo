@@ -1,61 +1,69 @@
+/*전체바디*/
 .bodycontainer{
     margin-top: 150px;
     margin-left: 50px;
 }
 
-.imgcontainer{
-
-}
-
+/*닉네임, 이메일*/
 .upper{
     display:flex;          /*닉네임, 이메일 한줄로 나란히*/
 }
 
+/*비밀번호, 주소*/
 .lower{
     display:flex;         /*비밀번호, 자주쓰는주소 나란히*/
 }
 
+/*한줄소개*/
 .introduction{
     display:flex;
 }
 
-
+/*프사*/
 .defaultprofilepicture {
     display:inline-block;
-    border: 2px solid red /* 빨간색 테두리 추가 */
+    border: 2px solid #ed0b5a /* 빨간색 테두리 추가 */
+}
+
+/*전체박스*/
+.recents{
+    width: 1200px;
+    height : 500px;
+    display:flex;
+    justify-content:center
+    border: 1px solid black;
 }
 
 /*최근 등록한 게시물*/
 .recentlyRegisteredPosts {
-  display:inline-block;
 
   background-color: white;
-  width: 400px;
-  height : 600px;
-  border: 1px solid red;
+  width: 570px;
+  height : 400px;
+  border: 1px solid #ed0b5a;
   margin-top : 10px;
+  margin-right:10px;
 }
 
 /*최근 등록한 댓글*/
-/*.recentlyRegisteredComments {
+.recentlyRegisteredComments{
   background-color: white;
-  width: 400px;
-  height : 1000px;
-  border: 1px solid red;
+  width: 570px;
+  height : 400px;
+  border: 1px solid #ed0b5a;
   margin-top : 10px;
-  display:flex;
-  *//*display:inline-block;*//*
-}*/
+}
 
 /*최근 등록한 게시물, 댓글 - 목록*/
 .title {
   color: white;
-  background-color: green;
-  width: 200px;
+  background-color: #fb95b9;
+  width: 500px;
   height: 30px;
   padding: 20px;
-  border: 2px solid black;
+  border: 1px solid blue;
   margin: 15px;
+
 }
 
 .email{
@@ -76,33 +84,35 @@
     background-color:#ff95ba;
     border-radius:5px;
     margin-left:10px;
+    border: 1px solid #ed0b5a;
 }
 
 .emailbutton{
     background-color:#ff95ba;
     border-radius:5px;
     margin-left:10px;
+    border: 1px solid #ed0b5a;
 }
 
 .passwordbutton{
     background-color:#ff95ba;
     border-radius:5px;
     margin-left:10px;
+    border: 1px solid #ed0b5a;
 }
 
 .addressbutton{
     background-color:#ff95ba;
     border-radius:5px;
     margin-left:10px;
+    border: 1px solid #ed0b5a;
 }
 
 .introbutton{
     background-color:#ff95ba;
     border-radius:5px;
     margin-left:15px;
+    border: 1px solid #ed0b5a;
 }
 /*수정버튼 css 끝*/
 
-.recentlyRegisteredPosts{
-    border-color:2px solid blue;
-}

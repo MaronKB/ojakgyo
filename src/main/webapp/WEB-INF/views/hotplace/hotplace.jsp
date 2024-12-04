@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: MRKB
@@ -9,8 +10,21 @@
 <html>
 <head>
     <title>핫플레이스</title>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/css/index.css"/>"/>
 </head>
 <body>
+    <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
+    <br>
+    <div class="container">
+    </div>
+    <div class="regionSelect">
+        <form class="select">
+        <select name="regions" id="region">
+            <option value="서울시">서울시</option>
+        </form>
+    </div>
 
+    <div class="sidebar">
+    </div>
 </body>
 </html>
