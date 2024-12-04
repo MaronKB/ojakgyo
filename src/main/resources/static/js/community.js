@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", function() {
             const selectedCategory = this.getAttribute("data-category");
 
-            categoryButtons.forEach(btn => btn.classList.remove("btn-primary"));
-            this.classList.add("btn-primary");
+            categoryButtons.forEach(btn => btn.classList.remove("active"));
+            this.classList.add("active");
 
             postRows.forEach(row => {
                 const postCategory = row.getAttribute("data-category");

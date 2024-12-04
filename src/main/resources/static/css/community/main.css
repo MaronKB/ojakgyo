@@ -7,12 +7,32 @@
     display: flex;
     justify-content: flex-start;
     margin-bottom: 0;
+    border-bottom: 1px solid #ddd;
 }
 
 .category-buttons .btn{
-    border-color: black;
+    padding: 3px 10px;
+    margin: 0;
+    border: 1px solid #ddd;
     border-radius: 3px;
+    border-bottom: none;
+    background-color: #f8f9fa;
+    color: #495057;
+    font-size: 14px;
 }
+
+.category-buttons .btn.active {
+    background-color: #fff;
+    color: #007bff;
+    border-bottom: 1px solid #fff;
+    font-weight: bold;
+}
+
+.category-buttons .btn:hover {
+    background-color: #e9ecef;
+    color: #0056b3;
+}
+
 
 .table {
     width: 100%;
