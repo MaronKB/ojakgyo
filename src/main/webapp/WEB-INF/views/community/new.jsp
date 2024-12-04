@@ -15,9 +15,10 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
-    <div class="container mt-5">
 
-        <div class="mb-3">
+    <div class="container">
+
+        <div class="category-select">
             <select id="category" class="form-select">
                 <option value="자유">자유</option>
                 <option value="리뷰">리뷰</option>
@@ -25,21 +26,24 @@
             </select>
         </div>
 
-        <div class="mb-3">
+        <div class="title-input">
             <input type="text" id="title" class="form-control" placeholder="제목">
         </div>
 
-        <div class="mb-3">
-            <div class="d-flex mb-2">
-                <button type="button" class="btn btn-outline-secondary me-2">이미지 첨부</button>
+        <div class="content-input">
+            <div class="image-upload">
+                <button type="button" class="btn btn-outline-secondary">이미지 첨부</button>
+                <input type="file" id="imageInput" style="display: none;" accept="image/*">
             </div>
             <textarea id="content" class="form-control" rows="10" placeholder="내용"></textarea>
         </div>
 
-        <div class="d-flex justify-content-end">
-            <button type="button" class="btn btn-secondary me-2">취소</button>
+        <div class="action-buttons">
+            <button type="button" class="btn btn-secondary" id="cancelNew">취소</button>
             <button type="button" class="btn btn-primary">작성</button>
         </div>
     </div>
+
+<script src="<c:url value='/js/new.js'/>"></script>
 </body>
 </html>
