@@ -31,11 +31,11 @@
         </div>
 
         <div class="content-input">
+            <div id="contentEditableArea" class="form-control" contenteditable="true" style="min-height: 200px"></div>
             <div class="image-upload">
-                <button type="button" class="btn btn-outline-secondary">이미지 첨부</button>
+                <button type="button" class="btn btn-outline-secondary" id="imageUploadButton">이미지 첨부</button>
                 <input type="file" id="imageInput" style="display: none;" accept="image/*">
             </div>
-            <textarea id="content" class="form-control" rows="10" placeholder="내용"></textarea>
         </div>
 
         <div class="action-buttons">
