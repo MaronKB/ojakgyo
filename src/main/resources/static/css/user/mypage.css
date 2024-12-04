@@ -4,6 +4,10 @@
     margin-left: 50px;
 }
 
+/*.imgcontainer{
+    display:flex;
+}*/
+
 /*닉네임, 이메일*/
 .upper{
     display:flex;          /*닉네임, 이메일 한줄로 나란히*/
