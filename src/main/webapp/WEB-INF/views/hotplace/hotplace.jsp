@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<script src="<c:url value="/js/hotplace.js"/>"></script>
 <%--
   Created by IntelliJ IDEA.
   User: MRKB
@@ -17,22 +18,47 @@
         <div class="main">
             <div class="sidebar">
 
-                <div class="cafe">카페
+                <button id="buttonA" onclick="showContent('cafe')">cafe 버튼</button>
+                <button id="buttonB" onclick="showContent('rest')">rest 버튼</button>
+
+                <div id="cafe1">
+
+                  <h2>cafe 클릭</h2>
+                  <p>cafe 클릭 시 display:block</p>
                 </div>
 
-                <div class="restaurant">식당
+                <div id="rest1">
+                  <h2>rest 클릭</h2>
+                  <p>rest 클릭 시 display:block</p>
                 </div>
 
-                <div class="spot">명소
+
+                <div class="cafe">
+                    <button class="cafebutton"
+                    onclick="showContent('cafe')">카페</button>
+                    <h2>카페버튼클릭</h2>
                 </div>
 
-                <div class="hotel">숙소
+                <div class="restaurant">
+                    <button class="restaurantbutton"
+                    onclick="showContent('restaurant')">식당</button>
+                    <h2>식당버튼클릭</h2>
+                </div>
+
+
+                <div class="spot">
+                    <button class="spotbutton">명소</button>
+                </div>
+
+                <div class="hotel">
+                    <button class="hotelbutton">숙소</button>
                 </div>
 
             </div>
+
             <div class="regionSelect">
                 <form class="seoul">
-                    <select class="regions" style="width:200px; display:block;">
+                    <select class="regions">
                         <option disabled selected>서울특별시</option>
                         <option value="강동구">강동구</option>
                         <option value="강서구">강서구</option>
@@ -62,7 +88,7 @@
                     </select>
                 </form>
                 <form class="ggd">
-                    <select class="regions" style="width:200px;">
+                    <select class="regions">
                         <option value="경기도">경기도</option>
                         <option value="수원시">수원시</option>
                         <option value="성남시">성남시</option>
@@ -94,10 +120,10 @@
                         <option value="양평군">양평군</option>
                         <option value="가평군">가평군</option>
                         <option value="연천군">연천군</option>
-                    <select>
+                    </select>
                 </form>
                 <form class="gwd">
-                    <select class="regions" style="width:200px;">
+                    <select class="regions">
                         <option value="강원도">강원도</option>
                         <option value="춘천시">춘천시</option>
                         <option value="원주시">원주시</option>
@@ -117,11 +143,11 @@
                         <option value="인제군">인제군</option>
                         <option value="고성군">고성군</option>
                         <option value="양양군">양양군</option>
-                    <select>
+                    </select>
                 </form>
 
                 <form class="ccbd">
-                    <select class="regions" style="width:200px;">
+                    <select class="regions">
                         <option value="충청북도">충청북도</option>
                         <option value="수원시">충주시</option>
                         <option value="청주시">청주시</option>
@@ -138,7 +164,7 @@
                 </form>
 
                 <form class="ccnd">
-                    <select class="regions" style="width:200px;">
+                    <select class="regions">
                         <option value="충청남도">충청남도</option>
                         <option value="천안시">천안시</option>
                         <option value="공주시">공주시</option>
@@ -158,7 +184,7 @@
                 </form>
 
                 <form class="jlbd">
-                    <select class="regions" style="width:200px;">
+                    <select class="regions">
                         <option value="전라북도">전라북도</option>
                         <option value="전주시">전주시</option>
                         <option value="군산시">군산시</option>
@@ -178,7 +204,7 @@
                 </form>
 
                 <form class="jlmd">
-                    <select class="regions" style="width:200px;">
+                    <select class="regions">
                         <option value="전라북도">전라남도</option>
                         <option value="목포시">목포시</option>
                         <option value="여수시">여수시</option>
@@ -207,7 +233,7 @@
                 </form>
 
                 <form class="gsbd">
-                    <select class="regions" style="width:200px;">
+                    <select class="regions">
                         <option value="경상북도">경상북도</option>
                         <option value="포항시">포항시</option>
                         <option value="경주시">경주시</option>
@@ -234,7 +260,7 @@
                 </form>
 
                 <form class="gsnd">
-                    <select class="regions" style="width:200px;">
+                    <select class="regions">
                         <option value="경상남도">경상남도</option>
                         <option value="천안시">천안시</option>
                     </select>
