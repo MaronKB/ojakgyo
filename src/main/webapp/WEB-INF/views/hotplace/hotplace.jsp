@@ -1,12 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <script src="<c:url value="/js/hotplace.js"/>"></script>
-<%--
-  Created by IntelliJ IDEA.
-  User: MRKB
-  Date: 24. 12. 2.
-  Time: 오후 3:07
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -18,40 +11,45 @@
         <div class="main">
             <div class="sidebar">
 
-                <button id="buttonA" onclick="showContent('cafe')">cafe 버튼</button>
-                <button id="buttonB" onclick="showContent('rest')">rest 버튼</button>
 
-                <div id="cafe1">
-
-                  <h2>cafe 클릭</h2>
-                  <p>cafe 클릭 시 display:block</p>
+                <div class="sidebarcontent">
+                    <div class="cafe">
+                        <button class="cafebutton"
+                        onclick="showContent('cafe1')">카페</button>
+                    </div>
+                    <div id="cafe1" class="cafe1">
+                        <h2 class="cafetitle">카페버튼클릭</h2>
+                    </div>
                 </div>
 
-                <div id="rest1">
-                  <h2>rest 클릭</h2>
-                  <p>rest 클릭 시 display:block</p>
+                <div class="sidebarcontent">
+                    <div class="restaurant">
+                        <button class="restaurantbutton"
+                        onclick="showContent('rest1')">식당</button>
+                    </div>
+                    <div id="rest1">
+                        <h2>식당버튼클릭</h2>
+                    </div>
                 </div>
 
-
-                <div class="cafe">
-                    <button class="cafebutton"
-                    onclick="showContent('cafe')">카페</button>
-                    <h2>카페버튼클릭</h2>
+                <div class="sidebarcontent">
+                    <div class="spot">
+                        <button class="spotbutton"
+                        onclick="showContent('spot1')">명소</button>
+                    </div>
+                    <div id="spot1">
+                        <h2>명소버튼클릭</h2>
+                    </div>
                 </div>
 
-                <div class="restaurant">
-                    <button class="restaurantbutton"
-                    onclick="showContent('restaurant')">식당</button>
-                    <h2>식당버튼클릭</h2>
-                </div>
-
-
-                <div class="spot">
-                    <button class="spotbutton">명소</button>
-                </div>
-
-                <div class="hotel">
-                    <button class="hotelbutton">숙소</button>
+                <div class="sidebarcontent">
+                    <div class="hotel">
+                        <button class="hotelbutton"
+                        onclick="showContent('hotel1')">숙소</button>
+                    </div>
+                    <div id="hotel1">
+                        <h2>숙소버튼클릭</h2>
+                    </div>
                 </div>
 
             </div>
@@ -266,5 +264,23 @@
                     </select>
                 </form>
         </div>
+
+        <div>
+            <ul id="categoryList">
+                <li><a class="categoryItem" data-contents="section1">카테고리1</a></li>
+                <li><a class="categoryItem" data-contents="section2">카테고리2</a></li>
+                <li><a class="categoryItem" data-contents="section3">카테고리3</a></li>
+                <li><a class="categoryItem" data-contents="section4">카테고리4</a></li>
+            </ul>
+        </div>
+
+        <div class="contents" id="section1">
+        태사다르: 난 백엔드를 경험한 적이 없네, 제라툴. 앞으로도 그럴 게야.
+        </div>
+
+        <div class="contents" id="section2">
+        제라툴: 안 돼! 이런 백엔드는! 난 감당할 수 없어. 멈춰!
+        </div>
+
 </body>
 </html>
