@@ -1,16 +1,14 @@
 @import "./fonts.css";
-@import "./landing.css";
+@import "./index/main.css";
+@import "./main/main.css";
 @import "./includes/header.css";
 @import "./includes/footer.css";
 @import "./includes/modal.css";
 @import "./includes/juso.css";
-@import "./main/form.css";
 @import "./user/mypage.css";
 @import "./community/main.css";
 @import "./community/new.css";
-@import "./user/mypage.css";
 @import "./hotplace/hotplace.css";
-
 
 :root {
     --font-head: 'MYArirang-Medium', sans-serif;
@@ -28,6 +26,9 @@
     --main-color: #B892FF;
     --sub-color: #D64933;
     --bright-color: #EFC7C2;
+
+    --header-height: 60px;
+    --main-min-height: calc(100vh - var(--header-height));
 }
 * {
     box-sizing: border-box;
@@ -38,6 +39,11 @@ body {
     background-color: var(--background-color-bright);
     padding: 0;
     margin: 0;
+}
+main {
+    position: relative;
+    width: 100vw;
+    min-height: var(--main-min-height);
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-itelic), serif;

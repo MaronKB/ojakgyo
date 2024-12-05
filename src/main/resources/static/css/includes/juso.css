@@ -19,7 +19,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
 }
 .juso .juso-button {
     flex: 1;
@@ -27,10 +27,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: var(--font-menu), sans-serif;
+    font-size: 14px;
     background-color: #e0e0e0;
     border: 0;
     border-radius: 5px;
     cursor: pointer;
+}
+.juso .juso-button:hover {
+    color: white;
+    background-color: var(--sub-color);
 }
 .juso .juso-buttons .juso-account {
     flex: 3;
