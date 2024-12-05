@@ -14,7 +14,7 @@ public class PostDAO {
         String sql = "INSERT INTO POST (POST_ID, POST_TITLE, POST_CATEGORY, POST_AUTHOR_ID, POST_AUTHOR_NICKNAME, POST_CONTENT, POST_IMAGE_NAME, POST_IMAGE_PATH, POST_VIEW_COUNT, POST_VOTE_COUNT, POST_REG_DATE, POST_REG_BY, POST_MOD_DATE, POST_MOD_BY, POST_IS_REPORTED)" +
                      "VALUES (POST_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, 0, 0, SYSDATE, 'N')";
 
-        jdbcTemplate.update(
+        jdbcTemplate.update(sql,
                 post.getTitle(),
                 post.getCategory(),
                 post.getAuthorId(),

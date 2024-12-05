@@ -40,6 +40,11 @@ document.querySelector(".btn-primary").addEventListener("click", function() {
     const title = document.getElementById("title").value;
     const content = document.getElementById("contentEditableArea").innerHTML;
 
+    if(!category || !title || !content) {
+        alert("제목과 내용을 입력해주세요.")
+        return;
+    }
+
     const post = {
         title: title,
         category: category,
