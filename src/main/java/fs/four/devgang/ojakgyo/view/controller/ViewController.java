@@ -59,12 +59,6 @@ public class ViewController {
         return "main/main";
     }
 
-    @GetMapping("main/result")
-    public String result() {
-        System.out.println("result");
-        return "main/result";
-    }
-
     // community
 
     @GetMapping("/community")
