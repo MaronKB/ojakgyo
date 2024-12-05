@@ -54,7 +54,8 @@ dependencies {
     // junit
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     
-
+    // json-simple
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
 }
 
 tasks.named('test') {
