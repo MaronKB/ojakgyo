@@ -34,3 +34,42 @@ document.getElementById("cancelNew").addEventListener("click", function() {
         window.location.href = "http://localhost:8080/community";
     }
 });
+
+document.querySelector(".btn-primary").addEventListener("click", function() {
+    const category = document.getElementById("category").value;
+    const title = document.getElementById("title").value;
+    const content = document.getElementById("contentEditableArea").innerHTML;
+
+    if(!category || !title || !content) {
+        alert("제목과 내용을 입력해주세요.")
+        return;
+    }
+
+    const post = {
+        title: title,
+        category: category,
+        authorId: "yamero456",
+        authorNickname: "제라툴",
+        content: content,
+        imageName: "",
+        imagePath: ""
+    };
+
+    fetch("/post/create", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(post)
+    })
+
+    .then(response => {
+        if (response.ok) {
+            alert("글이 작성되었습니다.");
+            window.location.href = "http://localhost:8080/community";  // 이거 주소 수정해야함. 일단이걸로
+        } else {
+            alert("실패");
+        }
+    })
+    .catch(error => console.error("Error:", error));
+});

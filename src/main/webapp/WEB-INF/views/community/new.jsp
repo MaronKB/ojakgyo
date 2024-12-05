@@ -34,7 +34,7 @@
             <div class="image-upload">
                 <button type="button" class="btn btn-outline-secondary" id="imageUploadButton">이미지 첨부</button>
                 <input type="file" id="imageInput" style="display: none;" accept="image/*">
-                <div id="contentEditableArea" class="form-control" contenteditable="true" style="min-height: 200px"></div>
+                <div id="contentEditableArea" class="form-control" contenteditable="true" style="min-height: 350px"></div>
             </div>
         </div>
 
