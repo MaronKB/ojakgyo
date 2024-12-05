@@ -12,7 +12,7 @@
 <body>
 <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
     <div class="login-container">
-        <img src="/images/ojakgyo_logo_1000_500.png" alt="오작교 로고">
+        <img src="/images/ojakgyo_logo_1000_500.png" alt="프로젝트 시발 개병신같네">
         <form class="login-form" action="/login" method="post">
             <div class="login-fields">
                 <label for="username">아이디</label>
@@ -30,7 +30,7 @@
         </div>
     </div>
     <footer>
-        <a href="#">처음으로</a>
+      <a href="<c:url value='/index/main.jsp'/>">처음으로</a>
     </footer>
 </body>
 </html>

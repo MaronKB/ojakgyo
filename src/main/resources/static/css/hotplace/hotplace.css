@@ -5,35 +5,61 @@
 }
 
 .cafe{
-    width:50px;
-    height:50px;
-    border:1px solid red;
+    width:160px;
+    height:70px;
+    /*border:1px solid red;*/
     margin:10px;
 }
 
 .restaurant{
-    width:50px;
-    height:50px;
-    border:1px solid red;
+    width:160px;
+    height:70px;
+    /*border:1px solid red;*/
     margin:10px;
 }
 
 .spot{
-    width:50px;
-    height:50px;
-    border:1px solid red;
+    width:160px;
+    height:70px;
+    /*border:1px solid red;*/
     margin:10px;
 }
 
 .hotel{
-    width:50px;
-    height:50px;
-    border:1px solid red;
+    width:160px;
+    height:70px;
+    /*border:1px solid red;*/
     margin:10px;
 }
 
+.cafebutton{
+    width:75px;
+    height:65px;
+    background-color:lightpink;
+}
+
+.restaurantbutton{
+    width:75px;
+    height:65px;
+    background-color:lightpink;
+}
+
+.spotbutton{
+    width:75px;
+    height:65px;
+    background-color:lightpink;
+}
+
+.hotelbutton{
+    width:75px;
+    height:65px;
+    background-color:lightpink;
+}
+
 .regionSelect{
-    width : 203px;
+    overflow:scroll;
+    overflow-x:hidden;
+    width : 300px;
     height: 550px;
     margin-left: 30px;
     margin-top: 200px;
@@ -42,6 +68,10 @@
 }
 
 .sidebar{
+    overflow:scroll;
+    overflow-x:hidden;
+    width:480px;
+    height:550px;
     display:flex;
     width : 400px;
     height: 550px;
@@ -51,11 +81,13 @@
 }
 
 .regions{
-/*    width: 800px;*/
+    width:250px;
+    height: 50px;
+    display:block;
     border: 1px solid #C4C4C4;
     box-sizing: border-box;
     border-radius: 10px;
-    padding: 12px 13px;
+    margin: 10px;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -65,3 +97,9 @@
 }
 
 
+.button {
+   border:none;
+   background-color:white;
+   box-shadow:0px 3px 5px rgb(220,220,220);
+   padding:10px;
+ }
