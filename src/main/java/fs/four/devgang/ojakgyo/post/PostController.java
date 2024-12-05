@@ -17,6 +17,7 @@ public class PostController {
 
     @PostMapping("/create")
     public ResponseEntity<String> createPost(@RequestBody Post post) {
+        System.out.println("Received Post: " + post);
         try {
             postService.createPost(post);
             return ResponseEntity.ok("게시글 등록 성공");
