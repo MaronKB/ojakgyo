@@ -172,41 +172,40 @@
     </head>
     <body> 
       <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
-      <div id="memberwindow">
-        <div id="logoimage"></div>
-        <div id="layout1">
-            <div id="layout1-text">
-                <p>아이디</p>
-                <p>비밀번호</p>
-                <p>비밀번호 확인</p>
-                <p>닉네임</p>
-                <p>이메일</p>
+      <form action="<c:url value='/user/register' />" method="POST">  
+        <div id="memberwindow">
+            <div id="logoimage"></div>
+            <div id="layout1">
+                <div id="layout1-text">
+                    <p>아이디</p>
+                    <p>비밀번호</p>
+                    <p>비밀번호 확인</p>
+                    <p>닉네임</p>
+                    <p>이메일</p>
+                </div>
+                <div id="layout1-input">
+                    <input id="r_id" name="userId" type="text" required="required"/>
+                    <input id="r_password" name="password" type="password" required="required"/>
+                    <input id="r_passwdcheck" name="passwordCheck" type="password" required="required" />
+                    <input id="r_nickname" name="nickname" type="text" required="required" />
+                    <input id="r_email" name="email" type="email" required="required"/>
+                </div> 
+            </div>   
+            <div id="layout2">
+                <p>
+                    <input id="consentinfo" name="terms" type="checkbox" required />
+                    <a href="javascript:void(0);" id="termsLink" style="text-decoration: underline; color: #0066cc;" 
+                       onmouseover="this.style.color='#ff6600'" onmouseout="this.style.color='#0066cc'">이용약관</a> 및 
+                    <a href="javascript:void(0);" id="privacyLink" style="text-decoration: underline; color: #0066cc;" 
+                       onmouseover="this.style.color='#ff6600'" onmouseout="this.style.color='#0066cc'">개인정보 취급방침</a>에 동의
+                </p>
+                <p><input id="consentad" name="receiveAd" type="checkbox" /> 광고성 이메일 수신 동의</p>
             </div>
-            <div id="layout1-input">
-                <form action="<c:url value='/user/register' />" method="POST">
-                    <input id="r_id" name="userId" type="email" required="required" placeholder="아이디" />
-                    <input id="r_password" name="password" type="password" required="required" placeholder="비밀번호" />
-                    <input id="r_passwdcheck" name="passwordCheck" type="password" required="required" placeholder="비밀번호 확인" />
-                    <input id="r_nickname" name="nickname" type="text" required="required" placeholder="닉네임" />
-                    <input id="r_email" name="email" type="email" required="required" placeholder="이메일" />
-                    
-                    <div id="layout2">
-                        <p>
-                            <input id="consentinfo" name="terms" type="checkbox" required />
-                            <a href="javascript:void(0);" id="termsLink" style="text-decoration: underline; color: #0066cc;" 
-                               onmouseover="this.style.color='#ff6600'" onmouseout="this.style.color='#0066cc'">이용약관</a> 및 
-                            <a href="javascript:void(0);" id="privacyLink" style="text-decoration: underline; color: #0066cc;" 
-                               onmouseover="this.style.color='#ff6600'" onmouseout="this.style.color='#0066cc'">개인정보 취급방침</a>에 동의
-                        </p>
-                        <p><input id="consentad" name="receiveAd" type="checkbox" /> 광고성 이메일 수신 동의</p>
-                    </div>
-                    <div id="accession">
-                        <input id="accession-button" value="가입하기" type="submit" />
-                    </div>
-                </form>
+            <div id="accession">
+                <input id="accession-button" value="가입하기" type="submit" />
             </div>
         </div>
-    </div>
+    </form>
 </body>
       <!-- 시작 홈 버튼 -->
         <div>
