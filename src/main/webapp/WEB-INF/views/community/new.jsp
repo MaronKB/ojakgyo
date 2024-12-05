@@ -40,7 +40,7 @@
 
         <div class="action-buttons">
             <button type="button" class="btn btn-secondary" id="cancelNew">취소</button>
-            <button type="button" class="btn btn-primary">작성</button>
+            <button type="button" class="btn btn-primary" id="submitPost">작성</button>
         </div>
     </div>
 
