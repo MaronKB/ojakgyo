@@ -1,7 +1,16 @@
+const countTags = (element) => {
+    const categorys = document.querySelectorAll('[name="category"]:checked');
+    const count = categorys.length;
+
+    if (count > 3) {
+        alert('태그는 10개까지 선택 가능합니다.');
+        element.checked = false;
+    }
+}
 const clearTags = () => {
-    const tags = document.querySelectorAll('[name="location-tag"]');
-    tags.forEach((tag) => {
-        tag.checked = false;
+    const categorys = document.querySelectorAll('[name="category"]');
+    categorys.forEach((category) => {
+        category.checked = false;
     });
 }
 
@@ -20,14 +29,26 @@ const go = () => {
         return;
     }
 
-    const locationTags = document.querySelectorAll('[name="location-tag"]:checked');
-    const tag = Array.from(locationTags).map((tag) => tag.value);
+    const locationTags = document.querySelectorAll('[name="category"]:checked');
+    const category = Array.from(locationTags).map((category) => category.value);
 
-    const tags = document.createElement('input');
-    tags.setAttribute('type', 'hidden');
-    tags.setAttribute('name', 'location-tags');
-    tags.setAttribute('value', tag.join(','));
-    form.appendChild(tags);
+    const categories = document.createElement('input');
+    categories.type = 'hidden';
+    categories.name = 'categories';
+    categories.value = category.join(',');
 
+    form.append(categories);
     form.submit();
 }
+
+const init = () => {
+    const checkboxes = document.querySelectorAll('[name="location-category"]');
+    console.log(checkboxes.length);
+    checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', (event) => {
+            countTags(event.target);
+        });
+    });
+}
+
+window.addEventListener('DOMContentLoaded', () => init());

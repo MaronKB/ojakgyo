@@ -3,7 +3,6 @@ const onMenuHover = () => {
     const selector = document.querySelector('#header-selector');
     menus.forEach((menu) => {
         menu.addEventListener("mouseover", () => {
-            console.log(menu.offsetLeft);
             selector.style.left = menu.offsetLeft + 'px';
             selector.style.opacity = '1';
         });

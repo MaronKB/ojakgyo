@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<script src="<c:url value="/js/header.js"/>"></script>
+<script src="<c:url value="/js/includes/header.js"/>"></script>
 <header id="header">
     <a id="header-title" href="<c:url value="/"/>">
         <img id="header-title-img" src="<c:url value="/images/ojakgyo_logo_1000_320.png"/>" alt="로고"/>

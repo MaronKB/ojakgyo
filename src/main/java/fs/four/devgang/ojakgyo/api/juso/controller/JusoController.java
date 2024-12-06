@@ -15,12 +15,6 @@ public class JusoController {
 
     @PostMapping ("/getAddr.do")
     public String getAddr(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        String juso = jusoService.getJuso(request);
-
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().print(juso);
-
-        return juso;
+        return jusoService.getJuso(request);
     }
 }
