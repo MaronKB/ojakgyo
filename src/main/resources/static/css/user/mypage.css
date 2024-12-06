@@ -20,7 +20,7 @@
 
 /*한줄소개*/
 .introduction{
-    display:flex;
+    display:flex;         /*한줄소개 나란히*/
 }
 
 /*프사*/
@@ -43,31 +43,36 @@
 
   background-color: white;
   width: 570px;
-  height : 400px;
-  border: 1px solid #ed0b5a;
+  height : 250px;
+  border: 1px solid black;
   margin-top : 10px;
   margin-right:10px;
+  border-radius:10px;
 }
 
 /*최근 등록한 댓글*/
 .recentlyRegisteredComments{
   background-color: white;
   width: 570px;
-  height : 400px;
-  border: 1px solid #ed0b5a;
+  height : 250px;
+  border: 1px solid black;
   margin-top : 10px;
+  border-radius:10px;
 }
 
 /*최근 등록한 게시물, 댓글 - 목록*/
 .title {
-  color: white;
-  background-color: #fb95b9;
-  width: 500px;
+  color: black;
+  /*background-color: #fb95b9;*/
+  width: 540px;
   height: 30px;
-  padding: 20px;
-  border: 1px solid blue;
+  padding: 15px;
+  border: 1px solid black;
+  border-top: none;
+  border-left:none;
+  border-right:none;
+  /*border-radius: 10px;*/
   margin: 15px;
-
 }
 
 .email{
@@ -82,41 +87,48 @@
 
 }
 
+.caption{                        /*내가 쓴 게시글*/
+    display:flex;                /*나란히*/
+}
+
+.caption2{
+    margin-left: 470px;          /*내가 쓴 댓글*/
+}
 
 /*수정버튼 css*/
 .nicknamebutton{
     background-color:#ff95ba;
     border-radius:5px;
     margin-left:10px;
-    border: 1px solid #ed0b5a;
+    border: 1px solid black;
 }
 
 .emailbutton{
     background-color:#ff95ba;
     border-radius:5px;
     margin-left:10px;
-    border: 1px solid #ed0b5a;
+    border: 1px solid black;
 }
 
 .passwordbutton{
     background-color:#ff95ba;
     border-radius:5px;
     margin-left:10px;
-    border: 1px solid #ed0b5a;
+    border: 1px solid black;
 }
 
 .addressbutton{
     background-color:#ff95ba;
     border-radius:5px;
     margin-left:10px;
-    border: 1px solid #ed0b5a;
+    border: 1px solid black;
 }
 
 .introbutton{
     background-color:#ff95ba;
     border-radius:5px;
     margin-left:15px;
-    border: 1px solid #ed0b5a;
+    border: 1px solid black;
 }
 /*수정버튼 css 끝*/
 

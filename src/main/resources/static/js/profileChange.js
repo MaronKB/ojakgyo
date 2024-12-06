@@ -1,19 +1,32 @@
-    $("#profile-img-btn").click(() => {
-        // 파일 업로드 실행
-        $("#profile-img-input").click();
+// 사진 첨부 버튼
+document.addEventListener("DOMContentLoaded", function() {
+    const imageUploadButton = document.getElementById("imageUploadButton")
+    const imageInput = document.getElementById("imageInput")
+    const contentEditableArea = document.getElementById("contentEditableArea")
+
+    imageUploadButton.addEventListener("click", function () {
+        imageInput.click();
     });
 
-     $("#profile-img-input").change(function() {
-                const file = this.files[0]; // 선택된 파일
-                if (file) {
-                    const reader = new FileReader();
+    imageInput.addEventListener("change", function() {
+        const file = imageInput.files[0];
+        if (file) {
+            const reader = new FileReader();
 
-                    reader.onload = function(e) {
-                        // 이미지 미리보기 업데이트
-                        $("#profile-img").attr("src", e.target.result);
-                    };
+            reader.onload = function (e) {
+                const imageURL = e.target.result;
 
-                    // 파일 읽기
-                    reader.readAsDataURL(file);
-                }
-     });
+                const imgElement = document.createElement("img");
+                imgElement.src = imageURL;
+                imgElement.style.maxWidth = "100%";
+                imgElement.style.marginTop = "10px";
+                contentEditableArea.appendChild(imgElement);
+            };
+
+            reader.readAsDataURL(file);
+        }
+    });
+});
+
+
+

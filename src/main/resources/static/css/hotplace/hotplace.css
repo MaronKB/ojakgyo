@@ -37,6 +37,7 @@
     width:75px;
     height:65px;
     background-color:lightpink;
+    border-radius : 10px;
 }
 
 .cafebutton:hover{
@@ -47,6 +48,7 @@
     width:75px;
     height:65px;
     background-color:lightpink;
+    border-radius : 10px;
 }
 
 .restaurantbutton:hover{
@@ -57,6 +59,7 @@
     width:75px;
     height:65px;
     background-color:lightpink;
+    border-radius : 10px;
 }
 
 .spotbutton:hover{
@@ -67,38 +70,39 @@
     width:75px;
     height:65px;
     background-color:lightpink;
+    border-radius : 10px;
 }
 
 .hotelbutton:hover{
     background-color:lightblue;
 }
 
-.sidebarcontent{            /*사이드바 버튼, 텍스트를 감싸는 블록*/
-    display:block;
-}
+
 
 .regionSelect{
     overflow:scroll;
     overflow-x:hidden;
-    width : 300px;
-    height: 550px;
+    width : 290px;
+    height: 600px;
     margin-left: 30px;
-    margin-top: 200px;
+    margin-top: 150px;
     border:1px solid black;
+    border-radius : 10px;
     justify-content:center;
 }
 
 .sidebar{
-    overflow:scroll;
+    /*overflow:scroll;*/
     /*overflow-x:hidden;*/
     width:480px;
-    height:550px;
+    height:600px;
     display:block;
     width : 400px;
-    height: 550px;
+    height: 600px;
     margin-left: 30px;
-    margin-top: 200px;
+    margin-top: 150px;
     border:1px solid black;
+    border-radius : 10px;
     /*transform:translateX(-100%);*/
     /*opacity:0;*/
     transition: transform 1s ease; opacity 1s ease;
@@ -108,7 +112,7 @@
     width:250px;
     height: 50px;
     display:block;
-    border: 1px solid #C4C4C4;
+    border: 1px solid black;
     box-sizing: border-box;
     border-radius: 10px;
     margin: 10px;
@@ -129,10 +133,11 @@
 
 
 .movebar{               /*열고닫기버튼*/
-    width : 70px;
-    height : 100px;
-    margin-top: 400px;
-    border:1px solid black;
+    width : 170px;
+    height : 50px;
+    margin-top: 200px;
+    border: 1px solid black;
+    border-radius : 10px;
     border-left-style:none;
 }
 
@@ -140,3 +145,51 @@
     background-color:black;
     color:white;
 }
+
+/*==========================================================*/
+
+/*모달*/
+/* 기본적인 모달 스타일 */
+.modal {
+    display: none;  /* 기본적으로 숨겨짐 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);  /* 배경을 반투명하게 */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* 모달 열기 시 display: block로 보이게 되는 스타일 */
+.modal.on {
+    display: block;
+}
+
+/* 모달 내용 스타일 */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+/* 닫기 버튼 스타일 */
+.close_btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.close_btn:hover {
+    background-color: darkred;
+}
+
+
+
