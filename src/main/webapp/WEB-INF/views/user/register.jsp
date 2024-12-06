@@ -172,7 +172,7 @@
     </head>
     <body> 
       <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
-      <form action="<c:url value='/user/register' />" method="POST">  
+      <form action="/user/register" method="POST">
         <div id="memberwindow">
             <div id="logoimage"></div>
             <div id="layout1">
