@@ -38,16 +38,14 @@
                 </tr>
             </thead>
             <tbody id="postList">
-    <%--        <c:forEach var="post" items="${postList}">--%>
-    <%--            <tr>--%>
-    <%--                <td>${post.id}</td>--%>
-    <%--                <td>${post.title} <span class="badge bg-secondary">${post.commentCount}</span></td>--%>
-    <%--                <td>${post.author}</td>--%>
-    <%--                <td>${post.date}</td>--%>
-    <%--                <td>${post.views}</td>--%>
-    <%--                <td>${post.recommendations}</td>--%>
-    <%--            </tr>--%>
-    <%--        </c:forEach>--%>
+<%--                <c:forEach var="post" items="${posts}">--%>
+<%--                    <tr>--%>
+<%--                        <td>${post.postId}</td>--%>
+<%--                        <td>${post.title}</td>--%>
+<%--                        <td>${post.authorNickname}</td>--%>
+<%--                        <td>${post.regDate}</td>--%>
+<%--                    </tr>--%>
+<%--                </c:forEach>--%>
                 <tr data-category="자유">
                     <td>1</td>
                     <td>취업은 못할것같습니다</td>

@@ -2,13 +2,18 @@ main#main {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
     background-image:
         linear-gradient(#fff4, #fff4),
         url("/images/main_photo_0.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+#main-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
 }
 .location-box {
     position: relative;
@@ -18,7 +23,7 @@ main#main {
     flex-direction: column;
     gap: 10px;
     background-color: #fff;
-    padding: 15px;
+    padding: 20px;
     border-radius: 15px;
     overflow: hidden;
 }
@@ -26,7 +31,47 @@ main#main {
     font-family: var(--font-menu), sans-serif;
     font-size: 20px;
     font-weight: 500;
+    text-align: center;
     margin-bottom: 10px;
+}
+.my-juso {
+    flex: none;
+    width: 200px;
+    height: 30px;
+    display: flex;
+    margin: -5px 0 0 auto;
+}
+.my-juso > .my-juso-button {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-menu), sans-serif;
+    font-size: 12px;
+    background-color: #e0e0e0;
+    border: 0;
+    border-radius: 0;
+    border-image: linear-gradient(to bottom, transparent 20%, #aaa 20% 80%, transparent 80%) 1;
+    cursor: pointer;
+}
+.my-juso > .my-juso-button:first-child {
+    flex: 2;
+    border-right: 1px solid;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.my-juso > .my-juso-button:last-child {
+    flex: 1;
+    border-left: 1px solid;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.my-juso > .my-juso-button:hover {
+    color: white;
+    background-color: var(--sub-color);
+    border-image: none;
 }
 .location-tags {
     display: grid;
@@ -35,6 +80,7 @@ main#main {
     padding: 10px;
     border: 1px solid #e0e0e0;
     border-radius: 5px;
+    margin: auto 0;
 }
 .location-tags hr {
     grid-column: 1 / -1;
@@ -56,9 +102,16 @@ input[name="location-tag"] + label {
     background-color: #f5f5f5;
     cursor: pointer;
 }
+input[name="location-tag"] + label:hover {
+    background-color: white;
+}
 input[name="location-tag"]:checked + label {
     background-color: var(--sub-color);
     color: white;
+}
+input[name="location-tag"]:disabled + label {
+    opacity: 0;
+    pointer-events: none;
 }
 .tag-buttons {
     display: flex;

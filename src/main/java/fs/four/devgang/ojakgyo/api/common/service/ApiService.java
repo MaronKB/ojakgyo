@@ -4,27 +4,27 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 @Service("apiService")
 public class ApiService {
-    public void getApi(URL url, HttpServletResponse response) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));
-        StringBuilder sb = new StringBuilder();
-        String tempStr = null;
+    public String getApi(HttpURLConnection urlConnection) throws Exception {
+        InputStream is = urlConnection.getInputStream();
+        BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
 
-        while(true){
-            tempStr = br.readLine();
-            if(tempStr == null) break;
-            sb.append(tempStr);
+        StringBuilder sb = new StringBuilder();
+        String line;
+        while ((line = br.readLine()) != null) {
+            sb.append(line);
         }
 
-        br.close();
-
-        response.setCharacterEncoding("UTF-8");
-        response.setContentType("application/json");
-        response.getWriter().write(sb.toString());
+        urlConnection.disconnect();
+        return sb.toString();
     }
 }
