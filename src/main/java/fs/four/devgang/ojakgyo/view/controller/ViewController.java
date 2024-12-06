@@ -64,7 +64,7 @@ public class ViewController {
     @GetMapping("/community")
     public String community() {
         System.out.println("community");
-        return "community/main";
+        return "listPost";
     }
 
     @GetMapping("/community/new")
