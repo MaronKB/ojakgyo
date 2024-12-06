@@ -5,13 +5,14 @@
 <head>
     <title>핫플레이스</title>
     <link rel="stylesheet" type="text/css" href="<c:url value="/css/index.css"/>"/>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
     <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
         <div class="main">
-            <div class="sidebar">
 
-
+        <button onclick="toggleSidebar()" class="movebar">사이드바 열기/닫기</button>
+            <div class="sidebar" id="sidebar">
                 <div class="sidebarcontent">
                     <div class="cafe">
                         <button class="cafebutton"
@@ -51,7 +52,6 @@
                         <h2>숙소버튼클릭</h2>
                     </div>
                 </div>
-
             </div>
 
             <div class="regionSelect">
@@ -265,22 +265,6 @@
                 </form>
         </div>
 
-        <div>
-            <ul id="categoryList">
-                <li><a class="categoryItem" data-contents="section1">카테고리1</a></li>
-                <li><a class="categoryItem" data-contents="section2">카테고리2</a></li>
-                <li><a class="categoryItem" data-contents="section3">카테고리3</a></li>
-                <li><a class="categoryItem" data-contents="section4">카테고리4</a></li>
-            </ul>
-        </div>
-
-        <div class="contents" id="section1">
-        태사다르: 난 백엔드를 경험한 적이 없네, 제라툴. 앞으로도 그럴 게야.
-        </div>
-
-        <div class="contents" id="section2">
-        제라툴: 안 돼! 이런 백엔드는! 난 감당할 수 없어. 멈춰!
-        </div>
 
 </body>
 </html>

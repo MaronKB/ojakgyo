@@ -5,81 +5,47 @@ window.addEventListener('DOMContentLoaded', function() {
 
 // 콘텐츠를 전환하는 함수
 function showContent(content) {
-// 모든 콘텐츠를 숨기기
-var allContents = document.querySelectorAll('div[id^="cafe"], div[id^="rest"], div[id^="spot"], div[id^="hotel"]');
-allContents.forEach(function(contentDiv) {
-contentDiv.style.display = "none";
-});
+    // 모든 콘텐츠를 숨기기
+    var allContents = document.querySelectorAll('div[id^="cafe"], div[id^="rest"], div[id^="spot"], div[id^="hotel"]');
+    allContents.forEach(function(contentDiv) {
+        contentDiv.style.display = "none";  // 모든 콘텐츠 숨기기
+    });
 
-// 클릭한 버튼에 맞는 콘텐츠만 보이기
-  var selectedContent = document.getElementById(content);
-  if (selectedContent) {
-    selectedContent.style.display = "block";  // 선택된 콘텐츠만 보이게 하기
-  }
+    // 클릭한 버튼에 맞는 콘텐츠만 보이기
+    if (content !== 'none') {
+        var selectedContent = document.getElementById(content);
+        if (selectedContent) {
+            selectedContent.style.display = "block";  // 선택된 콘텐츠만 보이게 하기
+        }
+    }
 }
 
+/*==========================================================================*/
 
+// 사이드바 열기/닫기 토글 함수
+function toggleSidebar() {
+    var sidebar = document.getElementById("sidebar");
 
-/*카테고리 1,2,3,4*//*
-// 카테고리 구분
-var activeSection = '';
+    // 사이드바가 보이면 숨기고, 숨겨져 있으면 보이게 설정
+    if (sidebar.style.display === "none" || sidebar.style.display === "") {
+        sidebar.style.display = "block";  // 보이게 설정
+    } else {
+        sidebar.style.display = "none";  // 숨기기 설정
+    }
+}
 
-// 카테고리 항목 클릭 이벤트
-document.querySelectorAll('.categoryItem').forEach(function(item) {
-    item.addEventListener('click', function() {
-        var selectedSection = item.getAttribute('data-contents');
+// 버튼 클릭 시 해당 콘텐츠 표시 함수
+function showContent(contentId) {
+    var content = document.getElementById(contentId);
 
-        // 선택된 섹션이 이미 활성화된 섹션과 다를 경우에만 처리
-        if (selectedSection !== activeSection) {
-            // 이전 활성화된 섹션 숨기기
-            if (activeSection) {
-                document.getElementById(activeSection).style.display = 'none';
-            }
+    // 해당 콘텐츠를 보이게 설정
+    content.style.display = "block";
 
-            // 선택된 섹션 표시 및 활성화 처리
-            document.getElementById(selectedSection).style.display = 'block';
-            activeSection = selectedSection;
-
-            // 모든 카테고리의 강조 효과 제거
-            document.querySelectorAll('.categoryItem').forEach(function(link) {
-                link.classList.remove('active');
-            });
-
-            // 현재 클릭한 카테고리에 강조 효과 추가
-            item.classList.add('active');
+    // 다른 콘텐츠는 숨기기
+    var allContents = document.querySelectorAll('.sidebarcontent > div');
+    allContents.forEach(function(item) {
+        if (item.id !== contentId) {
+            item.style.display = "none";
         }
     });
-});*/
-
-document.addEventListener('DOMContentLoaded', function() {
-    // 페이지가 로드되면 첫 번째 카테고리 항목을 자동으로 클릭
-    document.querySelector('.categoryItem').click();
-});
-
-// 카테고리 항목 클릭 이벤트
-document.querySelectorAll('.categoryItem').forEach(function(item) {
-    item.addEventListener('click', function() {
-        alert("alert");
-        var selectedSection = item.getAttribute('data-contents'); // 클릭한 항목에 해당하는 section ID 얻기
-
-        // 모든 섹션을 숨기고, 'active' 클래스를 제거
-        document.querySelectorAll('.contents').forEach(function(section) {
-            section.classList.remove('active');
-        });
-
-        // 선택된 섹션에만 'active' 클래스를 추가하여 보이게 함
-        document.getElementById(selectedSection).classList.add('active');
-
-        // 모든 카테고리 항목에서 'active' 클래스를 제거하고 클릭된 항목에 'active' 클래스를 추가
-        document.querySelectorAll('.categoryItem').forEach(function(categoryItem) {
-            categoryItem.classList.remove('active');
-        });
-        item.classList.add('active');
-    });
-});
-
-
-
-
-
-
+}
