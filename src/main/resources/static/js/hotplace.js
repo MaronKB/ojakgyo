@@ -49,3 +49,25 @@ function showContent(contentId) {
         }
     });
 }
+
+/*모달*/
+
+// 모달 열기
+function openModal(content) {
+    var modal = document.querySelector('.modal');
+    var modalTitle = document.getElementById('modalTitle');
+    var modalDescription = document.getElementById('modalDescription');
+
+    // 모달의 제목과 내용을 동적으로 변경
+    modalTitle.textContent = content + " 관련 정보";
+    modalDescription.textContent = content + "에 대한 상세 정보입니다.";
+
+    // 모달을 보이게 하기
+    modal.classList.add('on');
+}
+
+// 모달 닫기
+function closeModal() {
+    var modal = document.querySelector('.modal');
+    modal.classList.remove('on');
+}

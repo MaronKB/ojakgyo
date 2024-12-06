@@ -21,19 +21,20 @@ public class PostControllerImpl implements PostController {
     private PostVO postVO;
 
     @Override
-    @GetMapping("community/listPost.do")
+    @GetMapping("/post/listPost.do")
     public ModelAndView listPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+        System.out.println("============================");
         List postList = postService.listPost();
         ModelAndView mav = new ModelAndView("/community/listPost");
         mav.addObject("postList", postList);
+        System.out.println("postList"+postList.size());
         return mav;
     }
 
     @Override
-    @GetMapping("/community/post.do")
+    @GetMapping("/post/post.do")
     public ModelAndView postPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        ModelAndView mav = new ModelAndView("/community/post");
+        ModelAndView mav = new ModelAndView("/post/post");
         return mav;
     }
 }

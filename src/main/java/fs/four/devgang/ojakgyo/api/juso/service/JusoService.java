@@ -1,9 +1,8 @@
 package fs.four.devgang.ojakgyo.api.juso.service;
 
 import fs.four.devgang.ojakgyo.api.common.service.ApiService;
-import fs.four.devgang.ojakgyo.api.juso.entity.Juso;
+import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Service;
 
 import java.net.HttpURLConnection;
@@ -13,7 +12,8 @@ import java.nio.charset.StandardCharsets;
 
 @Service
 public class JusoService {
-    private static final ApiService apiService = new ApiService();
+    @Resource(name = "apiService")
+    private final ApiService apiService = new ApiService();
 
     public String getJuso(HttpServletRequest request) throws Exception {
         String currentPage = request.getParameter("currentPage");
@@ -34,6 +34,6 @@ public class JusoService {
         URL url = new URL(apiUrl.toString());
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
-        return apiService.getApi(urlConnection);
+        return apiService.getDataString(urlConnection);
     }
 }

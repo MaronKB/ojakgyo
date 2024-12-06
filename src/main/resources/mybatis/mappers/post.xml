@@ -4,7 +4,7 @@
 
     <select id="selectAllPostList" resultType="postVO">
         <![CDATA[
-        select * from post order by created_date desc
+            select * from post order by post_reg_date desc
         ]]>
     </select>
 </mapper>

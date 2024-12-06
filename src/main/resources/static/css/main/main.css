@@ -73,7 +73,7 @@ main#main {
     background-color: var(--sub-color);
     border-image: none;
 }
-.location-tags {
+.categories {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 5px;
@@ -82,16 +82,16 @@ main#main {
     border-radius: 5px;
     margin: auto 0;
 }
-.location-tags hr {
+.categories hr {
     grid-column: 1 / -1;
     width: 100%;
     border: 1px solid #e0e0e0;
-    margin: 5px 0;
+    margin: 5px auto;
 }
-input[name="location-tag"] {
+input[name="category"] {
     display: none;
 }
-input[name="location-tag"] + label {
+input[name="category"] + label {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,14 +102,14 @@ input[name="location-tag"] + label {
     background-color: #f5f5f5;
     cursor: pointer;
 }
-input[name="location-tag"] + label:hover {
+input[name="category"] + label:hover {
     background-color: white;
 }
-input[name="location-tag"]:checked + label {
+input[name="category"]:checked + label {
     background-color: var(--sub-color);
     color: white;
 }
-input[name="location-tag"]:disabled + label {
+input[name="category"]:disabled + label {
     opacity: 0;
     pointer-events: none;
 }

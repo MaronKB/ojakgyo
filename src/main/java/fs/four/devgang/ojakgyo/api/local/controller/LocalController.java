@@ -3,6 +3,7 @@ package fs.four.devgang.ojakgyo.api.local.controller;
 import fs.four.devgang.ojakgyo.api.common.service.ApiService;
 import fs.four.devgang.ojakgyo.api.local.entity.Coordinate;
 import fs.four.devgang.ojakgyo.api.local.entity.LocalInfo;
+import fs.four.devgang.ojakgyo.api.local.service.CoordinateService;
 import fs.four.devgang.ojakgyo.api.local.service.LocalService;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,15 +21,18 @@ public class LocalController {
     @Resource(name = "localService")
     private final LocalService localService = new LocalService();
 
+    @Resource(name = "coordinateService")
+    private final CoordinateService coordinateService = new CoordinateService();
+
     @GetMapping("/localInfo")
     public String getLocalInfo(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        LocalInfo localInfo = localService.getLocal(request, response);
+        LocalInfo localInfo = localService.getLocalInfo(request, response);
         return localInfo.toJSONString();
     }
 
     @GetMapping("/coordinate")
     public String getCoordinate(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        Coordinate coordinate = localService.getCoordinate(request, response);
+        Coordinate coordinate = coordinateService.getCoordinate(request, response);
         return coordinate.toJSONString();
     }
 }
