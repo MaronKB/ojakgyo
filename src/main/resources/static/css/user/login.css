@@ -30,11 +30,18 @@
             border-radius: 8px;
             text-align: center;
         }
-        .login-container img {
-            display: block;
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 20px;
+        .login-container .image-container {
+             background-image: url('/images/ojakgyo_logo_1000_320.png');
+             position: absolutely;
+             left: 100px
+             width: 300px;
+             height: 180px;
+             background-size: contain;
+             background-repeat: no-repeat;
+             background-position: center;
+             border: none !important;
+             outline: none !important;
+             box-shadow: none !important;
         }
         .login-form {
             position:relative;
@@ -70,7 +77,7 @@
             width: 100px;
             height: 80px;
             font-size: 16px;
-            background-color: #ffcccc;
+            background-color: #f2e1e1;
             color: #333;
             border: none;
             border-radius: 5px;
