@@ -38,14 +38,16 @@
                 </tr>
             </thead>
             <tbody id="postList">
-<%--                <c:forEach var="post" items="${posts}">--%>
-<%--                    <tr>--%>
-<%--                        <td>${post.postId}</td>--%>
-<%--                        <td>${post.title}</td>--%>
-<%--                        <td>${post.authorNickname}</td>--%>
-<%--                        <td>${post.regDate}</td>--%>
-<%--                    </tr>--%>
-<%--                </c:forEach>--%>
+                <c:forEach var="post" items="${postList}">
+                    <tr>
+                        <td>${post.post_id}</td>
+                        <td>${post.post_title}</td>
+                        <td>${post.post_nickname}</td>
+                        <td>${post.post_reg_date}</td>
+                        <td>${post.post_view_count}</td>
+                        <td>${post.post_vote_count}</td>
+                    </tr>
+                </c:forEach>
 <%--                <tr data-category="자유">--%>
 <%--                    <td>1</td>--%>
 <%--                    <td>취업은 못할것같습니다</td>--%>
@@ -69,7 +71,7 @@
 <%--                    <td>2024-12-04</td>--%>
 <%--                    <td>0</td>--%>
 <%--                    <td>0</td>--%>
-                </tr>
+<%--                </tr>--%>
             </tbody>
         </table>
 
