@@ -9,8 +9,8 @@ public class PostVO {
     private int post_id;
     private String post_title;
     private String post_category;
-    private String author_id;
-    private String author_nickname;
+    private String post_author_id;
+    private String post_author_nickname;
     private String post_content;
     private String post_image_name;
     private String post_image_path;
@@ -50,20 +50,20 @@ public class PostVO {
         this.post_category = post_category;
     }
 
-    public String getAuthor_id() {
-        return author_id;
+    public String getPost_author_id() {
+        return post_author_id;
     }
 
-    public void setAuthor_id(String author_id) {
-        this.author_id = author_id;
+    public void setPost_author_id(String post_author_id) {
+        this.post_author_id = post_author_id;
     }
 
-    public String getAuthor_nickname() {
-        return author_nickname;
+    public String getPost_author_nickname() {
+        return post_author_nickname;
     }
 
-    public void setAuthor_nickname(String author_nickname) {
-        this.author_nickname = author_nickname;
+    public void setPost_author_nickname(String post_author_nickname) {
+        this.post_author_nickname = post_author_nickname;
     }
 
     public String getPost_content() {
