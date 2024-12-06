@@ -180,7 +180,7 @@
                             <option value="서산시">서산시</option>
                             <option value="논산시">논산시</option>
                             <option value="계룡시">계룡시</option>
-                            <option value="당진시">당신시</option>
+                            <option value="당진시">당진시</option>
                             <option value="금산군">금산군</option>
                             <option value="부여군">부여군</option>
                             <option value="서천군">서천군</option>

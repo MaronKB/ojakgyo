@@ -1,7 +1,7 @@
 /*전체바디*/
 .bodycontainer{
-    margin-top: 150px;
-    margin-left: 50px;
+    margin:40px;
+    margin-top: 50px;
 }
 
 /*.imgcontainer{
@@ -27,6 +27,8 @@
 .defaultprofilepicture {
     display:inline-block;
     border: 2px solid #ed0b5a /* 빨간색 테두리 추가 */
+    width:100px;
+    height:100px;
 }
 
 /*전체박스*/
@@ -76,15 +78,11 @@
 }
 
 .email{
-    margin-left: 10px;
+    margin-left: 30px;
 }
 
 .address{
-    margin-left: 10px;
-}
-
-.password{
-
+    margin-left: 30px;
 }
 
 .caption{                        /*내가 쓴 게시글*/
@@ -96,39 +94,16 @@
 }
 
 /*수정버튼 css*/
-.nicknamebutton{
+.editbutton{
     background-color:#ff95ba;
     border-radius:5px;
     margin-left:10px;
     border: 1px solid black;
 }
 
-.emailbutton{
-    background-color:#ff95ba;
-    border-radius:5px;
-    margin-left:10px;
-    border: 1px solid black;
-}
-
-.passwordbutton{
-    background-color:#ff95ba;
-    border-radius:5px;
-    margin-left:10px;
-    border: 1px solid black;
-}
-
-.addressbutton{
-    background-color:#ff95ba;
-    border-radius:5px;
-    margin-left:10px;
-    border: 1px solid black;
-}
-
-.introbutton{
-    background-color:#ff95ba;
-    border-radius:5px;
-    margin-left:15px;
-    border: 1px solid black;
+.editbutton:hover{
+    background-color:black;
+    color:white;
 }
 /*수정버튼 css 끝*/
 

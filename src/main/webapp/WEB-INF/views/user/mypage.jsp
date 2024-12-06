@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>마이페이지</title>
+    <title>오작교-마이페이지</title>
     <link rel="stylesheet" type="text/css" href="<c:url value="/css/index.css"/>"/>
 </head>
 <body>
@@ -10,6 +10,7 @@
 
     <div class="bodycontainer">
         <h2 class=bodyTitle>마이페이지</h2>
+                <br>
                 <div class="imgcontainer">
                     <img id="profile-img-btn"
                         src="https://i1.sndcdn.com/avatars-000373392764-zp0p80-t200x200.jpg"
@@ -24,14 +25,14 @@
                         <p>닉네임</p>
                         <input placeholder="태사다르"
                         style="width:200px; height:30px;">
-                        <button class="nicknamebutton" style="width:200px; height:30px;">수정</button>
+                        <button class="editbutton" style="width:100px; height:30px;">수정</button>
                     </div>
                 <br>
                     <div class="email">
                         <p>이메일</p>
                         <input placeholder="tassadar@aiur.com"
                         style="width:200px; height:30px;">
-                        <button class="emailbutton" style="width:200px; height:30px;">수정</button>
+                        <button class="editbutton" style="width:100px; height:30px;">수정</button>
                     </div>
                 </div>
                 <br>
@@ -40,14 +41,14 @@
                          <p>비밀번호</p>
                          <input placeholder="123546789"
                          style="width:200px; height:30px;">
-                         <button class="passwordbutton" style="width:200px; height:30px;">수정</button>
+                         <button class="editbutton" style="width:100px; height:30px;">수정</button>
                     </div>
                 <br>
                     <div class="address">
                          <p>주소</p>
                          <input placeholder="경기도 수원시"
                          style="width:200px; height:30px;">
-                         <button class="addressbutton" style="width:200px; height:30px;" >수정</button>
+                         <button class="editbutton" style="width:100px; height:30px;" >수정</button>
                     </div>
                 </div>
                 <br>
@@ -55,8 +56,8 @@
                     <div class="intro">
                         <p>한줄소개</p>
                         <input placeholder="난 백엔드를 경험한 적이 없네"
-                        style="width:624px; height: 30px;">
-                        <button class="introbutton" style="width:200px; height:30px;">수정</button>
+                        style="width:544px; height: 30px;">
+                        <button class="editbutton" style="width:100px; height:30px;">수정</button>
                     </div>
                 </div>
                 <br>
@@ -71,7 +72,7 @@
                         <div class="title"><p>난 백엔드를 경험한 적이 없네.</p></div>
                         <div class="title"><p>미친 소리!</p></div>
                         <div class="title"><p>안돼! 이런 백엔드는! 난 감당할 수 없어! 멈춰!</p></div>
-                        <div class="title"><p>가 짐 어서</p></div>
+                        <div class="title"><p>가.. 짐.. 어서</p></div>
                     </div>
 
                     <div class="recentlyRegisteredComments">
