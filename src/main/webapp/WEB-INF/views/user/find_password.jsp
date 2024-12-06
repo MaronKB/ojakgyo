@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: MRKB
+  Date: 24. 11. 25.
+  Time: 오후 3:17
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <!DOCTYPE html>
@@ -12,7 +19,7 @@
 <body>
 <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
 <div class="recovery-container">
-    <img src="/images/ojakgyo_logo_1000_500.png" alt="오작교 로고">
+     <div class="image-container"></div>
     <h2>비밀번호 찾기</h2>
     <form class="recovery-form" action="/find_password" method="post">
         <div class="recovery-fields">

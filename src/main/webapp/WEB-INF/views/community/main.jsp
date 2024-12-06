@@ -38,40 +38,40 @@
                 </tr>
             </thead>
             <tbody id="postList">
-    <%--        <c:forEach var="post" items="${postList}">--%>
-    <%--            <tr>--%>
-    <%--                <td>${post.id}</td>--%>
-    <%--                <td>${post.title} <span class="badge bg-secondary">${post.commentCount}</span></td>--%>
-    <%--                <td>${post.author}</td>--%>
-    <%--                <td>${post.date}</td>--%>
-    <%--                <td>${post.views}</td>--%>
-    <%--                <td>${post.recommendations}</td>--%>
-    <%--            </tr>--%>
-    <%--        </c:forEach>--%>
-                <tr data-category="자유">
-                    <td>1</td>
-                    <td>취업은 못할것같습니다</td>
-                    <td>야메로456</td>
-                    <td>2024-11-02</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr data-category="질문">
-                    <td>2</td>
-                    <td>코딩이란 무엇인가</td>
-                    <td>제라툴</td>
-                    <td>2024-11-28</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr data-category="인기">
-                    <td>3</td>
-                    <td>여행을 갈까요?</td>
-                    <td>이민수</td>
-                    <td>2024-12-04</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
+                <c:forEach var="post" items="${postList}">
+                    <tr>
+                        <td>${post.post_id}</td>
+                        <td>${post.post_title}</td>
+                        <td>${post.post_nickname}</td>
+                        <td>${post.post_reg_date}</td>
+                        <td>${post.post_view_count}</td>
+                        <td>${post.post_vote_count}</td>
+                    </tr>
+                </c:forEach>
+<%--                <tr data-category="자유">--%>
+<%--                    <td>1</td>--%>
+<%--                    <td>취업은 못할것같습니다</td>--%>
+<%--                    <td>야메로456</td>--%>
+<%--                    <td>2024-11-02</td>--%>
+<%--                    <td>0</td>--%>
+<%--                    <td>0</td>--%>
+<%--                </tr>--%>
+<%--                <tr data-category="질문">--%>
+<%--                    <td>2</td>--%>
+<%--                    <td>코딩이란 무엇인가</td>--%>
+<%--                    <td>제라툴</td>--%>
+<%--                    <td>2024-11-28</td>--%>
+<%--                    <td>0</td>--%>
+<%--                    <td>0</td>--%>
+<%--                </tr>--%>
+<%--                <tr data-category="인기">--%>
+<%--                    <td>3</td>--%>
+<%--                    <td>여행을 갈까요?</td>--%>
+<%--                    <td>이민수</td>--%>
+<%--                    <td>2024-12-04</td>--%>
+<%--                    <td>0</td>--%>
+<%--                    <td>0</td>--%>
+<%--                </tr>--%>
             </tbody>
         </table>
 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fs.four.devgang.ojakgyo.post.repository.PostDAO">
+
+    <select id="selectAllPostList" resultType="postVO">
+        <![CDATA[
+        select * from post order by created_date desc
+        ]]>
+    </select>
+</mapper>

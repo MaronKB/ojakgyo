@@ -10,6 +10,7 @@
 @import "./community/main.css";
 @import "./community/new.css";
 @import "./hotplace/hotplace.css";
+@import "./admin/users.css";
 
 :root {
     --font-head: 'MYArirang-Medium', sans-serif;

@@ -1,17 +1,8 @@
 package fs.four.devgang.ojakgyo.post.service;
 
-import fs.four.devgang.ojakgyo.post.entity.Post;
-import fs.four.devgang.ojakgyo.post.repository.PostDAO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
-public class PostService {
+public interface PostService {
 
-    @Autowired
-    public PostDAO postDAO;
-
-    public void createPost(Post post) {
-        postDAO.insertPost(post);
-    }
+    public List listPost() throws Exception;
 }
