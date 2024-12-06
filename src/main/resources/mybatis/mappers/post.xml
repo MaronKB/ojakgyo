@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fs.four.devgang.ojakgyo.post.repository.PostDAO">
 
-<mapper namespace="fs.four.devgang.ojakgyo.post.dao.PostDAO">
-
-    <insert id="insertPost" parameterType="fs.four.devgang.ojakgyo.post.vo.PostVO">
-        INSERT INTO POST (
-            POST_ID, POST_TITLE, POST_CATEGORY, POST_AUTHOR_ID, POST_AUTHOR_NICKNAME,
-            POST_CONTENT, POST_IMAGE_NAME, POST_IMAGE_PATH, POST_VIEW_COUNT, POST_VOTE_COUNT,
-            POST_REG_DATE, POST_MOD_DATE
-        ) VALUES (
-                     POST_SEQ.NEXTVAL, #{title}, #{category}, #{authorId}, #{authorNickname},
-                     #{content}, #{imageName}, #{imagePath}, 0, 0, SYSDATE, SYSDATE
-                 )
-    </insert>
-
-
-    <select id="selectAllPosts" resultType="fs.four.devgang.ojakgyo.post.vo.PostVO">
-        SELECT * FROM POST ORDER BY POST_ID DESC
+    <select id="selectAllPostList" resultType="postVO">
+        <![CDATA[
+        select * from t_code_group order by created_date desc
+        ]]>
     </select>
 </mapper>
