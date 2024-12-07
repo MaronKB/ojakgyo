@@ -12,7 +12,7 @@
 <html>
 <head>
     <meta charset=UTF-8">
-    <title>회원 정보 출력창</title>
+    <title>커뮤니티-오작교</title>
     <link rel="stylesheet" type="text/css" href="<c:url value="/css/index.css"/>"/>
 </head>
 <body>
@@ -20,7 +20,7 @@
 
     <div class="container">
         <div class="category-tabs">
-            <div class="tab active">전체</div>
+            <div class="tab">전체</div>
             <div class="tab">인기</div>
             <div class="tab">리뷰</div>
             <div class="tab">자유</div>
@@ -31,12 +31,12 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <td ><b>번호</b></td>
-                        <td><b>제목</b></td>
-                        <td><b>작성자</b></td>
-                        <td><b>작성일</b></td>
-                        <td><b>조회수</b></td>
-                        <td><b>추천수</b></td>
+                        <td>번호</td>
+                        <td>제목</td>
+                        <td>작성자</td>
+                        <td>작성일</td>
+                        <td>조회수</td>
+                        <td>추천수</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,6 +52,10 @@
                 </c:forEach>
                 </tbody>
             </table>
+        </div>
+
+        <div class="write-btn">
+            <a href="new.jsp">글쓰기</a>
         </div>
 
         <div class="pagination">
