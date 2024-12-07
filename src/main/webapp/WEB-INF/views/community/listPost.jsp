@@ -55,7 +55,7 @@
         </div>
 
         <div class="write-btn">
-            <a href="new.jsp">글쓰기</a>
+            <a href="<c:url value="/community/new"/>">글쓰기</a>
         </div>
 
         <div class="pagination">
