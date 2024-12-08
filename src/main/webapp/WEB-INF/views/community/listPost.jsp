@@ -19,12 +19,12 @@
 <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
 
     <div class="container">
-        <div class="category-tabs">
-            <div class="tab">전체</div>
-            <div class="tab">인기</div>
-            <div class="tab">리뷰</div>
-            <div class="tab">자유</div>
-            <div class="tab">질문</div>
+        <div class="category-buttons">
+            <button type="button" class="btn" data-category="전체">전체</button>
+            <button type="button" class="btn" data-category="인기">인기</button>
+            <button type="button" class="btn" data-category="리뷰">리뷰</button>
+            <button type="button" class="btn" data-category="자유">자유</button>
+            <button type="button" class="btn" data-category="질문">질문</button>
         </div>
 
         <div class="table-container">

@@ -104,7 +104,7 @@ public class ViewController {
     @GetMapping("/admin/users")
     public String users() {
         System.out.println("user");
-        return "admin/users";
+        return "listUser";
     }
 
     @GetMapping("/admin/reports")
