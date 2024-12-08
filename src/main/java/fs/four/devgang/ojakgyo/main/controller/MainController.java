@@ -54,7 +54,7 @@ public class MainController {
         mv.addObject("yourLocation", yourLocation);
         mv.addObject("categories", categories);
         mv.addObject("centerGeocode", centerGeocode.toJSONString());
-        mv.addObject("poiData", poiData);
+        mv.addObject("poiData", poiDetailString);
 
         return mv;
     }

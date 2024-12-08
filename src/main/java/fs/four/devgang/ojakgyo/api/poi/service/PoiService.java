@@ -22,7 +22,7 @@ public class PoiService {
     private static final String POI_API_KEY = "FlBqQ3EMhH4tOxopVXfK1QLIklZrFPz58pAjJJha";
     private static final String VERSION = "1";
     private static final String PAGE = "1";
-    private static final String COUNT = "18";
+    private static final String COUNT = "8";
     private static final String REQ_COORD_TYPE = "WGS84GEO";
     private static final String RES_COORD_TYPE = "WGS84GEO";
 
@@ -113,13 +113,13 @@ public class PoiService {
         for (int i = 0; i < poiDataArray.size(); i++) {
             JSONObject poi = (JSONObject) poiDataArray.get(i);
             String id = (String) poi.get("id");
-            sb.append(getPOIDetail(id));
+            String poiDetail = getPOIDetail(id);
+            sb.append(poiDetail);
             if (i < poiDataArray.size() - 1) {
                 sb.append(",");
             }
         }
         sb.append("]");
-
         return sb.toString();
     }
 }
