@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<script src="<c:url value="/js/mypage.js"/>"></script>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
