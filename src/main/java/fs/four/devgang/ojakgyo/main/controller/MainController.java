@@ -1,28 +1,32 @@
 package fs.four.devgang.ojakgyo.main.controller;
 
-import fs.four.devgang.ojakgyo.api.local.entity.Coordinate;
-import fs.four.devgang.ojakgyo.api.local.entity.Geocode;
-import fs.four.devgang.ojakgyo.api.local.service.LocalService;
-import fs.four.devgang.ojakgyo.api.local.service.ReverseGeocodingService;
-import fs.four.devgang.ojakgyo.api.poi.service.PoiService;
+import fs.four.devgang.ojakgyo.api.naver.entity.Coordinate;
+import fs.four.devgang.ojakgyo.api.naver.entity.Geocode;
+import fs.four.devgang.ojakgyo.api.naver.service.CoordinateService;
+import fs.four.devgang.ojakgyo.api.naver.service.LocalService;
+import fs.four.devgang.ojakgyo.api.naver.service.LocateService;
+import fs.four.devgang.ojakgyo.api.tmap.service.ReverseGeocodingService;
+import fs.four.devgang.ojakgyo.api.tmap.service.PoiService;
+import fs.four.devgang.ojakgyo.api.tmap.service.StaticMapService;
 import fs.four.devgang.ojakgyo.main.service.MainService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.json.simple.JSONArray;
-import org.json.simple.parser.JSONParser;
+import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.ArrayList;
 
 @Controller
 @RequestMapping("/main")
 public class MainController {
     private static final MainService mainService = new MainService();
     private static final LocalService localService = new LocalService();
+    private static final LocateService locateService = new LocateService();
+    private static final CoordinateService coordinateService = new CoordinateService();
     private static final PoiService poiService = new PoiService();
     private static final ReverseGeocodingService reverseGeocodingService = new ReverseGeocodingService();
+    private static final StaticMapService staticMapService = new StaticMapService();
 
     @PostMapping("/result")
     public ModelAndView form(HttpServletRequest request) throws Exception {
@@ -41,20 +45,33 @@ public class MainController {
             sort = "distance";
         }
 
+        Coordinate myPos = coordinateService.getCoordinate(myLocation);
+        Coordinate yourPos = coordinateService.getCoordinate(yourLocation);
         Coordinate centerPos = mainService.getCenterPos(myLocation, yourLocation);
+
         Geocode centerGeocode = reverseGeocodingService.getGeocode(centerPos);
 
-        String poiData = poiService.getPOIData(centerPos, categories, radius, sort);
-        String poiDetailString = poiService.getPOIDetailsString(poiData);
+        String centerAddress = mainService.getCenterAddress(myLocation, yourLocation);
+        System.out.println("centerAddress : " + centerAddress);
+
+        Coordinate centerLocation = coordinateService.getCoordinate(centerGeocode.getAddress() + " 터미널");
+
+        JSONArray poiData = poiService.getPOIData(centerLocation, categories, radius, sort);
+        JSONArray poiDetails = poiService.getPOIDetails(poiData);
+        //String mapImage = staticMapService.getStaticMapImage(centerPos);
+        JSONObject myRoute = locateService.getLocate(myPos, centerLocation);
+        JSONObject yourRoute = locateService.getLocate(yourPos, centerLocation);
 
         ModelAndView mv = new ModelAndView();
         mv.setViewName("main/result");
 
+        mv.addObject("categories", categories);
         mv.addObject("myLocation", myLocation);
         mv.addObject("yourLocation", yourLocation);
-        mv.addObject("categories", categories);
-        mv.addObject("centerGeocode", centerGeocode.toJSONString());
-        mv.addObject("poiData", poiDetailString);
+        mv.addObject("centerLocation", centerLocation.toJSONString());
+        mv.addObject("poiData", poiDetails);
+        mv.addObject("myRoute", myRoute);
+        mv.addObject("yourRoute", yourRoute);
 
         return mv;
     }

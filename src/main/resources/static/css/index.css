@@ -1,6 +1,7 @@
 @import "./fonts.css";
 @import "./index/main.css";
 @import "./main/main.css";
+@import "./main/result.css";
 @import "./includes/header.css";
 @import "./includes/footer.css";
 @import "./includes/modal.css";
@@ -52,7 +53,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-color);
     margin: 0;
 }
-p, li, span {
+p, li {
     font-family: var(--font-batang), sans-serif;
     font-size: 14px;
     color: var(--text-color);

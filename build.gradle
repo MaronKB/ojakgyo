@@ -37,7 +37,7 @@ dependencies {
     implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl'
 
     // jpa
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    //implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
     // tomcat
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'

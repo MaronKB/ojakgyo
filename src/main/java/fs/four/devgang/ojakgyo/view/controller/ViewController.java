@@ -1,12 +1,9 @@
 package fs.four.devgang.ojakgyo.view.controller;
 
-import fs.four.devgang.ojakgyo.api.local.entity.Coordinate;
-import fs.four.devgang.ojakgyo.api.local.entity.Geocode;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ViewController {

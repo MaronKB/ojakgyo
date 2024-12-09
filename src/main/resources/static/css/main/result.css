@@ -1,0 +1,208 @@
+main#result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+}
+#result-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 0 0 0 auto;
+}
+#result-header .category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-menu), sans-serif;
+    font-size: 14px;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+main#result section {
+    width: 100%;
+}
+#map-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+}
+#map {
+    grid-column: 2 / 3;
+    grid-row: 1 / 5;
+    border-radius: 15px;
+}
+.poi {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 10px;
+    user-select: none;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    z-index: 1;
+}
+.poi:hover {
+    background-color: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px 0 #0004;
+}
+.poi-category {
+    font-family: var(--font-menu), sans-serif;
+    font-size: 10px;
+    color: var(--background-color-bright);
+    background: var(--sub-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.poi-name {
+    font-family: var(--font-head), sans-serif;
+    font-size: 20px;
+    color: var(--text-color);
+    padding: 10px;
+    margin: 0 auto auto auto;
+}
+.poi-address {
+    font-family: var(--font-menu), sans-serif;
+    font-size: 10px;
+    color: var(--text-color);
+    background: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0 0 0 auto;
+}
+#locates-container {
+    display: flex;
+    gap: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+}
+.route-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    background-color: #e0e0e0;
+    padding: 15px;
+    border-radius: 10px;
+}
+.route-box hr {
+    width: 100%;
+    margin: 5px 0;
+}
+.route-header {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.route-header .route-title {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-menu), sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
+    background-color: white;
+    padding: 0 20px;
+    border-radius: 10px;
+}
+.route-duration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-menu), sans-serif;
+    font-size: 14px;
+    color: var(--text-color);
+    background-color: white;
+    padding: 0 20px;
+    border-radius: 10px;
+}
+.route-time {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 5px;
+}
+.route-time span {
+    font-size: 24px;
+}
+
+.route-box h4 {
+    font-family: var(--font-menu), sans-serif;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--text-color);
+}
+.route-road {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.route-road .road {
+    font-family: var(--font-menu), sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
+    white-space: nowrap;
+}
+.route-road i {
+    font-size: 10px;
+    color: var(--sub-color);
+}
+.route-road i:first-child,
+.route-road i:last-child {
+    display: none;
+}
+
+.route-outer-link {
+    align-self: flex-end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-menu), sans-serif;
+    font-size: 14px;
+    color: var(--text-color);
+    text-decoration: none;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+.route-outer-link:hover {
+    background-color: var(--sub-color);
+    color: var(--background-color-bright);
+}
+.route-outer-link i {
+    font-size: 12px;
+}
+
+#recommends-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(to bottom, white, transparent);
+    padding: 10px;
+    border-radius: 15px;
+}

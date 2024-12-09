@@ -104,7 +104,7 @@
             <h3>상대 주소</h3>
             <jsp:include page="../includes/juso.jsp">
                 <jsp:param name="id" value="your-location"/>
-            </jsp:include>
+            </jsp:include>/
             <div class="location-logs">
                 <p>기록이 없습니다</p>
             </div>
