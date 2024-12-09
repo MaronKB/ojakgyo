@@ -7,6 +7,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -23,11 +26,9 @@ public class PostControllerImpl implements PostController {
     @Override
     @GetMapping("/post/listPost")
     public ModelAndView listPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        System.out.println("============================");
         List postList = postService.listPost();
         ModelAndView mav = new ModelAndView("/community/listPost");
         mav.addObject("postList", postList);
-        System.out.println("postList"+postList.size());
         return mav;
     }
 
@@ -35,6 +36,17 @@ public class PostControllerImpl implements PostController {
     @GetMapping("/post/post.do")
     public ModelAndView postPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ModelAndView mav = new ModelAndView("/post/post");
+        return mav;
+    }
+
+    @Override
+    @RequestMapping(value="/post/addPost.do" ,method = RequestMethod.POST)
+    public ModelAndView addPost(@ModelAttribute("post") PostVO post,
+                                  HttpServletRequest request, HttpServletResponse response) throws Exception {
+        request.setCharacterEncoding("utf-8");
+        int result = 0;
+        result = postService.addPost(post);
+        ModelAndView mav = new ModelAndView("redirect:/post/listPost");
         return mav;
     }
 }
