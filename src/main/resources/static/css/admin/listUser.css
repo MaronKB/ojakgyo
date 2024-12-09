@@ -60,17 +60,37 @@ table tbody td {
     font-size: 14px;
 }
 
-.action-buttons button {
+.buttons button {
     margin-right: 10px;
     padding: 10px 15px;
-    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
+    font-weight: bold;
 }
 
-.action-buttons button:hover {
-    background-color: #0056b3;
+.buttons #add {
+    background-color: #007bff;
+}
+
+.buttons #add:hover {
+    background-color: #025fbf;
+}
+
+.buttons #edit {
+    background-color: limegreen;
+}
+
+.buttons #edit:hover {
+    background-color: #218a21;
+}
+
+.buttons #delete {
+    background-color: #f1462a;
+}
+
+.buttons #delete:hover {
+    background-color: #ae321d;
 }

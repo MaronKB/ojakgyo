@@ -21,7 +21,7 @@ public class PostControllerImpl implements PostController {
     private PostVO postVO;
 
     @Override
-    @GetMapping("/post/listPost.do")
+    @GetMapping("/post/listPost")
     public ModelAndView listPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
         System.out.println("============================");
         List postList = postService.listPost();
