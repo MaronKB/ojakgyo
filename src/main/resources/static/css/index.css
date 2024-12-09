@@ -46,7 +46,10 @@ body {
 main {
     position: relative;
     width: 100vw;
+    height: fit-content;
+    max-width: 900px;
     min-height: var(--main-min-height);
+    margin: 0 auto;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-itelic), serif;
