@@ -1,10 +1,10 @@
-package fs.four.devgang.ojakgyo.api.local.controller;
+package fs.four.devgang.ojakgyo.api.naver.controller;
 
 import fs.four.devgang.ojakgyo.api.common.service.ApiService;
-import fs.four.devgang.ojakgyo.api.local.entity.Coordinate;
-import fs.four.devgang.ojakgyo.api.local.entity.LocalInfo;
-import fs.four.devgang.ojakgyo.api.local.service.CoordinateService;
-import fs.four.devgang.ojakgyo.api.local.service.LocalService;
+import fs.four.devgang.ojakgyo.api.naver.entity.Coordinate;
+import fs.four.devgang.ojakgyo.api.naver.entity.LocalInfo;
+import fs.four.devgang.ojakgyo.api.naver.service.CoordinateService;
+import fs.four.devgang.ojakgyo.api.naver.service.LocalService;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

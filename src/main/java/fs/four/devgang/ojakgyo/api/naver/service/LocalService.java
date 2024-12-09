@@ -1,7 +1,7 @@
-package fs.four.devgang.ojakgyo.api.local.service;
+package fs.four.devgang.ojakgyo.api.naver.service;
 
 import fs.four.devgang.ojakgyo.api.common.service.ApiService;
-import fs.four.devgang.ojakgyo.api.local.entity.LocalInfo;
+import fs.four.devgang.ojakgyo.api.naver.entity.LocalInfo;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.json.simple.JSONArray;
@@ -9,17 +9,13 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class LocalService {
-    private static final ApiService apiService = new ApiService();
+public class LocalService extends NaverService{
     private static final JSONParser jsonParser = new JSONParser();
     private static LocalInfo parseLocalInfoFromJSON(JSONObject item) {
         LocalInfo localInfo = new LocalInfo();
@@ -35,24 +31,8 @@ public class LocalService {
         return localInfo;
     }
 
-    private static HttpURLConnection getConnection(StringBuilder apiUrl) throws IOException {
-        URL url = new URL(apiUrl.toString());
-
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-        urlConnection.setRequestMethod("GET");
-        urlConnection.setRequestProperty("Host", "openapi.naver.com");
-        urlConnection.setRequestProperty("User-Agent", "curl/7.49.1");
-        urlConnection.setRequestProperty("Accept", "*/*");
-        urlConnection.setRequestProperty("X-Naver-Client-Id", "Xs8udJjhMhH_I_6pLk3F");
-        urlConnection.setRequestProperty("X-Naver-Client-Secret", "hMAAjvehvN");
-
-        return urlConnection;
-    }
-
     public LocalInfo getLocalInfo(StringBuilder apiUrl) throws Exception {
-        HttpURLConnection urlConnection = getConnection(apiUrl);
-
-        String localJSON = apiService.getDataString(urlConnection);
+        String localJSON = getOpenConnection(apiUrl.toString());
         Object obj = jsonParser.parse(localJSON);
         JSONObject jsonObject = (JSONObject) obj;
         JSONArray items = (JSONArray) jsonObject.get("items");
@@ -110,9 +90,7 @@ public class LocalService {
         apiUrl.append("&sort=");
         apiUrl.append(sort);
 
-        HttpURLConnection urlConnection = getConnection(apiUrl);
-
-        String localJSON = apiService.getDataString(urlConnection);
+        String localJSON = getOpenConnection(apiUrl.toString());
         Object obj = jsonParser.parse(localJSON);
         JSONObject jsonObject = (JSONObject) obj;
         JSONArray items = (JSONArray) jsonObject.get("items");

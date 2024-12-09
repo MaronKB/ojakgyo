@@ -1,4 +1,4 @@
-package fs.four.devgang.ojakgyo.api.local.entity;
+package fs.four.devgang.ojakgyo.api.naver.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

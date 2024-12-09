@@ -1,6 +1,5 @@
-package fs.four.devgang.ojakgyo.api.local.entity;
+package fs.four.devgang.ojakgyo.api.naver.entity;
 
-import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +14,7 @@ public class Coordinate {
     private String y;
 
     public String toString() {
-        return "Coordinate(x=" + x + ", y=" + y + ")";
+        return x + "," + y;
     }
     public String toJSONString() {
         return "{\"x\":\"" + x + "\",\"y\":\"" + y + "\"}";

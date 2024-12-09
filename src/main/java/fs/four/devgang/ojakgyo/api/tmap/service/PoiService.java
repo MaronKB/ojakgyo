@@ -1,7 +1,7 @@
-package fs.four.devgang.ojakgyo.api.poi.service;
+package fs.four.devgang.ojakgyo.api.tmap.service;
 
 import fs.four.devgang.ojakgyo.api.common.service.ApiService;
-import fs.four.devgang.ojakgyo.api.local.entity.Coordinate;
+import fs.four.devgang.ojakgyo.api.naver.entity.Coordinate;
 import jakarta.servlet.http.HttpServletRequest;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -14,28 +14,11 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 @Service
-public class PoiService {
+public class PoiService extends TmapService {
     private static final ApiService apiService = new ApiService();
     private static final JSONParser jsonParser = new JSONParser();
 
-    private static final String POI_API_URL = "https://apis.openapi.sk.com/tmap/pois/search/around?";
-    private static final String POI_API_KEY = "FlBqQ3EMhH4tOxopVXfK1QLIklZrFPz58pAjJJha";
-    private static final String VERSION = "1";
-    private static final String PAGE = "1";
-    private static final String COUNT = "8";
-    private static final String REQ_COORD_TYPE = "WGS84GEO";
-    private static final String RES_COORD_TYPE = "WGS84GEO";
-
-    private String getJSON(URL url) throws Exception {
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-        urlConnection.setRequestMethod("GET");
-        urlConnection.setRequestProperty("Accept", "application/json");
-        urlConnection.setRequestProperty("appKey", POI_API_KEY);
-
-        return apiService.getDataString(urlConnection);
-    }
-
-    public String getPOIData(Coordinate coordinate, String categories, String radius, String sort) throws Exception {
+    public JSONArray getPOIData(Coordinate coordinate, String categories, String radius, String sort) throws Exception {
         String[] categoryArr = categories.split(",");
         for (int i = 0; i < categoryArr.length; i++) {
             categoryArr[i] = URLEncoder.encode(categoryArr[i], StandardCharsets.UTF_8);
@@ -65,17 +48,14 @@ public class PoiService {
         sb.append("&sort=");
         sb.append(sort);
 
-        URL url = new URL(sb.toString());
-        String result = getJSON(url);
+        String result = getJSON(sb.toString());
         JSONObject obj = (JSONObject) jsonParser.parse(result);
         JSONObject searchPoiInfo = (JSONObject) obj.get("searchPoiInfo");
         JSONObject pois = (JSONObject) searchPoiInfo.get("pois");
-        JSONArray poi = (JSONArray) pois.get("poi");
-
-        return poi.toJSONString();
+        return (JSONArray) pois.get("poi");
     }
 
-    public String getPOIData(HttpServletRequest request) throws Exception {
+    public JSONArray getPOIData(HttpServletRequest request) throws Exception {
         String x = request.getParameter("x");
         String y = request.getParameter("y");
         String categories = request.getParameter("categories");
@@ -87,7 +67,7 @@ public class PoiService {
         return getPOIData(coordinate, categories, radius, sort);
     }
 
-    public String getPOIDetail(String id) throws Exception {
+    public JSONObject getPOIDetail(String id) throws Exception {
         StringBuilder sb = new StringBuilder();
         sb.append("https://apis.openapi.sk.com/tmap/pois/").append(id);
         sb.append("?version=");
@@ -96,30 +76,27 @@ public class PoiService {
         sb.append("&resCoordType=");
         sb.append(RES_COORD_TYPE);
 
-        URL url = new URL(sb.toString());
-        String result = getJSON(url);
+        String result = getJSON(sb.toString());
 
         JSONObject obj = (JSONObject) jsonParser.parse(result);
-        JSONObject poiDetailInfo = (JSONObject) obj.get("poiDetailInfo");
-
-        return poiDetailInfo.toJSONString();
+        return (JSONObject) obj.get("poiDetailInfo");
     }
 
-    public String getPOIDetailsString(String poiData) throws Exception {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[");
+    public JSONArray getPOIDetails(JSONArray poiData) throws Exception {
+        JSONArray poiDetailArray = new JSONArray();
 
-        JSONArray poiDataArray = (JSONArray) jsonParser.parse(poiData);
-        for (int i = 0; i < poiDataArray.size(); i++) {
-            JSONObject poi = (JSONObject) poiDataArray.get(i);
+        for (Object object : poiData) {
+            JSONObject poi = (JSONObject) object;
             String id = (String) poi.get("id");
-            String poiDetail = getPOIDetail(id);
-            sb.append(poiDetail);
-            if (i < poiDataArray.size() - 1) {
-                sb.append(",");
-            }
+            JSONObject poiDetail = getPOIDetail(id);
+            poiDetailArray.add(poiDetail);
         }
-        sb.append("]");
-        return sb.toString();
+
+        return poiDetailArray;
+    }
+
+    public String getPOIDetailsString(JSONArray poiData) throws Exception {
+        JSONArray poiDetailArray = getPOIDetails(poiData);
+        return poiDetailArray.toString();
     }
 }

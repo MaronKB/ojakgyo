@@ -1,4 +1,4 @@
-package fs.four.devgang.ojakgyo.api.local.entity;
+package fs.four.devgang.ojakgyo.api.naver.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,5 +27,9 @@ public class Geocode {
         sb.append(gu_gun);
         sb.append("\"}");
         return sb.toString();
+    }
+
+    public String getAddress() {
+        return city_do + " " + gu_gun;
     }
 }
