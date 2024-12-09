@@ -79,11 +79,11 @@
 
 
 
-.regionSelect{
+.regionSelect{                      /*지역선택바*/
     overflow:scroll;
     overflow-x:hidden;
     width : 290px;
-    height: 600px;
+    height: 400px;
     margin-left: 30px;
     margin-top: 150px;
     border:1px solid black;
@@ -91,24 +91,22 @@
     justify-content:center;
 }
 
-.sidebar{
-    /*overflow:scroll;*/
-    /*overflow-x:hidden;*/
-    width:480px;
-    height:600px;
-    display:block;
-    width : 400px;
-    height: 600px;
+.sidebar{                           /*카테고리*/
+    overflow:scroll;
+    overflow-x:hidden;
+    display:none;
+    width:200px;
+    height:400px;
     margin-left: 30px;
     margin-top: 150px;
     border:1px solid black;
     border-radius : 10px;
-    /*transform:translateX(-100%);*/
-    /*opacity:0;*/
-    transition: transform 1s ease; opacity 1s ease;
+    /*transform:translateX(+10px);*/
+    transition: transform 0.05s ease-in-out;
+    margin-left:40px;
 }
 
-.regions{
+.regions{                           /*지역선택 목록*/
     width:250px;
     height: 50px;
     display:block;
@@ -139,6 +137,7 @@
     border: 1px solid black;
     border-radius : 10px;
     border-left-style:none;
+    margin-left:40px;
 }
 
 .movebar:hover{

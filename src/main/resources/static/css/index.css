@@ -11,7 +11,7 @@
 @import "./community/listPost.css";
 @import "./community/new.css";
 @import "./hotplace/hotplace.css";
-@import "./admin/users.css";
+@import "admin/listUser.css";
 
 :root {
     --font-head: 'MYArirang-Medium', sans-serif;

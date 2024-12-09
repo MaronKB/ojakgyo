@@ -21,7 +21,7 @@ public class AdminControllerImpl implements AdminController {
     private AdminVO adminVO;
 
     @Override
-    @GetMapping("/admin/listUser.do")
+    @GetMapping("/admin/listUser")
     public ModelAndView listUser(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         List userList = adminService.listUser();

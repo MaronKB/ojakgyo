@@ -2,6 +2,7 @@ package fs.four.devgang.ojakgyo.post.service;
 
 
 import fs.four.devgang.ojakgyo.post.repository.PostDAO;
+import fs.four.devgang.ojakgyo.post.vo.PostVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -21,5 +22,10 @@ public class PostServiceImpl implements PostService {
         List postList = null;
         postList = postDAO.selectAllPostList();
         return postList;
+    }
+
+    @Override
+    public int addPost(PostVO post) throws Exception {
+        return postDAO.insertPost(post);
     }
 }

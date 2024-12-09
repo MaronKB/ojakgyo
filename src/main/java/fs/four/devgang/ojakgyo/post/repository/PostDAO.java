@@ -1,5 +1,6 @@
 package fs.four.devgang.ojakgyo.post.repository;
 
+import fs.four.devgang.ojakgyo.post.vo.PostVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.dao.DataAccessException;
 
@@ -14,4 +15,5 @@ public interface PostDAO {
      * @throws DataAccessException
      */
     public List selectAllPostList() throws DataAccessException;
+    public int insertPost(PostVO postVO) throws DataAccessException ;
 }

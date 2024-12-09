@@ -8,7 +8,7 @@
     </a>
     <nav id="header-menu">
         <a href="<c:url value="/main"/>">장소찾기</a>
-        <a href="<c:url value="/post/listPost.do"/>">커뮤니티</a>
+        <a href="<c:url value="/post/listPost"/>">커뮤니티</a>
         <a href="<c:url value="/hotplace"/>">핫플레이스</a>
         <c:if test="${sessionScope.user.isAdmin}">
             <a href="<c:url value="/admin/ad"/>">광고관리</a>
