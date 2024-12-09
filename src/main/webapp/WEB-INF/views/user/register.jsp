@@ -17,7 +17,7 @@
         
         <style>
             #memberwindow {
-                width:400px;
+                width:450px;
                 height:600px;
                 border:1px solid black;
                 border-radius: 8px;
@@ -45,22 +45,23 @@
             #layout1-input {
                 position: relative;
                 top:13px;
-                right: 60px;
-                width:200px;
+                right: 50px;
+                width:250px;
             }
 
-            #r_id, #r_nickname, #r_password, #r_passwdcheck, #r_email {
+            #r_id, #r_nickname, #r_password, #r_passwordcheck, #r_email {
                 margin: 6px;
-                width:200px;
+                width:150px;
                 height:30px;
                 border:1px solid black;
                 color:black;
                 position: relative;
             }
 
+
             #layout1-text {
                 position: relative;
-                right:50px;
+                right:40px;
                 top:3px;
                 text-align: right;
                 width: 200px;
@@ -75,7 +76,7 @@
               height: 50px;
               width: 400px;
               position: relative;
-              left: 60px;
+              left: 80px;
               top:30px;
             }
 
@@ -88,7 +89,6 @@
               border-radius: 8px;
               display: flex;
               justify-content: center;
-              text-align: center;
               width:300px;
               height:60px;
               border:1px solid black;
@@ -172,7 +172,7 @@
     </head>
     <body> 
       <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
-      <form action="/user/register" method="POST">
+      <form action="${contextPath}/user/register.do" method="post">
         <div id="memberwindow">
             <div id="logoimage"></div>
             <div id="layout1">
@@ -185,10 +185,12 @@
                 </div>
                 <div id="layout1-input">
                     <input id="r_id" name="userId" type="text" required="required"/>
+                    <input id="r_idcheck" name="userIdcheck" type="button" value="중복체크"/>
                     <input id="r_password" name="password" type="password" required="required"/>
-                    <input id="r_passwdcheck" name="passwordCheck" type="password" required="required" />
+                    <input id="r_passwordcheck" name="passwordCheck" type="password" required="required" />
                     <input id="r_nickname" name="nickname" type="text" required="required" />
                     <input id="r_email" name="email" type="email" required="required"/>
+                    <input id="r_emailcheck" name="emailcheck" type="button" value="중복체크"/>
                 </div> 
             </div>   
             <div id="layout2">
