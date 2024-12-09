@@ -1,6 +1,6 @@
-package fs.four.devgang.ojakgyo.mypage.code.controller;
+package fs.four.devgang.ojakgyo.mypage.controller;
 
-import fs.four.devgang.ojakgyo.mypage.code.service.CodeGroupRestService;
+import fs.four.devgang.ojakgyo.mypage.service.CodeGroupRestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

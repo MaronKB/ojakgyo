@@ -1,4 +1,4 @@
-package fs.four.devgang.ojakgyo.mypage.code.controller;
+package fs.four.devgang.ojakgyo.mypage.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

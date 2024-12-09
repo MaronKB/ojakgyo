@@ -1,4 +1,4 @@
-package fs.four.devgang.ojakgyo.mypage.code.service;
+package fs.four.devgang.ojakgyo.mypage.service;
 
 import java.util.List;
 

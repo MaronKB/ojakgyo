@@ -1,6 +1,6 @@
 package fs.four.devgang.ojakgyo.api.local.entity;
 
-import jakarta.persistence.Entity;
+//import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

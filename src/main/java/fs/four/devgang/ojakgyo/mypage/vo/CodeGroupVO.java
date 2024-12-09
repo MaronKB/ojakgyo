@@ -1,4 +1,4 @@
-package fs.four.devgang.ojakgyo.mypage.code.vo;
+package fs.four.devgang.ojakgyo.mypage.vo;
 
 import org.springframework.stereotype.Component;
 

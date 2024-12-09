@@ -1,6 +1,6 @@
-package fs.four.devgang.ojakgyo.mypage.code.service;
+package fs.four.devgang.ojakgyo.mypage.service;
 
-import fs.four.devgang.ojakgyo.mypage.code.dao.CodeGroupDAO;
+import fs.four.devgang.ojakgyo.mypage.dao.CodeGroupDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

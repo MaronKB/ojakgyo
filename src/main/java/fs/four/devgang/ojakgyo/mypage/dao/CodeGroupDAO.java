@@ -1,4 +1,4 @@
-package fs.four.devgang.ojakgyo.mypage.code.dao;
+package fs.four.devgang.ojakgyo.mypage.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.dao.DataAccessException;

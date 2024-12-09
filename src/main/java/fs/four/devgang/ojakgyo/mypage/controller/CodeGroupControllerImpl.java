@@ -1,7 +1,7 @@
-package fs.four.devgang.ojakgyo.mypage.code.controller;
+package fs.four.devgang.ojakgyo.mypage.controller;
 
-import fs.four.devgang.ojakgyo.mypage.code.service.CodeGroupService;
-import fs.four.devgang.ojakgyo.mypage.code.vo.CodeGroupVO;
+import fs.four.devgang.ojakgyo.mypage.service.CodeGroupService;
+import fs.four.devgang.ojakgyo.mypage.vo.CodeGroupVO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
