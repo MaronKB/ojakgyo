@@ -63,7 +63,7 @@ public class MainController {
         JSONObject yourRoute = locateService.getLocate(yourPos, centerLocation);
 
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("main/result");
+        mv.setViewName("main/result/result");
 
         mv.addObject("categories", categories);
         mv.addObject("myLocation", myLocation);

@@ -14,6 +14,11 @@ const clearTags = () => {
     });
 }
 
+const toggleBox = (element) => {
+    const target = document.querySelector(`#${element.dataset.target}`);
+    target.classList.toggle('active');
+}
+
 const go = () => {
     const form = document.querySelector('#main-form');
 

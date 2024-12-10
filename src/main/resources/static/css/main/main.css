@@ -1,4 +1,6 @@
 @import "radius.css";
+@import "main_box.css";
+@import "location_box.css";
 @import "location_toggle.css";
 
 main#main {
@@ -23,18 +25,8 @@ main#main {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 120px;
+    gap: 20px;
     perspective: 1000px;
-}
-.main-box {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
-}
-.main-box.active {
-    opacity: 1;
-    pointer-events: auto;
 }
 #main-hr {
     position: absolute;
@@ -77,63 +69,7 @@ main#main {
     margin: auto;
     transform: rotate(-45deg);
 }
-.location-box {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 15px;
-    overflow: hidden;
-}
-.location-box h3 {
-    font-family: var(--font-menu), sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-    text-align: center;
-    margin-bottom: 10px;
-}
-.my-juso {
-    flex: none;
-    width: 200px;
-    height: 30px;
-    display: flex;
-    margin: -5px 0 0 auto;
-}
-.my-juso > .my-juso-button {
-    flex: 1;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    font-family: var(--font-menu), sans-serif;
-    font-size: 12px;
-    background-color: #e0e0e0;
-    border: 0;
-    border-radius: 0;
-    border-image: linear-gradient(to bottom, transparent 20%, #aaa 20% 80%, transparent 80%) 1;
-    cursor: pointer;
-}
-.my-juso > .my-juso-button:first-child {
-    flex: 2;
-    border-right: 1px solid;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-.my-juso > .my-juso-button:last-child {
-    flex: 1;
-    border-left: 1px solid;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-.my-juso > .my-juso-button:hover {
-    color: white;
-    background-color: var(--sub-color);
-    border-image: none;
-}
+
 .categories {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

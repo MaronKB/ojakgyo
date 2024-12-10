@@ -12,7 +12,7 @@
 <main id="main" class="max">
     <form id="main-form" action="${pageContext.request.contextPath}/main/result"  method="post" onsubmit="go()">
         <div id="main-container">
-            <button type="button" id="my-location-toggle" class="location-toggle">
+            <button type="button" id="my-location-toggle" class="location-toggle" data-target="my-location" onclick="toggleBox(this)">
                 <span class="location-image-container">
                     <img src="<c:url value="/images/place_user.png"/>" alt="내 위치"/>
                 </span>
@@ -26,7 +26,7 @@
                 <input type="radio" name="radius" id="rad-30" value="30" class="main-radius"/>
                 <label for="rad-30"><span>30km</span></label>
             </div>
-            <button type="button" id="your-location-toggle" class="location-toggle">
+            <button type="button" id="your-location-toggle" class="location-toggle" data-target="your-location" onclick="toggleBox(this)">
                 <span class="location-image-container">
                     <img src="<c:url value="/images/place_user.png"/>" alt="상대 위치"/>
                 </span>

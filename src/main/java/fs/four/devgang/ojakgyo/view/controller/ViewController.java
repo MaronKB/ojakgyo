@@ -56,7 +56,7 @@ public class ViewController {
         */
 
         System.out.println("main");
-        return "main/main";
+        return "main/form/main";
     }
 
     // community
