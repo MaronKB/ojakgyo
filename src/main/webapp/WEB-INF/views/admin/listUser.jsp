@@ -18,7 +18,7 @@
 <body>
 <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
     <div class="container">
-        <div class="search-bar">
+        <div class="listUser-search-bar">
             <select>
                 <option value="id">아이디</option>
                 <option value="nickname">닉네임</option>
@@ -30,7 +30,7 @@
             <button>조회</button>
         </div>
 
-        <table>
+        <table class="listUser-table">
             <thead>
                 <tr>
                     <th><input type="checkbox"></th>
@@ -57,7 +57,14 @@
             </tbody>
         </table>
 
-        <div class="controls">
+        <div class="listUser-controls">
+            <select>
+                <option>10</option>
+                <option>30</option>
+                <option>50</option>
+                <option>100</option>
+            </select>
+
             <div class="pagination">
                 <button><</button>
                 <button>1</button>
@@ -67,14 +74,7 @@
                 <button>></button>
             </div>
 
-            <select>
-                <option>10</option>
-                <option>30</option>
-                <option>50</option>
-                <option>100</option>
-            </select>
-
-            <div class="buttons">
+            <div class="listUser-buttons">
                 <button id="add">추가</button>
                 <button id="edit">수정</button>
                 <button id="delete">삭제</button>

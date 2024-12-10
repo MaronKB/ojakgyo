@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // 게시글 취소 버튼
 document.getElementById("cancelNew").addEventListener("click", function() {
     if (confirm ("작성을 취소하시겠습니까?")) {
-        window.location.href = "http://localhost:8080/community";
+        window.location.href = "http://localhost:8080/post/listPost";
     }
 });
 

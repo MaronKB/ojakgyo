@@ -1,22 +1,19 @@
-.container {
-    margin-top: 100px;
-}
-
 .category-buttons {
     display: flex;
     justify-content: flex-start;
     margin-top: 50px;
 }
 
-.btn {
+.category-buttons .btn {
     /*border: 1px solid #333333;*/
+    border: solid 1px #333333;
     padding: 5px 7px;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
     cursor: pointer;
     text-align: center;
     transition: all 0.3s;
-    background-color: #402E2A;
-    color: #FBF5F3;
+    background-color: #fff;
+    color: #3E3E3E;
 }
 
 .btn:hover {
@@ -94,26 +91,26 @@
     background-color: #D64933;
 }
 
-.search-bar {
+.post-search-bar {
     margin-top: 20px;
     display: flex;
     justify-content: center;
 }
 
-.search-bar select,
-.search-bar input,
-.search-bar button {
+.post-search-bar select,
+.post-search-bar input,
+.post-search-bar button {
     /*padding: 0 10px;*/
     border: 1px solid #ddd;
     border-radius: 5px;
 }
 
-.search-bar button {
+.post-search-bar button {
     cursor: pointer;
     transition: all 0.3s;
 }
 
-.search-bar button:hover {
+.post-search-bar button:hover {
     background-color: #dac7c7;
 
 }

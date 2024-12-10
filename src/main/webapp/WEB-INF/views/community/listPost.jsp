@@ -72,7 +72,7 @@
             <a href="#">»</a>
         </div>
 
-        <div class="search-bar">
+        <div class="post-search-bar">
             <select>
                 <option>제목</option>
                 <option>내용</option>

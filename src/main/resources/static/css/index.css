@@ -10,6 +10,7 @@
 @import "./user/register.css";
 @import "./community/listPost.css";
 @import "./community/new.css";
+@import "./community/view.css";
 @import "./hotplace/hotplace.css";
 @import "admin/listUser.css";
 
