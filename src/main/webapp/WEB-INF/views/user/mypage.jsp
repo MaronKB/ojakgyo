@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<script src="/js/jQuery-2.1.4.min.js"></script>
 <script src="<c:url value="/js/mypage.js"/>"></script>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -18,7 +19,7 @@
                         class="defaultprofilepicture">
                         <br>
                     <form>
-                        <input id="profile-img-input" type="file" class="my_hidden"/>
+                        <input id="profile-img-input" id="edit" type="file" class="my_hidden"/>
                     </form>
                 </div>
                 <div class="upper">
@@ -26,14 +27,14 @@
                         <p>닉네임</p>
                         <input placeholder="태사다르"
                         style="width:200px; height:30px;">
-                        <button class="editbutton" style="width:100px; height:30px;">수정</button>
+                        <button class="editbutton" id="edit1" style="width:100px; height:30px;">수정</button>
                     </div>
                 <br>
                     <div class="email">
                         <p>이메일</p>
                         <input placeholder="tassadar@aiur.com"
                         style="width:200px; height:30px;">
-                        <button class="editbutton" style="width:100px; height:30px;">수정</button>
+                        <button class="editbutton" id="edit2" style="width:100px; height:30px;">수정</button>
                     </div>
                 </div>
                 <br>
@@ -42,14 +43,14 @@
                          <p>비밀번호</p>
                          <input placeholder="123546789"
                          style="width:200px; height:30px;">
-                         <button class="editbutton" style="width:100px; height:30px;">수정</button>
+                         <button class="editbutton" id="edit3" style="width:100px; height:30px;">수정</button>
                     </div>
                 <br>
                     <div class="address">
                          <p>주소</p>
                          <input placeholder="경기도 수원시"
                          style="width:200px; height:30px;">
-                         <button class="editbutton" style="width:100px; height:30px;" >수정</button>
+                         <button class="editbutton" id="edit4" style="width:100px; height:30px;" >수정</button>
                     </div>
                 </div>
                 <br>
@@ -58,7 +59,7 @@
                         <p>한줄소개</p>
                         <input placeholder="난 백엔드를 경험한 적이 없네"
                         style="width:544px; height: 30px;">
-                        <button class="editbutton" style="width:100px; height:30px;">수정</button>
+                        <button class="editbutton" id="edit5" style="width:100px; height:30px;">수정</button>
                     </div>
                 </div>
                 <br>

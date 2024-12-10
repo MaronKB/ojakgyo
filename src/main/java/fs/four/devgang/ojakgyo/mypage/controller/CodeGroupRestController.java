@@ -11,18 +11,21 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping({"/code"})
+@RequestMapping({"/mypage"})
 
 public class CodeGroupRestController {
 
-    // 서비스 autowired
+    // 서비스 autowiredvlfdy
     // "/list"
 
     @Autowired
     private CodeGroupRestService codeGroupRestService;
 
-    @GetMapping("/list")
+
+
+    @GetMapping("/nickname")
     public ResponseEntity<List> list() throws Exception{
+        System.out.println("리턴");
         return new ResponseEntity<>(codeGroupRestService.listAllCodeGroup(), HttpStatus.OK);
     }
 

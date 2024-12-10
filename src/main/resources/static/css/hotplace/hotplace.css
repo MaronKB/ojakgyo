@@ -2,40 +2,42 @@
 
 .main{
     display:flex;
+    margin-left:120px;
+    margin-right:00px;
 }
 
 .cafe{
-    width:160px;
-    height:70px;
+    width:80px;
+    height:80px;
     /*border:1px solid red;*/
     margin:10px;
-    display:flex;
+/*    display:flex;*/
 }
 
 .restaurant{
-    width:160px;
-    height:70px;
+    width:80px;
+    height:80px;
     /*border:1px solid red;*/
     margin:10px;
 }
 
 .spot{
-    width:160px;
-    height:70px;
+    width:80px;
+    height:80px;
     /*border:1px solid red;*/
     margin:10px;
 }
 
 .hotel{
-    width:160px;
-    height:70px;
+    width:80px;
+    height:80px;
     /*border:1px solid red;*/
     margin:10px;
 }
 
 .cafebutton{
     width:75px;
-    height:65px;
+    height:75px;
     background-color:lightpink;
     border-radius : 10px;
 }
@@ -46,7 +48,7 @@
 
 .restaurantbutton{
     width:75px;
-    height:65px;
+    height:75px;
     background-color:lightpink;
     border-radius : 10px;
 }
@@ -57,7 +59,7 @@
 
 .spotbutton{
     width:75px;
-    height:65px;
+    height:75px;
     background-color:lightpink;
     border-radius : 10px;
 }
@@ -68,7 +70,7 @@
 
 .hotelbutton{
     width:75px;
-    height:65px;
+    height:75px;
     background-color:lightpink;
     border-radius : 10px;
 }
@@ -95,14 +97,13 @@
     overflow:scroll;
     overflow-x:hidden;
     display:none;
-    width:200px;
+    width:600px;
     height:400px;
-    margin-left: 30px;
     margin-top: 150px;
     border:1px solid black;
-    border-radius : 10px;
+    border-radius : 0px;
     /*transform:translateX(+10px);*/
-    transition: transform 0.05s ease-in-out;
+    transition: transform 0.5s ease-in-out;
     margin-left:40px;
 }
 
@@ -131,13 +132,13 @@
 
 
 .movebar{               /*열고닫기버튼*/
-    width : 170px;
-    height : 50px;
-    margin-top: 200px;
+    width : 40px;
+    height : 170px;
+    margin-top: 270px;
     border: 1px solid black;
-    border-radius : 10px;
+    border-radius : 5px;
     border-left-style:none;
-    margin-left:40px;
+    margin-left:0px;
 }
 
 .movebar:hover{
