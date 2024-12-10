@@ -13,5 +13,9 @@ public interface UserController {
     public ModelAndView addMember(@ModelAttribute("info") UserVO userVO,
                                   HttpServletRequest request,
                                   HttpServletResponse response) throws Exception;
+    // 아이디 중복 체크
+    public ModelAndView checkUserId(HttpServletRequest request, HttpServletResponse response) throws Exception;
 
+    // 이메일 중복 체크
+    public ModelAndView checkEmail(HttpServletRequest request, HttpServletResponse response) throws Exception;
 }

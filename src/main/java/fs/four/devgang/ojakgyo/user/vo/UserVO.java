@@ -3,66 +3,74 @@ package fs.four.devgang.ojakgyo.user.vo;
 import java.util.Date;
 
 public class UserVO {
+    private String userId;          // 사용자 ID
+    private String password;        // 사용자 비밀번호
+    private String nickname;        // 사용자 닉네임
+    private String email;           // 사용자 이메일
+    private String receiveAd;       // 광고 수신 여부
+    private Date userRegDate;       // 사용자 등록일
 
-    private String user_id;          // 사용자 ID
-    private String user_pw;          // 사용자 비밀번호
-    private String user_nickname;    // 사용자 닉네임
-    private String user_email;       // 사용자 이메일
-    private String user_receive_adv; // 광고 수신 여부
-    private Date user_reg_date;      // 사용자 등록일
-
-    // 사용자 ID getter, setter
-    public String getUser_id() {
-        return user_id;
+    public UserVO() {
+        this.userRegDate = new Date(); // 현재 시간 기본값
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public String getUserId() {
+        return userId;
     }
 
-    // 사용자 비밀번호 getter, setter
-    public String getUser_pw() {
-        return user_pw;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public void setUser_pw(String user_pw) {
-        this.user_pw = user_pw;
+    public String getPassword() {
+        return password;
     }
 
-    // 사용자 닉네임 getter, setter
-    public String getUser_nickname() {
-        return user_nickname;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setUser_nickname(String user_nickname) {
-        this.user_nickname = user_nickname;
+    public String getNickname() {
+        return nickname;
     }
 
-    // 사용자 이메일 getter, setter
-    public String getUser_email() {
-        return user_email;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
-    public void setUser_email(String user_email) {
-        this.user_email = user_email;
+    public String getEmail() {
+        return email;
     }
 
-    // 광고 수신 여부 getter, setter
-    public String getUser_receive_adv() {
-        return user_receive_adv;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setUser_receive_adv(String user_receive_adv) {
-        this.user_receive_adv = user_receive_adv;
+    public String getReceiveAd() {
+        return receiveAd;
     }
 
-    // 사용자 등록일 getter, setter
-    public Date getUser_reg_date() {
-        return user_reg_date;
+    public void setReceiveAd(String receiveAd) {
+        this.receiveAd = receiveAd;
     }
 
-    public void setUser_reg_date(Date user_reg_date) {
-        this.user_reg_date = user_reg_date;
+    public Date getUserRegDate() {
+        return userRegDate;
     }
 
+    public void setUserRegDate(Date userRegDate) {
+        this.userRegDate = userRegDate;
+    }
+
+    @Override
+    public String toString() {
+        return "UserVO{" +
+                "userId='" + userId + '\'' +
+                ", password='" + password + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", email='" + email + '\'' +
+                ", receiveAd='" + receiveAd + '\'' +
+                ", userRegDate=" + userRegDate +
+                '}';
+    }
 }

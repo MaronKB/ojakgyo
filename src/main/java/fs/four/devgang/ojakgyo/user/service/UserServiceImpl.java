@@ -21,4 +21,14 @@ public class UserServiceImpl implements UserService {
         // 사용자 등록 처리
         return userDAO.insertMember(userVO);
     }
+
+    @Override
+    public int checkUserId(String userId) throws Exception {
+        return userDAO.selectUserId(userId);
+    }
+
+    @Override
+    public int checkEmail(String email) throws Exception {
+        return userDAO.selectEmail(email);
+    }
 }
