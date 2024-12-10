@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fs.four.devgang.mypage.dao.CodeGroupDAO">
+
+    <select id="selectAllCodeGroupList" resultType="codeGroupVO">
+        <![CDATA[
+            select user_id, user_pw, user_nickname, user_email, user_intro, created_date, updated_date
+            from user_info
+            order by created_date desc
+        ]]>
+    </select>
+</mapper>

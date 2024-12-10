@@ -11,16 +11,14 @@
     <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
         <div class="main">
 
-            <button onclick="toggleSidebar()" class="movebar">사이드바 열기/닫기</button>
                 <div class="sidebar" id="sidebar">
-                    <div class="sidebarcontent">
-                        <div class="cafe">
-                            <button class="cafebutton"
-                            onclick="showContent('cafe1')">카페</button>
-                        </div>
-                        <div id="cafe1" class="cafe1">
-                            <h2 class="cafetitle">카페버튼클릭</h2>
-                        </div>
+
+                    <div class="cafe">
+                        <button class="cafebutton"
+                        onclick="showContent('cafe1')">카페</button>
+                    </div>
+                    <div id="cafe1" class="cafe1">
+                        <h2 class="cafetitle">카페정보</h2>
                     </div>
 
                     <div class="modal">
@@ -31,37 +29,34 @@
                         </div>
                     </div>
 
-
-                    <div class="sidebarcontent">
-                        <div class="restaurant">
-                            <button class="restaurantbutton"
-                            onclick="showContent('rest1')">식당</button>
-                        </div>
-                        <div id="rest1">
-                            <h2>식당버튼클릭</h2>
-                        </div>
+                    <div class="restaurant">
+                        <button class="restaurantbutton"
+                        onclick="showContent('rest1')">식당</button>
+                    </div>
+                    <div id="rest1">
+                        <h2>식당정보</h2>
                     </div>
 
-                    <div class="sidebarcontent">
-                        <div class="spot">
-                            <button class="spotbutton"
-                            onclick="showContent('spot1')">명소</button>
-                        </div>
-                        <div id="spot1">
-                            <h2>명소버튼클릭</h2>
-                        </div>
+                    <div class="spot">
+                        <button class="spotbutton"
+                        onclick="showContent('spot1')">명소</button>
+                    </div>
+                    <div id="spot1">
+                        <h2>명소정보</h2>
                     </div>
 
-                    <div class="sidebarcontent">
-                        <div class="hotel">
-                            <button class="hotelbutton"
-                            onclick="showContent('hotel1')">숙소</button>
-                        </div>
-                        <div id="hotel1">
-                            <h2>숙소버튼클릭</h2>
-                        </div>
+
+                    <div class="hotel">
+                        <button class="hotelbutton"
+                        onclick="showContent('hotel1')">숙소</button>
                     </div>
+                    <div id="hotel1">
+                        <h2>숙소정보</h2>
+                    </div>
+
                 </div>
+
+                <button onclick="toggleSidebar()" class="movebar">사이드바 열기/닫기</button>
 
                 <div class="regionSelect">
                     <form class="seoul">
@@ -210,7 +205,7 @@
                         </select>
                     </form>
 
-                    <form class="jlmd">
+                    <form class="jlnd">
                         <select class="regions">
                             <option value="전라북도">전라남도</option>
                             <option value="목포시">목포시</option>
@@ -273,7 +268,5 @@
                         </select>
                     </form>
         </div>
-
-
 </body>
 </html>

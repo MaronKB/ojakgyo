@@ -1,28 +1,32 @@
 //마이페이지
-// 버튼 클릭 이벤트 리스너 추가
-/*
+// 수정버튼 클릭 이벤트 리스너
 $(document).ready(function() {
-    $("#editbutton").on("click", function() {
-        alert("ajax 통신");
-*/
+    $("#edit1").on("click", function() {
+        alert("닉네임이 수정되었습니다");
+        $.ajax({
+            type: "GET",
+            url: "/mypage/nickname",
+            contentType: "application/json; charset=UTF-8",
+            success: function(data) {
+                alert(data);
+                alert(JSON.stringify(data));
+            }
+        });
+    });
 
-/*        $.ajax()*/
+    $("#edit2").on("click", function() {
+        alert("이메일이 수정되었습니다");
+    });
 
-       /* type: "GET",
-        url: "/code/list",
-        contentType: "application/json; charset=UTF-8",
-        success : function(data) {
-            alert(성공);
-            alert(JSON.stringify(data));
+    $("#edit3").on("click", function() {
+        alert("비밀번호가 수정되었습니다");
+    });
 
-       },
-       error: function(xhr, status, error) {
-            // 요청이 실패하면 실행되는 콜백 함수
-            alert("에러 발생: " + error); // 에러 메시지 출력
-       }
-    });*/
+    $("#edit4").on("click", function() {
+        alert("주소가 수정되었습니다");
+    });
 
-
-function btn(editbutton){
-    console.log('버튼이 클릭되었습니다');
-};
+    $("#edit5").on("click", function() {
+        alert("한줄소개가 수정되었습니다");
+    });
+});
