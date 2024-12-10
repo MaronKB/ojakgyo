@@ -7,56 +7,55 @@ import java.sql.Date;
 @Component("codeGroupVO")
 public class CodeGroupVO {
 
-    private String code_group;
-    private String code_name;
-    private String use_yn;
-    private Date created_date;
-    private String created_id;
+    private String user_id;
+    private String user_pw;
+    private String user_nickname;
+    private Date user_intro;
+    private String created_date;
     private Date updated_date;
-    private String updated_id;
 
     public CodeGroupVO() {
 
     }
 
     public String getCode_group() {
-        return code_group;
+        return user_id;
     }
 
     public void setCode_group(String code_group) {
-        this.code_group = code_group;
+        this.user_id = user_id;
     }
 
     public String getCode_name() {
-        return code_name;
+        return user_pw;
     }
 
     public void setCode_name(String code_name) {
-        this.code_name = code_name;
+        this.user_pw = user_pw;
     }
 
     public String getUse_yn() {
-        return use_yn;
+        return user_nickname;
     }
 
     public void setUse_yn(String use_yn) {
-        this.use_yn = use_yn;
+        this.user_nickname = user_nickname;
     }
 
     public Date getCreated_date() {
-        return created_date;
+        return user_intro;
     }
 
     public void setCreated_date(Date created_date) {
-        this.created_date = created_date;
+        this.user_intro = user_intro;
     }
 
     public String getCreated_id() {
-        return created_id;
+        return created_date;
     }
 
     public void setCreated_id(String created_id) {
-        this.created_id = created_id;
+        this.created_date = created_date;
     }
 
     public Date getUpdated_date() {
@@ -67,11 +66,4 @@ public class CodeGroupVO {
         this.updated_date = updated_date;
     }
 
-    public String getUpdated_id() {
-        return updated_id;
-    }
-
-    public void setUpdated_id(String updated_id) {
-        this.updated_id = updated_id;
-    }
 }
