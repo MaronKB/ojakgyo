@@ -45,7 +45,7 @@ main#result section {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    background-color: #e0e0e0;
+    background-color: var(--background-color-bright);
     padding: 10px;
     border-radius: 10px;
     user-select: none;
@@ -95,7 +95,7 @@ main#result section {
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    background-color: #e0e0e0;
+    background-color: var(--background-color-bright);
     padding: 15px;
     border-radius: 10px;
 }
@@ -208,9 +208,15 @@ main#result section {
 }
 .recommend {
     width: 100%;
-    background-color: #e0e0e0;
-    padding: 10px;
+    background-color: var(--background-color-bright);
+    padding: 20px;
     border-radius: 10px;
+}
+.recommend h3 {
+    font-family: var(--font-menu), sans-serif;
+    font-size: 18px;
+    color: var(--text-color);
+    margin: 0 0 20px 0;
 }
 .recommend-list {
     width: 100%;

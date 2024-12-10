@@ -25,6 +25,7 @@
 
     --background-color-dark: #3E3E3E;
     --background-color-bright: #FBF5F3;
+    --background-color-grey: #EAEAEA;
     --text-color: #402E2A;
     --main-color: #B892FF;
     --sub-color: #D64933;
@@ -39,7 +40,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    background-color: var(--background-color-bright);
+    background-color: var(--background-color-dark);
     padding: 0;
     margin: 0;
 }
@@ -50,6 +51,9 @@ main {
     max-width: 900px;
     min-height: var(--main-min-height);
     margin: 0 auto;
+}
+main.max {
+    max-width: unset;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-itelic), serif;

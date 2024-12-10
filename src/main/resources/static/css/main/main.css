@@ -1,24 +1,85 @@
+@import "radius.css";
+@import "location_toggle.css";
+
 main#main {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image:
-        linear-gradient(#fff4, #fff4),
-        url("/images/main_photo_0.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    /*background-image:*/
+    /*    linear-gradient(#fff4, #fff4),*/
+    /*    url("/images/main_photo_0.jpg");*/
+    /*background-size: cover;*/
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
 }
 #main-form {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
+}
+#main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 120px;
+    perspective: 1000px;
+}
+.main-box {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+.main-box.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+#main-hr {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 1px;
+    border: 1px dashed #e0e0e0;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+#go-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    font-family: var(--font-menu), sans-serif;
+    font-size: 20px;
+    color: white;
+    background: var(--sub-color);
+    border: 0;
+    border-radius: 50% 50% 0 50%;
+    transform: translate(-50%, calc(-50% - 72px)) rotate(45deg);
+    z-index: 10;
+}
+#go-button:hover {
+    background: white;
+}
+#go-button span {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #0004;
+    margin: auto;
+    transform: rotate(-45deg);
 }
 .location-box {
-    position: relative;
-    width: 400px;
-    height: 600px;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;

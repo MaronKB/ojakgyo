@@ -7,7 +7,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
-<main id="index">
+<main id="index" class="max">
     <div id="index-content">
         <div id="index-content-container">
             <h3>너에게로 향하는 길</h3>
