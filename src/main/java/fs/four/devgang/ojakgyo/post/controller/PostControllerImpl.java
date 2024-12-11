@@ -39,6 +39,7 @@ public class PostControllerImpl implements PostController {
         return mav;
     }
 
+//    게시글 작성
     @Override
     @RequestMapping(value="/post/addPost.do" ,method = RequestMethod.POST)
     public ModelAndView addPost(@ModelAttribute("post") PostVO post,
@@ -50,6 +51,7 @@ public class PostControllerImpl implements PostController {
         return mav;
     }
 
+//    게시글 조회
     @Override
     @GetMapping("/post/view.do")
     public ModelAndView viewPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
