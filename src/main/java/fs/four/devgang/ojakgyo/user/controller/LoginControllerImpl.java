@@ -2,7 +2,6 @@ package fs.four.devgang.ojakgyo.user.controller;
 
 import fs.four.devgang.ojakgyo.user.service.LoginService;
 import fs.four.devgang.ojakgyo.user.vo.LoginVO;
-import fs.four.devgang.ojakgyo.user.vo.UserVO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,26 +21,37 @@ public class LoginControllerImpl implements LoginController {
     private LoginService loginService;
 
     @Override
-    @RequestMapping(value = "/login.do", method = RequestMethod.POST)
+    @RequestMapping(value = "/login.do", method = {RequestMethod.GET, RequestMethod.POST})
     public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws Exception {
         logger.info("로그인 요청 시작");
 
-        // 사용자 입력 값 가져오기
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-
-        LoginVO loginVO = new LoginVO(username, password);
-        logger.info("로그인 정보: {}", loginVO);
-
         ModelAndView mav = new ModelAndView();
 
-        try {
-            UserVO user = loginService.login(loginVO);
+        if ("GET".equalsIgnoreCase(request.getMethod())) {
+            logger.info("GET 요청으로 로그인 폼 반환");
+            mav.setViewName("user/login");
+            return mav;
+        }
 
-            if (user != null) {
-                logger.info("로그인 성공: {}", user);
-                request.getSession().setAttribute("user", user);
-                mav.setViewName("index/main"); // 성공 시 메인 페이지로 이동
+        // 사용자 입력 값 가져오기
+        String userid = request.getParameter("userid");
+        String password = request.getParameter("password");
+
+        logger.info("Request parameter userid: {}", userid);
+        logger.info("Request parameter password: {}", password);
+
+        // LoginVO 객체 생성
+        LoginVO loginVO = new LoginVO(userid, password);
+        logger.info("로그인 정보: {}", loginVO);
+
+        try {
+            // 로그인 처리
+            LoginVO loggedInUser = loginService.login(loginVO);
+
+            if (loggedInUser != null) {
+                logger.info("로그인 성공: {}", loggedInUser);
+                request.getSession().setAttribute("user", loggedInUser); // LoginVO를 세션에 저장
+                mav.setViewName("redirect:/index/main"); // 성공 시 메인 페이지로 이동
             } else {
                 logger.warn("로그인 실패: 사용자 정보 없음");
                 mav.setViewName("user/login");
@@ -61,6 +71,7 @@ public class LoginControllerImpl implements LoginController {
     public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) throws Exception {
         logger.info("로그아웃 요청 시작");
 
+        // 세션 무효화
         request.getSession().invalidate();
 
         ModelAndView mav = new ModelAndView("redirect:/login.do");
