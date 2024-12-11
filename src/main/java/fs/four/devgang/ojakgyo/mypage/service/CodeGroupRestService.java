@@ -19,5 +19,18 @@ public class CodeGroupRestService {
         List codeGroupList = null;
         codeGroupList = codeGroupDAO.selectAllCodeGroupList();
         return codeGroupList;
+
+    }
+
+    // 닉네임 수정
+    public boolean updateNickname(String codeGroupVO) throws Exception {
+        try {
+            // DAO에서 updateNickname 호출
+            int updatedRows = codeGroupDAO.updateNickname(codeGroupVO);
+            return updatedRows > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

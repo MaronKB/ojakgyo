@@ -5,11 +5,12 @@ $(document).ready(function() {
         alert("닉네임이 수정되었습니다");
         $.ajax({
             type: "GET",
-            url: "/mypage/nickname",
+            url: "/mypage/updatenickname", data:(newNickname)
             contentType: "application/json; charset=UTF-8",
             success: function(data) {
                 alert(data);
                 alert(JSON.stringify(data));
+                alert('성공');
             }
         });
     });

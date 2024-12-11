@@ -1,69 +1,64 @@
 package fs.four.devgang.ojakgyo.mypage.vo;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 import java.sql.Date;
 
+@Getter
+@Setter
 @Component("codeGroupVO")
 public class CodeGroupVO {
 
     private String user_id;
+    private String user_email;
     private String user_pw;
     private String user_nickname;
-    private Date user_intro;
-    private String created_date;
-    private Date updated_date;
+    private String user_intro;
+
 
     public CodeGroupVO() {
 
     }
 
-    public String getCode_group() {
+    public String getUser_id() {
         return user_id;
     }
 
-    public void setCode_group(String code_group) {
+    public void setUser_id(String user_id) {
         this.user_id = user_id;
     }
 
-    public String getCode_name() {
+    public String getUser_email() {
+        return user_email;
+    }
+
+    public void setUser_email(String user_email) {
+        this.user_email = user_email;
+    }
+
+    public String getUser_pw() {
         return user_pw;
     }
 
-    public void setCode_name(String code_name) {
+    public void setUser_pw(String user_pw) {
         this.user_pw = user_pw;
     }
 
-    public String getUse_yn() {
+    public String getUser_nickname() {
         return user_nickname;
     }
 
-    public void setUse_yn(String use_yn) {
+    public void setUser_nickname(String user_nickname) {
         this.user_nickname = user_nickname;
     }
 
-    public Date getCreated_date() {
+    public String getUser_intro() {
         return user_intro;
     }
 
-    public void setCreated_date(Date created_date) {
+    public void setUser_intro(String user_intro) {
         this.user_intro = user_intro;
     }
-
-    public String getCreated_id() {
-        return created_date;
-    }
-
-    public void setCreated_id(String created_id) {
-        this.created_date = created_date;
-    }
-
-    public Date getUpdated_date() {
-        return updated_date;
-    }
-
-    public void setUpdated_date(Date updated_date) {
-        this.updated_date = updated_date;
-    }
-
 }
