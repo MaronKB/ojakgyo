@@ -14,9 +14,13 @@ public interface PostDAO {
      * @return
      * @throws DataAccessException
      */
+//    게시글 리스트
     public List selectAllPostList() throws DataAccessException;
+
+//    게시글 작성
     public int insertPost(PostVO postVO) throws DataAccessException ;
 
+//    게시글 조회
     PostVO selectPostById(int postId) throws DataAccessException;
 
 }

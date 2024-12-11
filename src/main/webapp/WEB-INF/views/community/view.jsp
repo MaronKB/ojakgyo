@@ -33,7 +33,7 @@
 <%--                ${post.post_content}--%>
 <%--            </div>--%>
 <%--            <div class="post-actions">--%>
-<%--                <button class="btn-like">👍 추천 ${post.post_vote_count}</button>--%>
+<%--                <button class="btn-like"> 추천 ${post.post_vote_count}</button>--%>
 <%--                <button class="btn-report">🚩 신고</button>--%>
 <%--            </div>--%>
 <%--        </div>--%>
@@ -77,16 +77,43 @@
 <head>
     <meta charset="UTF-8">
     <title>게시글 조회</title>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/css/index.css"/>"/>
 </head>
 <body>
-<h1>게시글 조회</h1>
-<div>
-    <p><strong>게시글 ID:</strong> ${post.post_id}</p>
-    <p><strong>작성자 닉네임:</strong> ${post.post_author_nickname}</p>
-    <p><strong>조회수:</strong> ${post.post_view_count}</p>
-    <p><strong>추천수:</strong> ${post.post_vote_count}</p>
-    <p><strong>작성일:</strong> ${post.post_reg_date}</p>
-</div>
-<a href="${contextPath}/post/listPost">목록으로</a>
+<jsp:include page="/WEB-INF/views/includes/header.jsp"/>
+
+    <div class="view-container">
+
+        <div class="view-title">
+            ${post.post_title}
+        </div>
+
+        <div class="view-info">
+            <p id="nickname">닉네임: ${post.post_author_nickname}</p>
+            <p id="view">조회수: ${post.post_view_count}</p>
+            <p id="vote">추천수: ${post.post_vote_count}</p>
+            <p id="date">작성일: ${post.post_reg_date}</p>
+        </div>
+
+        <div class="view-content">
+            <p>${post.post_content}</p>
+
+            <button class="btn-like">👍 추천 ${post.post_vote_count}</button>
+
+            <button class="btn-report">🚨신고</button>
+        </div>
+
+        <div class="move-to-list">
+            <button><a href="${contextPath}/post/listPost">목록</a></button>
+        </div>
+
+        <div class="view-comment">
+            <div class="comment-title">
+                댓글
+            </div>
+        </div>
+
+
+    </div>
 </body>
 </html>

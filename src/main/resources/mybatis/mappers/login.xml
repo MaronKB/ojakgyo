@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fs.four.devgang.ojakgyo.user.repository.LoginDAO">
+
+    <resultMap id="loginResultMap" type="fs.four.devgang.ojakgyo.user.vo.LoginVO">
+        <result property="userid" column="user_id" />
+        <result property="password" column="user_pw" />
+        <result property="isAdmin" column="is_admin" /> <!-- is_admin 컬럼 추가 -->
+    </resultMap>
+
+    <select id="login" parameterType="fs.four.devgang.ojakgyo.user.vo.LoginVO" resultMap="loginResultMap">
+        SELECT user_id, user_pw, user_nickname, user_email, user_receive_adv, user_reg_date, is_admin
+        FROM ojakgyo.user_info
+        WHERE user_id = #{userid, jdbcType=VARCHAR}
+        AND user_pw = #{password, jdbcType=VARCHAR}
+    </select>
+</mapper>

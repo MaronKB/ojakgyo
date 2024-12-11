@@ -29,6 +29,7 @@ public class PostServiceImpl implements PostService {
         return postDAO.insertPost(post);
     }
 
+//    게시글 조회
     @Override
     public PostVO getPostById(int postId) throws Exception {
         return postDAO.selectPostById(postId);

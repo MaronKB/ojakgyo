@@ -70,19 +70,19 @@
                 </div>
                 <div class="recents">
                     <div class="recentlyRegisteredPosts">
-                        <div class="title"><p>2차프로젝트 ㅈㄴ어려워</p></div>
+                        <div class="title"><p>안녕</p></div>
                         <div class="title"><p>난 백엔드를 경험한 적이 없네.</p></div>
                         <div class="title"><p>미친 소리!</p></div>
-                        <div class="title"><p>안돼! 이런 백엔드는! 난 감당할 수 없어! 멈춰!</p></div>
-                        <div class="title"><p>가.. 짐.. 어서</p></div>
+                        <div class="title"><p>멈춰!</p></div>
+                        <div class="title"><p>안녕못한다</p></div>
                     </div>
 
                     <div class="recentlyRegisteredComments">
-                        <div class="title"><p>야!!!!!!</p></div>
-                        <div class="title"><p>개짖는</p></div>
-                        <div class="title"><p>소리좀</p></div>
-                        <div class="title"><p>안나게</p></div>
-                        <div class="title"><p>해라</p></div>
+                        <div class="title"><p>엄청커다란모기가나의발을물었어</p></div>
+                        <div class="title"><p>간지러웠어</p></div>
+                        <div class="title"><p>그래서참았어</p></div>
+                        <div class="title"><p>아무생각없이나는발을긁었어</p></div>
+                        <div class="title"><p>왕모기</p></div>
                     </div>
                 </div>
     </div>
