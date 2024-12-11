@@ -29,4 +29,9 @@
         select * from OJAKGYO.post where post_id = #{postId}
     </select>
 
+    <select id="selectPostByCategory" parameterType="string" resultType="postVO">
+        select * from post where post_category = #{category} order by post_reg_date desc
+    </select>
+
+
 </mapper>
