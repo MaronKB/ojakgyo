@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fs.four.devgang.ojakgyo.user.repository.LoginDAO">
+
+    <!-- 사용자 정보 매핑 -->
+    <resultMap id="userResultMap" type="fs.four.devgang.ojakgyo.user.vo.UserVO">
+        <result property="userId" column="user_id" />
+        <result property="userPw" column="user_pw" />
+        <result property="userNickname" column="user_nickname" />
+        <result property="userEmail" column="user_email" />
+        <result property="userReceiveAdv" column="user_receive_adv" />
+        <result property="userRegDate" column="user_reg_date" />
+    </resultMap>
+
+    <!-- 로그인 -->
+    <select id="login" parameterType="fs.four.devgang.ojakgyo.user.vo.LoginVO" resultMap="userResultMap">
+        <![CDATA[
+            SELECT user_id, user_pw, user_nickname, user_email, user_receive_adv, user_reg_date
+            FROM ojakgyo.user_info
+            WHERE user_id = #{username}
+              AND user_pw = #{password}
+        ]]>
+    </select>
+
+</mapper>
