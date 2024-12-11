@@ -43,11 +43,11 @@
                 <c:forEach var="post" items="${postList}" >
                     <tr>
                         <td><a href="${contextPath}/post/view.do?postId=${post.post_id}">${post.post_id}</a></td>
-                        <td>${post.post_title}</td>
-                        <td>${post.post_author_nickname}</td>
-                        <td>${post.post_reg_date}</td>
-                        <td>${post.post_view_count}</td>
-                        <td>${post.post_vote_count}</td>
+                        <td class="content"><a href="${contextPath}/post/view.do?postId=${post.post_id}">${post.post_title}</a></td>
+                        <td><a href="${contextPath}/post/view.do?postId=${post.post_id}">${post.post_author_nickname}</a></td>
+                        <td><a href="${contextPath}/post/view.do?postId=${post.post_id}">${post.post_reg_date}</a></td>
+                        <td><a href="${contextPath}/post/view.do?postId=${post.post_id}">${post.post_view_count}</a></td>
+                        <td><a href="${contextPath}/post/view.do?postId=${post.post_id}">${post.post_vote_count}</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>

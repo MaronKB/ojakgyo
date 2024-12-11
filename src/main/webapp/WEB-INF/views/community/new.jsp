@@ -74,7 +74,6 @@
     <form method="post"   action="${contextPath}/post/addPost.do">
         <div class="container">
             <div class="stuff">
-                번호<input type="text" name="post_id">
                 작성자 아이디<input type="text" name="post_author_id">
                 작성자 닉네임<input type="text" name="post_author_nickname">
             </div>
@@ -106,37 +105,6 @@
                 <button type="button" class="btn btn-secondary" id="cancelNew">취소</button>
                 <input type="submit" class="btn btn-primary" id="submitPost"></input>
             </div>
-
-<%--            <table  align="center">--%>
-<%--                <tr>--%>
-<%--                    <td width="200"><p align="right">아이디</td>--%>
-<%--                    <td width="400"><input type="text" name="post_id"></td>--%>
-<%--                </tr>--%>
-<%--                <tr>--%>
-<%--                    <td width="200"><p align="right">카테고리</td>--%>
-<%--                    <td width="400"><p><input type="text" name="post_category"></td>--%>
-<%--                </tr>--%>
-<%--                <tr>--%>
-<%--                    <td width="200"><p align="right">제목</td>--%>
-<%--                    <td width="400"><input type="text" name="post_title"></td>--%>
-<%--                </tr>--%>
-<%--                <tr>--%>
-<%--                    <td width="200"><p align="right">작성자아이디</td>--%>
-<%--                    <td width="400"><p><input type="text" name="post_author_id"></td>--%>
-<%--                </tr>        <tr>--%>
-<%--                <td width="200"><p align="right">작성자닉네임</td>--%>
-<%--                <td width="400"><p><input type="text" name="post_author_nickname"></td>--%>
-<%--            </tr>--%>
-<%--                <tr>--%>
-<%--                    <td width="200"><p align="right">내용</td>--%>
-<%--                    <td width="400"><p><input type="text" name="post_content"></td>--%>
-<%--                </tr>--%>
-
-<%--                <tr>--%>
-<%--                    <td width="200"><p>&nbsp;</p></td>--%>
-<%--                    <td width="400"><input type="submit" value="가입하기"><input type="reset" value="다시입력"></td>--%>
-<%--                </tr>--%>
-<%--            </table>--%>
         </div>
     </form>
 <script src="<c:url value='/js/new.js'/>"></script>
