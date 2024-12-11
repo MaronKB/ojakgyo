@@ -124,12 +124,6 @@
               background: var(--sub-color);
             }
 
-            .check-input {
-                width: 100%;  /* 필요한 경우 버튼의 너비 설정 */
-                text-align: center;  /* 텍스트 중앙 정렬 */
-                padding: 10px;  /* 버튼 내 여백 조정 */
-                font-size: 14px;  /* 글자 크기 설정 */
-            }
 
             /* < 동의 모달 창 */
 
@@ -204,12 +198,12 @@
                 </div>
                 <div id="layout1-input">
                       <input id="r_id" name="userId" type="text" required="required"/>
-                      <input id="r_idcheck" type="button" value="아이디 중복 체크" class="check-input" onclick="checkUserId()" />
+                      <input id="r_idcheck" type="button" value="중복체크" onclick="checkUserId()" />
                       <input id="r_password" name="password" type="password" required="required"/>
                       <input id="r_passwordcheck" name="passwordCheck" type="password" required="required" />
                       <input id="r_nickname" name="nickname" type="text" required="required" />
                       <input id="r_email" name="email" type="email" required="required"/>
-                      <input id="r_emailcheck" type="button" value="이메일 중복 체크" class="check-input" onclick="checkEmail()" />
+                      <input id="r_emailcheck" type="button" value="중복체크" onclick="checkEmail()" />
                 </div> 
             </div>   
             <div id="layout2">
@@ -250,17 +244,6 @@
         </div>
     </div>
 
-
-    <div class="modal">
-        <div class="modal-content2">
-            <h2>
-                ${result == 'available' ? '사용 가능한 아이디입니다.' : '이미 존재하는 아이디입니다.'}
-            </h2>
-            <h2>
-                ${emailResult == 'available' ? '사용 가능한 이메일입니다.' : '이미 존재하는 이메일입니다.'}
-            </h2>
-        </div>
-    </div>
 
       <!-- 이용약관 모달 -->
       <div id="termsModal" class="modal1">
@@ -430,23 +413,60 @@
                 }
             };
 
-// 아이디 입력 유효성 검사
-document.getElementById("checkIdForm").addEventListener("submit", function(event) {
-    var userId = document.getElementById("r_id").value;
-    if (!userId) {
-        alert("아이디를 입력해주세요.");
-        event.preventDefault(); // 폼 제출 막기
-    }
-});
+                // 아이디 중복 체크
+                function checkUserId() {
+                    var userId = document.getElementById('r_id').value;
+                    if (userId) {
+                        $.ajax({
+                            url: '/user/checkUserId.do',
+                            type: 'POST',
+                            data: { userId: userId },
+                            dataType: 'json',
+                            success: function(response) {
+                                if (response.result === 'available') {
+                                    alert("사용 가능한 아이디입니다.");
+                                } else {
+                                    alert("이미 존재하는 아이디입니다.");
+                                }
+                            },
+                            error: function(xhr, status, error) {
+                                alert("아이디 중복 체크 실패");
+                            }
+                        });
+                    } else {
+                        alert("아이디를 입력해주세요.");
+                    }
+                }
 
-// 이메일 입력 유효성 검사
-document.getElementById("checkEmailForm").addEventListener("submit", function(event) {
-    var email = document.getElementById("r_email").value;
-    if (!email) {
-        alert("이메일을 입력해주세요.");
-        event.preventDefault(); // 폼 제출 막기
-    }
-});
+                // 이메일 중복 체크
+                function checkEmail() {
+                    var email = document.getElementById('r_email').value;
+                    if (email) {
+                        $.ajax({
+                            url: '/user/checkEmail.do',
+                            type: 'POST',
+                            data: { email: email },
+                            dataType: 'json',
+                            success: function(response) {
+                                if (response.result === 'available') {
+                                    alert("사용 가능한 이메일입니다.");
+                                } else {
+                                    alert("이미 존재하는 이메일입니다.");
+                                }
+                            },
+                            error: function(xhr, status, error) {
+                                alert("이메일 중복 체크 실패");
+                            }
+                        });
+                    } else {
+                        alert("이메일을 입력해주세요.");
+                    }
+                }
+
+
+
+
+
 
       </script>
 
