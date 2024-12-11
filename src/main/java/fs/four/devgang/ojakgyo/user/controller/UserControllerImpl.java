@@ -39,26 +39,36 @@ public class UserControllerImpl implements UserController {
         ModelAndView mav = new ModelAndView("redirect:/register?success=" + success);
         return mav;
     }
-        @Override
-        @RequestMapping(value = "/user/checkUserId.do", method = RequestMethod.POST)
-        public ModelAndView checkUserId(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            String userId = request.getParameter("userId");
-            logger.info("아이디 중복 체크: {}", userId);
 
-            int count = userService.checkUserId(userId);
-            ModelAndView mav = new ModelAndView("jsonView");
-            mav.addObject("result", count == 0 ? "available" : "unavailable");
-            return mav;
-        }
-        @Override
-        @RequestMapping(value = "/user/checkEmail.do", method = RequestMethod.POST)
-        public ModelAndView checkEmail(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            String email = request.getParameter("email");
-            logger.info("이메일 중복 체크: {}", email);
+    // 아이디 중복 체크
+    @Override
+    @RequestMapping(value = "/user/checkUserId.do", method = RequestMethod.POST)
+    public ModelAndView checkUserId(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String userId = request.getParameter("userId");
+        logger.info("아이디 중복 체크: {}", userId);
 
-            int count = userService.checkEmail(email);
-            ModelAndView mav = new ModelAndView("jsonView");
-            mav.addObject("result", count == 0 ? "available" : "unavailable");
-            return mav;
-        }
+        // 중복 체크 로직
+        int count = userService.checkUserId(userId); // 중복 체크 서비스 호출
+
+        // 결과 반환
+        ModelAndView mav = new ModelAndView("user/checkResult");
+        mav.addObject("result", count == 0 ? "available" : "unavailable"); // 중복 여부에 따라 결과 설정
+        return mav;
+    }
+
+    // 이메일 중복 체크
+    @Override
+    @RequestMapping(value = "/user/checkEmail.do", method = RequestMethod.POST)
+    public ModelAndView checkEmail(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String email = request.getParameter("email");
+        logger.info("이메일 중복 체크: {}", email);
+
+        // 중복 체크 로직
+        int count = userService.checkEmail(email); // 중복 체크 서비스 호출
+
+        // 결과 반환
+        ModelAndView mav = new ModelAndView("user/checkResult");
+        mav.addObject("result", count == 0 ? "available" : "unavailable"); // 중복 여부에 따라 결과 설정
+        return mav;
+    }
 }

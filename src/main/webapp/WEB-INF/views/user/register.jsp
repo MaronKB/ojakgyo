@@ -124,6 +124,13 @@
               background: var(--sub-color);
             }
 
+            .check-input {
+                width: 100%;  /* 필요한 경우 버튼의 너비 설정 */
+                text-align: center;  /* 텍스트 중앙 정렬 */
+                padding: 10px;  /* 버튼 내 여백 조정 */
+                font-size: 14px;  /* 글자 크기 설정 */
+            }
+
             /* < 동의 모달 창 */
 
             .modal1 {
@@ -196,13 +203,13 @@
                     <p>이메일</p>
                 </div>
                 <div id="layout1-input">
-                    <input id="r_id" name="userId" type="text" required="required"/>
-                    <input id="r_idcheck" name="userIdcheck" type="button" value="중복체크"/>
-                    <input id="r_password" name="password" type="password" required="required"/>
-                    <input id="r_passwordcheck" name="passwordCheck" type="password" required="required" />
-                    <input id="r_nickname" name="nickname" type="text" required="required" />
-                    <input id="r_email" name="email" type="email" required="required"/>
-                    <input id="r_emailcheck" name="emailcheck" type="button" value="중복체크"/>
+                      <input id="r_id" name="userId" type="text" required="required"/>
+                      <input id="r_idcheck" type="button" value="아이디 중복 체크" class="check-input" onclick="checkUserId()" />
+                      <input id="r_password" name="password" type="password" required="required"/>
+                      <input id="r_passwordcheck" name="passwordCheck" type="password" required="required" />
+                      <input id="r_nickname" name="nickname" type="text" required="required" />
+                      <input id="r_email" name="email" type="email" required="required"/>
+                      <input id="r_emailcheck" type="button" value="이메일 중복 체크" class="check-input" onclick="checkEmail()" />
                 </div> 
             </div>   
             <div id="layout2">
@@ -228,7 +235,7 @@
           </button>
         </div>
 
-    <div id="myModal" class="modal">
+    <div id="myModal" class="modal1">
         <div class="modal-content2">
             <h2>
                 <%
@@ -239,6 +246,18 @@
                         out.print("문제가 발생했습니다. 다시 시도해주세요.");
                     }
                 %>
+            </h2>
+        </div>
+    </div>
+
+
+    <div class="modal">
+        <div class="modal-content2">
+            <h2>
+                ${result == 'available' ? '사용 가능한 아이디입니다.' : '이미 존재하는 아이디입니다.'}
+            </h2>
+            <h2>
+                ${emailResult == 'available' ? '사용 가능한 이메일입니다.' : '이미 존재하는 이메일입니다.'}
             </h2>
         </div>
     </div>
@@ -371,11 +390,11 @@
                     var modal = document.getElementById("myModal");
                     modal.style.display = "block";  // 모달을 표시합니다.
 
-                    // 3초 후에 모달을 자동으로 닫고 "/register"로 리다이렉트
+                    // 2초 후에 모달을 자동으로 닫고 "/register"로 리다이렉트
                     setTimeout(function() {
                         closeModal(modal); // 모달 닫기
                         window.location.href = "/register";  // "/register"로 리다이렉트
-                    }, 3000);  // 3초 (3000ms)
+                    }, 2000);  // 2초 (2000ms)
                 }
 
                 // 모달 닫기 버튼을 클릭하면 모달을 닫음
@@ -411,59 +430,24 @@
                 }
             };
 
-// 아이디 중복 체크
-document.getElementById("r_idcheck").addEventListener("click", function() {
-    var userId = document.getElementById("r_id").value; // 입력한 아이디 가져오기
-    
-    // 아이디가 비어있는지 확인
+// 아이디 입력 유효성 검사
+document.getElementById("checkIdForm").addEventListener("submit", function(event) {
+    var userId = document.getElementById("r_id").value;
     if (!userId) {
         alert("아이디를 입력해주세요.");
-        return;
+        event.preventDefault(); // 폼 제출 막기
     }
-
-    // AJAX 요청을 보냄
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "/user/checkUserId.do", true); // POST 방식으로 변경
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // 요청 헤더 설정
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var response = JSON.parse(xhr.responseText);
-            if (response.result === "unavailable") {
-                alert("이미 존재하는 아이디입니다.");
-            } else {
-                alert("사용 가능한 아이디입니다.");
-            }
-        }
-    };
-    xhr.send("userId=" + encodeURIComponent(userId)); // 파라미터로 userId 전달
 });
 
-// 이메일 중복 체크
-document.getElementById("r_emailcheck").addEventListener("click", function() {
-    var email = document.getElementById("r_email").value; // 입력한 이메일 가져오기
-    
-    // 이메일이 비어있는지 확인
+// 이메일 입력 유효성 검사
+document.getElementById("checkEmailForm").addEventListener("submit", function(event) {
+    var email = document.getElementById("r_email").value;
     if (!email) {
         alert("이메일을 입력해주세요.");
-        return;
+        event.preventDefault(); // 폼 제출 막기
     }
-
-    // AJAX 요청을 보냄
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "/user/checkEmail.do", true); // POST 방식으로 변경
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // 요청 헤더 설정
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var response = JSON.parse(xhr.responseText);
-            if (response.result === "unavailable") {
-                alert("이미 등록된 이메일입니다.");
-            } else {
-                alert("사용 가능한 이메일입니다.");
-            }
-        }
-    };
-    xhr.send("email=" + encodeURIComponent(email)); // 파라미터로 email 전달
 });
+
       </script>
 
 
