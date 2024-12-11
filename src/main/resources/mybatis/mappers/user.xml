@@ -14,7 +14,7 @@
     <!-- 회원 가입 -->
     <insert id="insertMember" parameterType="userVO">
         <![CDATA[
-            INSERT INTO user_info (user_id, user_pw, user_nickname, user_email, user_receive_adv, user_reg_date)
+            INSERT INTO OJAKGYO.user_info (user_id, user_pw, user_nickname, user_email, user_receive_adv, user_reg_date)
             VALUES (#{userId}, #{password}, #{nickname}, #{email}, #{receiveAd}, SYSDATE)
         ]]>
     </insert>
@@ -22,14 +22,14 @@
     <!-- 아이디 중복 체크 -->
     <select id="selectUserId" parameterType="String" resultType="int">
         SELECT COUNT(*)
-        FROM user_info
+        FROM OJAKGYO.USER_INFO
         WHERE user_id = #{userId}
     </select>
 
     <!-- 이메일 중복 체크 -->
     <select id="selectEmail" parameterType="String" resultType="int">
         SELECT COUNT(*)
-        FROM user_info
+        FROM OJAKGYO.USER_INFO
         WHERE user_email = #{email}
     </select>
 

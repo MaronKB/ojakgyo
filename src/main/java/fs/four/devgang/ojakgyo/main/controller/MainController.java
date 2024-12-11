@@ -42,7 +42,7 @@ public class MainController {
         }
         String sort = request.getParameter("sort");
         if (sort == null) {
-            sort = "distance";
+            sort = "price";
         }
 
         Coordinate myPos = coordinateService.getCoordinate(myLocation);

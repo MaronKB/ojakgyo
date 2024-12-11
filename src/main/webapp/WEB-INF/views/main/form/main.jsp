@@ -18,14 +18,7 @@
                 </span>
                 <span class="location-toggle-title">내 위치</span>
             </button>
-            <div id="main-radius-list">
-                <input type="radio" name="radius" id="rad-10" value="10" class="main-radius"/>
-                <label for="rad-10"><span>10km</span></label>
-                <input type="radio" name="radius" id="rad-20" value="20" class="main-radius"/>
-                <label for="rad-20"><span>20km</span></label>
-                <input type="radio" name="radius" id="rad-30" value="30" class="main-radius"/>
-                <label for="rad-30"><span>30km</span></label>
-            </div>
+            <jsp:include page="radius.jsp"/>
             <button type="button" id="your-location-toggle" class="location-toggle" data-target="your-location" onclick="toggleBox(this)">
                 <span class="location-image-container">
                     <img src="<c:url value="/images/place_user.png"/>" alt="상대 위치"/>
@@ -33,10 +26,14 @@
                 <span class="location-toggle-title">상대 위치</span>
             </button>
             <div id="main-hr"></div>
-            <button id="go-button" type="button" onclick="go()">
-                <span>만나기</span>
-            </button>
+            <div id="center-buttons">
+                <jsp:include page="category_button.jsp"/>
+                <button id="go-button" type="button" onclick="go()">
+                    <span>만나기</span>
+                </button>
+            </div>
         </div>
+        <jsp:include page="sort.jsp"/>
         <jsp:include page="my_location.jsp"/>
         <jsp:include page="your_location.jsp"/>
         <jsp:include page="category_box.jsp"/>

@@ -30,7 +30,7 @@
     </script>
 </head>
 <body>
-<jsp:include page="../includes/header.jsp"/>
+<jsp:include page="/WEB-INF/views/includes/header.jsp"/>
 <main id="result">
     <div id="result-header">
         <c:forEach var="category" items="${categories}" varStatus="loop">
@@ -222,7 +222,7 @@
         </div>
     </section>
 </main>
-<jsp:include page="../includes/footer.jsp"/>
+<jsp:include page="/WEB-INF/views/includes/footer.jsp"/>
 </body>
 <script type="text/javascript" language="javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=d2682gqz4u"></script>
 <script type="text/javascript" language="javascript" src="<c:url value="/js/main/result.js"/>"></script>

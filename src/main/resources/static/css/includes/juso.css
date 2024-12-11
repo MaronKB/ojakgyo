@@ -11,6 +11,9 @@
     border: 1px solid #e0e0e0;
     border-radius: 5px;
 }
+.juso .juso-value:focus {
+    outline: none;
+}
 .juso .juso-button {
     width: 80px;
     height: 40px;
@@ -70,7 +73,7 @@
     padding: 0 20px;
 }
 .juso-box .juso-header .juso-close {
-    width: 40px;
+    width: 60px;
     height: 40px;
     display: flex;
     justify-content: center;
@@ -116,6 +119,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: var(--font-menu), sans-serif;
+    font-size: 14px;
     background-color: #e0e0e0;
     border: 0;
     border-radius: 5px;

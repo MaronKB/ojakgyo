@@ -1,7 +1,11 @@
 @import "radius.css";
 @import "main_box.css";
+@import "category_box.css";
+@import "category_button.css";
 @import "location_box.css";
 @import "location_toggle.css";
+@import "radius.css";
+@import "sort.css";
 
 main#main {
     position: relative;
@@ -38,10 +42,19 @@ main#main {
     transform: translate(-50%, -50%);
     z-index: -1;
 }
-#go-button {
+#center-buttons {
     position: absolute;
     top: 50%;
     left: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    transform: translate(-50%, calc(-50% - 102px));
+    z-index: 10;
+}
+#go-button {
     width: 100px;
     height: 100px;
     font-family: var(--font-menu), sans-serif;
@@ -50,8 +63,7 @@ main#main {
     background: var(--sub-color);
     border: 0;
     border-radius: 50% 50% 0 50%;
-    transform: translate(-50%, calc(-50% - 72px)) rotate(45deg);
-    z-index: 10;
+    transform: rotate(45deg);
 }
 #go-button:hover {
     background: white;
@@ -70,62 +82,7 @@ main#main {
     transform: rotate(-45deg);
 }
 
-.categories {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 5px;
-    padding: 10px;
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
-    margin: auto 0;
-}
-.categories hr {
-    grid-column: 1 / -1;
-    width: 100%;
-    border: 1px solid #e0e0e0;
-    margin: 5px auto;
-}
-input[name="category"] {
-    display: none;
-}
-input[name="category"] + label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 32px;
-    font-family: var(--font-menu), sans-serif;
-    font-size: 12px;
-    border-radius: 5px;
-    background-color: #f5f5f5;
-    cursor: pointer;
-}
-input[name="category"] + label:hover {
-    background-color: white;
-}
-input[name="category"]:checked + label {
-    background-color: var(--sub-color);
-    color: white;
-}
-input[name="category"]:disabled + label {
-    opacity: 0;
-    pointer-events: none;
-}
-.tag-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-.tag-button {
-    font-family: var(--font-menu), sans-serif;
-    padding: 5px 10px;
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.tag-button:hover {
-    color: white;
-    background-color: var(--sub-color);
-}
+
 .location-logs {
     flex: 1;
     display: flex;

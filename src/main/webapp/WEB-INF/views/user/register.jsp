@@ -14,6 +14,7 @@
         <title>회원가입</title>
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/index.css"/>"/>
         <script src="<c:url value='/js/register.js'/>"></script>
+        <script src="<c:url value='/js/jQuery-2.1.4.min.js'/>"></script>
         
         <style>
             #memberwindow {
@@ -221,7 +222,6 @@
             </div>
         </div>
     </form>
-</body>
       <!-- 시작 홈 버튼 -->
         <div>
           <button id="randing-button" onclick="window.location.href='<c:url value="/"/>';">
@@ -423,6 +423,7 @@
                             data: { userId: userId },
                             dataType: 'json',
                             success: function(response) {
+                                console.log(response);
                                 if (response.result === 'available') {
                                     alert("사용 가능한 아이디입니다.");
                                 } else {
@@ -469,7 +470,5 @@
 
 
       </script>
-
-
     </body>
 </html>

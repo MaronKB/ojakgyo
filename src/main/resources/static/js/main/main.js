@@ -1,15 +1,16 @@
 const countTags = (element) => {
-    const categorys = document.querySelectorAll('[name="category"]:checked');
-    const count = categorys.length;
+    const categories = document.querySelectorAll('[name="category"]:checked');
+    const count = categories.length;
 
-    if (count > 3) {
-        alert('태그는 10개까지 선택 가능합니다.');
+    if (count > 8) {
+        alert('태그는 8개까지 선택 가능합니다.');
         element.checked = false;
     }
 }
+
 const clearTags = () => {
-    const categorys = document.querySelectorAll('[name="category"]');
-    categorys.forEach((category) => {
+    const categories = document.querySelectorAll('[name="category"]');
+    categories.forEach((category) => {
         category.checked = false;
     });
 }
@@ -17,6 +18,37 @@ const clearTags = () => {
 const toggleBox = (element) => {
     const target = document.querySelector(`#${element.dataset.target}`);
     target.classList.toggle('active');
+    checkInputDone();
+}
+
+const checkInputDone = () => {
+    const myLocation = document.querySelector('#my-location-value').value;
+    const myLocationButton = document.querySelector('#my-location-toggle');
+    myLocationButton.classList.toggle('done', myLocation !== '');
+
+    const yourLocation = document.querySelector('#your-location-value').value;
+    const yourLocationButton = document.querySelector('#your-location-toggle');
+    yourLocationButton.classList.toggle('done', yourLocation !== '');
+
+    const categories = document.querySelectorAll('[name="category"]:checked + label');
+    const categoryButton = document.querySelector('#category-button');
+    categoryButton.classList.toggle('done', categories.length > 0);
+    const tags = Array.from(categories).map((category) => {
+        const span = document.createElement('span');
+        span.classList.add('category-tag');
+        span.textContent = category.innerText;
+        return span;
+    });
+
+    const categoryTags = document.querySelector('#category-tags');
+    if (tags.length === 0) {
+        const span = document.createElement('span');
+        span.classList.add('category-tag');
+        span.textContent = '태그_선택';
+        categoryTags.replaceChildren(span);
+    } else {
+        categoryTags.replaceChildren(...tags);
+    }
 }
 
 const go = () => {
@@ -30,7 +62,7 @@ const go = () => {
 
     const yourLocation = form["your-location-value"].value;
     if (yourLocation === '') {
-        alert('상대방 위치를 입력해주세요.');
+        alert('상대방의 위치를 입력해주세요.');
         return;
     }
 
@@ -47,13 +79,25 @@ const go = () => {
 }
 
 const init = () => {
-    const checkboxes = document.querySelectorAll('[name="location-category"]');
+    const checkboxes = document.querySelectorAll('[name="category"]');
     console.log(checkboxes.length);
     checkboxes.forEach((checkbox) => {
         checkbox.addEventListener('change', (event) => {
             countTags(event.target);
         });
     });
+    const mainContainers = document.querySelectorAll(".main-box-container");
+    Array.from(mainContainers).forEach((container) => {
+        container.addEventListener('click', (event) => {
+            toggleBox(event.target);
+        });
+    });
+    const mainBoxes = document.querySelectorAll(".main-box");
+    Array.from(mainBoxes).forEach((box) => {
+        box.addEventListener('click', (event) => {
+            event.stopPropagation();
+        });
+    })
 }
 
 window.addEventListener('DOMContentLoaded', () => init());
