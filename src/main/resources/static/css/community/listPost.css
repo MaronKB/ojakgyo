@@ -22,6 +22,8 @@
 
 .table-container {
 
+    border-bottom: 1px solid #402E2A;
+    margin-bottom: 10px;
 }
 
 .table {
@@ -41,13 +43,18 @@
 }
 
 .table tbody td {
-    /*padding: 15px;*/
+    text-align: center;
+}
 
+.table .content {
+    text-align: start;
 }
 
 .table tbody tr:hover {
     background-color: #f1f1f1;
 }
+
+
 
 .write-btn {
     /*float: right;*/
