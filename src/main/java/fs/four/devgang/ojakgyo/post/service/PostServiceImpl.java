@@ -28,4 +28,10 @@ public class PostServiceImpl implements PostService {
     public int addPost(PostVO post) throws Exception {
         return postDAO.insertPost(post);
     }
+
+    @Override
+    public PostVO getPostById(int postId) throws Exception {
+        return postDAO.selectPostById(postId);
+    }
+
 }

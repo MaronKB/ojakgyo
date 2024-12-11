@@ -16,4 +16,7 @@ public interface PostDAO {
      */
     public List selectAllPostList() throws DataAccessException;
     public int insertPost(PostVO postVO) throws DataAccessException ;
+
+    PostVO selectPostById(int postId) throws DataAccessException;
+
 }

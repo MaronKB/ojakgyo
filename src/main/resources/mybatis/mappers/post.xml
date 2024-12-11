@@ -24,4 +24,8 @@
         ]]>
     </insert>
 
+    <select id="selectPostById" parameterType="int" resultMap="memResult">
+        select * from post where post_id = #{postId}
+    </select>
+
 </mapper>

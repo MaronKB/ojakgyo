@@ -12,4 +12,7 @@ public interface PostController {
     public ModelAndView postPage(HttpServletRequest request, HttpServletResponse response) throws Exception;
 
     public ModelAndView addPost(@ModelAttribute("info") PostVO postVO, HttpServletRequest request, HttpServletResponse response) throws Exception;
+
+    public ModelAndView viewPost(HttpServletRequest request, HttpServletResponse response) throws Exception;
+
 }
