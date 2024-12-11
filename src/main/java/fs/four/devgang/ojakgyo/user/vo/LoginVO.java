@@ -1,25 +1,20 @@
 package fs.four.devgang.ojakgyo.user.vo;
 
-import java.util.Date;
-
 public class LoginVO {
     private String userid;
     private String password;
-    private String nickname;
-    private String email;
-    private String receiveAd;
-    private Date userRegDate;
+    private String isAdmin; // 관리자 여부 추가 (Y 또는 N로 저장)
 
-    public LoginVO() {
-        this.userRegDate = new Date(); // 기본값
-    }
+    // 기본 생성자
+    public LoginVO() {}
 
+    // 사용자명과 비밀번호를 받는 생성자
     public LoginVO(String userid, String password) {
         this.userid = userid;
         this.password = password;
     }
 
-    // Getter/Setter
+    // Getter and Setter
     public String getUserid() {
         return userid;
     }
@@ -36,47 +31,21 @@ public class LoginVO {
         this.password = password;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getIsAdmin() {
+        return isAdmin;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setIsAdmin(String isAdmin) {
+        this.isAdmin = isAdmin;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getReceiveAd() {
-        return receiveAd;
-    }
-
-    public void setReceiveAd(String receiveAd) {
-        this.receiveAd = receiveAd;
-    }
-
-    public Date getUserRegDate() {
-        return userRegDate;
-    }
-
-    public void setUserRegDate(Date userRegDate) {
-        this.userRegDate = userRegDate;
-    }
-
+    // toString() 메서드 (비밀번호는 숨김 처리)
     @Override
     public String toString() {
         return "LoginVO{" +
                 "userid='" + userid + '\'' +
-                ", password='******'" +
-                ", nickname='" + nickname + '\'' +
-                ", email='" + email + '\'' +
-                ", receiveAd='" + receiveAd + '\'' +
-                ", userRegDate=" + userRegDate +
+                ", password='******'" +  // 비밀번호는 실제 값을 숨깁니다.
+                ", isAdmin='" + isAdmin + '\'' +
                 '}';
     }
 }

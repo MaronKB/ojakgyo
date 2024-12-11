@@ -19,10 +19,10 @@
         <div class="image-container"></div>
 
         <!-- 로그인 폼 -->
-        <form class="login-form" action="<c:url value='/login.do'/>" method="post">
+        <form class="login-form" action="${contextPath}/user/login.do" method="post">
             <div class="login-fields">
-                <label for="username">아이디</label>
-                <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required>
+                <label for="userid">아이디</label>
+                <input type="text" id="userid" name="userid" placeholder="아이디를 입력하세요" required>
 
                 <label for="password">비밀번호</label>
                 <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required>
