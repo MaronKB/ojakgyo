@@ -15,7 +15,7 @@
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/index.css"/>"/>
         <script src="<c:url value='/js/register.js'/>"></script>
         <script src="<c:url value='/js/jQuery-2.1.4.min.js'/>"></script>
-        
+
         <style>
             #memberwindow {
                 width:450px;
@@ -36,7 +36,7 @@
                 height:180px;
                 object-fit: cover;
                 background-position: center;
-                background-repeat: no-repeat; 
+                background-repeat: no-repeat;
                 background-size: contain;
             }
 
@@ -117,7 +117,7 @@
               width: 100px;
               height: 40px;
               border: 1px solid black;
-              margin-left: auto; 
+              margin-left: auto;
             }
 
             #randing-button:hover{
@@ -129,7 +129,7 @@
             /* < 동의 모달 창 */
 
             .modal1 {
-                display: none; 
+                display: none;
                 position: fixed;
                 top: 0px; /* 상단 위치 */
                 left: 0px; /* 왼쪽 위치 */
@@ -184,7 +184,7 @@
 
         </style>
     </head>
-    <body> 
+    <body>
       <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
       <form action="${contextPath}/user/register.do" method="post">
         <div id="memberwindow">
@@ -205,20 +205,20 @@
                       <input id="r_nickname" name="nickname" type="text" required="required" />
                       <input id="r_email" name="email" type="email" required="required"/>
                       <input id="r_emailcheck" type="button" value="중복체크" onclick="checkEmail()" />
-                </div> 
-            </div>   
+                </div>
+            </div>
             <div id="layout2">
                 <p>
                     <input id="consentinfo" name="terms" type="checkbox" required />
-                    <a href="javascript:void(0);" id="termsLink" style="text-decoration: underline; color: #0066cc;" 
-                       onmouseover="this.style.color='#ff6600'" onmouseout="this.style.color='#0066cc'">이용약관</a> 및 
-                    <a href="javascript:void(0);" id="privacyLink" style="text-decoration: underline; color: #0066cc;" 
+                    <a href="javascript:void(0);" id="termsLink" style="text-decoration: underline; color: #0066cc;"
+                       onmouseover="this.style.color='#ff6600'" onmouseout="this.style.color='#0066cc'">이용약관</a> 및
+                    <a href="javascript:void(0);" id="privacyLink" style="text-decoration: underline; color: #0066cc;"
                        onmouseover="this.style.color='#ff6600'" onmouseout="this.style.color='#0066cc'">개인정보 취급방침</a>에 동의
                 </p>
                 <p><input id="consentad" name="receiveAd" type="checkbox"  value="Y" /> 광고성 이메일 수신 동의</p>
             </div>
             <div id="accession">
-                <input id="accession-button" value="가입하기" type="submit" />
+                <input id="accession-button" value="가입하기" type="submit" onclick="return validateForm()"  />
             </div>
         </div>
     </form>
@@ -255,9 +255,9 @@
               <h3>1. 서비스 이용 개요</h3>
               <br>
                <p style="font-size:16px; letter-spacing: 1px;">
-                본 약관은 커뮤니티 서비스의 사용에 관한 규칙을 정의하며, 
-                사용자는 서비스 이용을 통해 본 약관에 동의한 것으로 간주됩니다. 
-                커뮤니티는 사용자가 온라인에서 의견을 교환하고 정보를 공유할 수 있는 공간을 제공하며, 
+                본 약관은 커뮤니티 서비스의 사용에 관한 규칙을 정의하며,
+                사용자는 서비스 이용을 통해 본 약관에 동의한 것으로 간주됩니다.
+                커뮤니티는 사용자가 온라인에서 의견을 교환하고 정보를 공유할 수 있는 공간을 제공하며,
                 해당 서비스의 사용자는 본 약관을 준수해야 합니다.
                </p>
               <br>
@@ -373,10 +373,10 @@
                     var modal = document.getElementById("myModal");
                     modal.style.display = "block";  // 모달을 표시합니다.
 
-                    // 2초 후에 모달을 자동으로 닫고 "/register"로 리다이렉트
+                    // 2초 후에 모달을 자동으로 닫고 "/login"로 리다이렉트
                     setTimeout(function() {
                         closeModal(modal); // 모달 닫기
-                        window.location.href = "/register";  // "/register"로 리다이렉트
+                        window.location.href = "/login";  // "/login"로 리다이렉트
                     }, 2000);  // 2초 (2000ms)
                 }
 
@@ -413,7 +413,10 @@
                 }
             };
 
-                // 아이디 중복 체크
+       // 중복 체크
+            var userIdChecked = false;
+            var emailChecked = false;
+          // 아이디 중복 체크
                 function checkUserId() {
                     var userId = document.getElementById('r_id').value;
                     if (userId) {
@@ -423,19 +426,22 @@
                             data: { userId: userId },
                             dataType: 'json',
                             success: function(response) {
-                                console.log(response);
                                 if (response.result === 'available') {
                                     alert("사용 가능한 아이디입니다.");
+                                    userIdChecked = true;  // 아이디 중복 체크 성공
                                 } else {
                                     alert("이미 존재하는 아이디입니다.");
+                                    userIdChecked = false;  // 아이디 중복 체크 실패
                                 }
                             },
                             error: function(xhr, status, error) {
                                 alert("아이디 중복 체크 실패");
+                                userIdChecked = false;
                             }
                         });
                     } else {
                         alert("아이디를 입력해주세요.");
+                        userIdChecked = false;
                     }
                 }
 
@@ -451,24 +457,36 @@
                             success: function(response) {
                                 if (response.result === 'available') {
                                     alert("사용 가능한 이메일입니다.");
+                                    emailChecked = true;  // 이메일 중복 체크 성공
                                 } else {
                                     alert("이미 존재하는 이메일입니다.");
+                                    emailChecked = false;  // 이메일 중복 체크 실패
                                 }
                             },
                             error: function(xhr, status, error) {
                                 alert("이메일 중복 체크 실패");
+                                emailChecked = false;
                             }
                         });
                     } else {
                         alert("이메일을 입력해주세요.");
+                        emailChecked = false;
                     }
                 }
 
-
-
-
-
-
+                // 가입하기 버튼 클릭 시 중복 체크 여부 확인
+                function validateForm() {
+                    if (!userIdChecked) {
+                        alert("아이디 중복 체크를 완료해주세요.");
+                        return false; // 제출 방지
+                    }
+                    if (!emailChecked) {
+                        alert("이메일 중복 체크를 완료해주세요.");
+                        return false; // 제출 방지
+                    }
+                    return true; // 제출 허용
+                }
       </script>
+
     </body>
 </html>
