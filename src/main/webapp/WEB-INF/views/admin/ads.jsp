@@ -1,16 +1,13 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: MRKB
-  Date: 24. 12. 2.
-  Time: 오후 3:11
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/includes/header.jsp"/>
+<main id="main" class="max">
 
+</main>
+<jsp:include page="/WEB-INF/views/includes/footer.jsp"/>
 </body>
 </html>
