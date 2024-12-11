@@ -28,3 +28,4 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("비밀번호:", passwordInput.value);
     });
 });
+.
