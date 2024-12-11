@@ -41,7 +41,7 @@ public class LoginControllerImpl implements LoginController {
             if (user != null) {
                 logger.info("로그인 성공: {}", user);
                 request.getSession().setAttribute("user", user);
-                mav.setViewName("redirect:/index/main.jsp"); // 성공 시 메인 페이지로 이동
+                mav.setViewName("index/main"); // 성공 시 메인 페이지로 이동
             } else {
                 logger.warn("로그인 실패: 사용자 정보 없음");
                 mav.setViewName("user/login");

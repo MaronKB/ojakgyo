@@ -34,8 +34,8 @@
 
         <!-- 추가 링크 -->
         <div class="login-links">
-            <a href="<c:url value='/user/register.do'/>">회원가입</a>
-            <a href="<c:url value='/user/find_password.do'/>">비밀번호 찾기</a>
+            <a href="<c:url value='/register'/>">회원가입</a>
+            <a href="<c:url value='/find_password'/>">비밀번호 찾기</a>
         </div>
     </div>
 
