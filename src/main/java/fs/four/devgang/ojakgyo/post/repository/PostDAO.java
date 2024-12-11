@@ -23,4 +23,5 @@ public interface PostDAO {
 //    게시글 조회
     PostVO selectPostById(int postId) throws DataAccessException;
 
+    List<PostVO> selectPostByCategory(String category);
 }

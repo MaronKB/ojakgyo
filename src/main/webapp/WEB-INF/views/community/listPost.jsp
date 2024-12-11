@@ -14,6 +14,8 @@
     <meta charset=UTF-8">
     <title>커뮤니티-오작교</title>
     <link rel="stylesheet" type="text/css" href="<c:url value="/css/index.css"/>"/>
+    <script src="<c:url value='/js/jQuery-2.1.4.min.js'/>"></script>
+
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
@@ -23,7 +25,7 @@
             <button type="button" class="btn" data-category="전체">전체</button>
             <button type="button" class="btn" data-category="인기">인기</button>
             <button type="button" class="btn" data-category="리뷰">리뷰</button>
-            <button type="button" class="btn" data-category="자유">자유</button>
+            <button id="categoryForum" type="button" class="btn" data-category="자유">자유</button>
             <button type="button" class="btn" data-category="질문">질문</button>
         </div>
 
@@ -41,7 +43,7 @@
                 </thead>
                 <tbody>
                 <c:forEach var="post" items="${postList}" >
-                    <tr>
+                    <tr id="postdata">
                         <td><a href="${contextPath}/post/view.do?postId=${post.post_id}">${post.post_id}</a></td>
                         <td class="content"><a href="${contextPath}/post/view.do?postId=${post.post_id}">${post.post_title}</a></td>
                         <td><a href="${contextPath}/post/view.do?postId=${post.post_id}">${post.post_author_nickname}</a></td>
@@ -84,5 +86,6 @@
         </div>
     </div>
     <%--<a  href="${contextPath}/member/memberForm.do"><h1 style="text-align:center">회원가입</h1></a>--%>
+<script src="<c:url value='/js/listPost.js'/>"></script>
 </body>
 </html>
