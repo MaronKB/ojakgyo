@@ -42,7 +42,7 @@
                 <tbody>
                 <c:forEach var="post" items="${postList}" >
                     <tr>
-                        <td>${post.post_id}</td>
+                        <td><a href="${contextPath}/post/view.do?postId=${post.post_id}">${post.post_id}</a></td>
                         <td>${post.post_title}</td>
                         <td>${post.post_author_nickname}</td>
                         <td>${post.post_reg_date}</td>

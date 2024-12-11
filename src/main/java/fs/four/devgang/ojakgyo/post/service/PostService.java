@@ -8,4 +8,7 @@ public interface PostService {
 
     public List listPost() throws Exception;
     public int addPost(PostVO postVO) throws Exception;
+
+    PostVO getPostById(int postId) throws Exception;
+
 }

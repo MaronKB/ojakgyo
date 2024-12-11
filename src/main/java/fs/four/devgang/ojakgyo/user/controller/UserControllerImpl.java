@@ -10,10 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.PrintWriter;
 
 @Controller("userController")
 public class UserControllerImpl implements UserController {
@@ -39,26 +40,44 @@ public class UserControllerImpl implements UserController {
         ModelAndView mav = new ModelAndView("redirect:/register?success=" + success);
         return mav;
     }
-        @Override
-        @RequestMapping(value = "/user/checkUserId.do", method = RequestMethod.POST)
-        public ModelAndView checkUserId(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            String userId = request.getParameter("userId");
-            logger.info("아이디 중복 체크: {}", userId);
 
-            int count = userService.checkUserId(userId);
-            ModelAndView mav = new ModelAndView("jsonView");
-            mav.addObject("result", count == 0 ? "available" : "unavailable");
-            return mav;
-        }
-        @Override
-        @RequestMapping(value = "/user/checkEmail.do", method = RequestMethod.POST)
-        public ModelAndView checkEmail(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            String email = request.getParameter("email");
-            logger.info("이메일 중복 체크: {}", email);
+    // 아이디 중복 체크
+    @Override
+    @RequestMapping(value = "/user/checkUserId.do", method = RequestMethod.POST)
+    public ModelAndView checkUserId(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String userId = request.getParameter("userId");
+        logger.info("아이디 중복 체크: {}", userId);
 
-            int count = userService.checkEmail(email);
-            ModelAndView mav = new ModelAndView("jsonView");
-            mav.addObject("result", count == 0 ? "available" : "unavailable");
-            return mav;
-        }
+        // 중복 체크 로직
+        int count = userService.checkUserId(userId); // 중복 체크 서비스 호출
+
+        // JSON 형식으로 결과 반환
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        PrintWriter out = response.getWriter();
+        String result = (count == 0) ? "available" : "unavailable";
+        out.print("{\"result\": \"" + result + "\"}");
+        out.flush();
+        return null;
+    }
+
+    // 이메일 중복 체크
+    @Override
+    @RequestMapping(value = "/user/checkEmail.do", method = RequestMethod.POST)
+    public ModelAndView checkEmail(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String email = request.getParameter("email");
+        logger.info("이메일 중복 체크: {}", email);
+
+        // 중복 체크 로직
+        int count = userService.checkEmail(email); // 중복 체크 서비스 호출
+
+        // JSON 형식으로 결과 반환
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        PrintWriter out = response.getWriter();
+        String result = (count == 0) ? "available" : "unavailable";
+        out.print("{\"result\": \"" + result + "\"}");
+        out.flush();
+        return null;
+    }
 }

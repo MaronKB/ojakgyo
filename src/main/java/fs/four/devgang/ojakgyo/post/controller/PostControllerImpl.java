@@ -49,4 +49,15 @@ public class PostControllerImpl implements PostController {
         ModelAndView mav = new ModelAndView("redirect:/post/listPost");
         return mav;
     }
+
+    @Override
+    @GetMapping("/post/view.do")
+    public ModelAndView viewPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String postId = request.getParameter("postId");
+        PostVO post = postService.getPostById(Integer.parseInt(postId));
+        ModelAndView mav = new ModelAndView("/community/view");
+        mav.addObject("post", post);
+        return mav;
+    }
+
 }

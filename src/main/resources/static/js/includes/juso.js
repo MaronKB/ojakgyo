@@ -24,7 +24,7 @@ class Juso {
 
         const jusoClose = document.createElement("a");
         jusoClose.className = "juso-close";
-        jusoClose.textContent = "X";
+        jusoClose.innerHTML = "<i class=\"fa-solid fa-xmark\"></i>";
         jusoClose.addEventListener("click", this.close);
 
         const jusoBody = document.createElement("div");

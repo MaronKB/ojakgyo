@@ -1,0 +1,45 @@
+#sort {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #fff3;
+    padding: 10px;
+}
+#sort > input {
+    display: none;
+}
+#sort > input + label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-menu), sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
+    background: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+#sort > input + label:before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    font-family: FontAwesome, sans-serif;
+    color: white;
+    background: white;
+    border: 2px solid var(--text-color);
+    border-radius: 5px;
+}
+#sort > input:checked + label:before {
+    content: "\f00c";
+    background: var(--sub-color);
+    border-color: transparent;
+}
