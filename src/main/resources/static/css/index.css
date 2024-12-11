@@ -13,6 +13,7 @@
 @import "community/view.css";
 @import "hotplace/hotplace.css";
 @import "admin/listUser.css";
+@import "admin/ads/ads.css";
 
 :root {
     --font-head: 'MYArirang-Medium', sans-serif;

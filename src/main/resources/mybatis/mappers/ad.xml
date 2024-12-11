@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fs.four.devgang.ojakgyo.ad.repository.AdDAO">
+    <resultMap id="adResult" type="adVO">
+        <result property="adv_id" column="ADV_ID" />
+        <result property="adv_title" column="ADV_TITLE" />
+        <result property="adv_category" column="ADV_CATEGORY" />
+        <result property="adv_reg_date" column="ADV_REG_DATE" />
+        <result property="adv_reg_by" column="ADV_REG_BY" />
+        <result property="adv_mod_date" column="ADV_MOD_DATE" />
+        <result property="adv_mod_by" column="ADV_MOD_BY" />
+        <result property="adv_exp_date" column="ADV_EXP_DATE" />
+        <result property="adv_is_valid" column="ADV_IS_VALID" />
+    </resultMap>
+    <select id="selectAllAdList" resultType="adVO">
+        <![CDATA[
+            SELECT * FROM OJAKGYO.ADV_INFO order by ADV_REG_DATE DESC
+        ]]>
+    </select>
+</mapper>

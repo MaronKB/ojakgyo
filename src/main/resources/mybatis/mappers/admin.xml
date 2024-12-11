@@ -4,7 +4,7 @@
 
     <select id="selectAllUserList" resultType="adminVO">
         <![CDATA[
-            select * from user_info order by user_reg_date desc
+            select * from OJAKGYO.USER_INFO order by user_reg_date desc
         ]]>
     </select>
 </mapper>
