@@ -1,6 +1,7 @@
+@import "ad_modal.css";
 #ads {
     width: 800px;
-    height: 800px;
+    height: fit-content;
     background: white;
     border-radius: 15px;
 }
@@ -11,6 +12,38 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+#ads-header h3 {
+    flex: 1;
+    font-family: var(--font-menu), sans-serif;
+    font-size: 16px;
+    text-align: left;
+    padding: 0 20px;
+}
+#ads-buttons {
+    flex: none;
+    width: fit-content;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 0 20px;
+}
+#ads-buttons > a {
+    flex: none;
+    width: 140px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-menu), sans-serif;
+    font-size: 14px;
+    color: white;
+    background: var(--text-color);
+    border-radius: 5px;
+    cursor: pointer;
 }
 #ads-body {
     flex: 1;
@@ -40,8 +73,11 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    overflow: hidden;
 }
 .ad {
+    flex: none;
+    height: 50px;
 }
 .ad:nth-child(2n) {
     background: #f0f0f0;
@@ -50,10 +86,12 @@
     display: none;
 }
 .ad > label {
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 10px;
+    padding: 0 10px;
     cursor: pointer;
 }
 .ad > label:hover {
@@ -77,27 +115,79 @@
     width: fit-content;
     align-self: flex-start;
     font-size: 10px;
+    color: #666;
 }
 .ad-buttons {
     flex: none;
     width: fit-content;
     display: flex;
+    background: var(--text-color);
+    border-radius: 5px;
+    overflow: hidden;
 }
 .ad-edit,
 .ad-delete {
+    flex: none;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+}
+.ad-edit:hover,
+.ad-delete:hover {
+    color: var(--text-color);
+    background: white;
+}
+.ad > input:checked + label {
+    background: var(--sub-color);
+}
+.ad > input:checked + label .ad-title,
+.ad > input:checked + label .ad-expires-in {
+    color: white;
+}
+.ads-footer {
+    flex: none;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+.ads-footer a {
     flex: none;
     width: 20px;
     height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: var(--font-menu), sans-serif;
+    font-size: 12px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    user-select: none;
     cursor: pointer;
 }
-.ad > input:checked + label {
+.ads-footer a:hover {
+    background: white;
+}
+.ads-footer a.active {
+    color: white;
     background: var(--sub-color);
 }
-.ad > input:checked + label * {
-    color: white;
+.ads-footer a.disabled {
+    color: #999;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+.ads-footer > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
 }
 
 #ad-arrows {

@@ -1,14 +1,9 @@
 package fs.four.devgang.ojakgyo.view.controller;
 
-import fs.four.devgang.ojakgyo.ad.controller.AdController;
-import fs.four.devgang.ojakgyo.ad.service.AdService;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ViewController {
@@ -100,6 +95,11 @@ public class ViewController {
 
     // admin
 
+    @GetMapping("/admin/ads")
+    public String ads() {
+        System.out.println("ads");
+        return "admin/ads";
+    }
     @GetMapping("/admin/users")
     public String users() {
         System.out.println("user");

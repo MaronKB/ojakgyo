@@ -1,11 +1,12 @@
 package fs.four.devgang.ojakgyo.ad.controller;
 
+import fs.four.devgang.ojakgyo.ad.entity.Ad;
 import fs.four.devgang.ojakgyo.ad.service.AdService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class AdController {
@@ -13,19 +14,37 @@ public class AdController {
     @Autowired
     private AdService adService;
 
-    @GetMapping("/admin/ads")
-    public ModelAndView ads() throws Exception {
-        JSONObject adList = adService.list();
-
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("admin/ads/ads");
-        mv.addObject("ads", adList);
-
-        return mv;
+    @GetMapping("/api/ad/{adId}")
+    public String selectById(@PathVariable int adId) throws Exception {
+        return adService.selectAdById(adId).toJSONString();
     }
 
-    @GetMapping("/api/ad/list")
-    public String list() throws Exception {
-        return adService.list().toString();
+    @PostMapping("/api/ad")
+    public int insert(@RequestBody String body) throws Exception {
+        JSONParser jsonParser = new JSONParser();
+        JSONObject adJSON = (JSONObject) jsonParser.parse(body);
+        return adService.insert(adJSON);
+    }
+
+    @PatchMapping("/api/ad/{adId}")
+    public int update(@PathVariable int adId, @RequestBody String body) throws Exception {
+        JSONParser jsonParser = new JSONParser();
+        JSONObject adJSON = (JSONObject) jsonParser.parse(body);
+        return adService.update(adId, adJSON);
+    }
+
+    @DeleteMapping("/api/ad/{adId}")
+    public int delete(@PathVariable int adId) throws Exception {
+        return adService.delete(adId);
+    }
+
+    @GetMapping("/api/ads")
+    public String selectAll() throws Exception {
+        return adService.selectAllAdList().toJSONString();
+    }
+
+    @GetMapping("/api/ads/{valid}")
+    public String selectByValid(@PathVariable char valid) throws Exception {
+        return adService.selectAdListByValid(valid).toJSONString();
     }
 }
