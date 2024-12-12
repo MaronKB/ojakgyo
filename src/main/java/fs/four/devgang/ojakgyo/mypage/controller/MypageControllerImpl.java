@@ -21,18 +21,20 @@ public class MypageControllerImpl implements MypageController {
     private MypageVO mypageVO;
 
     @Override
-    @GetMapping("/user/listMypage.do")
+    @GetMapping("/user/updatenickname")
     public ModelAndView listMypage(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         System.out.println("연결");
         List mypageList = mypageService.listMypage();
-        ModelAndView mav = new ModelAndView("/user/listMypage");
+        ModelAndView mav = new ModelAndView("/user/updatenickname");
         mav.addObject("mypageList", mypageList);
         return mav;
+
     }
 
     @Override
     @GetMapping("/user/myPage.do")
+
     public ModelAndView mypagePage(HttpServletRequest request, HttpServletResponse response) throws Exception {
         ModelAndView mav = new ModelAndView("/code/codeGroup");
         return mav;

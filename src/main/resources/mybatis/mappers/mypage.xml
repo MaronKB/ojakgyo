@@ -2,11 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="fs.four.devgang.ojakgyo.mypage.dao.MypageDAO">
 
-    <select id="selectEmail" parameterType="String" resultType="int">
+    <select id="selectMypage" parameterType="String" resultType="String">
         <![CDATA[
-        SELECT COUNT(*)
+        SELECT user_id, user_email, user_pw, user_nickname, user_intro
         FROM ojakgyo.user_info
-        WHERE user_email = #{email}
         ]]>
     </select>
 
