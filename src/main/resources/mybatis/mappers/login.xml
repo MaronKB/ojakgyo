@@ -6,6 +6,7 @@
         <result property="userid" column="user_id" />
         <result property="password" column="user_pw" />
         <result property="isAdmin" column="is_admin" /> <!-- is_admin 컬럼 추가 -->
+        <result property="usernickname" column="user_nickname" />
     </resultMap>
 
     <select id="login" parameterType="fs.four.devgang.ojakgyo.user.vo.LoginVO" resultMap="loginResultMap">

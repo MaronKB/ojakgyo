@@ -57,7 +57,7 @@ public class PostControllerImpl implements PostController {
         if (loginUser != null) {
 
             post.setPost_author_id(loginUser.getUserid());
-            post.setPost_author_nickname(loginUser.getUserid());
+            post.setPost_author_nickname(loginUser.getUsernickname());
         }
 
         int result = postService.addPost(post);
