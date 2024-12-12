@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@Controller("adminController")
+@Controller
 public class AdminController {
     @Autowired
     private AdminService adminService;

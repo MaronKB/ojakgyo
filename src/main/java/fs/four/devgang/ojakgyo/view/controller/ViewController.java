@@ -100,12 +100,13 @@ public class ViewController {
         System.out.println("ads");
         return "admin/ads";
     }
+    /*
     @GetMapping("/admin/users")
     public String users() {
         System.out.println("user");
         return "listUser";
     }
-
+    */
     @GetMapping("/admin/reports")
     public String reports() {
         System.out.println("reports");
