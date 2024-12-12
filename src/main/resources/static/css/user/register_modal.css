@@ -1,0 +1,80 @@
+.register-modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px) brightness(0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+.register-modal-container.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+.register-modal {
+    width: 400px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+}
+.register-modal-header {
+    flex: none;
+    width: 100%;
+    height: 30px;
+    font-family: var(--font-normal), sans-serif;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.register-modal-body {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.register-modal-body > h3 {
+    font-family: var(--font-normal), sans-serif;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.register-modal-body > ul {
+    padding: 0 0 0 20px;
+    margin: 0 0 10px 0;
+}
+.register-modal-body > p {
+    font-family: var(--font-normal), sans-serif;
+    font-size: 12px;
+    margin: 0 0 10px 0;
+}
+.register-modal-body > ul > li {
+    font-family: var(--font-normal), sans-serif;
+    font-size: 12px;
+    margin: 0 0 5px 0;
+}
+.register-modal-control {
+    flex: none;
+    width: 100%;
+    margin-top: 10px;
+}
+.register-modal-control button {
+    width: 100%;
+    height: 40px;
+    font-family: var(--font-menu), sans-serif;
+    font-size: 14px;
+    color: var(--text-color);
+    background-color: var(--background-color-grey);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

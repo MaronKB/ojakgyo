@@ -1,21 +1,48 @@
 package fs.four.devgang.ojakgyo.user.controller;
 
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.servlet.ModelAndView;
+import fs.four.devgang.ojakgyo.user.service.UserService;
 
 import fs.four.devgang.ojakgyo.user.vo.UserVO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-public interface UserController {
+import java.io.PrintWriter;
 
-    // 사용자 등록
-    public ModelAndView addMember(@ModelAttribute("info") UserVO userVO,
-                                  HttpServletRequest request,
-                                  HttpServletResponse response) throws Exception;
-    // 아이디 중복 체크
-    public ModelAndView checkUserId(HttpServletRequest request, HttpServletResponse response) throws Exception;
+@RestController("userController")
+@RequestMapping(value = "/api/user")
+public class UserController {
+    @Autowired
+    private UserService userService;
 
-    // 이메일 중복 체크
-    public ModelAndView checkEmail(HttpServletRequest request, HttpServletResponse response) throws Exception;
+    @GetMapping(value = "/register")
+    public int addMember(@ModelAttribute("user") UserVO user, HttpServletRequest request) throws Exception {
+        request.setCharacterEncoding("utf-8");
+        return userService.addMember(user);
+    }
+
+    @GetMapping(value = "/check/{type}/{str}")
+    public boolean checkDuplication(@PathVariable String type, @PathVariable String str) throws Exception {
+        int count = userService.checkDuplication(type, str);
+        return count == 0;
+    }
+
+    @RequestMapping(value = "/user/checkEmail.do", method = RequestMethod.POST)
+    public ModelAndView checkEmail(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String email = request.getParameter("email");
+
+        // 중복 체크 로직
+        int count = userService.checkEmail(email); // 중복 체크 서비스 호출
+
+        // JSON 형식으로 결과 반환
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        PrintWriter out = response.getWriter();
+        String result = (count == 0) ? "available" : "unavailable";
+        out.print("{\"result\": \"" + result + "\"}");
+        out.flush();
+        return null;
+    }
 }

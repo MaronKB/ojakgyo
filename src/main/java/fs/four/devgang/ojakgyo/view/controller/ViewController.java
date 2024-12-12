@@ -27,7 +27,7 @@ public class ViewController {
     @GetMapping("/register")
     public String register() {
         System.out.println("register");
-        return "user/register";
+        return "user/register/main";
     }
 
     @GetMapping("/mypage")

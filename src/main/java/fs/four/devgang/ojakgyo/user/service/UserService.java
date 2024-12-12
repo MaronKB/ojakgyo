@@ -1,16 +1,38 @@
 package fs.four.devgang.ojakgyo.user.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import fs.four.devgang.ojakgyo.user.repository.UserDAO;
 import fs.four.devgang.ojakgyo.user.vo.UserVO;
 
-public interface UserService {
-    // 사용자 등록 메서드
-    public int addMember(UserVO userVO) throws Exception;
+@Service("userService")
+public class UserService {
 
-    // 아이디 중복 체크
-    public int checkUserId(String userId) throws Exception;
+    @Autowired
+    private UserDAO userDAO;
 
-    // 이메일 중복 체크
-    public int checkEmail(String email) throws Exception;
+    public int addMember(UserVO userVO) throws Exception {
+        // 사용자 등록 처리
+        return userDAO.insertMember(userVO);
+    }
 
+    public int checkDuplication(String type, String str) throws Exception {
+        if (type.equals("id")) {
+            return userDAO.selectUserId(str);
+        } else if (type.equals("email")) {
+            return userDAO.selectEmail(str);
+        } else {
+            return 0;
+        }
+    }
 
+    public int checkUserId(String type, String userId) throws Exception {
+
+        return userDAO.selectUserId(userId);
+    }
+
+    public int checkEmail(String email) throws Exception {
+        return userDAO.selectEmail(email);
+    }
 }

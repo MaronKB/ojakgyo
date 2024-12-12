@@ -62,14 +62,12 @@ const createAdsList = async () => {
 
             const buttons = document.createElement("span");
             buttons.classList.add("ad-buttons");
-            buttons.onclick = (event) => {
-                event.stopPropagation();
-            }
 
             const editButton = document.createElement("a");
             editButton.classList.add("ad-edit");
             editButton.innerHTML = "<i class=\"fa-solid fa-pen-to-square\"></i>";
-            editButton.onclick = () => {
+            editButton.onclick = (ev) => {
+                ev.preventDefault();
                 openAdModal(ad);
             }
 
