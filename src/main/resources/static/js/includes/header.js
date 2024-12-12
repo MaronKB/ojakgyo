@@ -13,6 +13,16 @@ const onMenuHover = () => {
     });
 }
 
+const logout = async () => {
+    const res = await fetch('/api/user/logout').then(res => res.text());
+    if (res === "success") {
+        alert('로그아웃 되었습니다.');
+        location.href = '/login';
+    } else {
+        alert('오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+    }
+}
+
 window.onload = () => {
     onMenuHover();
 }

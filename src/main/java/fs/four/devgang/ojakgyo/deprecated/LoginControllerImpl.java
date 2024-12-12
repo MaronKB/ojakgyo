@@ -1,12 +1,9 @@
-package fs.four.devgang.ojakgyo.user.controller;
+package fs.four.devgang.ojakgyo.deprecated;
 
-import fs.four.devgang.ojakgyo.user.service.LoginService;
-import fs.four.devgang.ojakgyo.user.vo.LoginVO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;

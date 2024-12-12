@@ -1,21 +1,30 @@
 package fs.four.devgang.ojakgyo.user.vo;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 @Component
 @Getter
 @Setter
 public class UserVO {
-    private String userId;          // 사용자 ID
-    private String password;        // 사용자 비밀번호
-    private String nickname;        // 사용자 닉네임
-    private String email;           // 사용자 이메일
-    private String receiveAd;       // 광고 수신 여부
-    private Date userRegDate;       // 사용자 등록일
+    private String user_id;
+    private String user_pw;
+    private String user_nickname;
+    private String user_email;
+    private String user_intro;
+    private String user_profile_name;
+    private String user_profile_path;
+    private String user_address;
+    private String user_receive_adv;
+    private Timestamp user_reg_date;
+    private String user_reg_by;
+    private Timestamp user_mod_date;
+    private String user_mod_by;
+    private Timestamp user_res_date;
+    private String user_res_by;
+    private char user_is_deleted;
+    private char user_is_admin;
 }

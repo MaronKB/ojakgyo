@@ -1,4 +1,4 @@
-package fs.four.devgang.ojakgyo.user.controller;
+package fs.four.devgang.ojakgyo.deprecated;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

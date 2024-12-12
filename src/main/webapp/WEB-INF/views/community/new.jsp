@@ -18,12 +18,12 @@
 
 <%--    <div class="container">--%>
 
-<%--        <div class="category-select">--%>
-<%--            <select id="category" class="form-select">--%>
+<%--        <div class="category-selectUserById">--%>
+<%--            <selectUserById id="category" class="form-selectUserById">--%>
 <%--                <option value="자유">자유</option>--%>
 <%--                <option value="리뷰">리뷰</option>--%>
 <%--                <option value="질문">질문</option>--%>
-<%--            </select>--%>
+<%--            </selectUserById>--%>
 <%--        </div>--%>
 
 <%--        <div class="title-input">--%>

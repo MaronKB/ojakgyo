@@ -122,11 +122,11 @@ const register = () => {
     const receiveAd = document.querySelector("#receive-ad").checked ? "Y" : "N";
 
     const body = {
-        userId: userId,
-        email: email,
-        nickname: nickname,
-        password: password,
-        receiveAd: receiveAd
+        user_id: userId,
+        user_pw: password,
+        user_email: email,
+        user_nickname: nickname,
+        user_receive_adv: receiveAd
     };
 
     fetch("/api/user/register", {

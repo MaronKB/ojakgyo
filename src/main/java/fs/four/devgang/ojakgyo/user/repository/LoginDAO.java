@@ -1,6 +1,6 @@
 package fs.four.devgang.ojakgyo.user.repository;
 
-import fs.four.devgang.ojakgyo.user.vo.LoginVO;
+import fs.four.devgang.ojakgyo.deprecated.LoginVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.dao.DataAccessException;
 

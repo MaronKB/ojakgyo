@@ -2,7 +2,7 @@ package fs.four.devgang.ojakgyo.post.controller;
 
 import fs.four.devgang.ojakgyo.post.service.PostService;
 import fs.four.devgang.ojakgyo.post.vo.PostVO;
-import fs.four.devgang.ojakgyo.user.vo.LoginVO;
+import fs.four.devgang.ojakgyo.deprecated.LoginVO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;

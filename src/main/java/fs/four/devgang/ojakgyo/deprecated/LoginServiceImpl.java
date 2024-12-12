@@ -1,7 +1,6 @@
-package fs.four.devgang.ojakgyo.user.service;
+package fs.four.devgang.ojakgyo.deprecated;
 
 import fs.four.devgang.ojakgyo.user.repository.LoginDAO;
-import fs.four.devgang.ojakgyo.user.vo.LoginVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

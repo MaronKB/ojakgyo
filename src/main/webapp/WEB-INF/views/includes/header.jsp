@@ -11,7 +11,7 @@
         <a href="<c:url value="/post/listPost"/>">커뮤니티</a>
         <a href="<c:url value="/hotplace"/>">핫플레이스</a>
         <c:if test="${sessionScope.user.isAdmin}">
-            <a href="<c:url value="/admin/ad"/>">광고관리</a>
+            <a href="<c:url value="/admin/ads"/>">광고관리</a>
             <a href="<c:url value="/admin/reports"/>">신고관리</a>
             <a href="<c:url value="/admin/users"/>">유저관리</a>
         </c:if>
@@ -20,7 +20,7 @@
         <c:choose>
             <c:when test="${!empty sessionScope.user}">
                 <a href="<c:url value="/mypage"/>">마이페이지</a>
-                <a href="<c:url value="/api/user/logout"/>">로그아웃</a>
+                <a onclick="logout()">로그아웃</a>
             </c:when>
             <c:otherwise>
                 <a href="<c:url value="/login"/>">로그인</a>

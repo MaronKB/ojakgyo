@@ -1,4 +1,4 @@
-package fs.four.devgang.ojakgyo.user.vo;
+package fs.four.devgang.ojakgyo.deprecated;
 
 public class LoginVO {
     private String userid;
