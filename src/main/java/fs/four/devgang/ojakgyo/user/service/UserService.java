@@ -12,16 +12,15 @@ public class UserService {
     @Autowired
     private UserDAO userDAO;
 
-    public int addMember(UserVO userVO) throws Exception {
-        // 사용자 등록 처리
-        return userDAO.insertMember(userVO);
+    public int insert(UserVO userVO) throws Exception {
+        return userDAO.insertUser(userVO);
     }
 
     public int checkDuplication(String type, String str) throws Exception {
         if (type.equals("id")) {
-            return userDAO.selectUserId(str);
+            return userDAO.countUserById(str);
         } else if (type.equals("email")) {
-            return userDAO.selectEmail(str);
+            return userDAO.countUserByEmail(str);
         } else {
             return 0;
         }
@@ -29,10 +28,10 @@ public class UserService {
 
     public int checkUserId(String type, String userId) throws Exception {
 
-        return userDAO.selectUserId(userId);
+        return userDAO.countUserById(userId);
     }
 
     public int checkEmail(String email) throws Exception {
-        return userDAO.selectEmail(email);
+        return userDAO.countUserByEmail(email);
     }
 }

@@ -1,5 +1,6 @@
 let userIdValid = false;
 let emailValid = false;
+let passwordValid = false;
 
 const openRegisterModal = (id) => {
     event.preventDefault();
@@ -12,8 +13,19 @@ const closeRegisterModal = (id) => {
     modal.classList.remove("show");
 }
 
-const resetUserIdValidation = () => {
-    emailValid = false;
+const resetValidation = (type) => {
+    switch (type) {
+        case "userId":
+            userIdValid = false;
+            break;
+        case "email":
+            emailValid = false;
+            break;
+        case "password":
+            passwordValid = false;
+            break;
+        default: break;
+    }
 }
 
 const errorMessage = (target, msg) => {
@@ -35,8 +47,7 @@ const checkUserId = async () => {
         userIdValid = false;
     } else {
         const isUsedId = await fetch(`/api/user/check/id/${userId}`).then(response => response.json());
-        console.log(isUsedId);
-        if (!isUsedId) {
+        if (isUsedId) {
             errorMessage(userIdError, "이미 사용중인 아이디입니다.");
             userIdValid = false;
         } else {
@@ -50,23 +61,86 @@ const checkEmail = async () => {
     const email = document.querySelector("#email").value;
     const emailError = document.querySelector("#email-error");
     if (email.length < 3 || email.length > 50) {
-        emailError.innerHTML = "이메일은 3자 이상 50자 이하로 입력해주세요";
-        emailError.style.display = "block";
+        errorMessage(emailError, "이메일은 3자 이상 50자 이하로 입력해주세요");
         emailValid = false;
     } else {
-        emailError.style.display = "none";
-        const isUsedEmail = await fetch(`/api/user/validate/${email}`).then(response => response.json());
+        const isUsedEmail = await fetch(`/api/user/check/email/${email}`).then(response => response.json());
         if (isUsedEmail) {
-            emailError.innerHTML = "이미 사용중인 이메일입니다.";
-            emailError.style.display = "block";
+            errorMessage(emailError, "이미 사용중인 이메일입니다.");
             emailValid = false;
         } else {
-            emailError.style.display = "none";
+            errorMessage(emailError, "사용 가능한 이메일입니다.");
             emailValid = true;
         }
     }
 }
 
-const validateRegisterForm = (form) => {
-    const userId = document.querySelector("#userId").value;
+const checkPassword = () => {
+    const password = document.querySelector("#password").value;
+    const passwordError = document.querySelector("#password-error");
+    if (password.length < 8 || password.length > 20) {
+        errorMessage(passwordError, "비밀번호는 8자 이상 20자 이하로 입력해주세요");
+        passwordValid = false;
+        return;
+    }
+
+    const passwordConfirm = document.querySelector("#password-confirm").value;
+    const passwordConfirmError = document.querySelector("#password-confirm-error");
+    if (password !== passwordConfirm) {
+        errorMessage(passwordConfirmError, "비밀번호가 일치하지 않습니다.");
+        passwordValid = false;
+        return;
+    }
+    passwordValid = true;
+}
+
+const register = () => {
+    event.preventDefault();
+    if (!userIdValid) {
+        errorMessage(document.querySelector("#user-id-error"), "아이디를 확인해주세요");
+        return;
+    }
+    if (!emailValid) {
+        errorMessage(document.querySelector("#email-error"), "이메일을 확인해주세요");
+        return;
+    }
+    if (!passwordValid) {
+        errorMessage(document.querySelector("#password-error"), "비밀번호를 확인해주세요");
+        return;
+    }
+
+    const terms = document.querySelector("#terms").checked;
+    if (!terms) {
+        errorMessage(document.querySelector("#terms-error"), "약관에 동의해주세요");
+        return;
+    }
+
+    const userId = document.querySelector("#user-id").value;
+    const email = document.querySelector("#email").value;
+    const nickname = document.querySelector("#nickname").value;
+    const password = document.querySelector("#password").value;
+    const receiveAd = document.querySelector("#receive-ad").checked ? "Y" : "N";
+
+    const body = {
+        userId: userId,
+        email: email,
+        nickname: nickname,
+        password: password,
+        receiveAd: receiveAd
+    };
+
+    fetch("/api/user/register", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+    }).then(response => {
+        if (response.ok) {
+            alert("회원가입이 완료되었습니다.");
+            location.href = "/login";
+        } else {
+            alert("회원가입에 실패했습니다.");
+        }
+    });
 }

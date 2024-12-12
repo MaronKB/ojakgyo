@@ -154,6 +154,7 @@
     gap: 10px;
 }
 .agreement {
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: flex-start;
