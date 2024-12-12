@@ -51,9 +51,14 @@
 
 
 $(document).ready(function () {
+    $(".category-buttons .btn[data-category='전체']").addClass("active");
 
     $(".btn").on("click", function () {
         const category = $(this).data("category");
+
+        $(".category-buttons .btn").removeClass("active");
+
+        $(this).addClass("active");
 
         $.ajax({
             type: "GET",
