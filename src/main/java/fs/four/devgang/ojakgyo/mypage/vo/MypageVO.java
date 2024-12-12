@@ -2,9 +2,11 @@ package fs.four.devgang.ojakgyo.mypage.vo;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.stereotype.Component;
 
 @Getter
 @Setter
+@Component
 public class MypageVO {
 
     public void setUserId(String userId) {
