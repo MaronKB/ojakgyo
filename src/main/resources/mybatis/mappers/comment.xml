@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="fs.four.devgang.ojakgyo.post.repository.CommentDAO">
+
+    <resultMap id="memResult" type="commentVO">
+        <result property="comment_author_nickname" column="comment_author_nickname" />
+        <result property="comment_reg_date" column="comment_reg_date" />
+        <result property="comment_content" column="comment_content" />
+    </resultMap>
+
+
+    <select id="selectAllCommentList" resultMap="memResult">
+      <![CDATA[
+        select * from post_comment order by comment_reg_date desc
+        ]]>
+    </select>
+
+    <insert id="insertComment" parameterType="commentVO">
+        <![CDATA[
+            insert into post_comment(comment_id, comment_post_id, comment_author_id, comment_author_nickname, comment_content)
+            values(#{comment_id}, #{comment_post_id}, #{comment_author_id}, #{comment_author_nickname}, #{comment_content})
+        ]]>
+    </insert>
+
+    <select id="selectCommentsByPostId" parameterType="int" resultMap="memResult">
+        <![CDATA[
+            SELECT *
+            FROM post_comment
+            WHERE comment_post_id = #{postId}
+            ORDER BY comment_reg_date DESC
+        ]]>
+    </select>
+
+
+</mapper>

@@ -1,6 +1,8 @@
 package fs.four.devgang.ojakgyo.post.controller;
 
+import fs.four.devgang.ojakgyo.post.service.CommentService;
 import fs.four.devgang.ojakgyo.post.service.PostService;
+import fs.four.devgang.ojakgyo.post.vo.CommentVO;
 import fs.four.devgang.ojakgyo.post.vo.PostVO;
 import fs.four.devgang.ojakgyo.deprecated.LoginVO;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,6 +26,9 @@ public class PostControllerImpl implements PostController {
     @Autowired
     private PostVO postVO;
 
+    @Autowired
+    private CommentService commentService;
+
     @Override
     @GetMapping("/post/listPost")
     public ModelAndView listPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -46,12 +51,8 @@ public class PostControllerImpl implements PostController {
     public ModelAndView addPost(@ModelAttribute("post") PostVO post,
                                   HttpServletRequest request, HttpServletResponse response) throws Exception {
         request.setCharacterEncoding("utf-8");
-//        int result = 0;
-//        result = postService.addPost(post);
-//        ModelAndView mav = new ModelAndView("redirect:/post/listPost");
-//        return mav;
 
-
+        // 로그인 글 작성 연동 부분
         LoginVO loginUser = (LoginVO) request.getSession().getAttribute("user");
 
         if (loginUser != null) {
@@ -71,9 +72,14 @@ public class PostControllerImpl implements PostController {
     @GetMapping("/post/view.do")
     public ModelAndView viewPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String postId = request.getParameter("postId");
+
         PostVO post = postService.getPostById(Integer.parseInt(postId));
+
+        List<CommentVO> commentList = commentService.listCommentByPostId(Integer.parseInt(postId));
+
         ModelAndView mav = new ModelAndView("/community/view");
         mav.addObject("post", post);
+        mav.addObject("commentList", commentList);
         return mav;
     }
 
