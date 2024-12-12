@@ -5,12 +5,12 @@
     <resultMap id="loginResultMap" type="fs.four.devgang.ojakgyo.user.vo.LoginVO">
         <result property="userid" column="user_id" />
         <result property="password" column="user_pw" />
-        <result property="isAdmin" column="is_admin" /> <!-- is_admin 컬럼 추가 -->
+        <result property="isAdmin" column="user_is_admin" />
         <result property="usernickname" column="user_nickname" />
     </resultMap>
 
     <select id="login" parameterType="fs.four.devgang.ojakgyo.user.vo.LoginVO" resultMap="loginResultMap">
-        SELECT user_id, user_pw, user_nickname, user_email, user_receive_adv, user_reg_date, is_admin
+        SELECT user_id, user_pw, user_nickname, user_email, user_receive_adv, user_reg_date, user_is_admin
         FROM ojakgyo.user_info
         WHERE user_id = #{userid, jdbcType=VARCHAR}
         AND user_pw = #{password, jdbcType=VARCHAR}
