@@ -19,14 +19,14 @@
     </select>
     <select id="selectUserById" parameterType="String" resultMap="userResultMap">
         <![CDATA[
-        SELECT user_id, user_pw, user_nickname, user_email, user_receive_adv, user_reg_date
+        SELECT *
         FROM ojakgyo.user_info
         WHERE user_id = #{userId}
         ]]>
     </select>
     <select id="selectUserByEmail" parameterType="String" resultMap="userResultMap">
         <![CDATA[
-        SELECT user_id, user_pw, user_nickname, user_email, user_receive_adv, user_reg_date
+        SELECT *
         FROM ojakgyo.user_info
         WHERE user_email = #{email}
         ]]>
@@ -65,8 +65,8 @@
                 #{user_mod_by, jdbcType=VARCHAR},
                 #{user_res_date, jdbcType=TIMESTAMP},
                 #{user_res_by, jdbcType=VARCHAR},
-                #{user_is_deleted, jdbcType=CHAR},
-                #{user_is_admin, jdbcType=CHAR}
+                #{user_is_deleted, jdbcType=VARCHAR},
+                #{user_is_admin, jdbcType=VARCHAR}
                )
         ]]>
     </insert>

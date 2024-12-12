@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+    System.out.println(session.getAttribute("user"));
+%>
 <script src="<c:url value="/js/includes/header.js"/>"></script>
 <header id="header">
     <a id="header-title" href="<c:url value="/"/>">
@@ -10,7 +13,7 @@
         <a href="<c:url value="/main"/>">장소찾기</a>
         <a href="<c:url value="/post/listPost"/>">커뮤니티</a>
         <a href="<c:url value="/hotplace"/>">핫플레이스</a>
-        <c:if test="${sessionScope.user.isAdmin}">
+        <c:if test="${sessionScope.user.isAdmin == 'Y'}">
             <a href="<c:url value="/admin/ads"/>">광고관리</a>
             <a href="<c:url value="/admin/reports"/>">신고관리</a>
             <a href="<c:url value="/admin/users"/>">유저관리</a>

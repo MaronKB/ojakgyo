@@ -34,8 +34,8 @@ public class UserService {
         jsonObject.put("user_mod_by", userVO.getUser_mod_by());
         jsonObject.put("user_res_date", userVO.getUser_res_date());
         jsonObject.put("user_res_by", userVO.getUser_res_by());
-        jsonObject.put("user_is_deleted", userVO.getUser_is_deleted());
-        jsonObject.put("user_is_admin", userVO.getUser_is_admin());
+        jsonObject.put("user_is_deleted", Character.toString(userVO.getUser_is_deleted()));
+        jsonObject.put("user_is_admin", Character.toString(userVO.getUser_is_admin()));
 
         return jsonObject;
     }
@@ -98,6 +98,7 @@ public class UserService {
                 JSONObject token = new JSONObject();
                 token.put("userId", user.getUser_id());
                 token.put("nickname", user.getUser_nickname());
+                token.put("isAdmin", Character.toString(user.getUser_is_admin()));
 
                 loginToken.put("status", 200);
                 loginToken.put("message", "로그인 성공");
