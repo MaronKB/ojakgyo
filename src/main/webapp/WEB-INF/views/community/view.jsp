@@ -97,11 +97,13 @@
 
         <div class="view-content">
             <p>${post.post_content}</p>
+        </div>
 
-            <div class="button-container">
-                <button class="btn-like">👍 추천 ${post.post_vote_count}</button>
-                <button class="btn-report">🚨신고</button>
-            </div>
+        <div class="button-section1">
+            <button class="btn-like">👍 추천 ${post.post_vote_count}</button>
+        </div>
+        <div class="button-section2">
+            <button class="btn-report">🚨신고</button>
         </div>
 
         <div class="move-to-list">
@@ -109,7 +111,7 @@
         </div>
 
         <div class="view-comment">
-            <table>
+            <table class="table-comment">
                 <thead class="comment-head">
                     <tr>
                         <td>댓글</td>
@@ -123,6 +125,14 @@
                     </tr>
                 </tbody>
             </table>
+
+            <div class="comment-insert">
+                <h3>댓글 쓰기</h3>
+                <div class="comment-box">
+                    <textarea placeholder="댓글을 작성하려면 로그인 해주세요. 로그인 하시겠습니까?"></textarea>
+                    <button class="comment-submit">등록</button>
+                </div>
+            </div>
         </div>
 
 

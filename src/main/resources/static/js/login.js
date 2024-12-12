@@ -1,9 +1,7 @@
-// login.js
-
 document.addEventListener("DOMContentLoaded", function () {
     // 로그인 폼 요소 가져오기
     const loginForm = document.querySelector(".login-form");
-    const usernameInput = document.querySelector("#username");
+    const usernameInput = document.querySelector("#userid");
     const passwordInput = document.querySelector("#password");
 
     // 폼 제출 이벤트 처리
@@ -23,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // 유효성 검사를 통과한 경우 콘솔 출력 (추후 서버 요청 처리 가능)
+        // 유효성 검사를 통과한 경우 콘솔 출력
         console.log("아이디:", usernameInput.value);
         console.log("비밀번호:", passwordInput.value);
     });

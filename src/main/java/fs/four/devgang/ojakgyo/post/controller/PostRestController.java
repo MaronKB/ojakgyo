@@ -34,4 +34,17 @@ public class PostRestController {
         return new ResponseEntity<>(postList, HttpStatus.OK);
     }
 
+
+//    게시글 조회수 증가
+    @GetMapping("/view")
+    public ResponseEntity<PostVO> viewPost(@RequestParam("postId") int postId) throws Exception {
+
+        postRestService.increasePostViewCount(postId);
+
+
+        PostVO post = postRestService.getPostById(postId);
+
+        return new ResponseEntity<>(post, HttpStatus.OK);
+    }
+
 }

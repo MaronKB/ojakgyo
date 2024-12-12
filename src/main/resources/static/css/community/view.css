@@ -36,17 +36,17 @@
     font-size: 14px;
     line-height: 1.4;
     color: #333;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 200px;
-    position: relative;
+    min-height: 300px;
 }
 
-.view-content .btn-like {
-    align-self: center;
-    padding: 10px 20px;
-    font-size: 0.9rem;
+.button-section1 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.button-section1 .btn-like {
+    padding: 10px 10px;
     border: none;
     border-radius: 5px;
     background-color: #007bff;
@@ -55,13 +55,20 @@
     transition: background-color 0.3s;
 }
 
-.view-content .btn-like:hover {
+.button-section1 .btn-like:hover {
     background-color: #0056b3;
 }
 
-.view-content .btn-report {
-    padding: 10px 20px;
-    font-size: 0.9rem;
+
+.button-section2 {
+    display: flex;
+    justify-content: end;
+    border-bottom: 1px solid #402E2A;
+    padding-bottom: 10px;
+}
+
+.button-section2 .btn-report {
+    padding: 5px 5px;
     border: none;
     border-radius: 5px;
     background-color: #dc3545;
@@ -70,7 +77,71 @@
     transition: background-color 0.3s;
 }
 
-.view-content .btn-report:hover {
+.button-section2 .btn-report:hover {
     background-color: #b71c1c;
 }
 
+.move-to-list {
+    padding: 10px 0;
+    display: flex;
+    justify-content: end;
+    color: pink;
+    border-bottom: 1px solid #402E2A;
+    margin-bottom: 10px;
+}
+
+.move-to-list button {
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.table-comment {
+    border: 1px solid #402E2A;
+}
+
+.comment-head tr{
+    border-bottom: 1px solid #402E2A;
+}
+
+.comment-insert {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.comment-insert h3 {
+    margin-bottom: 10px;
+}
+
+.comment-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.comment-box textarea {
+    flex: 1;
+    height: 60px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #666;
+    background-color: #f4f4f4;
+    font-size: 14px;
+}
+
+.comment-box button {
+    height: 60px;
+    width: 60px;
+    border: none;
+    cursor: pointer;
+    background-color: #402E2A;
+    border-radius: 5px;
+    color: #f9f9f9;
+}
+
+.comment-box button:hover {
+    background-color: #D64933;
+}
