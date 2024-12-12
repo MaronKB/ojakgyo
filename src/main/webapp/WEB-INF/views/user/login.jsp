@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/index.css'/>"/>
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/user/login.css'/>"/>
     <!-- 자바스크립트 경로 설정 -->
-    <script type="text/javascript" language="javascript" src="<c:url value='/js/login.js'/>"></script>
+    <script type="text/javascript" src="<c:url value='/js/login.js'/>"></script>
 </head>
 <body>
     <!-- 공통 헤더 포함 -->
@@ -39,9 +39,56 @@
         </div>
     </div>
 
+    <!-- 모달 추가 -->
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+
     <!-- 공통 푸터 -->
     <footer>
         <a href="<c:url value='/index/main.jsp'/>">처음으로</a>
     </footer>
+
+    <style>
+        /* 모달 스타일 추가 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 30%;
+            text-align: center;
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </body>
 </html>
