@@ -85,7 +85,6 @@
             <button>검색</button>
         </div>
     </div>
-    <%--<a  href="${contextPath}/member/memberForm.do"><h1 style="text-align:center">회원가입</h1></a>--%>
 <script src="<c:url value='/js/listPost.js'/>"></script>
 </body>
 </html>

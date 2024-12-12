@@ -29,12 +29,18 @@
 .table {
     width: 100%;
     border-collapse: collapse;
+    font-size: 13px;
+}
+
+.table .content{
+    text-align: left    ;
 }
 
 .table thead {
-    background-color: #402E2A;
-    color: #fff;
+    background-color: #ffffff;
+    color: #323232;
     text-align: center;
+    border-top: 2px solid #402E2A;
 }
 
 .table thead td {
@@ -44,6 +50,8 @@
 
 .table tbody td {
     text-align: center;
+    border-top: 1px solid #dad9d9;
+    padding: 5px 0;
 }
 
 .table .content {

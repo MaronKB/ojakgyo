@@ -1,6 +1,6 @@
 //마이페이지
 // 수정버튼 클릭 이벤트 리스너
-$(document).ready(function() {
+/*$(document).ready(function() {
     $("#edit1").on("click", function() {
         alert("닉네임이 수정되었습니다");
         $.ajax({
@@ -13,7 +13,34 @@ $(document).ready(function() {
                 alert('성공');
             }
         });
+    });*/
+
+$(document).ready(function() {
+    $("#edit1").on("click", function() {
+        var newNickname = $('#nicknameInput').val();
+        var userId = $('#userId').val();
+
+        $.ajax({
+            type: "GET",
+            url: "/mypage/updateNickname",
+            data: {
+                userId: userId,
+                newNickname: newNickname
+            },
+            success: function(data) {
+                alert(data);
+                $('#nicknameInput').val(newNickname);
+            },
+            error: function(xhr, status, error) {
+                alert('오류: ' + error);
+            }
+        });
     });
+});
+
+
+
+
 
     $("#edit2").on("click", function() {
         alert("이메일이 수정되었습니다");

@@ -25,8 +25,8 @@
                 <div class="upper">
                     <div class="nickname">
                         <p>닉네임</p>
-                        <input placeholder="태사다르"
-                        style="width:200px; height:30px;">
+                        <input id="nicknameInput" placeholder="태사다르" style="width:200px; height:30px;">
+                        <input type="hidden" id="userId" value="${user.userId}">
                         <button class="editbutton" id="edit1" style="width:100px; height:30px;">수정</button>
                     </div>
                 <br>

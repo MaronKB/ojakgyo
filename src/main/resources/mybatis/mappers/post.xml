@@ -33,5 +33,12 @@
         select * from post where post_category = #{category} order by post_reg_date desc
     </select>
 
+    <update id="updatePostViewCount" parameterType="int">
+        <![CDATA[
+            UPDATE OJAKGYO.post
+            SET post_view_count = post_view_count + 1
+            WHERE post_id = #{postId}
+        ]]>
+    </update>
 
 </mapper>

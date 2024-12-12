@@ -17,4 +17,40 @@
             SELECT * FROM OJAKGYO.ADV_INFO order by ADV_REG_DATE DESC
         ]]>
     </select>
+    <select id="selectAdListByValid" resultType="adVO" parameterType="char">
+        <![CDATA[
+            SELECT * FROM OJAKGYO.ADV_INFO WHERE ADV_IS_VALID = #{adv_is_valid} order by ADV_REG_DATE DESC
+        ]]>
+    </select>
+    <select id="selectAdById" resultType="adVO" parameterType="int">
+        <![CDATA[
+            SELECT * FROM OJAKGYO.ADV_INFO WHERE ADV_ID = #{adv_id}
+        ]]>
+    </select>
+    <insert id="insertAd" parameterType="adVO">
+        <![CDATA[
+            INSERT INTO OJAKGYO.ADV_INFO (ADV_TITLE, ADV_CATEGORY, ADV_EXP_DATE, ADV_IS_VALID)
+            VALUES (
+                    #{adv_title, jdbcType=VARCHAR},
+                    #{adv_category, jdbcType=VARCHAR},
+                    #{adv_exp_date, jdbcType=TIMESTAMP},
+                    #{adv_is_valid, jdbcType=VARCHAR}
+                   )
+        ]]>
+    </insert>
+    <update id="updateAd" parameterType="adVO">
+        <![CDATA[
+            UPDATE OJAKGYO.ADV_INFO
+            SET ADV_TITLE = #{adv_title, jdbcType=VARCHAR},
+                ADV_CATEGORY = #{adv_category, jdbcType=VARCHAR},
+                ADV_EXP_DATE = #{adv_exp_date, jdbcType=TIMESTAMP},
+                ADV_IS_VALID = #{adv_is_valid, jdbcType=VARCHAR}
+            WHERE ADV_ID = #{adv_id}
+        ]]>
+    </update>
+    <delete id="deleteAd" parameterType="int">
+        <![CDATA[
+            DELETE FROM OJAKGYO.ADV_INFO WHERE ADV_ID = #{adv_id}
+        ]]>
+    </delete>
 </mapper>
