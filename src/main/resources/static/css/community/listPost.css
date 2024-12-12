@@ -23,9 +23,9 @@
 }
 
 .btn:hover {
-    background-color: #D64933;
+    background-color: #402E2A;
     color: #ffffff;
-    border: none;
+    border: 1px solid #402E2A;
 }
 
 .table-container {
@@ -73,13 +73,6 @@
 
 
 .write-btn {
-    /*float: right;*/
-    /*border-radius: 5px;*/
-    /*padding: 5px 10px;*/
-    /*background-color: #402E2A;*/
-    /*color: #B892FF;*/
-    /*transition: all 0.3s;*/
-    /*cursor: pointer;*/
     text-align: right;
 }
 

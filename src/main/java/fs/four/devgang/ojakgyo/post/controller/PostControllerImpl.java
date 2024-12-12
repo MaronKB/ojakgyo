@@ -2,6 +2,7 @@ package fs.four.devgang.ojakgyo.post.controller;
 
 import fs.four.devgang.ojakgyo.post.service.PostService;
 import fs.four.devgang.ojakgyo.post.vo.PostVO;
+import fs.four.devgang.ojakgyo.user.vo.LoginVO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,8 +46,22 @@ public class PostControllerImpl implements PostController {
     public ModelAndView addPost(@ModelAttribute("post") PostVO post,
                                   HttpServletRequest request, HttpServletResponse response) throws Exception {
         request.setCharacterEncoding("utf-8");
-        int result = 0;
-        result = postService.addPost(post);
+//        int result = 0;
+//        result = postService.addPost(post);
+//        ModelAndView mav = new ModelAndView("redirect:/post/listPost");
+//        return mav;
+
+
+        LoginVO loginUser = (LoginVO) request.getSession().getAttribute("user");
+
+        if (loginUser != null) {
+
+            post.setPost_author_id(loginUser.getUserid());
+            post.setPost_author_nickname(loginUser.getUserid());
+        }
+
+        int result = postService.addPost(post);
+
         ModelAndView mav = new ModelAndView("redirect:/post/listPost");
         return mav;
     }

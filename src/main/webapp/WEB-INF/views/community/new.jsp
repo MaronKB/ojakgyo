@@ -73,10 +73,10 @@
 
     <form method="post"   action="${contextPath}/post/addPost.do">
         <div class="container">
-            <div class="stuff">
-                작성자 아이디<input type="text" name="post_author_id">
-                작성자 닉네임<input type="text" name="post_author_nickname">
-            </div>
+<%--            <div class="stuff">--%>
+<%--                작성자 아이디<input type="text" name="post_author_id">--%>
+<%--                작성자 닉네임<input type="text" name="post_author_nickname">--%>
+<%--            </div>--%>
             <br><br>
             <div class="category-select">
                 <select id="category" class="form-select" name="post_category">
