@@ -98,9 +98,10 @@
         <div class="view-content">
             <p>${post.post_content}</p>
 
-            <button class="btn-like">👍 추천 ${post.post_vote_count}</button>
-
-            <button class="btn-report">🚨신고</button>
+            <div class="button-container">
+                <button class="btn-like">👍 추천 ${post.post_vote_count}</button>
+                <button class="btn-report">🚨신고</button>
+            </div>
         </div>
 
         <div class="move-to-list">
@@ -108,9 +109,20 @@
         </div>
 
         <div class="view-comment">
-            <div class="comment-title">
-                댓글
-            </div>
+            <table>
+                <thead class="comment-head">
+                    <tr>
+                        <td>댓글</td>
+                    </tr>
+                </thead>
+
+                <tbody class="comment-body">
+                    <tr>
+                        <td>댓글</td>
+                        <td>댓글</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
 

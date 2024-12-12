@@ -23,5 +23,6 @@ public interface PostDAO {
 //    게시글 조회
     PostVO selectPostById(int postId) throws DataAccessException;
 
+//    게시글 카테고리
     List<PostVO> selectPostByCategory(String category);
 }
