@@ -66,11 +66,28 @@
         </div>
         <form method="post"   action="${contextPath}/post/addComment.do">
             <h1  class="text_center">댓글 백엔드 작업중</h1>
-            <table  align="center">
-                <tr>
-                    <td width="200"><p align="right">코멘트 아이디</td>
-                    <td width="400"><input type="text" name="comment_id"></td>
+
+            <table border="1"  align="center"  width="80%">
+                <tr align="center"   bgcolor="lightgreen">
+                    <td ><b>닉네임</b></td>
+                    <td><b>시간</b></td>
+                    <td><b>내용</b></td>
                 </tr>
+
+                <c:forEach var="comment" items="${commentList}" >
+                    <tr align="center">
+                        <td>${comment.comment_author_nickname}</td>
+                        <td>${comment.comment_reg_date}</td>
+                        <td>${comment.comment_content}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+
+            <table  align="center">
+<%--                <tr>--%>
+<%--                    <td width="200"><p align="right">코멘트 아이디</td>--%>
+<%--                    <td width="400"><input type="text" name="comment_id"></td>--%>
+<%--                </tr>--%>
                 <tr>
                     <td width="200"><p align="right">게시글 아이디</td>
                     <td width="400"><input type="text" name="comment_post_id"></td>
