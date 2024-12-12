@@ -46,12 +46,8 @@ public class PostControllerImpl implements PostController {
     public ModelAndView addPost(@ModelAttribute("post") PostVO post,
                                   HttpServletRequest request, HttpServletResponse response) throws Exception {
         request.setCharacterEncoding("utf-8");
-//        int result = 0;
-//        result = postService.addPost(post);
-//        ModelAndView mav = new ModelAndView("redirect:/post/listPost");
-//        return mav;
 
-
+        // 로그인 글 작성 연동 부분
         LoginVO loginUser = (LoginVO) request.getSession().getAttribute("user");
 
         if (loginUser != null) {
