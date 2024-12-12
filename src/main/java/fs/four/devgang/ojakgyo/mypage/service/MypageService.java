@@ -2,7 +2,7 @@ package fs.four.devgang.ojakgyo.mypage.service;
 
 import java.util.List;
 
-public interface CodeGroupService {
+public interface MypageService {
 
     public List listCodeGroup() throws Exception;
 

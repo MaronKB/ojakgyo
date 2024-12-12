@@ -1,6 +1,6 @@
 package fs.four.devgang.ojakgyo.mypage.service;
 
-import fs.four.devgang.ojakgyo.mypage.dao.CodeGroupDAO;
+import fs.four.devgang.ojakgyo.mypage.dao.MypageDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -8,17 +8,17 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service("codeGroupService")
+@Service("MypageService")
 @Transactional(propagation = Propagation.REQUIRED)
-public class CodeGroupServiceImpl implements CodeGroupService {
+public class MypageServiceImpl implements MypageService {
 
     @Autowired
-    private CodeGroupDAO codeGroupDAO;
+    private MypageDAO mypageDAO;
 
     @Override
     public List listCodeGroup() throws Exception {
         List codeGroupList = null;
-        codeGroupList = codeGroupDAO.selectAllCodeGroupList();
+        codeGroupList = mypageDAO.selectAllCodeGroupList();
         return codeGroupList;
     }
 }
