@@ -23,8 +23,19 @@ public class PostRestService {
         return postList;
     }
 
+//    게시글 카테고리 탭
     public List<PostVO> listPostByCategory(String category) throws Exception {
         return postDAO.selectPostByCategory(category);
     }
+
+//    게시글 조회수 증가
+    public void increasePostViewCount(int postId) throws Exception {
+        postDAO.updatePostViewCount(postId);
+    }
+
+    public PostVO getPostById(int postId) throws Exception {
+        return postDAO.selectPostById(postId);
+    }
+
 
 }

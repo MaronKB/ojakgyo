@@ -90,3 +90,20 @@ $(document).ready(function () {
         });
     });
 });
+
+$(document).on("click", ".table tbody tr", function () {
+    const postId = $(this).find("td:first").text();
+
+    $.ajax({
+        type: "GET",
+        url: `/post/view`,
+        data: { postId },
+        success: function (data) {
+
+            window.location.href = `/post/view.do?postId=${postId}`;
+        },
+        error: function (xhr, status, error) {
+            console.error("조회수 증가 API 호출 실패:", error);
+        }
+    });
+});

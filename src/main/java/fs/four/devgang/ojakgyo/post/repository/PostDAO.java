@@ -25,4 +25,8 @@ public interface PostDAO {
 
 //    게시글 카테고리
     List<PostVO> selectPostByCategory(String category);
+
+//    게시글 조회수 추가
+    void updatePostViewCount(int postId) throws DataAccessException;
+
 }
