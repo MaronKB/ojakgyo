@@ -11,4 +11,7 @@ public interface CommentDAO {
 
     public List selectAllCommentList() throws DataAccessException;
     public int insertComment(CommentVO commentVO) throws DataAccessException;
+
+    public List<CommentVO> selectCommentsByPostId(int postId) throws DataAccessException;
+
 }

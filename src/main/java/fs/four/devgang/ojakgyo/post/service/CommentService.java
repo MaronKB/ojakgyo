@@ -8,4 +8,7 @@ public interface CommentService {
 
     public List listComment() throws Exception;
     public int addComment(CommentVO commentVO) throws Exception;
+
+    public List<CommentVO> listCommentByPostId(int postId) throws Exception;
+
 }

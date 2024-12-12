@@ -27,4 +27,10 @@ public class CommentServiceImpl implements CommentService {
     public int addComment(CommentVO comment) throws Exception {
         return commentDAO.insertComment(comment);
     }
+
+    @Override
+    public List<CommentVO> listCommentByPostId(int postId) throws Exception {
+        return commentDAO.selectCommentsByPostId(postId);
+    }
+
 }

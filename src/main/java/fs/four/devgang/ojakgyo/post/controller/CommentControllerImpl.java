@@ -36,9 +36,10 @@ public class CommentControllerImpl implements CommentController{
     public ModelAndView addComment(@ModelAttribute("comment") CommentVO comment,
                                   HttpServletRequest request, HttpServletResponse response) throws Exception {
         request.setCharacterEncoding("utf-8");
-        int result = 0;
-        result = commentService.addComment(comment);
-        ModelAndView mav = new ModelAndView("redirect:/post/listComment");
+        commentService.addComment(comment);
+
+        ModelAndView mav = new ModelAndView("redirect:/post/view.do");
+        mav.addObject("postId", comment.getComment_post_id());
         return mav;
     }
 }

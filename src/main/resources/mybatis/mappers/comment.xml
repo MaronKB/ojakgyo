@@ -23,5 +23,14 @@
         ]]>
     </insert>
 
+    <select id="selectCommentsByPostId" parameterType="int" resultMap="memResult">
+        <![CDATA[
+            SELECT *
+            FROM post_comment
+            WHERE comment_post_id = #{postId}
+            ORDER BY comment_reg_date DESC
+        ]]>
+    </select>
+
 
 </mapper>

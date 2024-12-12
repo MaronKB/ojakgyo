@@ -1,6 +1,8 @@
 package fs.four.devgang.ojakgyo.post.controller;
 
+import fs.four.devgang.ojakgyo.post.service.CommentService;
 import fs.four.devgang.ojakgyo.post.service.PostService;
+import fs.four.devgang.ojakgyo.post.vo.CommentVO;
 import fs.four.devgang.ojakgyo.post.vo.PostVO;
 import fs.four.devgang.ojakgyo.user.vo.LoginVO;
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,6 +25,9 @@ public class PostControllerImpl implements PostController {
 
     @Autowired
     private PostVO postVO;
+
+    @Autowired
+    private CommentService commentService;
 
     @Override
     @GetMapping("/post/listPost")
@@ -67,9 +72,14 @@ public class PostControllerImpl implements PostController {
     @GetMapping("/post/view.do")
     public ModelAndView viewPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String postId = request.getParameter("postId");
+
         PostVO post = postService.getPostById(Integer.parseInt(postId));
+
+        List<CommentVO> commentList = commentService.listCommentByPostId(Integer.parseInt(postId));
+
         ModelAndView mav = new ModelAndView("/community/view");
         mav.addObject("post", post);
+        mav.addObject("commentList", commentList);
         return mav;
     }
 
