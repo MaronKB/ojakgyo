@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service("postService")
@@ -21,7 +23,17 @@ public class PostService {
     @Autowired
     private PostDAO postDAO;
 
-    private static JSONObject parseVOToJSON(PostVO post) {
+    private static String parseTimestampToString(String timestamp) throws Exception {
+        if (timestamp == null || timestamp.isEmpty() || timestamp.equals("null")) return "";
+
+        SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss ZZZ yyyy", java.util.Locale.US);
+        Date date = sdf.parse(timestamp);
+
+        SimpleDateFormat newSdf = new SimpleDateFormat("MM-dd HH:mm");
+        return newSdf.format(date);
+    }
+
+    private static JSONObject parseVOToJSON(PostVO post) throws Exception {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("postId", post.getPost_id());
         jsonObject.put("title", post.getPost_title());
@@ -33,15 +45,15 @@ public class PostService {
         jsonObject.put("imagePath", post.getPost_image_path());
         jsonObject.put("viewCount", post.getPost_view_count());
         jsonObject.put("voteCount", post.getPost_vote_count());
-        jsonObject.put("regDate", String.valueOf(post.getPost_reg_date()));
+        jsonObject.put("regDate", parseTimestampToString(String.valueOf(post.getPost_reg_date())));
         jsonObject.put("regBy", post.getPost_reg_by());
-        jsonObject.put("modDate", String.valueOf(post.getPost_mod_date()));
+        jsonObject.put("modDate", parseTimestampToString(String.valueOf(post.getPost_mod_date())));
         jsonObject.put("modBy", post.getPost_mod_by());
         jsonObject.put("isReported", post.getPost_is_reported());
         return jsonObject;
     }
 
-    private static JSONArray parseListToJSON(List<PostVO> postList, int page) {
+    private static JSONArray parseListToJSON(List<PostVO> postList, int page) throws Exception {
         int start = (page - 1) * POST_LIST_SIZE;
         int end = start + POST_LIST_SIZE;
         if (end > postList.size()) end = postList.size();
@@ -63,6 +75,10 @@ public class PostService {
         return jsonObject;
     }
 
+    public JSONObject selectPostById(int postId) throws Exception {
+        return parseVOToJSON(postDAO.selectPostById(postId));
+    }
+
     public JSONObject selectPostByCategory(String category, int page) throws Exception {
         List<PostVO> postList = postDAO.selectPostByCategory(category);
         JSONObject jsonObject = new JSONObject();
@@ -73,10 +89,6 @@ public class PostService {
 
     public int addPost(PostVO post) throws Exception {
         return postDAO.insertPost(post);
-    }
-
-    public PostVO getPostById(int postId) throws Exception {
-        return postDAO.selectPostById(postId);
     }
 
     public void increasePostViewCount(int postId) throws Exception {

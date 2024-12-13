@@ -52,7 +52,6 @@ public class MainController {
         Geocode centerGeocode = reverseGeocodingService.getGeocode(centerPos);
 
         String centerAddress = mainService.getCenterAddress(myLocation, yourLocation);
-        System.out.println("centerAddress : " + centerAddress);
 
         Coordinate centerLocation = coordinateService.getCoordinate(centerGeocode.getAddress() + " 터미널");
 

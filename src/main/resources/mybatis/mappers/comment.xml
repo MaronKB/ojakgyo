@@ -12,13 +12,13 @@
 
     <select id="selectAllCommentList" resultMap="memResult">
       <![CDATA[
-        select * from post_comment order by comment_reg_date desc
+        select * from OJAKGYO.POST_COMMENT order by comment_reg_date DESC
         ]]>
     </select>
 
     <insert id="insertComment" parameterType="commentVO">
         <![CDATA[
-            insert into post_comment(comment_id, comment_post_id, comment_author_id, comment_author_nickname, comment_content)
+            insert into OJAKGYO.POST_COMMENT(comment_id, comment_post_id, comment_author_id, comment_author_nickname, comment_content)
             values(#{comment_id}, #{comment_post_id}, #{comment_author_id}, #{comment_author_nickname}, #{comment_content})
         ]]>
     </insert>
@@ -26,8 +26,17 @@
     <select id="selectCommentsByPostId" parameterType="int" resultMap="memResult">
         <![CDATA[
             SELECT *
-            FROM post_comment
+            FROM OJAKGYO.POST_COMMENT
             WHERE comment_post_id = #{postId}
+            ORDER BY comment_reg_date
+        ]]>
+    </select>
+
+    <select id="selectCommentsByUserId" parameterType="int" resultMap="memResult">
+        <![CDATA[
+            SELECT *
+            FROM OJAKGYO.POST_COMMENT
+            WHERE comment_author_id = #{userId}
             ORDER BY comment_reg_date DESC
         ]]>
     </select>

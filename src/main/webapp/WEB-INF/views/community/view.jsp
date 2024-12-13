@@ -1,117 +1,58 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>게시글 조회</title>
+    <title>${post.title} - 오작교 커뮤니티</title>
     <link rel="stylesheet" type="text/css" href="<c:url value="/css/index.css"/>"/>
+    <script src="<c:url value="/js/community/view.js"/>"></script>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
-
+<main id="community-view-main">
     <div class="view-container">
-
-        <div class="view-title">
-            ${post.post_title}
-        </div>
-
+        <h2 class="view-title">
+            ${post.title}
+        </h2>
         <div class="view-info">
-            <p id="nickname">닉네임: ${post.post_author_nickname}</p>
-            <p id="view">조회수: ${post.post_view_count}</p>
-            <p id="vote">추천수: ${post.post_vote_count}</p>
-            <p id="date">작성일: ${post.post_reg_date}</p>
+            <p id="nickname">닉네임: ${post.authorNickname}</p>
+            <p id="view">조회수: ${post.viewCount}</p>
+            <p id="vote">추천수: ${post.voteCount}</p>
+            <p id="date">작성일: ${post.regDate}</p>
         </div>
-
         <div class="view-content">
-            <p>${post.post_content}</p>
+            <p>${post.content}</p>
         </div>
-
         <div class="button-section1">
-            <button class="btn-like">👍 추천 ${post.post_vote_count}</button>
+            <button class="btn-like">👍추천 ${post.voteCount}</button>
         </div>
         <div class="button-section2">
             <button class="btn-report">🚨신고</button>
         </div>
-
         <div class="move-to-list">
-            <button><a href="${contextPath}/post/listPost">목록</a></button>
+            <button><a href="<c:url value="/community"/>">목록</a></button>
         </div>
-
-        <div class="view-comment">
-            <table class="table-comment">
-                <thead class="comment-head">
-                    <tr>
-                        <td>댓글</td>
-                    </tr>
-                </thead>
-
-                <tbody class="comment-body">
-                    <tr>
-                        <td>댓글</td>
-                        <td>댓글</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="comment-insert">
-                <h3>댓글 쓰기</h3>
-                <div class="comment-box">
-                    <textarea placeholder="댓글을 작성하려면 로그인 해주세요. 로그인 하시겠습니까?"></textarea>
-                    <button class="comment-submit">등록</button>
-                </div>
-            </div>
-        </div>
-        <form method="post"   action="${contextPath}/post/addComment.do">
-            <h1  class="text_center">댓글 백엔드 작업중</h1>
-
-            <table border="1"  align="center"  width="80%">
-                <tr align="center"   bgcolor="lightgreen">
-                    <td ><b>닉네임</b></td>
-                    <td><b>시간</b></td>
-                    <td><b>내용</b></td>
-                </tr>
-
-                <c:forEach var="comment" items="${commentList}" >
-                    <tr align="center">
-                        <td>${comment.comment_author_nickname}</td>
-                        <td>${comment.comment_reg_date}</td>
-                        <td>${comment.comment_content}</td>
-                    </tr>
+        <section id="post-comments-container">
+            <ul id="post-comments">
+                <c:forEach var="comment" items="${comments}">
+                    <li class="comment">
+                        <header class="comment-header">
+                            <span class="comment-author">${comment.authorNickname}</span>
+                            <span class="comment-date">${comment.regDate}</span>
+                        </header>
+                        <div class="comment-content">${comment.content}</div>
+                    </li>
                 </c:forEach>
-            </table>
-
-            <table  align="center">
-<%--                <tr>--%>
-<%--                    <td width="200"><p align="right">코멘트 아이디</td>--%>
-<%--                    <td width="400"><input type="text" name="comment_id"></td>--%>
-<%--                </tr>--%>
-                <tr>
-                    <td width="200"><p align="right">게시글 아이디</td>
-                    <td width="400"><input type="text" name="comment_post_id"></td>
-                </tr>
-                <tr>
-                    <td width="200"><p align="right">댓글 작성자 아이디</td>
-                    <td width="400"><p><input type="text" name="comment_author_id"></td>
-                </tr>
-                <tr>
-                    <td width="200"><p align="right">댓글 작성자 닉네임</td>
-                    <td width="400"><p><input type="text" name="comment_author_nickname"></td>
-                </tr>
-                <tr>
-                    <td width="200"><p align="right">댓글 내용</td>
-                    <td width="400"><p><input type="text" name="comment_content"></td>
-                </tr>
-                <tr>
-                    <td width="200"><p>&nbsp;</p></td>
-                    <td width="400"><input type="submit" value="댓글쓰기"></td>
-                </tr>
-            </table>
-        </form>
-
-
+            </ul>
+            <form id="comment-insert" onsubmit="addComment()">
+                <input id="comment-post-id" type="hidden" value="${post.postId}">
+                <label for="comment-area">댓글 쓰기</label>
+                <textarea id="comment-area"<c:if test="${sessionScope.user == null}"> placeholder="댓글을 작성하려면 로그인 해주세요. 로그인 하시겠습니까?" onfocus="location.href = '/login'"</c:if>></textarea>
+                <button id="comment-submit" type="submit"<c:if test="${sessionScope.user == null}"> disabled</c:if>>등록</button>
+            </form>
+        </section>
     </div>
+</main>
 </body>
 </html>
