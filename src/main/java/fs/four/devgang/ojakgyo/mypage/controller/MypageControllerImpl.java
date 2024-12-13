@@ -23,8 +23,6 @@ public class MypageControllerImpl implements MypageController {
     @Override
     @GetMapping("/user/updatenickname")
     public ModelAndView listMypage(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-        System.out.println("연결");
         List mypageList = mypageService.listMypage();
         ModelAndView mav = new ModelAndView("/user/updatenickname");
         mav.addObject("mypageList", mypageList);

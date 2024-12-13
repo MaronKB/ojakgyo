@@ -8,9 +8,6 @@ import fs.four.devgang.ojakgyo.deprecated.LoginVO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -43,20 +40,14 @@ public class PostController {
         }
     }
 
-    @GetMapping("/view/{postId}")
-    public ModelAndView viewPost(@PathVariable int postId) throws Exception {
+    @GetMapping("/id/{postId}")
+    public String viewPost(@PathVariable int postId) throws Exception {
         postService.increasePostViewCount(postId);
-        PostVO post = postService.getPostById(postId);
-
-        ModelAndView mav = new ModelAndView("/community/view");
-        mav.addObject("post", post);
-
-        return mav;
+        return postService.selectPostById(postId).toJSONString();
     }
 
     @RequestMapping(value="/add" ,method = RequestMethod.POST)
-    public ModelAndView addPost(@ModelAttribute("post") PostVO post,
-                                  HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public ModelAndView addPost(@ModelAttribute("post") PostVO post, HttpServletRequest request, HttpServletResponse response) throws Exception {
         request.setCharacterEncoding("utf-8");
 
         // 로그인 글 작성 연동 부분
@@ -71,20 +62,6 @@ public class PostController {
         int result = postService.addPost(post);
 
         ModelAndView mav = new ModelAndView("redirect:/post/listPost");
-        return mav;
-    }
-
-    @GetMapping("/post/view.do")
-    public ModelAndView viewPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        String postId = request.getParameter("postId");
-
-        PostVO post = postService.getPostById(Integer.parseInt(postId));
-
-        List<CommentVO> commentList = commentService.listCommentByPostId(Integer.parseInt(postId));
-
-        ModelAndView mav = new ModelAndView("/community/view");
-        mav.addObject("post", post);
-        mav.addObject("commentList", commentList);
         return mav;
     }
 }

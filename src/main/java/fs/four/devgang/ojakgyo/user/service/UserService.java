@@ -79,7 +79,6 @@ public class UserService {
     }
 
     public int insertUser(UserVO userVO) throws Exception {
-        System.out.println(castJSONObject(userVO).toJSONString());
         return userDAO.insertUser(userVO);
     }
     public int insertUser(JSONObject jsonObject) throws Exception {

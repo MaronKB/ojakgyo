@@ -93,8 +93,6 @@ public class AdService {
         if (expDate != null) adVO.setAdv_exp_date(Timestamp.valueOf(expDate));
         if (valid != null) adVO.setAdv_is_valid(valid.charAt(0));
 
-        System.out.println(adVO.getAdv_exp_date());
-
         return adDAO.updateAd(adVO);
     }
 

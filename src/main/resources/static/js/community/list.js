@@ -44,7 +44,7 @@ const getPostList = async () => {
         }
 
         li.onclick = () => {
-            location.href = `/community/post/${postId}`;
+            location.href = `/community/v/${postId}`;
         }
 
         const index = document.createElement("span");
@@ -59,18 +59,9 @@ const getPostList = async () => {
         writerSpan.classList.add("post-writer");
         writerSpan.textContent = authorNickname;
 
-        const timestampArr = regDate.split(" ");
-        const timestampString = timestampArr[1] + " " + timestampArr[2] + ", " + timestampArr[5] + " " + timestampArr[3];
-        const date = new Date(timestampString);
-        let month = date.getMonth() + 1;
-        month = month < 10 ? "0" + month : month;
-        let day = date.getDate();
-        day = day < 10 ? "0" + day : day;
-        const dateString = (date.getMonth() + 1) + "-" + date.getDate();
-
         const dateSpan = document.createElement("span");
         dateSpan.classList.add("post-date");
-        dateSpan.textContent = dateString;
+        dateSpan.textContent = regDate.split(" ")[0];
 
         const viewsSpan = document.createElement("span");
         viewsSpan.classList.add("post-views");

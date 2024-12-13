@@ -1,8 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%
-    System.out.println(session.getAttribute("user"));
-%>
 <script src="<c:url value="/js/includes/header.js"/>"></script>
 <header id="header">
     <a id="header-title" href="<c:url value="/"/>">

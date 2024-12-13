@@ -16,7 +16,6 @@ public class UserController {
 
     @PostMapping(value = "/register")
     public int register(@RequestBody UserVO userVO) throws Exception {
-        System.out.println(userVO.getUser_id());
         return userService.insertUser(userVO);
     }
 
