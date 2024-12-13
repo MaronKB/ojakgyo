@@ -25,7 +25,7 @@
                 <div class="line"></div>
                 <div class="restaurant">
                     <button class="restaurantbutton"
-                    onclick="showContent('rest1')">식당</button>
+                    onclick="toggleSelection(this)">식당</button>
                 </div>
                 <div id="rest1"></h2>
                 </div>
@@ -69,10 +69,44 @@
                 </div>
                 <form class="seoul">
                     <select class="regions">
-                        <option disabled selected>서울특별시</option>
-                        <option value="강동구">강동구</option>
+                        <option value="서울시">서울시</option>
                         <option value="강서구">강서구</option>
                         <option value="강남구">강남구</option>
+                    </select>
+                </form>
+                <div class="line"></div>
+                <form class="incheon">
+                    <select class="regions">
+                        <option value="인천광역시">인천광역시</option>
+                        <option value="남구">남구</option>
+                    </select>
+                </form>
+                <div class="line"></div>
+                <form class="busan">
+                    <select class="regions">
+                        <option value="부산광역시">부산광역시</option>
+                        <option value="사하구">사하구</option>
+                    </select>
+                </form>
+                <div class="line"></div>
+                <form class="daegu">
+                    <select class="regions">
+                        <option value="대구광역시">대구광역시</option>
+                        <option value="중구">중구</option>
+                    </select>
+                </form>
+                <div class="line"></div>
+                <form class="gwangju">
+                    <select class="regions">
+                        <option value="광주광역시">광주광역시</option>
+                        <option value="중구">중구</option>
+                    </select>
+                </form>
+                <div class="line"></div>
+                <form class="daejeon">
+                    <select class="regions">
+                        <option value="대전광역시">대전광역시</option>
+                        <option value="유성구">유성구</option>
                     </select>
                 </form>
                 <div class="line"></div>
@@ -135,7 +169,7 @@
                 <form class="gsnd">
                     <select class="regions">
                         <option value="경상남도">경상남도</option>
-                        <option value="천안시">천안시</option>
+                        <option value="진주시">진주시</option>
                     </select>
                 </form>
                 <div class="line"></div>

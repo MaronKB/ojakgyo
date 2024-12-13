@@ -1,8 +1,6 @@
 /*핫플레이스 css*/
 .main{
     display:flex;
-    margin-left:160px;
-    margin-right:00px;
 }
 
 .sidebartitle{
@@ -11,99 +9,111 @@
     font-size:40px;
     font-family:"East Sea Dokdo", sans-serif;
     text-align:center;
-    color:black;
+    color:050f56;
 }
 
 .cafe{
     margin:10px;
     margin-top:30px;
-        margin-bottom:30px;
+    margin-bottom:30px;
 }
 
 .restaurant{
     margin:10px;
     margin-top:30px;
-        margin-bottom:30px;
+    margin-bottom:30px;
 }
 
 .spot{
     margin:10px;
     margin-top:30px;
-        margin-bottom:30px;
+    margin-bottom:30px;
 }
 
 .hotel{
     margin:10px;
     margin-top:30px;
-        margin-bottom:30px;
+    margin-bottom:30px;
 }
 
 .cafebutton{
     width:120px;
     height:75px;
     background-color:white;
-    border:1px solid black;
+    border: none;
     border-radius : 40px;
     margin:auto;
     font-family: "East Sea Dokdo", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size:35px;
+    color:050f56;
 }
 
 .cafebutton:hover{
-    background-color:lightblue;
+    background-color:050f56;
+    color:white;
+    transition:0.5s;
 }
 
 .restaurantbutton{
     width:120px;
     height:75px;
     background-color:white;
-    border:1px solid black;
+    border: none;
     border-radius : 40px;
     margin:auto;
     font-family: "East Sea Dokdo", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size:35px;
+    color:050f56;
 }
 
 .restaurantbutton:hover{
-    background-color:lightblue;
+    background-color:050f56;
+    color:white;
+    transition:0.5s;
 }
 
 .spotbutton{
     width:120px;
     height:75px;
     background-color:white;
-    border:1px solid black;
+    border: none;
     border-radius : 40px;
     margin:auto;
     font-family: "East Sea Dokdo", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size:35px;
+    color:050f56;
 }
 
 .spotbutton:hover{
-    background-color:lightblue;
+    background-color:050f56;
+    color:white;
+    transition:0.5s;
 }
 
 .hotelbutton{
     width:120px;
     height:75px;
     background-color:white;
-    border:1px solid black;
+    border: none;
     border-radius : 40px;
     margin:auto;
     font-family: "East Sea Dokdo", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size:35px;
+    color:050f56;
 }
 
 .hotelbutton:hover{
-    background-color:lightblue;
+    background-color:050f56;
+    color:white;
+    transition:0.5s;
 }
 
 .regionSelect{                      /*지역선택바*/
@@ -113,15 +123,41 @@
     height: 660px;
     margin-left: 300px;
     margin-top: 100px;
-    border:1px solid black;
+    border: none;
     border-radius : 10px;
     justify-content:center;
     background-color:pink;
     justify-content:center;
 }
 
+.regions{                           /*지역선택 목록*/
+    width:180px;
+    height: 50px;
+    display:block;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 30px;
+    margin: auto;
+    margin-top:15px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 15px;
+    background-color:white;
+    justify-content:center;
+    text-align:center;
+    font-family: "East Sea Dokdo", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:30px;
+    color:050f56;
+}
+
+
 .regions:hover{
-    background-color:lightblue;
+    background-color:050f56;
+    color:white;
+    transition:0.5s;
 }
 
 .line {                             /*카테고리 구분선*/
@@ -158,29 +194,6 @@
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* 애니메이션 */
 }
 
-
-.regions{                           /*지역선택 목록*/
-    width:150px;
-    height: 50px;
-    display:block;
-    border: 2px solid black;
-    box-sizing: border-box;
-    border-radius: 30px;
-    margin: auto;
-    margin-top:15px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 15px;
-    background-color:white;
-    justify-content:center;
-    text-align:center;
-    font-family: "East Sea Dokdo", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size:30px;
-}
-
 .section {
     margin-top: 20px;
     padding: 10px;
@@ -192,7 +205,7 @@
     width:150px;
     height: 50px;
     display:block;
-    border: 2px solid black;
+    border: none;
     box-sizing: border-box;
     border-radius: 10px;
     margin: auto;
@@ -211,6 +224,11 @@
     font-size:30px;
 }
 
+.movebar:hover{
+    background-color:050f56;
+    color:white;
+    transition:0.5s;
+}
 
 .content-container {
   margin-left: 320px; /* 사이드바가 열렸을 때 콘텐츠가 왼쪽으로 밀리도록 설정 */
@@ -225,12 +243,6 @@
 .content-container .active {
   display: block;
   opacity: 1;
-}
-
-
-.movebar:hover{
-    background-color:lightblue;
-    color:black;
 }
 
 /*==========================================================*/
