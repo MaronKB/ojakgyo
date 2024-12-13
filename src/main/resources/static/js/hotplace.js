@@ -24,50 +24,20 @@ function showContent(content) {
 
 // 사이드바 열기/닫기 토글 함수
 function toggleSidebar() {
-    var sidebar = document.getElementById("sidebar");
-
-    // 사이드바가 보이면 숨기고, 숨겨져 있으면 보이게 설정
-    if (sidebar.style.display === "none" || sidebar.style.display === "") {
-        sidebar.style.display = "block";  // 보이게 설정
-    } else {
-        sidebar.style.display = "none";  // 숨기기 설정
-    }
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('open'); // 'open' 클래스를 토글하여 사이드바 열고 닫기
 }
 
-// 버튼 클릭 시 해당 콘텐츠 표시 함수
-function showContent(contentId) {
-    var content = document.getElementById(contentId);
 
-    // 해당 콘텐츠를 보이게 설정
-    content.style.display = "block";
+// 버튼 클릭 시 해당 내용 표시
+function showContent(contentType) {
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDescription = document.getElementById('modalDescription');
 
-    // 다른 콘텐츠는 숨기기
-    var allContents = document.querySelectorAll('.sidebarcontent > div');
-    allContents.forEach(function(item) {
-        if (item.id !== contentId) {
-            item.style.display = "none";
-        }
-    });
-}
+  if (contentType === 'cafe1') {
+    alert("우리 카페에서는 다양한 커피와 디저트를 제공합니다. 친구와 함께 또는 혼자서 편안하게 즐길 수 있는 공간입니다.");
+    modalTitle.textContent = "카페";
+    modalDescription.textContent = "우리 카페에서는 다양한 커피와 디저트를 제공합니다. 친구와 함께 또는 혼자서 편안하게 즐길 수 있는 공간입니다.";
+  }
 
-/*모달*/
-
-// 모달 열기
-function openModal(content) {
-    var modal = document.querySelector('.modal');
-    var modalTitle = document.getElementById('modalTitle');
-    var modalDescription = document.getElementById('modalDescription');
-
-    // 모달의 제목과 내용을 동적으로 변경
-    modalTitle.textContent = content + " 관련 정보";
-    modalDescription.textContent = content + "에 대한 상세 정보입니다.";
-
-    // 모달을 보이게 하기
-    modal.classList.add('on');
-}
-
-// 모달 닫기
-function closeModal() {
-    var modal = document.querySelector('.modal');
-    modal.classList.remove('on');
 }

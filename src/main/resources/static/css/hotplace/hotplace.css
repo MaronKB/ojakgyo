@@ -1,45 +1,54 @@
 /*핫플레이스 css*/
-
 .main{
     display:flex;
-    margin-left:120px;
+    margin-left:160px;
     margin-right:00px;
 }
 
+.sidebartitle{
+    margin-top:30px;
+    margin-bottom:30px;
+    font-size:40px;
+    font-family:"East Sea Dokdo", sans-serif;
+    text-align:center;
+    color:black;
+}
+
 .cafe{
-    width:80px;
-    height:80px;
-    /*border:1px solid red;*/
     margin:10px;
-/*    display:flex;*/
+    margin-top:30px;
+        margin-bottom:30px;
 }
 
 .restaurant{
-    width:80px;
-    height:80px;
-    /*border:1px solid red;*/
     margin:10px;
+    margin-top:30px;
+        margin-bottom:30px;
 }
 
 .spot{
-    width:80px;
-    height:80px;
-    /*border:1px solid red;*/
     margin:10px;
+    margin-top:30px;
+        margin-bottom:30px;
 }
 
 .hotel{
-    width:80px;
-    height:80px;
-    /*border:1px solid red;*/
     margin:10px;
+    margin-top:30px;
+        margin-bottom:30px;
 }
 
 .cafebutton{
-    width:75px;
+    width:120px;
     height:75px;
-    background-color:lightpink;
-    border-radius : 10px;
+    background-color:white;
+    border:1px solid black;
+    border-radius : 40px;
+    margin:auto;
+    font-family: "East Sea Dokdo", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:35px;
 }
 
 .cafebutton:hover{
@@ -47,10 +56,16 @@
 }
 
 .restaurantbutton{
-    width:75px;
+    width:120px;
     height:75px;
-    background-color:lightpink;
-    border-radius : 10px;
+    background-color:white;
+    border:1px solid black;
+    border-radius : 40px;
+    margin:auto;
+    font-family: "East Sea Dokdo", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:35px;
 }
 
 .restaurantbutton:hover{
@@ -58,10 +73,16 @@
 }
 
 .spotbutton{
-    width:75px;
+    width:120px;
     height:75px;
-    background-color:lightpink;
-    border-radius : 10px;
+    background-color:white;
+    border:1px solid black;
+    border-radius : 40px;
+    margin:auto;
+    font-family: "East Sea Dokdo", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:35px;
 }
 
 .spotbutton:hover{
@@ -69,59 +90,95 @@
 }
 
 .hotelbutton{
-    width:75px;
+    width:120px;
     height:75px;
-    background-color:lightpink;
-    border-radius : 10px;
+    background-color:white;
+    border:1px solid black;
+    border-radius : 40px;
+    margin:auto;
+    font-family: "East Sea Dokdo", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:35px;
 }
 
 .hotelbutton:hover{
     background-color:lightblue;
 }
 
-
-
 .regionSelect{                      /*지역선택바*/
     overflow:scroll;
     overflow-x:hidden;
-    width : 290px;
-    height: 400px;
-    margin-left: 30px;
-    margin-top: 150px;
+    width : 400px;
+    height: 660px;
+    margin-left: 300px;
+    margin-top: 100px;
     border:1px solid black;
     border-radius : 10px;
     justify-content:center;
+    background-color:pink;
+    justify-content:center;
 }
 
-.sidebar{                           /*카테고리*/
-    overflow:scroll;
-    overflow-x:hidden;
-    display:none;
-    width:600px;
-    height:400px;
-    margin-top: 150px;
-    border:1px solid black;
-    border-radius : 0px;
-    /*transform:translateX(+10px);*/
-    transition: transform 0.5s ease-in-out;
-    margin-left:40px;
+.regions:hover{
+    background-color:lightblue;
 }
+
+.line {                             /*카테고리 구분선*/
+    width: 600px;
+    height: 1px;
+    background-color:gray;
+}
+
+/* 카테고리 사이드바 기본 스타일 */
+.sidebar {
+  overflow-x: hidden;          /* 수평 스크롤 숨기기 */
+  display: block;              /* flex로 설정 */
+  width: 400px;
+  height: 660px;
+  margin-top: 100px;
+  border: 1px solid black;
+  border-radius: 10px;
+  position: fixed;            /* 화면 고정 */
+  left: -400px;               /* 화면 왼쪽 밖에 위치 */
+  background-color: pink;
+  font-size: 40px;
+  justify-content: center;
+  text-align: center;
+  visibility: hidden;         /* 기본적으로 보이지 않게 설정 */
+  opacity: 0;                 /* 투명하게 설정 */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0s linear 0.5s; /* 애니메이션 설정 */
+}
+
+/* 사이드바가 열릴 때 */
+.sidebar.open {
+  transform: translateX(400px); /* 사이드바가 화면 안으로 슬라이드 */
+  visibility: visible;          /* 보이게 설정 */
+  opacity: 1;                   /* 불투명하게 설정 */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* 애니메이션 */
+}
+
 
 .regions{                           /*지역선택 목록*/
-    width:250px;
+    width:150px;
     height: 50px;
     display:block;
-    border: 1px solid black;
+    border: 2px solid black;
     box-sizing: border-box;
-    border-radius: 10px;
-    margin: 10px;
+    border-radius: 30px;
+    margin: auto;
+    margin-top:15px;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    line-height: 16px;
-    background-color:lightpink;
+    line-height: 15px;
+    background-color:white;
     justify-content:center;
     text-align:center;
+    font-family: "East Sea Dokdo", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:30px;
 }
 
 .section {
@@ -132,18 +189,48 @@
 
 
 .movebar{               /*열고닫기버튼*/
-    width : 40px;
-    height : 170px;
-    margin-top: 270px;
-    border: 1px solid black;
-    border-radius : 5px;
-    border-left-style:none;
-    margin-left:0px;
+    width:150px;
+    height: 50px;
+    display:block;
+    border: 2px solid black;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 15px;
+    background-color:white;
+    justify-content:center;
+    text-align:center;
+    font-family: "East Sea Dokdo", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size:30px;
 }
 
+
+.content-container {
+  margin-left: 320px; /* 사이드바가 열렸을 때 콘텐츠가 왼쪽으로 밀리도록 설정 */
+  transition: margin-left 0.3s ease;
+}
+
+.content-container .page {
+  display: none;
+  transition: opacity 0.5s ease;
+}
+
+.content-container .active {
+  display: block;
+  opacity: 1;
+}
+
+
 .movebar:hover{
-    background-color:black;
-    color:white;
+    background-color:lightblue;
+    color:black;
 }
 
 /*==========================================================*/
