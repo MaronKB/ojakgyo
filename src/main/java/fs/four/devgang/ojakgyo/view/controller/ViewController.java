@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -56,13 +57,9 @@ public class ViewController {
     public String mainForm(HttpServletRequest request) {
         // 로그인 토큰이 존재하지 않을 경우 로그인 페이지로 리디렉션
         HttpSession session = request.getSession();
-        String token = (String) session.getAttribute("user");
+        JSONObject token = (JSONObject) session.getAttribute("user");
 
-        if (token != null) {
-            System.out.println("token: " + token);
-        } else {
-            return "redirect:/login";
-        }
+        if (token == null) return "redirect:/login";
         return "main/form/main";
     }
 

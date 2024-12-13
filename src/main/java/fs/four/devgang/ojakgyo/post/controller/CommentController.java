@@ -36,9 +36,7 @@ public class CommentController {
 
     @PostMapping(value="/add")
     public int addComment(@RequestBody JSONObject jsonObject, HttpServletRequest request) throws Exception {
-        System.out.println(jsonObject);
         HttpSession session = request.getSession();
-        System.out.println(session);
         if (session.getAttribute("user") == null) {
             return -1;
         }
