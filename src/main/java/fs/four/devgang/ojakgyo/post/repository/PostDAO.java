@@ -8,25 +8,14 @@ import java.util.List;
 
 @Mapper
 public interface PostDAO {
+    public PostVO selectPostById(int postId) throws DataAccessException;
 
-    /**
-     * 코드 그룹 관리 조회
-     * @return
-     * @throws DataAccessException
-     */
-//    게시글 리스트
-    public List selectAllPostList() throws DataAccessException;
+    public List<PostVO> selectAllPostList() throws DataAccessException;
 
-//    게시글 작성
+    public List<PostVO> selectPostByCategory(String category);
+
     public int insertPost(PostVO postVO) throws DataAccessException ;
 
-//    게시글 조회
-    PostVO selectPostById(int postId) throws DataAccessException;
-
-//    게시글 카테고리
-    List<PostVO> selectPostByCategory(String category);
-
-//    게시글 조회수 추가
-    void updatePostViewCount(int postId) throws DataAccessException;
+    public void updatePostViewCount(int postId) throws DataAccessException;
 
 }

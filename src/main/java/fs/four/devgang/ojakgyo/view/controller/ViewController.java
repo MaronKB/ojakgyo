@@ -1,5 +1,7 @@
 package fs.four.devgang.ojakgyo.view.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,15 +47,16 @@ public class ViewController {
     // main
 
     @GetMapping("/main")
-    public String mainForm(@CookieValue(value = "token", required = false) String token, @RequestHeader(value = "User-Agent", required = false) String userAgent) {
+    public String mainForm(HttpServletRequest request) {
         // 로그인 토큰이 존재하지 않을 경우 로그인 페이지로 리디렉션
-        /*
+        HttpSession session = request.getSession();
+        String token = (String) session.getAttribute("user");
+
         if (token != null) {
             System.out.println("token: " + token);
         } else {
             return "redirect:/login";
         }
-        */
 
         System.out.println("main");
         return "main/form/main";
@@ -64,7 +67,7 @@ public class ViewController {
     @GetMapping("/community")
     public String community() {
         System.out.println("community");
-        return "listPost";
+        return "community/list";
     }
 
     @GetMapping("/community/new")

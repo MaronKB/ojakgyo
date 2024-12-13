@@ -127,8 +127,10 @@
     font-size: 18px;
     text-align: center;
     color: var(--text-color);
+    background-color: #fff3;
     border: 1px solid #ccc;
     border-radius: 5px;
+    backdrop-filter: blur(6px);
     opacity: 0.7;
 }
 #login-register:hover {
