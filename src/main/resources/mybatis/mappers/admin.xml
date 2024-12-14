@@ -7,4 +7,24 @@
             select * from OJAKGYO.USER_INFO order by user_reg_date desc
         ]]>
     </select>
+
+    <select id="searchUsers" parameterType="map" resultType="adminVO">
+        SELECT *
+        FROM OJAKGYO.USER_INFO
+        WHERE
+        <choose>
+            <when test="category == 'id'">
+                user_id LIKE '%' || #{keyword} || '%'
+            </when>
+            <when test="category == 'nickname'">
+                user_nickname LIKE '%' || #{keyword} || '%'
+            </when>
+            <when test="category == 'email'">
+                user_email LIKE '%' || #{keyword} || '%'
+            </when>
+        </choose>
+        ORDER BY user_reg_date DESC
+    </select>
+
+
 </mapper>

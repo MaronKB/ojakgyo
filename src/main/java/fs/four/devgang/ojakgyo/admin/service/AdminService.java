@@ -2,6 +2,7 @@ package fs.four.devgang.ojakgyo.admin.service;
 
 
 import fs.four.devgang.ojakgyo.admin.repository.AdminDAO;
+import fs.four.devgang.ojakgyo.admin.vo.AdminVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +18,10 @@ public class AdminService {
         List userList = null;
         userList = adminDAO.selectAllUserList();
         return userList;
+    }
+
+//    검색 기능
+    public List<AdminVO> searchUsers(String category, String keyword) throws Exception {
+        return adminDAO.searchUsers(category, keyword);
     }
 }

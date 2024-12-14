@@ -19,15 +19,15 @@
 <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
     <div class="container">
         <div class="listUser-search-bar">
-            <select>
+            <select id="searchCategory">
                 <option value="id">아이디</option>
                 <option value="nickname">닉네임</option>
                 <option value="email">이메일</option>
-                <option value="reg">가입일</option>
-                <option value="res">탈퇴일</option>
+<%--                <option value="reg">가입일</option>--%>
+<%--                <option value="res">탈퇴일</option>--%>
             </select>
-            <input type="text">
-            <button>조회</button>
+            <input type="text" id="searchKeyword" placeholder="검색어를 입력하세요.">
+            <button id="searchButton">조회</button>
         </div>
 
         <table class="listUser-table">
@@ -42,7 +42,7 @@
                     <th>탈퇴일</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="userTableBody">
                 <c:forEach var="user" items="${userList}" >
                     <tr align="center">
                         <td><input type="checkbox"></td>
@@ -81,5 +81,6 @@
             </div>
         </div>
     </div>
+<script src="<c:url value='/js/admin/user.js'/>"></script>
 </body>
 </html>
