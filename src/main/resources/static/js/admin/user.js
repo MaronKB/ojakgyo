@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+    // 검색기능
     const searchButton = document.getElementById("searchButton");
     const searchCategory = document.getElementById("searchCategory");
     const searchKeyword = document.getElementById("searchKeyword");
@@ -21,13 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (xhr.status === 200) {
                 const users = JSON.parse(xhr.responseText);
                 updateTable(users);
-            } else {
-                alert("데이터를 가져오는 중 오류가 발생했습니다.");
             }
-        };
-
-        xhr.onerror = function () {
-            alert("네트워크 오류가 발생했습니다.");
         };
 
         xhr.send();
@@ -56,4 +52,101 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     }
+
+
+    // 페이지네이션
+    const rowsPerPage = 20;
+    const paginationContainer = document.querySelector(".pagination");
+
+
+    const rows = Array.from(userTableBody.getElementsByTagName("tr"));
+    const totalRows = rows.length;
+    const totalPages = Math.ceil(totalRows / rowsPerPage);
+
+
+    const createPagination = () => {
+        paginationContainer.innerHTML = "";
+
+        const prevButton = document.createElement("button");
+        prevButton.textContent = "<";
+        prevButton.disabled = true;
+        paginationContainer.appendChild(prevButton);
+
+        for (let i = 1; i <= totalPages; i++) {
+            const pageButton = document.createElement("button");
+            pageButton.textContent = i;
+            pageButton.classList.add("page-btn");
+            if (i === 1) pageButton.classList.add("active");
+            paginationContainer.appendChild(pageButton);
+
+            pageButton.addEventListener("click", () => {
+                displayPage(i);
+                updatePaginationState(i);
+            });
+        }
+
+        const nextButton = document.createElement("button");
+        nextButton.textContent = ">";
+        paginationContainer.appendChild(nextButton);
+
+        nextButton.addEventListener("click", () => {
+            const currentPage = getCurrentPage();
+            if (currentPage < totalPages) {
+                displayPage(currentPage + 1);
+                updatePaginationState(currentPage + 1);
+            }
+        });
+
+        prevButton.addEventListener("click", () => {
+            const currentPage = getCurrentPage();
+            if (currentPage > 1) {
+                displayPage(currentPage - 1);
+                updatePaginationState(currentPage - 1);
+            }
+        });
+    };
+
+
+    const displayPage = (page) => {
+        const start = (page - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+
+        rows.forEach((row, index) => {
+            if (index >= start && index < end) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    };
+
+
+    const updatePaginationState = (currentPage) => {
+        const pageButtons = paginationContainer.querySelectorAll(".page-btn");
+        pageButtons.forEach((btn, index) => {
+            btn.classList.remove("active");
+            if (index + 1 === currentPage) {
+                btn.classList.add("active");
+            }
+        });
+
+        const prevButton = paginationContainer.querySelector("button:first-child");
+        const nextButton = paginationContainer.querySelector("button:last-child");
+
+        prevButton.disabled = currentPage === 1;
+        nextButton.disabled = currentPage === totalPages;
+    };
+
+    const getCurrentPage = () => {
+        const activeButton = paginationContainer.querySelector(".page-btn.active");
+        return parseInt(activeButton.textContent, 10);
+    };
+
+
+    const initPagination = () => {
+        createPagination();
+        displayPage(1);
+    };
+
+    initPagination();
 });
