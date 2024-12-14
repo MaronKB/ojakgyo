@@ -11,18 +11,29 @@
         <result property="post_content" column="post_content" />
     </resultMap>
 
+    <select id="selectPostById" parameterType="int" resultMap="memResult">
+        select * from OJAKGYO.post where POST_ID = #{postId}
+    </select>
+
     <select id="selectAllPostList" resultType="postVO">
         <![CDATA[
             SELECT * FROM OJAKGYO.POST ORDER BY POST_ID DESC
         ]]>
     </select>
 
-    <select id="selectPostById" parameterType="int" resultMap="memResult">
-        select * from OJAKGYO.post where POST_ID = #{postId}
+    <select id="selectPostListByCategory" parameterType="string" resultType="postVO">
+        select * from OJAKGYO.POST where (post_category = #{category} or '전체' = #{category}) order by POST_ID desc
     </select>
 
-    <select id="selectPostByCategory" parameterType="string" resultType="postVO">
-        select * from OJAKGYO.POST where post_category = #{category} order by POST_ID desc
+    <select id="searchAllPostList" parameterType="HashMap" resultType="postVO">
+        select * from OJAKGYO.POST where #{searchType} like '%'||#{searchKeyword}||'%' order by POST_ID desc
+    </select>
+
+    <select id="searchPostListByCategory" parameterType="HashMap" resultType="postVO">
+        select * from OJAKGYO.POST
+        where (post_category = #{category} or '전체' = #{category})
+        and ${searchType} like '%'||#{searchKeyword}||'%'
+        order by POST_ID desc
     </select>
 
     <insert id="insertPost" parameterType="postVO">

@@ -14,8 +14,12 @@ const activateCategory = async (ev) => {
     await createPagination();
 }
 
-const getPostList = async () => {
-    const result = await fetch(`/api/post/list/${category}?page=${page}`, {
+const getPostList = async (searchType = null, searchKeyword = null) => {
+    let url = `/api/post/list/${category}?page=${page}`;
+    if (searchType !== null && searchKeyword !== null) {
+        url += `&searchType=${searchType}&searchKeyword=${searchKeyword}`;
+    }
+    const result = await fetch(url, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -78,6 +82,15 @@ const getPostList = async () => {
 
     const postBody = document.querySelector("#post-body");
     postBody.replaceChildren(...docs);
+}
+
+const searchPost = async () => {
+    const searchType = document.querySelector("#search-type");
+    const searchKeyword = document.querySelector("#search-value");
+    await getPostList(searchType.value, searchKeyword.value);
+    await createPagination();
+    searchType.value = "title";
+    searchKeyword.value = "";
 }
 
 const createPagination = async () => {

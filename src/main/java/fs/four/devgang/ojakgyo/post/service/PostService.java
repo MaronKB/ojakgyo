@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 @Service("postService")
@@ -67,6 +68,26 @@ public class PostService {
         return jsonArray;
     }
 
+    private HashMap<String, String> getParam(String category, String searchType, String searchKeyword) {
+        searchType = switch (searchType) {
+            case "title" -> "POST_TITLE";
+            case "content" -> "POST_CONTENT";
+            case "author" -> "POST_AUTHOR_NICKNAME";
+            default -> "POST_TITLE";
+        };
+
+        HashMap<String, String> param = new HashMap<>();
+        param.put("category", category);
+        param.put("searchType", searchType);
+        param.put("searchKeyword", searchKeyword);
+
+        return param;
+    }
+
+    public JSONObject selectPostById(int postId) throws Exception {
+        return parseVOToJSON(postDAO.selectPostById(postId));
+    }
+
     public JSONObject selectAllPostList(int page) throws Exception {
         List<PostVO> postList = postDAO.selectAllPostList();
         JSONObject jsonObject = new JSONObject();
@@ -75,12 +96,26 @@ public class PostService {
         return jsonObject;
     }
 
-    public JSONObject selectPostById(int postId) throws Exception {
-        return parseVOToJSON(postDAO.selectPostById(postId));
+    public JSONObject selectPostListByCategory(String category, int page) throws Exception {
+        List<PostVO> postList = postDAO.selectPostListByCategory(category);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("totalPage", (postList.size() / POST_LIST_SIZE) + 1);
+        jsonObject.put("posts", parseListToJSON(postList, page));
+        return jsonObject;
     }
 
-    public JSONObject selectPostByCategory(String category, int page) throws Exception {
-        List<PostVO> postList = postDAO.selectPostByCategory(category);
+    public JSONObject searchAllPostList(String searchType, String searchKeyword, int page) throws Exception {
+        HashMap<String, String> param = getParam("전체", searchType, searchKeyword);
+        List<PostVO> postList = postDAO.searchAllPostList(param);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("totalPage", (postList.size() / POST_LIST_SIZE) + 1);
+        jsonObject.put("posts", parseListToJSON(postList, page));
+        return jsonObject;
+    }
+
+    public JSONObject searchPostListByCategory(String category, String searchType, String searchKeyword, int page) throws Exception {
+        HashMap<String, String> param = getParam(category, searchType, searchKeyword);
+        List<PostVO> postList = postDAO.searchPostListByCategory(param);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("totalPage", (postList.size() / POST_LIST_SIZE) + 1);
         jsonObject.put("posts", parseListToJSON(postList, page));
