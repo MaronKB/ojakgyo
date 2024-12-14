@@ -4,9 +4,10 @@
     margin-top: 50px;
 }
 
-/*.imgcontainer{
-    display:flex;
-}*/
+.bodytitle{
+    color:white;
+}
+
 
 /*닉네임, 이메일*/
 .upper{
@@ -26,7 +27,7 @@
 /*프사*/
 .defaultprofilepicture {
     display:inline-block;
-    border: 2px solid #ed0b5a; /* 빨간색 테두리 추가 */
+    border: 2px solid #black; /* 빨간색 테두리 추가 */
     width:100px;
     height:100px;
 }
@@ -89,8 +90,12 @@
     display:flex;                /*나란히*/
 }
 
+/*.caption1
+    color:white;*/
+
 .caption2{
     margin-left: 470px;          /*내가 쓴 댓글*/
+    color:white;
 }
 
 /*수정버튼 css*/

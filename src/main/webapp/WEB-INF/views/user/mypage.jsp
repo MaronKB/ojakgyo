@@ -11,7 +11,7 @@
 <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
 
     <div class="bodycontainer">
-        <h2 class=bodyTitle>마이페이지</h2>
+        <h2 class="bodytitle">마이페이지</h2>
                 <br>
                 <div class="imgcontainer">
                     <img id="profile-img-btn"
@@ -24,14 +24,14 @@
                 </div>
                 <div class="upper">
                     <div class="nickname">
-                        <p>닉네임</p>
+                        <p class="bodytitle">닉네임</p>
                         <input id="nicknameInput" placeholder="태사다르" style="width:200px; height:30px;">
                         <input type="hidden" id="userId" value="${user.userId}">
                         <button class="editbutton" id="edit1" style="width:100px; height:30px;">수정</button>
                     </div>
                 <br>
                     <div class="email">
-                        <p>이메일</p>
+                        <p class="bodytitle">이메일</p>
                         <input placeholder="tassadar@aiur.com"
                         style="width:200px; height:30px;">
                         <button class="editbutton" id="edit2" style="width:100px; height:30px;">수정</button>
@@ -40,14 +40,14 @@
                 <br>
                 <div class="lower">
                     <div class="password">
-                         <p>비밀번호</p>
+                         <p class="bodytitle">비밀번호</p>
                          <input placeholder="123546789"
                          style="width:200px; height:30px;">
                          <button class="editbutton" id="edit3" style="width:100px; height:30px;">수정</button>
                     </div>
                 <br>
                     <div class="address">
-                         <p>주소</p>
+                         <p class="bodytitle">주소</p>
                          <input placeholder="경기도 수원시"
                          style="width:200px; height:30px;">
                          <button class="editbutton" id="edit4" style="width:100px; height:30px;" >수정</button>
@@ -56,7 +56,7 @@
                 <br>
                 <div class="introduction">
                     <div class="intro">
-                        <p>한줄소개</p>
+                        <p class="bodytitle">한줄소개</p>
                         <input placeholder="난 백엔드를 경험한 적이 없네"
                         style="width:544px; height: 30px;">
                         <button class="editbutton" id="edit5" style="width:100px; height:30px;">수정</button>
@@ -65,18 +65,16 @@
                 <br>
                 <div class="caption">
                     <h4 class="caption1">내가 쓴 게시글</h4>
-                    <br>
                     <h4 class="caption2">내가 쓴 댓글</h4>
                 </div>
                 <div class="recents">
                     <div class="recentlyRegisteredPosts">
-                        <div class="title"><p>안녕</p></div>
-                        <div class="title"><p>난 백엔드를 경험한 적이 없네.</p></div>
-                        <div class="title"><p>미친 소리!</p></div>
-                        <div class="title"><p>멈춰!</p></div>
-                        <div class="title"><p>안녕못한다</p></div>
+                        <div class="title"><a href = "http://localhost:8080/community/v/9"><p>안녕</p></div>
+                        <div class="title"><a href = "http://localhost:8080/community/v/12"><p>난 백엔드를 경험한 적이 없네.</p></div>
+                        <div class="title"><a href = "http://localhost:8080/community/v/18"><p>미친 소리!</p></div>
+                        <div class="title"><a href = "http://localhost:8080/community/v/26"><p>멈춰!</p></div>
+                        <div class="title"><a href = "http://localhost:8080/community/v/2"><p>안녕못한다</p></div>
                     </div>
-
                     <div class="recentlyRegisteredComments">
                         <div class="title"><p>엄청커다란모기가나의발을물었어</p></div>
                         <div class="title"><p>간지러웠어</p></div>
