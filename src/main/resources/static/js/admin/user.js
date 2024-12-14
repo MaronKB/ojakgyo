@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // AJAX 요청을 보냅니다.
+
         const xhr = new XMLHttpRequest();
         xhr.open("GET", `/admin/searchUsers?category=${category}&keyword=${encodeURIComponent(keyword)}`, true);
 
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function updateTable(users) {
-        userTableBody.innerHTML = ""; // 기존 테이블 초기화
+        userTableBody.innerHTML = "";
 
         if (users.length === 0) {
             const emptyRow = document.createElement("tr");
