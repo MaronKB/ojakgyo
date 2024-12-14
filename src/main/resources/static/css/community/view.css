@@ -152,9 +152,20 @@
     margin-top: 20px;
 }
 #comment-insert > label {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+#comment-insert-header {
     font-family: var(--font-menu), sans-serif;
     font-size: 14px;
     color: var(--text-color);
+}
+#comment-length {
+    font-family: var(--font-normal), sans-serif;
+    font-size: 10px;
+    color: #aaa;
+    align-self: flex-end;
 }
 #comment-area {
     width: 100%;
@@ -166,6 +177,9 @@
     border: 0;
     border-radius: 5px;
     resize: none;
+}
+#comment-area:focus {
+    outline: none;
 }
 
 #comment-submit {

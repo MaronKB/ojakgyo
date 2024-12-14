@@ -47,8 +47,8 @@
             </ul>
             <form id="comment-insert" onsubmit="addComment()">
                 <input id="comment-post-id" type="hidden" value="${post.postId}">
-                <label for="comment-area">댓글 쓰기</label>
-                <textarea id="comment-area"<c:if test="${sessionScope.user == null}"> placeholder="댓글을 작성하려면 로그인 해주세요. 로그인 하시겠습니까?" onfocus="location.href = '/login'"</c:if>></textarea>
+                <label for="comment-area"><span id="comment-insert-header">댓글 쓰기</span><span id="comment-length">0/4000</span></label>
+                <textarea id="comment-area"<c:if test="${sessionScope.user == null}"> placeholder="댓글을 작성하려면 로그인 해주세요. 로그인 하시겠습니까?" onfocus="location.href = '/login'"</c:if> oninput="commentLimitation()"></textarea>
                 <button id="comment-submit" type="submit"<c:if test="${sessionScope.user == null}"> disabled</c:if>>등록</button>
             </form>
         </section>
