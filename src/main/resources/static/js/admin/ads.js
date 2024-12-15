@@ -186,6 +186,13 @@ const deleteAd = async (id) => {
     closeAdModal();
 }
 
+const deleteAds = async () => {
+    const ads = document.querySelectorAll(".ad-checkbox:checked");
+    await Promise.all([...ads].map(async (ad) => {
+        await deleteAd(ad.value);
+    }));
+}
+
 const moveAd = async (id, valid) => {
     try {
         console.log(valid);
