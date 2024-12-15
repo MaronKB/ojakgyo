@@ -72,7 +72,6 @@ public class ViewController {
     public String mainForm(HttpServletRequest request) {
         HttpSession session = request.getSession();
 
-
         if (!userIsLoggedIn(session)) return "redirect:/login";
         return "main/form/main";
     }
@@ -116,7 +115,7 @@ public class ViewController {
     @GetMapping("/admin/ads")
     public String ads(HttpServletRequest request) {
         HttpSession session = request.getSession();
-        if (!userIsAdmin(session)) return "redirect:/error";
+        if (!userIsAdmin(session)) return "redirect:/error/401";
         return "admin/ads";
     }
     /*
@@ -128,15 +127,5 @@ public class ViewController {
     @GetMapping("/admin/reports")
     public String reports() {
         return "admin/reports";
-    }
-
-    @GetMapping("/error")
-    public String error() {
-        return "error/common";
-    }
-
-    @GetMapping("/404")
-    public String error404() {
-        return "error/404";
     }
 }
