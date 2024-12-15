@@ -150,37 +150,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
     initPagination();
 
+
+    // 삭제 기능
+    const selectAllCheckbox = document.getElementById("selectAll");
+    const deleteButton = document.getElementById("delete");
+
+
+    selectAllCheckbox.addEventListener("change", function () {
+        const checkboxes = userTableBody.querySelectorAll("input[type='checkbox']");
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = selectAllCheckbox.checked;
+        });
+    });
+
+
+    deleteButton.onclick = async () => {
+
+        const currentRows = Array.from(userTableBody.querySelectorAll("tr"))
+            .filter(row => row.style.display !== "none");
+
+        const selectedCheckboxes = currentRows
+            .map(row => row.querySelector("input[type='checkbox']"))
+            .filter(checkbox => checkbox.checked);
+
+        if (selectedCheckboxes.length === 0) {
+            alert("삭제할 회원을 선택해주세요.");
+            return;
+        }
+
+
+        const userIds = selectedCheckboxes.map(checkbox => {
+            return checkbox.closest("tr").querySelector("td:nth-child(2)").textContent;
+        });
+
+
+        if (!confirm("회원을 삭제하시겠습니까?")) {
+            return;
+        }
+
+
+        const response = await fetch("/admin/deleteUsers", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams({ userIds: userIds })
+        });
+
+        if (response.ok) {
+            alert("선택한 회원이 삭제되었습니다.");
+            location.reload();
+        }
+    };
+
+
 });
-
-
-// 삭제 기능
-document.getElementById("delete").onclick = async () => {
-    const selectedCheckboxes = document.querySelectorAll("tbody input[type='checkbox']:checked");
-    const userIds = Array.from(selectedCheckboxes).map(checkbox => {
-        return checkbox.closest("tr").querySelector("td:nth-child(2)").textContent;
-    });
-
-    if (userIds.length === 0) {
-        alert("삭제할 회원을 선택하세요.");
-        return;
-    }
-
-    const confirmDelete = confirm("정말 삭제하시겠습니까?");
-    if (!confirmDelete) {
-        return;
-    }
-
-    const response = await fetch("/admin/deleteUsers", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({ userIds: userIds })
-    });
-
-    if (response.ok) {
-        alert("회원을 삭제했습니다.");
-        location.reload();
-    }
-};
-
-
-
