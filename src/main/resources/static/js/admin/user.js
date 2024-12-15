@@ -149,4 +149,57 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     initPagination();
+
+
+    // 삭제 기능
+    const selectAllCheckbox = document.getElementById("selectAll");
+    const deleteButton = document.getElementById("delete");
+
+
+    selectAllCheckbox.addEventListener("change", function () {
+        const checkboxes = userTableBody.querySelectorAll("input[type='checkbox']");
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = selectAllCheckbox.checked;
+        });
+    });
+
+
+    deleteButton.onclick = async () => {
+
+        const currentRows = Array.from(userTableBody.querySelectorAll("tr"))
+            .filter(row => row.style.display !== "none");
+
+        const selectedCheckboxes = currentRows
+            .map(row => row.querySelector("input[type='checkbox']"))
+            .filter(checkbox => checkbox.checked);
+
+        if (selectedCheckboxes.length === 0) {
+            alert("삭제할 회원을 선택해주세요.");
+            return;
+        }
+
+
+        const userIds = selectedCheckboxes.map(checkbox => {
+            return checkbox.closest("tr").querySelector("td:nth-child(2)").textContent;
+        });
+
+
+        if (!confirm("회원을 삭제하시겠습니까?")) {
+            return;
+        }
+
+
+        const response = await fetch("/admin/deleteUsers", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams({ userIds: userIds })
+        });
+
+        if (response.ok) {
+            alert("선택한 회원이 삭제되었습니다.");
+            location.reload();
+        }
+    };
+
+
 });

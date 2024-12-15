@@ -24,4 +24,8 @@ public class AdminService {
     public List<AdminVO> searchUsers(String category, String keyword) throws Exception {
         return adminDAO.searchUsers(category, keyword);
     }
+
+    public void softDeleteUsers(List<String> userIds) throws Exception {
+        adminDAO.softDeleteUsers(userIds);
+    }
 }
