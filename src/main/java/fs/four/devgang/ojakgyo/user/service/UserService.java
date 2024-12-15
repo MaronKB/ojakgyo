@@ -116,7 +116,7 @@ public class UserService {
         } else if (type.equals("email")) {
             return userDAO.countUserByEmail(str);
         } else {
-            return 0;
+            return -1;
         }
     }
 }

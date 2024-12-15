@@ -41,6 +41,11 @@ public class ViewController {
         return "user/register/main";
     }
 
+    @GetMapping("/register/result")
+    public String registerResult() {
+        return "user/register/result";
+    }
+
     @GetMapping("/mypage")
     public String myPage() {
         return "user/mypage";
