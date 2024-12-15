@@ -33,7 +33,7 @@
         <table class="listUser-table">
             <thead>
                 <tr>
-                    <th><input type="checkbox"></th>
+                    <th><input type="checkbox" id="selectAll"></th>
                     <th>아이디</th>
                     <th>닉네임</th>
                     <th>이메일</th>
@@ -45,7 +45,7 @@
             <tbody id="userTableBody">
                 <c:forEach var="user" items="${userList}" >
                     <tr align="center">
-                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox" class="row-checkbox" data-user-id="${user.user_id}"></td>
                         <td>${user.user_id}</td>
                         <td>${user.user_nickname}</td>
                         <td>${user.user_email}</td>
