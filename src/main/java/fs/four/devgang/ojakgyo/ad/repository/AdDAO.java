@@ -1,6 +1,5 @@
 package fs.four.devgang.ojakgyo.ad.repository;
 
-import fs.four.devgang.ojakgyo.ad.entity.Ad;
 import java.util.List;
 
 import fs.four.devgang.ojakgyo.ad.vo.AdVO;

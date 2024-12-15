@@ -24,15 +24,15 @@ const setAdsList = async () => {
 }
 
 const createAdsList = async () => {
-    const createAdList = (list) => {
-        const totalPage = Math.ceil(list.length / 10);
-        const page = list === adsList.valid ? validPage : invalidPage;
+    const createAdList = (type, list) => {
+        const page = type === "valid" ? validPage : invalidPage;
         const pageList = list.slice((page - 1) * 10, page * 10);
         if (pageList.length <= 10) {
             for (let i = pageList.length; i < 10; i++) {
                 pageList.push({id: 0, title: "", expDate: ""});
             }
         }
+        createPagination(type);
 
         return pageList.map((ad) => {
             const li = document.createElement("li");
@@ -90,8 +90,8 @@ const createAdsList = async () => {
             return li;
         });
     }
-    const validAdsList = createAdList(adsList.valid);
-    const invalidAdsList = createAdList(adsList.invalid);
+    const validAdsList = createAdList("valid", adsList.valid);
+    const invalidAdsList = createAdList("invalid", adsList.invalid);
 
     const validAds = document.getElementById("ads-enabled");
     const invalidAds = document.getElementById("ads-disabled");
@@ -123,7 +123,7 @@ const createPagination = async (type) => {
     const arr = [];
     const page = type === "valid" ? validPage : invalidPage;
     const totalPage = Math.ceil(adsList[type].length / 10);
-    const firstPageOfBlock = Math.floor((page - 1) / 5) * 5 + 1;
+    const firstPageOfBlock = Math.floor((Number(page) - 1) / 5) * 5 + 1;
     for (let i = firstPageOfBlock; i < firstPageOfBlock + 5; i++) {
         const pageElement = document.createElement("a");
         pageElement.textContent = i.toString();
@@ -133,7 +133,7 @@ const createPagination = async (type) => {
             } else if (type === "invalid") {
                 invalidPage = i;
             }
-            renderAdsList(type);
+            renderAdsList(type, i);
         });
         if (i === page) {
             pageElement.className = "active";
@@ -169,39 +169,6 @@ const insertAd = async () => {
     } catch (error) {
         console.error(error);
     }
-}
-
-const updateAd = async (form) => {
-    event.preventDefault();
-    const id = Number(form.adId.value);
-    const title = form.title.value;
-    const category = form.category.value;
-    const expDate = form.end.value;
-    const isValid = form.status.value;
-
-    const ad = {
-        id: id,
-        title: title,
-        category: category,
-        expDate: expDate ? expDate + " " + "23:59:59" : null,
-        isValid: isValid
-    };
-    try {
-        const response = await fetch(`/api/ad/${ad.id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(ad)
-        });
-        if (response.ok) {
-            await setAdsList();
-            await createAdsList();
-        }
-    } catch (error) {
-        console.error(error);
-    }
-    closeAdModal();
 }
 
 const deleteAd = async (id) => {

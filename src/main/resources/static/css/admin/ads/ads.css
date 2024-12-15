@@ -3,6 +3,7 @@
     width: 800px;
     height: fit-content;
     background: white;
+    padding: 40px;
     border-radius: 15px;
 }
 #ads-header {
@@ -12,13 +13,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 0 10px 0;
 }
 #ads-header h3 {
     flex: 1;
     font-family: var(--font-menu), sans-serif;
     font-size: 16px;
     text-align: left;
-    padding: 0 20px;
 }
 #ads-buttons {
     flex: none;
@@ -28,7 +29,6 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
-    padding: 0 20px;
 }
 #ads-buttons > a {
     flex: none;
@@ -50,7 +50,6 @@
     width: 100%;
     display: flex;
     gap: 10px;
-    padding: 20px;
 }
 .ads {
     flex: 1;

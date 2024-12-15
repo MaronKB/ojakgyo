@@ -22,6 +22,16 @@ public class ViewController {
     @Autowired
     private CommentService commentService;
 
+    private static boolean userIsLoggedIn(HttpSession session) {
+        JSONObject token = (JSONObject) session.getAttribute("user");
+        return token != null;
+    }
+
+    private static boolean userIsAdmin(HttpSession session) {
+        JSONObject token = (JSONObject) session.getAttribute("user");
+        return token != null && "Y".equals(token.get("isAdmin"));
+    }
+
     // index
 
     @GetMapping("/")
@@ -60,11 +70,10 @@ public class ViewController {
 
     @GetMapping("/main")
     public String mainForm(HttpServletRequest request) {
-        // 로그인 토큰이 존재하지 않을 경우 로그인 페이지로 리디렉션
         HttpSession session = request.getSession();
-        JSONObject token = (JSONObject) session.getAttribute("user");
 
-        if (token == null) return "redirect:/login";
+
+        if (!userIsLoggedIn(session)) return "redirect:/login";
         return "main/form/main";
     }
 
@@ -105,7 +114,9 @@ public class ViewController {
     // admin
 
     @GetMapping("/admin/ads")
-    public String ads() {
+    public String ads(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        if (!userIsAdmin(session)) return "redirect:/error";
         return "admin/ads";
     }
     /*
@@ -117,5 +128,15 @@ public class ViewController {
     @GetMapping("/admin/reports")
     public String reports() {
         return "admin/reports";
+    }
+
+    @GetMapping("/error")
+    public String error() {
+        return "error/common";
+    }
+
+    @GetMapping("/404")
+    public String error404() {
+        return "error/404";
     }
 }

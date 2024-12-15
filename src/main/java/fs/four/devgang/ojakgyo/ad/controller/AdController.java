@@ -1,8 +1,6 @@
 package fs.four.devgang.ojakgyo.ad.controller;
 
-import fs.four.devgang.ojakgyo.ad.entity.Ad;
 import fs.four.devgang.ojakgyo.ad.service.AdService;
-import jakarta.servlet.http.HttpServletRequest;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
