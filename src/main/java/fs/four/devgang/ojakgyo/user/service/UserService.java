@@ -91,7 +91,7 @@ public class UserService {
         JSONObject loginToken = new JSONObject();
         if (user == null) {
             loginToken.put("status", 401);
-            loginToken.put("message", "로그인 실패 : 존재하지 않는 아이디입니다.");
+            loginToken.put("message", "존재하지 않는 아이디입니다.");
         } else {
             if (user.getUser_pw().equals(jsonObject.get("password").toString())) {
                 JSONObject token = new JSONObject();
@@ -104,7 +104,7 @@ public class UserService {
                 loginToken.put("token", token);
             } else {
                 loginToken.put("status", 401);
-                loginToken.put("message", "로그인 실패 : 비밀번호가 일치하지 않습니다.");
+                loginToken.put("message", "비밀번호가 일치하지 않습니다.");
             }
         }
         return loginToken;
