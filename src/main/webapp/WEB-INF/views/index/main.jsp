@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>오작교</title>
     <link rel="stylesheet" type="text/css" href="<c:url value="/css/index.css"/>"/>
 </head>
 <body>
