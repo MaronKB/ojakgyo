@@ -17,9 +17,6 @@ public class MypageControllerImpl implements MypageController {
     @Autowired
     private MypageService mypageService;
 
-    @Autowired
-    private MypageVO mypageVO;
-
     @Override
     @GetMapping("/user/updatenickname")
     public ModelAndView listMypage(HttpServletRequest request, HttpServletResponse response) throws Exception {

@@ -2,12 +2,28 @@
 .bodycontainer{
     margin:40px;
     margin-top: 50px;
+    font-family: "East Sea Dokdo", sans-serif;
 }
 
-.bodytitle{
+.mypagetitle{
     color:white;
 }
 
+.bodytitle{
+    color:black;
+}
+
+.profiletitle{
+    color:white;
+}
+
+.profile{
+    padding:20px;
+    border:1px solid white;
+    border-radius:10px;
+    background-color:white;
+    width:700px;
+}
 
 /*닉네임, 이메일*/
 .upper{
@@ -27,7 +43,7 @@
 /*프사*/
 .defaultprofilepicture {
     display:inline-block;
-    border: 2px solid #black; /* 빨간색 테두리 추가 */
+    border: 2px solid black; /* 빨간색 테두리 추가 */
     width:100px;
     height:100px;
 }
@@ -35,31 +51,36 @@
 /*전체박스*/
 .recents{
     width: 1200px;
-    height : 500px;
+    height : 300px;
     display: flex;
-    justify-content: center;
-    border: 1px solid black;
+    /*justify-content: center;*/
+/*    border: 1px solid black;*/
+    padding-top:0px;
+    padding:10px;
+    padding-left:0px;
 }
 
 /*최근 등록한 게시물*/
 .recentlyRegisteredPosts {
-
     background-color: white;
-    width: 570px;
-    height : 250px;
+    width: 550px;
+    height : 210px;
     border: 1px solid black;
     margin-top : 10px;
-    margin-right:10px;
+    margin-bottom : 5px;
+    margin-right:30px;
     border-radius:10px;
 }
 
 /*최근 등록한 댓글*/
 .recentlyRegisteredComments{
     background-color: white;
-    width: 570px;
-    height : 250px;
+    width: 550px;
+    height : 210px;
     border: 1px solid black;
     margin-top : 10px;
+    margin-bottom:10px;
+    margin-left:30px;
     border-radius:10px;
 }
 
@@ -67,15 +88,14 @@
 .title {
     color: black;
     /*background-color: #fb95b9;*/
-    width: 540px;
-    height: 30px;
-    padding: 15px;
-    border: 1px solid black;
-    border-top: none;
+    width: 530px;
+    height: 40px;
+    margin-top: 0px;
+    border:1px solid gray;
+    padding:12px;
+    border-top:none;
     border-left:none;
     border-right:none;
-    /*border-radius: 10px;*/
-    margin: 15px;
 }
 
 .email{
@@ -88,28 +108,32 @@
 
 .caption{                        /*내가 쓴 게시글*/
     display:flex;                /*나란히*/
+    margin-top:30px;
 }
 
-/*.caption1
-    color:white;*/
+.caption1{
+    margin-left:00px;
+}
 
 /*댓글오른쪽*/
 .caption2{
-    margin-left: 470px;          /*내가 쓴 댓글*/
+    margin-left: 480px;          /*내가 쓴 댓글*/
     color:white;
 }
 
 /*수정버튼 css*/
 .editbutton{
-    background-color:#ff95ba;
+    background-color:#fa605c;
     border-radius:5px;
     margin-left:10px;
-    border: 1px solid black;
+    border: none;
+    margin-bottom:10px;
 }
 
 .editbutton:hover{
     background-color:black;
     color:white;
+    transition: 0.3s ease-in-out;
 }
 /*수정버튼 css 끝*/
 
