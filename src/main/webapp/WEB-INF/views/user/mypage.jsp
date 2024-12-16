@@ -77,9 +77,9 @@
                     <div class="recentlyRegisteredPosts">
                         <div class="title"><a href = "http://localhost:8080/community/v/9"><p>Hello.</p></div>
                         <div class="title"><a href = "http://localhost:8080/community/v/12"><p>You people know a lot about trucks.</p></div>
-                        <div class="title"><a href = "http://localhost:8080/community/v/18"><p>Make America Great Again</p></div>
+                        <div class="title"><a href = "http://localhost:8080/community/v/18"><p>Make America Great Again!</p></div>
                         <div class="title"><a href = "http://localhost:8080/community/v/26"><p>Take a seat. Young Skywalker.</p></div>
-                        <div class="title"><a href = "http://localhost:8080/community/v/2"><p>Its over, Anakin! I have the high ground!</p></div>
+                        <div class="title"><a href = "http://localhost:8080/community/v/2"><p>It&apos;s over, Anakin! I have the high ground!</p></div>
 
                     </div>
                     <div class="recentlyRegisteredComments">
