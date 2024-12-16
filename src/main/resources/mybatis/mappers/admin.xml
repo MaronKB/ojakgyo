@@ -36,6 +36,17 @@
         </foreach>
     </update>
 
+    <update id="updateUser" parameterType="fs.four.devgang.ojakgyo.admin.vo.AdminVO">
+        UPDATE USER_INFO
+        SET
+            USER_PW = NVL(#{user_pw}, USER_PW),
+            USER_NICKNAME = #{user_nickname},
+            USER_EMAIL = #{user_email},
+            USER_RECEIVE_ADV = #{user_receive_adv},
+            USER_MOD_DATE = SYSTIMESTAMP,
+            USER_MOD_BY = 'admin'
+        WHERE USER_ID = #{user_id}
+    </update>
 
 
 </mapper>

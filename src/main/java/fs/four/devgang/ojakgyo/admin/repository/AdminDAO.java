@@ -20,5 +20,10 @@ public interface AdminDAO {
 //    검색 기능
     public List<AdminVO> searchUsers(@Param("category") String category, @Param("keyword") String keyword) throws DataAccessException;
 
+//    삭제
     public void softDeleteUsers(@Param("userIds") List<String> userIds) throws DataAccessException;
+
+//    수정 기능
+    public void updateUser(AdminVO adminVO) throws DataAccessException;
+
 }

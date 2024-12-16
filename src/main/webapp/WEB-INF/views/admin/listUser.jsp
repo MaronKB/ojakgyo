@@ -59,8 +59,7 @@
 
         <div class="listUser-controls">
             <select>
-                <option>10</option>
-                <option>30</option>
+                <option>20</option>
                 <option>50</option>
                 <option>100</option>
             </select>
@@ -81,6 +80,35 @@
             </div>
         </div>
     </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h3>회원 정보 수정</h3>
+            <form id="editForm">
+                <label>아이디:</label>
+                <input type="text" id="editUserId" readonly><br>
+
+                <label>비밀번호:</label>
+                <input type="password" id="editUserPw" value="*******"><br>
+
+                <label>닉네임:</label>
+                <input type="text" id="editUserNickname"><br>
+
+                <label>이메일:</label>
+                <input type="email" id="editUserEmail"><br>
+
+                <label>광고 수신 여부:</label>
+                <select id="editUserReceiveAdv">
+                    <option value="Y">수신</option>
+                    <option value="N">미수신</option>
+                </select><br>
+
+                <button type="button" id="saveEdit">수정 완료</button>
+            </form>
+        </div>
+    </div>
+
 <script src="<c:url value='/js/admin/user.js'/>"></script>
 </body>
 </html>

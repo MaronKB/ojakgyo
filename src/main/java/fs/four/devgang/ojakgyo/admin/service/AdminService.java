@@ -25,7 +25,14 @@ public class AdminService {
         return adminDAO.searchUsers(category, keyword);
     }
 
+//    삭제 기능
     public void softDeleteUsers(List<String> userIds) throws Exception {
         adminDAO.softDeleteUsers(userIds);
     }
+
+//    수정 기능
+    public void updateUser(AdminVO adminVO) throws Exception {
+        adminDAO.updateUser(adminVO);
+    }
+
 }
