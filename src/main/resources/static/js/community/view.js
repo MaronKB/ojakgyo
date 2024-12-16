@@ -20,3 +20,14 @@ const addComment = async () => {
         alert('댓글 등록에 실패했습니다.');
     }
 }
+
+const commentLimitation = () => {
+    const commentArea = document.querySelector('#comment-area');
+    const commentLength = document.querySelector('#comment-length');
+    commentLength.innerText = commentArea.value.length + '/4000';
+    if (commentArea.value.length >= 4000) {
+        commentLength.style.color = 'red';
+        commentLength.innerText = '댓글은 4000자까지만 입력 가능합니다. 4000/4000';
+        commentArea.value = commentArea.value.substring(0, 4000);
+    }
+}

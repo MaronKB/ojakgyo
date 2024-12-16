@@ -15,6 +15,10 @@ public class AdVO {
     private int adv_id;
     private String adv_title;
     private String adv_category;
+    private String adv_desc;
+    private String adv_image_name;
+    private String adv_image_path;
+    private String adv_link;
     private Timestamp adv_reg_date;
     private String adv_reg_by;
     private Timestamp adv_mod_date;

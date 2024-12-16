@@ -110,7 +110,7 @@
 #login-forgot-password:hover {
     color: var(--sub-color);
 }
-#login-or {
+#login-message {
     width: 100%;
     font-family: var(--font-normal), sans-serif;
     font-size: 12px;

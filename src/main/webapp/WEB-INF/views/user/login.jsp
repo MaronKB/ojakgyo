@@ -22,7 +22,7 @@
             <input type="password" id="login-password" name="password" required/>
         </div>
         <button id="login-submit" type="submit">로그인</button>
-        <span id="login-or">또는</span>
+        <span id="login-message">또는</span>
         <a id="login-register" href="<c:url value="/register"/>">회원가입</a>
     </form>
     <a id="login-back" href="<c:url value="/"/>"><i class="fa-solid fa-backward"></i>돌아가기</a>

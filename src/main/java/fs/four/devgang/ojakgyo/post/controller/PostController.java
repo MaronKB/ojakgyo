@@ -2,7 +2,6 @@ package fs.four.devgang.ojakgyo.post.controller;
 
 import fs.four.devgang.ojakgyo.post.service.CommentService;
 import fs.four.devgang.ojakgyo.post.service.PostService;
-import fs.four.devgang.ojakgyo.post.vo.CommentVO;
 import fs.four.devgang.ojakgyo.post.vo.PostVO;
 import fs.four.devgang.ojakgyo.deprecated.LoginVO;
 import jakarta.servlet.http.HttpServletRequest;
@@ -10,8 +9,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.List;
 
 @RestController("postController")
 @RequestMapping("/api/post")
@@ -33,11 +30,16 @@ public class PostController {
     @GetMapping("/list/{category}")
     public String listPost(@PathVariable String category, HttpServletRequest request) throws Exception {
         int page = Integer.parseInt(request.getParameter("page"));
-        if (category.equals("전체")) {
-            return postService.selectAllPostList(page).toJSONString();
-        } else {
-            return postService.selectPostByCategory(category, page).toJSONString();
+        String searchType = request.getParameter("searchType");
+        String searchKeyword = request.getParameter("searchKeyword");
+
+        if (category == null) category = "전체";
+        if (page < 1) page = 1;
+
+        if (searchType != null && searchKeyword != null) {
+            return postService.searchPostListByCategory(category, searchType, searchKeyword, page).toJSONString();
         }
+        return postService.selectPostListByCategory(category, page).toJSONString();
     }
 
     @GetMapping("/id/{postId}")

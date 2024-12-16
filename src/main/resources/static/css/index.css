@@ -8,6 +8,7 @@
 @import "includes/juso.css";
 @import "user/mypage.css";
 @import "user/register.css";
+@import "user/result.css";
 @import "user/login.css";
 @import "community/list.css";
 @import "community/new.css";
@@ -15,6 +16,7 @@
 @import "hotplace/hotplace.css";
 @import "admin/listUser.css";
 @import "admin/ads/ads.css";
+@import "error/main.css";
 
 :root {
     --font-head: 'MYArirang-Medium', sans-serif;

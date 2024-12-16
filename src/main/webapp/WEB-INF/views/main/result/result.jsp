@@ -16,7 +16,7 @@
 %>
 <html>
 <head>
-    <title>결과</title>
+    <title>결과 - 오작교</title>
     <link rel="stylesheet" type="text/css" href="<c:url value="/css/index.css"/>"/>
     <script>
         const categories = '${categories}'.split(',');

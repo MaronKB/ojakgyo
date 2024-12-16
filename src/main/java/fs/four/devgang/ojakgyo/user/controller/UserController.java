@@ -3,10 +3,13 @@ package fs.four.devgang.ojakgyo.user.controller;
 import fs.four.devgang.ojakgyo.user.service.UserService;
 import fs.four.devgang.ojakgyo.user.vo.UserVO;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @RestController("userController")
 @RequestMapping(value = "/api/user")

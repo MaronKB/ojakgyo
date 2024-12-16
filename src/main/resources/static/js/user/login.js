@@ -11,12 +11,26 @@ const login = async () => {
         },
         body: JSON.stringify(body)
     }).then(res => res.json());
-    console.log(res);
-    if (res.status === 200) {
-        document.cookie = `token=${JSON.stringify(res)}`;
-        alert('로그인 성공');
-        location.href = '/';
-    } else {
-        alert('로그인 실패');
+
+    const message = document.querySelector('#login-message');
+    if (!res || !res.status) {
+        message.innerText = '통신 오류로 로그인에 실패했습니다.';
+        message.style.color = 'red';
+        return;
+    }
+    switch (Math.floor(res.status / 100)) {
+        case 2:
+            document.cookie = `token=${JSON.stringify(res)}`;
+            location.href = '/';
+            break;
+        case 4:
+            const msgText = (res?.message) ? res.message : '통신 오류로 로그인에 실패했습니다.';
+            message.innerText = res.message;
+            message.style.color = 'red';
+            break;
+        default:
+            message.innerText = '서버 오류로 로그인에 실패했습니다.';
+            message.style.color = 'red';
+            break;
     }
 }

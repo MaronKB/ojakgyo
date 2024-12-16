@@ -6,7 +6,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +20,16 @@ public class ViewController {
 
     @Autowired
     private CommentService commentService;
+
+    private static boolean userIsNotLoggedIn(HttpSession session) {
+        JSONObject token = (JSONObject) session.getAttribute("user");
+        return token == null;
+    }
+
+    private static boolean userIsNotAdmin(HttpSession session) {
+        JSONObject token = (JSONObject) session.getAttribute("user");
+        return token == null || !"Y".equals(token.get("isAdmin"));
+    }
 
     // index
 
@@ -41,8 +50,15 @@ public class ViewController {
         return "user/register/main";
     }
 
+    @GetMapping("/register/result")
+    public String registerResult() {
+        return "user/register/result";
+    }
+
     @GetMapping("/mypage")
-    public String myPage() {
+    public String myPage(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        if (userIsNotLoggedIn(session)) return "redirect:/error/401";
         return "user/mypage";
     }
 
@@ -55,11 +71,8 @@ public class ViewController {
 
     @GetMapping("/main")
     public String mainForm(HttpServletRequest request) {
-        // 로그인 토큰이 존재하지 않을 경우 로그인 페이지로 리디렉션
         HttpSession session = request.getSession();
-        JSONObject token = (JSONObject) session.getAttribute("user");
-
-        if (token == null) return "redirect:/login";
+        if (userIsNotLoggedIn(session)) return "redirect:/login";
         return "main/form/main";
     }
 
@@ -100,7 +113,10 @@ public class ViewController {
     // admin
 
     @GetMapping("/admin/ads")
-    public String ads() {
+    public String ads(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        if (userIsNotLoggedIn(session)) return "redirect:/error/401";
+        if (userIsNotAdmin(session)) return "redirect:/error/403";
         return "admin/ads";
     }
     /*
@@ -110,7 +126,10 @@ public class ViewController {
     }
     */
     @GetMapping("/admin/reports")
-    public String reports() {
+    public String reports(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        if (userIsNotLoggedIn(session)) return "redirect:/error/401";
+        if (userIsNotAdmin(session)) return "redirect:/error/403";
         return "admin/reports";
     }
 }

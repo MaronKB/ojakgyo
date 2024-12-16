@@ -1,0 +1,90 @@
+#error-main {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/images/index_photo_0.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#error-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, transparent 40%, white 40% 80%, transparent 80%);
+}
+#error-title {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+#error-title h1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-menu), sans-serif;
+}
+#error-title h1 span:first-child {
+    font-size: 140px;
+    line-height: 100px;
+}
+#error-title h1 span:last-child {
+    font-size: 42px;
+    opacity: 0.6;
+}
+#error-title h2 {
+    font-family: var(--font-menu), sans-serif;
+    font-size: 36px;
+    writing-mode: tb;
+}
+#error-body {
+    position: absolute;
+    left: 40%;
+    top: 40%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+#error-body p {
+    font-family: var(--font-batang), sans-serif;
+    font-size: 18px;
+    color: var(--text-color);
+    margin: 10px 0;
+}
+#error-body hr {
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+#error-button {
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-menu), sans-serif;
+    font-size: 16px;
+    background-color: var(--background-color-grey);
+    border: 0;
+    border-radius: 5px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+#error-button:hover {
+    color: white;
+    background-color: var(--sub-color);
+}

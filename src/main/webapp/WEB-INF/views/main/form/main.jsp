@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>장소 찾기 - 오작교</title>
     <link rel="stylesheet" type="text/css" href="<c:url value="/css/index.css"/>"/>
     <script type="text/javascript" language="javascript" src="<c:url value="/js/main/main.js"/>"></script>
     <script type="text/javascript" language="javascript" src="<c:url value="/js/includes/juso.js"/>"></script>

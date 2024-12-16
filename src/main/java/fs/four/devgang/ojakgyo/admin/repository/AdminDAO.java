@@ -1,6 +1,8 @@
 package fs.four.devgang.ojakgyo.admin.repository;
 
+import fs.four.devgang.ojakgyo.admin.vo.AdminVO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.dao.DataAccessException;
 
 import java.util.List;
@@ -14,4 +16,9 @@ public interface AdminDAO {
      * @throws DataAccessException
      */
     public List selectAllUserList() throws DataAccessException;
+
+//    검색 기능
+    public List<AdminVO> searchUsers(@Param("category") String category, @Param("keyword") String keyword) throws DataAccessException;
+
+    public void softDeleteUsers(@Param("userIds") List<String> userIds) throws DataAccessException;
 }

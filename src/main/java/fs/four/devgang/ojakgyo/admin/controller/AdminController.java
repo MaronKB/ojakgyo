@@ -5,14 +5,18 @@ import fs.four.devgang.ojakgyo.admin.vo.AdminVO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class AdminController {
+
     @Autowired
     private AdminService adminService;
 
@@ -27,4 +31,27 @@ public class AdminController {
         mav.addObject("userList", userList);
         return mav;
     }
+
+//    검색 기능
+    @GetMapping("/admin/searchUsers")
+    @ResponseBody
+    public List<AdminVO> searchUsers(
+            @RequestParam("category") String category,
+            @RequestParam("keyword") String keyword) throws Exception {
+
+        return adminService.searchUsers(category, keyword);
+    }
+
+//    삭제 기능
+    @PostMapping("/admin/deleteUsers")
+    @ResponseBody
+    public ResponseEntity<String> deleteUsers(@RequestParam("userIds") List<String> userIds) {
+        try {
+            adminService.softDeleteUsers(userIds);
+            return ResponseEntity.ok("유저 삭제 성공");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("유저 삭제 실패");
+        }
+    }
+
 }

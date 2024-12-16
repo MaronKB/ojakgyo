@@ -1,5 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <div id="ad-modal-container" onclick="closeAdModal()">
+    <script src="<c:url value='/js/admin/ad_modal.js'/>"></script>
     <form id="ad-modal" onsubmit="updateAd(this)" onclick="event.stopPropagation();">
         <input type="hidden" id="ad-modal-id" name="adId"/>
         <header id="ad-modal-header">
@@ -19,6 +21,18 @@
                     <option value="숙박">숙박</option>
                     <option value="렌터카">렌터카</option>
                 </select>
+            </div>
+            <div class="ad-modal-row">
+                <label for="ad-modal-image">이미지</label>
+                <input id="ad-modal-image" type="text" name="image" placeholder="example.png">
+            </div>
+            <div class="ad-modal-row">
+                <label for="ad-modal-desc">설명</label>
+                <textarea id="ad-modal-desc" name="desc"></textarea>
+            </div>
+            <div class="ad-modal-row">
+                <label for="ad-modal-link">링크</label>
+                <input id="ad-modal-link" type="text" name="link">
             </div>
             <div class="ad-modal-row">
                 <label for="ad-modal-end">종료일</label>

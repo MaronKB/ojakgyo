@@ -3,8 +3,39 @@
 <mapper namespace="fs.four.devgang.ojakgyo.admin.repository.AdminDAO">
 
     <select id="selectAllUserList" resultType="adminVO">
-        <![CDATA[
-            select * from OJAKGYO.USER_INFO order by user_reg_date desc
-        ]]>
+        SELECT *
+        FROM USER_INFO
+        WHERE USER_IS_DELETED = 'N'
+        ORDER BY USER_REG_DATE DESC
     </select>
+
+    <select id="searchUsers" parameterType="map" resultType="adminVO">
+        SELECT *
+        FROM OJAKGYO.USER_INFO
+        WHERE
+        <choose>
+            <when test="category == 'id'">
+                user_id LIKE '%' || #{keyword} || '%'
+            </when>
+            <when test="category == 'nickname'">
+                user_nickname LIKE '%' || #{keyword} || '%'
+            </when>
+            <when test="category == 'email'">
+                user_email LIKE '%' || #{keyword} || '%'
+            </when>
+        </choose>
+        ORDER BY user_reg_date DESC
+    </select>
+
+    <update id="softDeleteUsers">
+        UPDATE USER_INFO
+        SET USER_IS_DELETED = 'Y'
+        WHERE USER_ID IN
+        <foreach item="userId" collection="userIds" open="(" separator="," close=")">
+            #{userId}
+        </foreach>
+    </update>
+
+
+
 </mapper>
