@@ -19,45 +19,45 @@ public class UserService {
 
     public JSONObject castJSONObject(UserVO userVO) {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("user_id", userVO.getUser_id());
-        jsonObject.put("user_pw", userVO.getUser_pw());
-        jsonObject.put("user_nickname", userVO.getUser_nickname());
-        jsonObject.put("user_email", userVO.getUser_email());
-        jsonObject.put("user_intro", userVO.getUser_intro());
-        jsonObject.put("user_profile_name", userVO.getUser_profile_name());
-        jsonObject.put("user_profile_path", userVO.getUser_profile_path());
-        jsonObject.put("user_address", userVO.getUser_address());
-        jsonObject.put("user_receive_adv", userVO.getUser_receive_adv());
-        jsonObject.put("user_reg_date", userVO.getUser_reg_date());
-        jsonObject.put("user_reg_by", userVO.getUser_reg_by());
-        jsonObject.put("user_mod_date", userVO.getUser_mod_date());
-        jsonObject.put("user_mod_by", userVO.getUser_mod_by());
-        jsonObject.put("user_res_date", userVO.getUser_res_date());
-        jsonObject.put("user_res_by", userVO.getUser_res_by());
-        jsonObject.put("user_is_deleted", Character.toString(userVO.getUser_is_deleted()));
-        jsonObject.put("user_is_admin", Character.toString(userVO.getUser_is_admin()));
+        jsonObject.put("userId", userVO.getUser_id());
+        jsonObject.put("userPw", userVO.getUser_pw());
+        jsonObject.put("nickname", userVO.getUser_nickname());
+        jsonObject.put("email", userVO.getUser_email());
+        jsonObject.put("intro", userVO.getUser_intro());
+        jsonObject.put("profileName", userVO.getUser_profile_name());
+        jsonObject.put("profilePath", userVO.getUser_profile_path());
+        jsonObject.put("address", userVO.getUser_address());
+        jsonObject.put("receiveAdv", userVO.getUser_receive_adv());
+        jsonObject.put("regDate", userVO.getUser_reg_date());
+        jsonObject.put("regBy", userVO.getUser_reg_by());
+        jsonObject.put("modDate", userVO.getUser_mod_date());
+        jsonObject.put("modBy", userVO.getUser_mod_by());
+        jsonObject.put("resDate", userVO.getUser_res_date());
+        jsonObject.put("resBy", userVO.getUser_res_by());
+        jsonObject.put("isDeleted", Character.toString(userVO.getUser_is_deleted()));
+        jsonObject.put("isAdmin", Character.toString(userVO.getUser_is_admin()));
 
         return jsonObject;
     }
     public UserVO castUserVO(JSONObject jsonObject) {
         UserVO userVO = new UserVO();
-        userVO.setUser_id((String) jsonObject.get("user_id"));
-        userVO.setUser_pw((String) jsonObject.get("user_pw"));
-        userVO.setUser_nickname((String) jsonObject.get("user_nickname"));
-        userVO.setUser_email((String) jsonObject.get("user_email"));
-        userVO.setUser_intro((String) jsonObject.get("user_intro"));
-        userVO.setUser_profile_name((String) jsonObject.get("user_profile_name"));
-        userVO.setUser_profile_path((String) jsonObject.get("user_profile_path"));
-        userVO.setUser_address((String) jsonObject.get("user_address"));
-        userVO.setUser_receive_adv((String) jsonObject.get("user_receive_adv"));
-        userVO.setUser_reg_date((Timestamp) jsonObject.get("user_reg_date"));
-        userVO.setUser_reg_by((String) jsonObject.get("user_reg_by"));
-        userVO.setUser_mod_date((Timestamp) jsonObject.get("user_mod_date"));
-        userVO.setUser_mod_by((String) jsonObject.get("user_mod_by"));
-        userVO.setUser_res_date((Timestamp) jsonObject.get("user_res_date"));
-        userVO.setUser_res_by((String) jsonObject.get("user_res_by"));
-        userVO.setUser_is_deleted((char) jsonObject.get("user_is_deleted"));
-        userVO.setUser_is_admin((char) jsonObject.get("user_is_admin"));
+        userVO.setUser_id((String) jsonObject.get("userId"));
+        userVO.setUser_pw((String) jsonObject.get("userPw"));
+        userVO.setUser_nickname((String) jsonObject.get("nickname"));
+        userVO.setUser_email((String) jsonObject.get("email"));
+        userVO.setUser_intro((String) jsonObject.get("intro"));
+        userVO.setUser_profile_name((String) jsonObject.get("profileName"));
+        userVO.setUser_profile_path((String) jsonObject.get("profilePath"));
+        userVO.setUser_address((String) jsonObject.get("address"));
+        userVO.setUser_receive_adv((String) jsonObject.get("receiveAdv"));
+        userVO.setUser_reg_date((Timestamp) jsonObject.get("regDate"));
+        userVO.setUser_reg_by((String) jsonObject.get("regBy"));
+        userVO.setUser_mod_date((Timestamp) jsonObject.get("modDate"));
+        userVO.setUser_mod_by((String) jsonObject.get("modBy"));
+        userVO.setUser_res_date((Timestamp) jsonObject.get("resDate"));
+        userVO.setUser_res_by((String) jsonObject.get("resBy"));
+        userVO.setUser_is_deleted((char) jsonObject.get("isDeleted"));
+        userVO.setUser_is_admin((char) jsonObject.get("isAdmin"));
 
         return userVO;
     }

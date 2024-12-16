@@ -1,139 +1,123 @@
-/*전체바디*/
-.bodycontainer{
-    margin:40px;
-    margin-top: 50px;
-    font-family: "East Sea Dokdo", sans-serif;
+#profile-container {
+    width: 100%;
+    min-height: var(--main-min-height);
+    background: white;
+    padding: 20px;
 }
-
-.mypagetitle{
-    color:white;
-}
-
-.bodytitle{
-    color:black;
-}
-
-.profiletitle{
-    color:white;
-}
-
-.profile{
-    padding:20px;
-    border:1px solid white;
-    border-radius:10px;
-    background-color:white;
-    width:700px;
-}
-
-/*닉네임, 이메일*/
-.upper{
-    display:flex;          /*닉네임, 이메일 한줄로 나란히*/
-}
-
-/*비밀번호, 주소*/
-.lower{
-    display:flex;         /*비밀번호, 자주쓰는주소 나란히*/
-}
-
-/*한줄소개*/
-.introduction{
-    display:flex;         /*한줄소개 나란히*/
-}
-
-/*프사*/
-.defaultprofilepicture {
-    display:inline-block;
-    border: 2px solid black; /* 빨간색 테두리 추가 */
-    width:100px;
-    height:100px;
-}
-
-/*전체박스*/
-.recents{
-    width: 1200px;
-    height : 300px;
+#profile-title {
+    width: 100%;
+    height: 50px;
     display: flex;
-    /*justify-content: center;*/
-/*    border: 1px solid black;*/
-    padding-top:0px;
-    padding:10px;
-    padding-left:0px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #EAEAEA;
 }
-
-/*최근 등록한 게시물*/
-.recentlyRegisteredPosts {
-    background-color: white;
-    width: 550px;
-    height : 210px;
-    border: 1px solid black;
-    margin-top : 10px;
-    margin-bottom : 5px;
-    margin-right:30px;
-    border-radius:10px;
+#profile {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #EAEAEA;
 }
-
-/*최근 등록한 댓글*/
-.recentlyRegisteredComments{
-    background-color: white;
-    width: 550px;
-    height : 210px;
-    border: 1px solid black;
-    margin-top : 10px;
-    margin-bottom:10px;
-    margin-left:30px;
-    border-radius:10px;
+#profile-img-container {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    overflow: hidden;
 }
-
-/*최근 등록한 게시물, 댓글 - 목록*/
-.title {
-    color: black;
-    /*background-color: #fb95b9;*/
-    width: 530px;
-    height: 40px;
-    margin-top: 0px;
-    border:1px solid gray;
-    padding:12px;
-    border-top:none;
-    border-left:none;
-    border-right:none;
+#profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-
-.email{
-    margin-left: 30px;
+#profile-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 50px) 80px;
+    gap: 10px;
+    padding: 0 10px;
 }
-
-.address{
-    margin-left: 30px;
+.profile-input {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    border: 1px solid #EAEAEA;
+    border-radius: 5px;
+    font-family: var(--font-normal), sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
 }
-
-.caption{                        /*내가 쓴 게시글*/
-    display:flex;                /*나란히*/
-    margin-top:30px;
+.profile-input.span-2 {
+    grid-column: span 2;
 }
-
-.caption1{
-    margin-left:00px;
+.profile-input label {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 100px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: white;
+    background: var(--text-color);
+    border-radius: 5px;
 }
-
-/*댓글오른쪽*/
-.caption2{
-    margin-left: 480px;          /*내가 쓴 댓글*/
-    color:white;
-}
-
-/*수정버튼 css*/
-.editbutton{
-    background-color:#fa605c;
-    border-radius:5px;
-    margin-left:10px;
+.profile-input input {
+    width: 100%;
+    height: 100%;
+    padding-left: 10px;
     border: none;
-    margin-bottom:10px;
+    border-radius: 5px;
+    font-family: var(--font-normal), sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
 }
-
-.editbutton:hover{
-    background-color:black;
-    color:white;
-    transition: 0.3s ease-in-out;
+.profile-input textarea {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: var(--font-normal), sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
+    resize: none;
 }
-/*수정버튼 css 끝*/
-
+.profile-input input:focus,
+.profile-input textarea:focus {
+    outline: none;
+}
+.profile-input > button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-menu), sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
+    background: var(--background-color-grey);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0;
+}
+.profile-input:hover > button {
+    opacity: 1;
+}
+.profile-input > button:hover {
+    background: var(--background-color-dark);
+    color: white;
+}

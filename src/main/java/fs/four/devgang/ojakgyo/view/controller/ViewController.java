@@ -55,12 +55,15 @@ public class ViewController {
         return "user/register/result";
     }
 
+    /*
     @GetMapping("/mypage")
     public String myPage(HttpServletRequest request) {
         HttpSession session = request.getSession();
         if (userIsNotLoggedIn(session)) return "redirect:/error/401";
         return "user/mypage";
     }
+
+     */
 
     @GetMapping("/find_password")
     public String findPassword() {
@@ -118,10 +121,12 @@ public class ViewController {
 
     // hotplace
 
+    /*
     @GetMapping("/hotplace")
     public String hotPlace() {
         return "hotplace/hotplace";
     }
+    */
 
     // admin
 

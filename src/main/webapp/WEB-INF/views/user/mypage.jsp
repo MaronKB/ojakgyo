@@ -1,95 +1,65 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
-<script src="/js/jQuery-2.1.4.min.js"></script>
-<script src="<c:url value="/js/mypage.js"/>"></script>
+<%@ page import="org.json.simple.JSONObject" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>오작교-마이페이지</title>
-    <link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Noto+Serif+KR:wght@200..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<c:url value="/css/index.css"/>"/>
+    <script src="<c:url value="/js/includes/juso.js"/>"></script>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
+<main>
+    <div id="profile-container">
+        <h3 id="profile-title">내 프로필</h3>
+        <div id="profile">
+            <div id="profile-img-container">
+                <img id="profile-img" src="<%
+                    JSONObject user = (JSONObject) request.getAttribute("user");
+                    Object image = user.get("profileName");
+                    String path;
+                    if (image == null) path= "/images/default_profile.png";
+                    else path = image.toString();
 
-    <div class="bodycontainer">
-        <h2 class="mypagetitle">마이페이지</h2>
-                <br>
-                <h3 class="profiletitle">내 프로필</h3>
-                <div class="profile">
-                <p>프로필 사진 수정하기</p>
-                <div class="imgcontainer">
-                    <img id="profile-img-btn"
-                        src="https://i1.sndcdn.com/avatars-000373392764-zp0p80-t200x200.jpg"
-                        class="defaultprofilepicture">
-                        <br>
-                    <form>
-                        <input id="profile-img-input" id="edit" type="file" class="my_hidden"/>
-                    </form>
+                    out.print(path);
+                %>" alt="프로필 사진">
+            </div>
+            <div id="profile-grid">
+                <div class="profile-input">
+                    <label for="profile-nickname">닉네임</label>
+                    <input type="text" id="profile-nickname" value="${user.nickname}" readonly>
+                    <button id="profile-nickname-edit" type="button" onclick="editProfile('nickname')">수정</button>
                 </div>
-                <div class="upper">
-                    <div class="nickname">
-                        <p class="bodytitle">닉네임</p>
-                        <input id="nicknameInput" placeholder="태사다르" style="width:200px; height:30px;">
-                        <input type="hidden" id="userId" value="${user.userId}">
-                        <button class="editbutton" id="edit1" style="width:100px; height:30px;"><p>수정하기</p></button>
-                    </div>
-                <br>
-                    <div class="email">
-                        <p class="bodytitle">이메일</p>
-                        <input placeholder="tassadar@aiur.com"
-                        style="width:200px; height:30px;">
-                        <button class="editbutton" id="edit2" style="width:100px; height:30px;"><p>수정하기</p></button>
-                    </div>
+                <div class="profile-input">
+                    <label for="profile-email">이메일</label>
+                    <input type="email" id="profile-email" value="${user.email}" readonly>
+                    <button id="profile-email-edit" type="button" onclick="editProfile('email')">수정</button>
                 </div>
-                <br>
-                <div class="lower">
-                    <div class="password">
-                         <p class="bodytitle">비밀번호</p>
-                         <input placeholder="123546789"
-                         style="width:200px; height:30px;">
-                         <button class="editbutton" id="edit3" style="width:100px; height:30px;"><p>수정하기</p></button>
-                    </div>
-                <br>
-                    <div class="address">
-                         <p class="bodytitle">주소</p>
-                         <input placeholder="경기도 수원시"
-                         style="width:200px; height:30px;">
-                         <button class="editbutton" id="edit4" style="width:100px; height:30px;"><p>수정하기</p></button>
-                    </div>
+                <div class="profile-input span-2">
+                    <label>자주 쓰는 주소</label>
+                    <jsp:include page="/WEB-INF/views/includes/juso.jsp">
+                        <jsp:param name="id" value="profile-address"/>
+                    </jsp:include>
                 </div>
-                <br>
-                <div class="introduction">
-                    <div class="intro">
-                        <p class="bodytitle">한줄소개</p>
-                        <input placeholder="난 백엔드를 경험한 적이 없네"
-                        style="width:544px; height: 30px;">
-                        <button class="editbutton" id="edit5" style="width:100px; height:30px;"><p>수정하기</p></button>
-                    </div>
+                <div class="profile-input span-2">
+                    <label for="profile-intro">소개</label>
+                    <textarea id="profile-intro" placeholder="자기소개" readonly>${user.intro}</textarea>
+                    <button id="profile-intro-edit" type="button" onclick="editProfile('intro')">수정</button>
                 </div>
-
-                </div>
-                <br>
-                <div class="caption">
-                    <h3 class="caption1" style="color:white">내가 쓴 게시글</h4>
-                    <h3 class="caption2" style="color:white">내가 쓴 댓글</h4>
-                </div>
-                <div class="recents">
-                    <div class="recentlyRegisteredPosts">
-                        <div class="title"><a href = "http://localhost:8080/community/v/9"><p>Hello.</p></div>
-                        <div class="title"><a href = "http://localhost:8080/community/v/12"><p>You people know a lot about trucks.</p></div>
-                        <div class="title"><a href = "http://localhost:8080/community/v/18"><p>Make America Great Again</p></div>
-                        <div class="title"><a href = "http://localhost:8080/community/v/26"><p>Take a seat. Young Skywalker.</p></div>
-                        <div class="title"><a href = "http://localhost:8080/community/v/2"><p>Its over, Anakin! I have the high ground!</p></div>
-
-                    </div>
-                    <div class="recentlyRegisteredComments">
-                        <div class="title"><a href = "http://localhost:8080/community/v/2"><p>엄청커다란모기가나의발을물었어</p></div>
-                        <div class="title"><a href = "http://localhost:8080/community/v/12"><p>간지러웠어</p></div>
-                        <div class="title"><a href = "http://localhost:8080/community/v/18"><p>그래서참았어</p></div>
-                        <div class="title"><a href = "http://localhost:8080/community/v/26"><p>아무생각없이나는발을긁었어</p></div>
-                        <div class="title"><a href = "http://localhost:8080/community/v/9"><p>왕모기</p></div>
-                    </div>
-                </div>
+            </div>
+        </div>
+        <div id="recent-container">
+            <div class="mypage-list">
+                <ul id="recent-post">
+                </ul>
+            </div>
+            <div class="mypage-list">
+                <ul id="recent-comment">
+                </ul>
+            </div>
+        </div>
     </div>
+</main>
+<script src="<c:url value='/js/user/mypage.js'/>"></script>
 </body>
 </html>
