@@ -16,6 +16,7 @@
 @import "hotplace/hotplace.css";
 @import "admin/listUser.css";
 @import "admin/ads/ads.css";
+@import "admin/reports.css";
 @import "error/main.css";
 
 :root {

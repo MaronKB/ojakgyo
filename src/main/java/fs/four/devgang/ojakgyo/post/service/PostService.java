@@ -122,11 +122,27 @@ public class PostService {
         return jsonObject;
     }
 
+    public JSONObject selectReportedPostListByCategory(String category, int page) throws Exception {
+        List<PostVO> postList = postDAO.selectReportedPostListByCategory(category);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("totalPage", (postList.size() / POST_LIST_SIZE) + 1);
+        jsonObject.put("posts", parseListToJSON(postList, page));
+        return jsonObject;
+    }
+
     public int addPost(PostVO post) throws Exception {
         return postDAO.insertPost(post);
     }
 
+    public int deletePost(int postId) throws Exception {
+        return postDAO.deletePost(postId);
+    }
+
     public void increasePostViewCount(int postId) throws Exception {
         postDAO.updatePostViewCount(postId);
+    }
+
+    public int reportPost(int postId) throws Exception {
+        return postDAO.updatePostReported(postId);
     }
 }

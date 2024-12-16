@@ -36,18 +36,37 @@
         order by POST_ID desc
     </select>
 
+    <select id="selectReportedPostListByCategory" parameterType="string" resultType="postVO">
+        select * from OJAKGYO.POST where (post_category = #{category} or '전체' = #{category}) and POST_IS_REPORTED = 'Y' order by POST_ID desc
+    </select>
+
     <insert id="insertPost" parameterType="postVO">
-        <![CDATA[
         insert into OJAKGYO.post(post_id, post_title, post_category, post_author_id, post_author_nickname, post_content)
         values(#{post_id}, #{post_title}, #{post_category}, #{post_author_id}, #{post_author_nickname}, #{post_content})
-        ]]>
     </insert>
+    <update id="updatePost" parameterType="postVO">
+        update OJAKGYO.post
+        set post_title = #{post_title}, post_category = #{post_category}, post_content = #{post_content}
+        where post_id = #{post_id}
+    </update>
+    <delete id="deletePost" parameterType="int">
+        {call
+            declare
+            begin
+                delete from OJAKGYO.POST_COMMENT where comment_post_id = #{postId};
+                delete from OJAKGYO.post where post_id = #{postId};
+            end
+        }
+    </delete>
     <update id="updatePostViewCount" parameterType="int">
-        <![CDATA[
-            UPDATE OJAKGYO.post
-            SET post_view_count = post_view_count + 1
-            WHERE post_id = #{postId}
-        ]]>
+        UPDATE OJAKGYO.post
+        SET post_view_count = post_view_count + 1
+        WHERE post_id = #{postId}
+    </update>
+    <update id="updatePostReported" parameterType="int">
+        UPDATE OJAKGYO.post
+        SET post_is_reported = 'Y'
+        WHERE post_id = #{postId}
     </update>
 
 </mapper>

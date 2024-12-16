@@ -19,8 +19,16 @@ public interface PostDAO {
 
     public List<PostVO> searchPostListByCategory(HashMap<String, String> param) throws DataAccessException;
 
+    public List<PostVO> selectReportedPostListByCategory(String category) throws DataAccessException;
+
     public int insertPost(PostVO postVO) throws DataAccessException ;
 
+    public int updatePost(PostVO postVO) throws DataAccessException;
+
+    public int deletePost(int postId) throws DataAccessException;
+
     public void updatePostViewCount(int postId) throws DataAccessException;
+
+    public int updatePostReported(int postId) throws DataAccessException;
 
 }

@@ -24,13 +24,11 @@
         <div class="view-content">
             <p>${post.content}</p>
         </div>
-        <div class="button-section1">
+        <div class="button-section">
             <button class="btn-like">👍추천 ${post.voteCount}</button>
         </div>
         <div class="button-section2">
-            <button class="btn-report">🚨신고</button>
-        </div>
-        <div class="move-to-list">
+            <button type="button" class="btn-report" onclick="reportPost(${post.postId})">🚨신고</button>
             <button><a href="<c:url value="/community"/>">목록</a></button>
         </div>
         <section id="post-comments-container">

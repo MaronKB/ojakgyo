@@ -1,3 +1,4 @@
+/*
 // 사진 첨부 버튼
 document.addEventListener("DOMContentLoaded", function() {
     const imageUploadButton = document.getElementById("imageUploadButton")
@@ -44,5 +45,38 @@ document.querySelector(".btn-primary").addEventListener("click", function() {
         alert("제목과 내용을 입력해주세요.")
         return;
     }
-
 });
+*/
+
+const insertPost = async (form) => {
+    event.preventDefault();
+
+    const category = form.category.value;
+    const title = form.title.value;
+    const content = form.content.value;
+
+    if (!category || !title || !content) {
+        alert("제목과 내용을 입력해주세요.");
+        return;
+    }
+
+    const data = {
+        category: category,
+        title: title,
+        content: content
+    }
+
+    const response = await fetch("/api/post/add", {
+        method: "POST",
+        body: JSON.stringify(data)
+    }).then(response => response.text());
+
+    console.log(response);
+
+    if (response !== "-1") {
+        alert("게시글이 등록되었습니다.");
+        window.location.href = `/community`;
+    } else {
+        alert("게시글 등록에 실패했습니다.");
+    }
+}

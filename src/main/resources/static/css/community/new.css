@@ -1,9 +1,99 @@
-.category-select, .title-input, .content-input {
-    margin-bottom: 10px;
+#post-new-container {
+    width: 100%;
+    height: var(--main-min-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background: white;
+    padding: 20px;
 }
-
-.action-buttons {
+#post-new-header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    border-bottom: 1px solid #EAEAEA;
+}
+#post-new-header > select {
+    flex: none;
+    width: 100px;
+    height: 100%;
+    font-family: var(--font-menu), sans-serif;
+    text-align: center;
+    color: var(--text-color);
+    background: var(--background-color-grey);
+    border: 0;
+    border-radius: 5px;
+    margin: 0;
+}
+#post-new-header > input {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-family: var(--font-menu), sans-serif;
+    color: var(--text-color);
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0;
+}
+#post-new-header > select:focus,
+#post-new-header > input:focus {
+    outline: none;
+}
+#post-new-body {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#post-content {
+    flex: 1;
+    width: 100%;
+    height: 100px;
+    font-family: var(--font-normal), sans-serif;
+    font-size: 14px;
+    color: var(--text-color);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+#post-content:focus {
+    outline: none;
+}
+#post-new-buttons {
+    width: 100%;
+    height: 40px;
     display: flex;
     justify-content: flex-end;
-    gap: 10px;
+    align-items: center;
+    gap: 5px;
+}
+#post-new-buttons > button {
+    width: 80px;
+    height: 100%;
+    font-family: var(--font-menu), sans-serif;
+    font-size: 16px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#post-new-cancel {
+    color: var(--text-color);
+    background: var(--background-color-grey);
+}
+#post-new-submit {
+    color: white;
+    background: var(--text-color);
+}
+#post-new-buttons > button:hover {
+    color: white;
+    background: var(--sub-color);
 }
