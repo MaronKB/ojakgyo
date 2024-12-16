@@ -23,7 +23,7 @@
         ]]>
     </insert>
 
-    <select id="selectCommentsByPostId" parameterType="int" resultMap="memResult">
+    <select id="selectCommentListByPostId" parameterType="int" resultMap="memResult">
         <![CDATA[
             SELECT *
             FROM OJAKGYO.POST_COMMENT
@@ -32,7 +32,7 @@
         ]]>
     </select>
 
-    <select id="selectCommentsByUserId" parameterType="int" resultMap="memResult">
+    <select id="selectCommentListByUserId" parameterType="string" resultMap="memResult">
         <![CDATA[
             SELECT *
             FROM OJAKGYO.POST_COMMENT

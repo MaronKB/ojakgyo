@@ -75,7 +75,7 @@
             <div class="recommend-list">
                 <div class="recommend-item">
                     <div class="recommend-image">
-                        <img src="<c:url value="/images/rental_1.jpg"/>" alt="렌터카1"/>
+                        <img src="<c:url value="/images/rental_1.png"/>" alt="렌터카1"/>
                     </div>
                     <div class="recommend-info">
                         <h4>렌터카1</h4>
@@ -84,7 +84,7 @@
                 </div>
                 <div class="recommend-item">
                     <div class="recommend-image">
-                        <img src="<c:url value="/images/rental_2.jpg"/>" alt="렌터카2"/>
+                        <img src="<c:url value="/images/rental_1.png"/>" alt="렌터카2"/>
                     </div>
                     <div class="recommend-info">
                         <h4>렌터카2</h4>
@@ -93,7 +93,7 @@
                 </div>
                 <div class="recommend-item">
                     <div class="recommend-image">
-                        <img src="<c:url value="/images/rental_3.jpg"/>" alt="렌터카3"/>
+                        <img src="<c:url value="/images/rental_1.png"/>" alt="렌터카3"/>
                     </div>
                     <div class="recommend-info">
                         <h4>렌터카3</h4>
@@ -102,7 +102,7 @@
                 </div>
                 <div class="recommend-item">
                     <div class="recommend-image">
-                        <img src="<c:url value="/images/rental_4.jpg"/>" alt="렌터카4"/>
+                        <img src="<c:url value="/images/rental_1.png"/>" alt="렌터카4"/>
                     </div>
                     <div class="recommend-info">
                         <h4>렌터카4</h4>
@@ -111,7 +111,7 @@
                 </div>
                 <div class="recommend-item">
                     <div class="recommend-image">
-                        <img src="<c:url value="/images/rental_5.jpg"/>" alt="렌터카5"/>
+                        <img src="<c:url value="/images/rental_1.png"/>" alt="렌터카5"/>
                     </div>
                     <div class="recommend-info">
                         <h5>렌터카5</h5>
@@ -134,7 +134,7 @@
                 </div>
                 <div class="recommend-item">
                     <div class="recommend-image">
-                        <img src="<c:url value="/images/inn_2.jpg"/>" alt="숙박2"/>
+                        <img src="<c:url value="/images/inn_1.jpg"/>" alt="숙박2"/>
                     </div>
                     <div class="recommend-info">
                         <h4>숙박2</h4>
@@ -143,7 +143,7 @@
                 </div>
                 <div class="recommend-item">
                     <div class="recommend-image">
-                        <img src="<c:url value="/images/inn_3.jpg"/>" alt="숙박3"/>
+                        <img src="<c:url value="/images/inn_1.jpg"/>" alt="숙박3"/>
                     </div>
                     <div class="recommend-info">
                         <h4>숙박3</h4>
@@ -152,7 +152,7 @@
                 </div>
                 <div class="recommend-item">
                     <div class="recommend-image">
-                        <img src="<c:url value="/images/inn_4.jpg"/>" alt="숙박4"/>
+                        <img src="<c:url value="/images/inn_1.jpg"/>" alt="숙박4"/>
                     </div>
                     <div class="recommend-info">
                         <h4>숙박4</h4>
@@ -161,7 +161,7 @@
                 </div>
                 <div class="recommend-item">
                     <div class="recommend-image">
-                        <img src="<c:url value="/images/inn_5.jpg"/>" alt="숙박5"/>
+                        <img src="<c:url value="/images/inn_1.jpg"/>" alt="숙박5"/>
                     </div>
                     <div class="recommend-info">
                         <h5>숙박5</h5>
@@ -184,7 +184,7 @@
                 </div>
                 <div class="recommend-item">
                     <div class="recommend-image">
-                        <img src="<c:url value="/images/restaurant_2.jpg"/>" alt="음식점2"/>
+                        <img src="<c:url value="/images/restaurant_1.jpg"/>" alt="음식점2"/>
                     </div>
                     <div class="recommend-info">
                         <h4>음식점2</h4>
@@ -193,7 +193,7 @@
                 </div>
                 <div class="recommend-item">
                     <div class="recommend-image">
-                        <img src="<c:url value="/images/restaurant_3.jpg"/>" alt="음식점3"/>
+                        <img src="<c:url value="/images/restaurant_1.jpg"/>" alt="음식점3"/>
                     </div>
                     <div class="recommend-info">
                         <h4>음식점3</h4>
@@ -202,7 +202,7 @@
                 </div>
                 <div class="recommend-item">
                     <div class="recommend-image">
-                        <img src="<c:url value="/images/restaurant_4.jpg"/>" alt="음식점4"/>
+                        <img src="<c:url value="/images/restaurant_1.jpg"/>" alt="음식점4"/>
                     </div>
                     <div class="recommend-info">
                         <h4>음식점4</h4>
@@ -211,7 +211,7 @@
                 </div>
                 <div class="recommend-item">
                     <div class="recommend-image">
-                        <img src="<c:url value="/images/restaurant_5.jpg"/>" alt="음식점5"/>
+                        <img src="<c:url value="/images/restaurant_1.jpg"/>" alt="음식점5"/>
                     </div>
                     <div class="recommend-info">
                         <h5>음식점5</h5>

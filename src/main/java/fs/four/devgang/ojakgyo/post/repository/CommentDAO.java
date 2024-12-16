@@ -9,9 +9,11 @@ import java.util.List;
 @Mapper
 public interface CommentDAO {
 
-    public List selectAllCommentList() throws DataAccessException;
+    public List<CommentVO> selectAllCommentList() throws DataAccessException;
+    public List<CommentVO> selectCommentListByPostId(int postId) throws DataAccessException;
+    public List<CommentVO> selectCommentListByUserId(String userId) throws DataAccessException;
+
     public int insertComment(CommentVO commentVO) throws DataAccessException;
 
-    public List<CommentVO> selectCommentsByPostId(int postId) throws DataAccessException;
 
 }

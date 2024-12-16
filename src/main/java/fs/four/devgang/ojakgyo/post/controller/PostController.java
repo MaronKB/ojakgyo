@@ -44,7 +44,7 @@ public class PostController {
         return postService.selectPostListByCategory(category, page).toJSONString();
     }
 
-    @GetMapping("/id/{userId}")
+    @GetMapping("/userId/{userId}")
     public String listPostByUserId(@PathVariable String userId, HttpServletRequest request) throws Exception {
         int page = Integer.parseInt(request.getParameter("page"));
         if (page < 1) page = 1;

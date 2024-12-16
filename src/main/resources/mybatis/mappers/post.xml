@@ -35,6 +35,9 @@
         and ${searchType} like '%'||#{searchKeyword}||'%'
         order by POST_ID desc
     </select>
+    <select id="selectPostListByUserId" parameterType="string" resultType="postVO">
+        select * from OJAKGYO.POST where POST_AUTHOR_ID = #{userId} order by POST_ID desc
+    </select>
 
     <select id="selectReportedPostListByCategory" parameterType="string" resultType="postVO">
         select * from OJAKGYO.POST where (post_category = #{category} or '전체' = #{category}) and POST_IS_REPORTED = 'Y' order by POST_ID desc

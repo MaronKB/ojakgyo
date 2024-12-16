@@ -44,6 +44,12 @@ public class UserController {
         }
     }
 
+    @PatchMapping(value = "/update/{userId}")
+    public int update(@PathVariable String userId, @RequestBody UserVO userVO) throws Exception {
+        userVO.setUser_id(userId);
+        return userService.updateUser(userVO);
+    }
+
     @GetMapping(value = "/check/{type}/{str}")
     public boolean checkDuplication(@PathVariable String type, @PathVariable String str) throws Exception {
         int count = userService.checkDuplication(type, str);

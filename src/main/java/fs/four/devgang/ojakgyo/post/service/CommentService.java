@@ -50,7 +50,7 @@ public class CommentService {
         return commentArray;
     }
 
-    public List selectAllCommentList() throws Exception {
+    public List<CommentVO> selectAllCommentList() throws Exception {
         return commentDAO.selectAllCommentList();
     }
 
@@ -64,8 +64,13 @@ public class CommentService {
         return commentDAO.insertComment(comment);
     }
 
-    public JSONArray selectCommentByPostId(int postId) throws Exception {
-        List<CommentVO> comments = commentDAO.selectCommentsByPostId(postId);
+    public JSONArray selectCommentListByPostId(int postId) throws Exception {
+        List<CommentVO> comments = commentDAO.selectCommentListByPostId(postId);
+        return parseCommentListToJSONArray(comments);
+    }
+
+    public JSONArray selectCommentListByUserId(String userId) throws Exception {
+        List<CommentVO> comments = commentDAO.selectCommentListByUserId(userId);
         return parseCommentListToJSONArray(comments);
     }
 

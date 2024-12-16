@@ -74,8 +74,8 @@
     <update id="updateUser" parameterType="userVO">
         <![CDATA[
         UPDATE ojakgyo.user_info
-        SET user_pw = #{password}, user_nickname = #{nickname}, user_email = #{email}, user_receive_adv = #{receiveAd}
-        WHERE user_id = #{userId}
+        SET user_nickname = #{user_nickname}, user_email = #{user_email}, USER_ADDRESS = #{user_address}, USER_INTRO = #{user_intro}
+        WHERE user_id = #{user_id}
         ]]>
     </update>
 

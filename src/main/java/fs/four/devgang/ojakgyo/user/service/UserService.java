@@ -85,6 +85,9 @@ public class UserService {
         UserVO userVO = castUserVO(jsonObject);
         return userDAO.insertUser(userVO);
     }
+    public int updateUser(UserVO userVO) throws Exception {
+        return userDAO.updateUser(userVO);
+    }
 
     public JSONObject login(JSONObject jsonObject) throws Exception {
         UserVO user = userDAO.selectUserById(jsonObject.get("userId").toString());

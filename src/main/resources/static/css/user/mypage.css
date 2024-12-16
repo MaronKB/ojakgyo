@@ -121,3 +121,68 @@
     background: var(--background-color-dark);
     color: white;
 }
+#profile-submit {
+    justify-self: flex-end;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-menu), sans-serif;
+    font-size: 16px;
+    background: var(--background-color-grey);
+    border: 0;
+    border-radius: 5px;
+}
+#profile-submit:hover {
+    background: var(--background-color-dark);
+    color: white;
+}
+#profile-submit button {
+}
+
+#recent-container {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+.mypage-lists {
+    flex: 1;
+    background: var(--background-color-grey);
+    padding: 20px;
+    border-radius: 10px;
+}
+.mypage-lists h3 {
+    padding: 10px;
+    font-family: var(--font-normal), sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
+    border-bottom: 1px solid #EAEAEA;
+}
+.mypage-list {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0;
+    overflow: hidden;
+}
+.mypage-list-item {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: var(--font-normal), sans-serif;
+    font-size: 14px;
+    background: white;
+    padding: 10px;
+    border-bottom: 1px solid #EAEAEA;
+}
+.mypage-list-item:nth-child(2n) {
+    background: #f0f0f0;
+}
+.mypage-list-item:hover {
+    background: var(--background-color-grey);
+}

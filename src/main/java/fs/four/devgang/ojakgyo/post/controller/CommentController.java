@@ -47,4 +47,9 @@ public class CommentController {
         jsonObject.put("authorNickname", userNickname);
         return commentService.insertComment(jsonObject);
     }
+
+    @GetMapping(value="/userId/{userId}")
+    public String selectCommentListByUserId(@PathVariable String userId) throws Exception {
+        return commentService.selectCommentListByUserId(userId).toJSONString();
+    }
 }

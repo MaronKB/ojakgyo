@@ -98,7 +98,7 @@ public class ViewController {
         String userId = user == null ? null : user.get("userId").toString();
 
         JSONObject post = postService.selectPostById(postId);
-        JSONArray comments = commentService.selectCommentByPostId(postId);
+        JSONArray comments = commentService.selectCommentListByPostId(postId);
         ModelAndView mav = new ModelAndView("community/view");
         mav.addObject("post", post);
         mav.addObject("comments", comments);

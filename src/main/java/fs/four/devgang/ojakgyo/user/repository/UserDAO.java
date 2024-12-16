@@ -13,6 +13,7 @@ public interface UserDAO {
     public UserVO selectUserByEmail(String email) throws DataAccessException;
 
     public int insertUser(UserVO userVO) throws DataAccessException;
+    public int updateUser(UserVO userVO) throws DataAccessException;
 
     public int countUserById(String userId) throws DataAccessException;
     public int countUserByEmail(String email) throws DataAccessException;

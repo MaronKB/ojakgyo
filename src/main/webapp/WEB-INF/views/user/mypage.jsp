@@ -12,7 +12,8 @@
 <main>
     <div id="profile-container">
         <h3 id="profile-title">내 프로필</h3>
-        <div id="profile">
+        <form id="profile" onsubmit="updateProfile()">
+            <input type="hidden" id="profile-user-id" name="userId" value="${user.userId}">
             <div id="profile-img-container">
                 <img id="profile-img" src="<%
                     JSONObject user = (JSONObject) request.getAttribute("user");
@@ -46,15 +47,18 @@
                     <textarea id="profile-intro" placeholder="자기소개" readonly>${user.intro}</textarea>
                     <button id="profile-intro-edit" type="button" onclick="editProfile('intro')">수정</button>
                 </div>
+                <button class="profile-input span-2" id="profile-submit" type="submit">수정 확인</button>
             </div>
-        </div>
+        </form>
         <div id="recent-container">
-            <div class="mypage-list">
-                <ul id="recent-post">
+            <div class="mypage-lists">
+                <h3>최근 게시글 목록</h3>
+                <ul id="recent-post" class="mypage-list">
                 </ul>
             </div>
-            <div class="mypage-list">
-                <ul id="recent-comment">
+            <div class="mypage-lists">
+                <h3>최근 댓글 목록</h3>
+                <ul id="recent-comment" class="mypage-list">
                 </ul>
             </div>
         </div>
