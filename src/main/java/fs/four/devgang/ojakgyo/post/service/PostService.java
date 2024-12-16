@@ -11,10 +11,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 @Service("postService")
 @Transactional(propagation = Propagation.REQUIRED)
@@ -134,6 +131,10 @@ public class PostService {
         return postDAO.insertPost(post);
     }
 
+    public int updatePost(PostVO post) throws Exception {
+        return postDAO.updatePost(post);
+    }
+
     public int deletePost(int postId) throws Exception {
         return postDAO.deletePost(postId);
     }
@@ -144,5 +145,10 @@ public class PostService {
 
     public int reportPost(int postId) throws Exception {
         return postDAO.updatePostReported(postId);
+    }
+
+    public boolean isPostOwner(int postId, String userId) throws Exception {
+        String authorId = postDAO.selectPostById(postId).getPost_author_id();
+        return Objects.equals(authorId, userId);
     }
 }

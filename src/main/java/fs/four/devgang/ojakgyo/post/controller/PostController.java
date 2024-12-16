@@ -76,6 +76,24 @@ public class PostController {
         return postService.addPost(post);
     }
 
+    @PatchMapping("/edit/{postId}")
+    public int editPost(@PathVariable int postId, @RequestBody String body, HttpServletRequest request) throws Exception {
+        HttpSession session = request.getSession();
+        JSONObject user = (JSONObject) session.getAttribute("user");
+        if (user == null) return -1;
+
+        JSONObject jsonObject = (JSONObject) parser.parse(body);
+        PostVO post = new PostVO();
+        post.setPost_id(postId);
+        post.setPost_title(jsonObject.get("title").toString());
+        post.setPost_content(jsonObject.get("content").toString());
+        post.setPost_category(jsonObject.get("category").toString());
+        post.setPost_author_id(user.get("userId").toString());
+        post.setPost_author_nickname(user.get("nickname").toString());
+
+        return postService.updatePost(post);
+    }
+
     @DeleteMapping("/delete/{postId}")
     public int deletePost(@PathVariable int postId) throws Exception {
         return postService.deletePost(postId);
