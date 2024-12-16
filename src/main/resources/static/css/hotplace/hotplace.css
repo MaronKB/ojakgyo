@@ -9,7 +9,7 @@
     font-size:40px;
     font-family:"East Sea Dokdo", sans-serif;
     text-align:center;
-    color:050f56;
+    color: 27020b;
 }
 
 .cafe{
@@ -48,31 +48,31 @@
     font-weight: 400;
     font-style: normal;
     font-size:35px;
-    color:050f56;
+    color: 27020b;
 }
 
 .cafebutton:hover{
-    background-color:050f56;
+    background-color: 27020b;
     color:white;
     transition:0.5s;
 }
 
 .restaurantbutton{
-    width:120px;
-    height:75px;
-    background-color:white;
+    width: 120px;
+    height: 75px;
+    background-color: white;
     border: none;
-    border-radius : 40px;
-    margin:auto;
+    border-radius: 40px;
+    margin: auto;
     font-family: "East Sea Dokdo", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size:35px;
-    color:050f56;
+    font-size: 35px;
+    color: 27020b;
 }
 
 .restaurantbutton:hover{
-    background-color:050f56;
+    background-color: 27020b;
     color:white;
     transition:0.5s;
 }
@@ -88,11 +88,11 @@
     font-weight: 400;
     font-style: normal;
     font-size:35px;
-    color:050f56;
+    color: 27020b;
 }
 
 .spotbutton:hover{
-    background-color:050f56;
+    background-color: 27020b;
     color:white;
     transition:0.5s;
 }
@@ -108,11 +108,11 @@
     font-weight: 400;
     font-style: normal;
     font-size:35px;
-    color:050f56;
+    color: 27020b;
 }
 
 .hotelbutton:hover{
-    background-color:050f56;
+    background-color: 27020b;
     color:white;
     transition:0.5s;
 }
@@ -122,12 +122,12 @@
     overflow-x:hidden;
     width : 400px;
     height: 660px;
-    margin-left: 300px;
+    margin-left: 100px;
     margin-top: 100px;
     border: none;
     border-radius : 10px;
     justify-content:center;
-    background-color:pink;
+    background-color: #ffcac9;
     justify-content:center;
 }
 
@@ -151,12 +151,12 @@
     font-weight: 400;
     font-style: normal;
     font-size:30px;
-    color:050f56;
+    color: 27020b;
 }
 
 
 .regions:hover{
-    background-color:050f56;
+    background-color: 27020b;
     color:white;
     transition:0.5s;
 }
@@ -178,7 +178,7 @@
   border-radius: 10px;
   position: fixed;            /* 화면 고정 */
   left: -400px;               /* 화면 왼쪽 밖에 위치 */
-  background-color: pink;
+  background-color: #ffcac9;
   font-size: 40px;
   justify-content: center;
   text-align: center;
@@ -216,6 +216,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 15px;
+    color: 27020b;
     background-color:white;
     justify-content:center;
     text-align:center;
@@ -226,9 +227,9 @@
 }
 
 .movebar:hover{
-    background-color:050f56;
+    background-color:27020b;
     color:white;
-    transition:0.5s;
+    transition:0.3s ease-in-out;
 }
 
 .content-container {
