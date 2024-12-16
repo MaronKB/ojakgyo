@@ -16,13 +16,6 @@ public class MypageServiceImpl implements MypageService {
     private MypageDAO codeGroupDAO;
 
     @Override
-    public List listCodeGroup() throws Exception {
-        List codeGroupList = null;
-        codeGroupList = codeGroupDAO.selectAllCodeGroupList();
-        return codeGroupList;
-    }
-
-    @Override
     public List listMypage() throws Exception {
         return List.of();
     }

@@ -12,9 +12,9 @@ import java.util.List;
 public class MypageRestService {
 
     @Autowired
-    private MypageDAO codeGroupDAO;
+    private MypageDAO mypageDAO;
 
-    public List listAllCodeGroup() throws Exception{
+    public List listAllMyPage() throws Exception{
 
         List mypageListList = null;
         mypageListList = MypageDAO.selectAllMypageList();
