@@ -1,29 +1,47 @@
-.view-container {
-    max-width: 800px;
+#view-container {
+    width: 100%;
+    min-height: var(--main-min-height);
+    display: flex;
+    flex-direction: column;
     padding: 20px;
-    margin: 0 auto;
-    color: #333;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+#view-post-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-width: 2px 0;
+    border-style: solid;
+    border-color: #8f8f8f;
 }
 
-.view-title {
-    font-size: 15px;
+#view-title {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
     font-weight: bold;
-    border-top: 2px solid #8f8f8f;
     border-bottom: 1px solid #666666;
-    padding: 7px 0;
+    padding: 0 10px;
 }
 
-.view-info {
-    font-size: 10px;
-    color: #666;
-    padding: 7px 0;
+#view-info {
+    height: 30px;
+    font-size: 12px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-normal), sans-serif;
+    color: #666;
+    padding: 0 10px;
     border-bottom: 1px solid #8f8f8f;
+}
+
+#view-info > div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 #nickname {
@@ -31,54 +49,97 @@
     color: #444;
 }
 
-.view-content {
-    margin: 20px;
+#view-content {
+    flex: 1;
+    padding: 20px 10px;
     font-size: 14px;
-    line-height: 1.4;
     color: #333;
-    min-height: 300px;
 }
 
-.button-section1 {
+#vote-container {
+    flex: none;
+    width: 140px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 0 auto;
+}
+#vote-content {
+    flex: none;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#vote-title {
+    font-family: var(--font-menu), sans-serif;
+    font-size: 14px;
+    color: var(--text-color);
+}
+#vote {
+    font-family: var(--font-menu), sans-serif;
+    font-size: 24px;
+    color: var(--text-color);
+}
+#vote-buttons {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+#vote-buttons > button {
+    flex: 1;
+    height: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
-}
-
-.button-section1 .btn-like {
-    padding: 10px 10px;
-    border: none;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-menu), sans-serif;
+    font-size: 14px;
+    color: var(--text-color);
+    background-color: var(--background-color-grey);
+    border: 0;
     border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
     cursor: pointer;
-    transition: background-color 0.3s;
+}
+#vote-buttons > button:hover {
+    color: white;
+    background-color: var(--sub-color);
 }
 
-.button-section1 .btn-like:hover {
-    background-color: #0056b3;
-}
-
-
-.button-section2 {
+#button-section {
+    width: 100%;
+    height: 30px;
     display: flex;
-    justify-content: end;
-    border-bottom: 1px solid #402E2A;
-    padding-bottom: 10px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
 }
-
-.button-section2 .btn-report {
-    padding: 5px 5px;
-    border: none;
+#button-section > a {
+    width: 80px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-menu), sans-serif;
+    font-size: 14px;
+    color: white;
+    background-color: var(--text-color);
+    border: 0;
     border-radius: 5px;
-    background-color: #dc3545;
-    color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-.button-section2 .btn-report:hover {
-    background-color: #b71c1c;
 }
 
 .move-to-list {
