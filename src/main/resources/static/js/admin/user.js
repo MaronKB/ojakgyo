@@ -202,4 +202,69 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
 
+
+    // 수정 기능
+    const editButton = document.getElementById("edit");
+    const modal = document.getElementById("editModal");
+    const closeModal = document.getElementById("closeModal");
+
+
+    editButton.addEventListener("click", () => {
+        const selectedCheckbox = document.querySelector("tbody input[type='checkbox']:checked");
+
+        if (!selectedCheckbox) {
+            alert("수정할 회원을 선택해주세요.");
+            return;
+        }
+
+
+        const row = selectedCheckbox.closest("tr");
+        const userId = row.children[1].textContent;
+        const nickname = row.children[2].textContent;
+        const email = row.children[3].textContent;
+        const receiveAdv = row.children[4].textContent;
+
+
+        document.getElementById("editUserId").value = userId;
+        document.getElementById("editUserPw").value = "*******";
+        document.getElementById("editUserNickname").value = nickname;
+        document.getElementById("editUserEmail").value = email;
+        document.getElementById("editUserReceiveAdv").value = receiveAdv;
+
+
+        modal.style.display = "block";
+    });
+
+
+    closeModal.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+
+    document.getElementById("saveEdit").onclick = async () => {
+        const user_id = document.getElementById("editUserId").value;
+        const user_pw = document.getElementById("editUserPw").value;
+        const user_nickname = document.getElementById("editUserNickname").value;
+        const user_email = document.getElementById("editUserEmail").value;
+        const user_receive_adv = document.getElementById("editUserReceiveAdv").value;
+
+        const updatedData = {
+            user_id: user_id,
+            user_pw: user_pw,
+            user_nickname: user_nickname,
+            user_email: user_email,
+            user_receive_adv: user_receive_adv
+        };
+
+        const response = await fetch("/admin/updateUser", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updatedData)
+        });
+
+        if (response.ok) {
+            alert("수정이 완료되었습니다.");
+            location.reload();
+        }
+    };
 });
