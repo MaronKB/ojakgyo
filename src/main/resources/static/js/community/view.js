@@ -31,3 +31,54 @@ const commentLimitation = () => {
         commentArea.value = commentArea.value.substring(0, 4000);
     }
 }
+
+const reportPost = async (postId) => {
+    if (!confirm('해당 게시글을 신고하시겠습니까?')) {
+        return;
+    }
+    const response = await fetch(`/api/post/report/${postId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }).then(response => response.text());
+
+    if (response === '1') {
+        alert('신고가 완료되었습니다.');
+        window.location.reload();
+    } else {
+        alert('신고에 실패했습니다.');
+    }
+}
+
+const deletePost = async (postId) => {
+    if (!confirm('해당 게시글을 삭제하시겠습니까?')) {
+        return;
+    }
+    const response = await fetch(`/api/post/delete/${postId}`, {
+        method: 'DELETE',
+    }).then(response => response.text());
+
+    if (response === '-1') {
+        alert('게시글이 삭제되었습니다.');
+        window.location.href = '/community';
+    } else {
+        alert('게시글 삭제에 실패했습니다.');
+    }
+}
+
+const upVote = async (postId) => {
+    const response = await fetch(`/api/post/upvote/${postId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }).then(response => response.text());
+
+    if (response === '1') {
+        alert('추천하였습니다.');
+        window.location.reload();
+    } else {
+        alert('추천에 실패했습니다.');
+    }
+}

@@ -54,4 +54,16 @@ public class AdminController {
         }
     }
 
+//    수정 기능
+    @PostMapping("/admin/updateUser")
+    @ResponseBody
+    public ResponseEntity<String> updateUser(@RequestBody AdminVO adminVO) {
+        try {
+            adminService.updateUser(adminVO);
+            return ResponseEntity.ok("회원 정보 수정 성공");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("회원 정보 수정 실패");
+        }
+    }
+
 }

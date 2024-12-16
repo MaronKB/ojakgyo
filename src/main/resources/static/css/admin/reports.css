@@ -1,0 +1,20 @@
+.post-treat {
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.post-treat > button {
+    flex: 1;
+    height: 30px;
+    font-size: 16px;
+    border: none;
+    background-color: var(--background-color-grey);
+    cursor: pointer;
+}
+.post-treat > button:hover {
+    color: white;
+    background-color: var(--sub-color);
+}

@@ -5,14 +5,18 @@
 <html>
 <head>
     <title>오작교-마이페이지</title>
+    <link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Noto+Serif+KR:wght@200..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<c:url value="/css/index.css"/>"/>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
 
     <div class="bodycontainer">
-        <h2 class="bodytitle">마이페이지</h2>
+        <h2 class="mypagetitle">마이페이지</h2>
                 <br>
+                <h3 class="profiletitle">내 프로필</h3>
+                <div class="profile">
+                <p>프로필 사진 수정하기</p>
                 <div class="imgcontainer">
                     <img id="profile-img-btn"
                         src="https://i1.sndcdn.com/avatars-000373392764-zp0p80-t200x200.jpg"
@@ -27,14 +31,14 @@
                         <p class="bodytitle">닉네임</p>
                         <input id="nicknameInput" placeholder="태사다르" style="width:200px; height:30px;">
                         <input type="hidden" id="userId" value="${user.userId}">
-                        <button class="editbutton" id="edit1" style="width:100px; height:30px;">수정</button>
+                        <button class="editbutton" id="edit1" style="width:100px; height:30px;"><p>수정하기</p></button>
                     </div>
                 <br>
                     <div class="email">
                         <p class="bodytitle">이메일</p>
                         <input placeholder="tassadar@aiur.com"
                         style="width:200px; height:30px;">
-                        <button class="editbutton" id="edit2" style="width:100px; height:30px;">수정</button>
+                        <button class="editbutton" id="edit2" style="width:100px; height:30px;"><p>수정하기</p></button>
                     </div>
                 </div>
                 <br>
@@ -43,14 +47,14 @@
                          <p class="bodytitle">비밀번호</p>
                          <input placeholder="123546789"
                          style="width:200px; height:30px;">
-                         <button class="editbutton" id="edit3" style="width:100px; height:30px;">수정</button>
+                         <button class="editbutton" id="edit3" style="width:100px; height:30px;"><p>수정하기</p></button>
                     </div>
                 <br>
                     <div class="address">
                          <p class="bodytitle">주소</p>
                          <input placeholder="경기도 수원시"
                          style="width:200px; height:30px;">
-                         <button class="editbutton" id="edit4" style="width:100px; height:30px;" >수정</button>
+                         <button class="editbutton" id="edit4" style="width:100px; height:30px;"><p>수정하기</p></button>
                     </div>
                 </div>
                 <br>
@@ -59,28 +63,31 @@
                         <p class="bodytitle">한줄소개</p>
                         <input placeholder="난 백엔드를 경험한 적이 없네"
                         style="width:544px; height: 30px;">
-                        <button class="editbutton" id="edit5" style="width:100px; height:30px;">수정</button>
+                        <button class="editbutton" id="edit5" style="width:100px; height:30px;"><p>수정하기</p></button>
                     </div>
+                </div>
+
                 </div>
                 <br>
                 <div class="caption">
-                    <h4 class="caption1">내가 쓴 게시글</h4>
-                    <h4 class="caption2">내가 쓴 댓글</h4>
+                    <h3 class="caption1" style="color:white">내가 쓴 게시글</h4>
+                    <h3 class="caption2" style="color:white">내가 쓴 댓글</h4>
                 </div>
                 <div class="recents">
                     <div class="recentlyRegisteredPosts">
-                        <div class="title"><a href = "http://localhost:8080/community/v/9"><p>안녕</p></div>
-                        <div class="title"><a href = "http://localhost:8080/community/v/12"><p>난 백엔드를 경험한 적이 없네.</p></div>
-                        <div class="title"><a href = "http://localhost:8080/community/v/18"><p>미친 소리!</p></div>
-                        <div class="title"><a href = "http://localhost:8080/community/v/26"><p>멈춰!</p></div>
-                        <div class="title"><a href = "http://localhost:8080/community/v/2"><p>안녕못한다</p></div>
+                        <div class="title"><a href = "http://localhost:8080/community/v/9"><p>Hello.</p></div>
+                        <div class="title"><a href = "http://localhost:8080/community/v/12"><p>You people know a lot about trucks.</p></div>
+                        <div class="title"><a href = "http://localhost:8080/community/v/18"><p>Make America Great Again!</p></div>
+                        <div class="title"><a href = "http://localhost:8080/community/v/26"><p>Take a seat. Young Skywalker.</p></div>
+                        <div class="title"><a href = "http://localhost:8080/community/v/2"><p>It&apos;s over, Anakin! I have the high ground!</p></div>
+
                     </div>
                     <div class="recentlyRegisteredComments">
-                        <div class="title"><p>엄청커다란모기가나의발을물었어</p></div>
-                        <div class="title"><p>간지러웠어</p></div>
-                        <div class="title"><p>그래서참았어</p></div>
-                        <div class="title"><p>아무생각없이나는발을긁었어</p></div>
-                        <div class="title"><p>왕모기</p></div>
+                        <div class="title"><a href = "http://localhost:8080/community/v/2"><p>엄청커다란모기가나의발을물었어</p></div>
+                        <div class="title"><a href = "http://localhost:8080/community/v/12"><p>간지러웠어</p></div>
+                        <div class="title"><a href = "http://localhost:8080/community/v/18"><p>그래서참았어</p></div>
+                        <div class="title"><a href = "http://localhost:8080/community/v/26"><p>아무생각없이나는발을긁었어</p></div>
+                        <div class="title"><a href = "http://localhost:8080/community/v/9"><p>왕모기</p></div>
                     </div>
                 </div>
     </div>

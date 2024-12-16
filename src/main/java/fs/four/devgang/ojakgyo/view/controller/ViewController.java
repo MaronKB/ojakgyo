@@ -89,18 +89,31 @@ public class ViewController {
     }
 
     @GetMapping("/community/v/{postId}")
-    public ModelAndView communityView(@PathVariable int postId) throws Exception {
+    public ModelAndView communityView(@PathVariable int postId, HttpServletRequest request) throws Exception {
+        HttpSession session = request.getSession();
+        JSONObject user = (JSONObject) session.getAttribute("user");
+        String userId = user == null ? null : user.get("userId").toString();
+
         JSONObject post = postService.selectPostById(postId);
         JSONArray comments = commentService.selectCommentByPostId(postId);
         ModelAndView mav = new ModelAndView("community/view");
         mav.addObject("post", post);
         mav.addObject("comments", comments);
+        mav.addObject("isOwner", (postService.isPostOwner(postId, userId) || !userIsNotAdmin(session)));
         return mav;
     }
 
-    @GetMapping("/community/edit")
-    public String communityEdit() {
-        return "community/edit";
+    @GetMapping("/community/edit/{postId}")
+    public ModelAndView communityEdit(@PathVariable int postId, HttpServletRequest request) throws Exception {
+        HttpSession session = request.getSession();
+        if (userIsNotLoggedIn(session)) return new ModelAndView("error/401");
+        if (postService.isPostOwner(postId, session.getAttribute("user").toString()) || !userIsNotAdmin(session)) {
+            ModelAndView mav = new ModelAndView("community/edit");
+            mav.addObject("post", postService.selectPostById(postId));
+            return mav;
+        } else {
+            return new ModelAndView("error/403");
+        }
     }
 
     // hotplace

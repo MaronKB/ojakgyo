@@ -11,28 +11,36 @@
 <body>
 <jsp:include page="/WEB-INF/views/includes/header.jsp"/>
 <main id="community-view-main">
-    <div class="view-container">
-        <h2 class="view-title">
-            ${post.title}
-        </h2>
-        <div class="view-info">
-            <p id="nickname">닉네임: ${post.authorNickname}</p>
-            <p id="view">조회수: ${post.viewCount}</p>
-            <p id="vote">추천수: ${post.voteCount}</p>
-            <p id="date">작성일: ${post.regDate}</p>
-        </div>
-        <div class="view-content">
-            <p>${post.content}</p>
-        </div>
-        <div class="button-section1">
-            <button class="btn-like">👍추천 ${post.voteCount}</button>
-        </div>
-        <div class="button-section2">
-            <button class="btn-report">🚨신고</button>
-        </div>
-        <div class="move-to-list">
-            <button><a href="<c:url value="/community"/>">목록</a></button>
-        </div>
+    <div id="view-container">
+        <section id="view-post-container">
+            <h2 id="view-title">${post.title}</h2>
+            <div id="view-info">
+                <span id="nickname">닉네임: ${post.authorNickname}</span>
+                <div>
+                    <span id="views">조회수: ${post.viewCount}</span>
+                    <span id="votes">추천수: ${post.voteCount}</span>
+                    <span id="date">작성일: ${post.regDate}</span>
+                </div>
+            </div>
+            <div id="view-content">${post.content}</div>
+            <div id="vote-container">
+                <div id="vote-content">
+                    <span id="vote-title">추천수</span>
+                    <span id="vote">${post.voteCount}</span>
+                </div>
+                <div id="vote-buttons">
+                    <button onclick="upVote(${post.postId})"><i class="fa-solid fa-thumbs-up"></i>추천</button>
+                    <button onclick="reportPost(${post.postId})"><i class="fa-solid fa-bell"></i>신고</button>
+                </div>
+            </div>
+            <div id="button-section">
+                <a href="<c:url value="/community"/>">목록</a>
+                <c:if test="${isOwner}">
+                    <a href="<c:url value="/community/edit/${post.postId}"/>">수정</a>
+                    <a onclick="deletePost(${post.postId})">삭제</a>
+                </c:if>
+            </div>
+        </section>
         <section id="post-comments-container">
             <ul id="post-comments">
                 <c:forEach var="comment" items="${comments}">

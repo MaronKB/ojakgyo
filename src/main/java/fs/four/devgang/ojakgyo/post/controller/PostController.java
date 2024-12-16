@@ -3,12 +3,12 @@ package fs.four.devgang.ojakgyo.post.controller;
 import fs.four.devgang.ojakgyo.post.service.CommentService;
 import fs.four.devgang.ojakgyo.post.service.PostService;
 import fs.four.devgang.ojakgyo.post.vo.PostVO;
-import fs.four.devgang.ojakgyo.deprecated.LoginVO;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 @RestController("postController")
 @RequestMapping("/api/post")
@@ -19,6 +19,8 @@ public class PostController {
 
     @Autowired
     private CommentService commentService;
+
+    private static final JSONParser parser = new JSONParser();
 
     @GetMapping("/list")
     public String listPost(HttpServletRequest request) throws Exception {
@@ -42,28 +44,63 @@ public class PostController {
         return postService.selectPostListByCategory(category, page).toJSONString();
     }
 
+    @GetMapping("/reported/{category}")
+    public String listReportedPost(@PathVariable String category, HttpServletRequest request) throws Exception {
+        int page = Integer.parseInt(request.getParameter("page"));
+        if (category == null) category = "전체";
+        if (page < 1) page = 1;
+
+        return postService.selectReportedPostListByCategory(category, page).toJSONString();
+    }
+
     @GetMapping("/id/{postId}")
     public String viewPost(@PathVariable int postId) throws Exception {
         postService.increasePostViewCount(postId);
         return postService.selectPostById(postId).toJSONString();
     }
 
-    @RequestMapping(value="/add" ,method = RequestMethod.POST)
-    public ModelAndView addPost(@ModelAttribute("post") PostVO post, HttpServletRequest request, HttpServletResponse response) throws Exception {
-        request.setCharacterEncoding("utf-8");
+    @PostMapping("/add")
+    public int addPost(@RequestBody String body, HttpServletRequest request) throws Exception {
+        HttpSession session = request.getSession();
+        JSONObject user = (JSONObject) session.getAttribute("user");
+        if (user == null) return -1;
 
-        // 로그인 글 작성 연동 부분
-        LoginVO loginUser = (LoginVO) request.getSession().getAttribute("user");
+        JSONObject jsonObject = (JSONObject) parser.parse(body);
+        PostVO post = new PostVO();
+        post.setPost_title(jsonObject.get("title").toString());
+        post.setPost_content(jsonObject.get("content").toString());
+        post.setPost_category(jsonObject.get("category").toString());
+        post.setPost_author_id(user.get("userId").toString());
+        post.setPost_author_nickname(user.get("nickname").toString());
 
-        if (loginUser != null) {
+        return postService.addPost(post);
+    }
 
-            post.setPost_author_id(loginUser.getUserid());
-            post.setPost_author_nickname(loginUser.getUsernickname());
-        }
+    @PatchMapping("/edit/{postId}")
+    public int editPost(@PathVariable int postId, @RequestBody String body, HttpServletRequest request) throws Exception {
+        HttpSession session = request.getSession();
+        JSONObject user = (JSONObject) session.getAttribute("user");
+        if (user == null) return -1;
 
-        int result = postService.addPost(post);
+        JSONObject jsonObject = (JSONObject) parser.parse(body);
+        PostVO post = new PostVO();
+        post.setPost_id(postId);
+        post.setPost_title(jsonObject.get("title").toString());
+        post.setPost_content(jsonObject.get("content").toString());
+        post.setPost_category(jsonObject.get("category").toString());
+        post.setPost_author_id(user.get("userId").toString());
+        post.setPost_author_nickname(user.get("nickname").toString());
 
-        ModelAndView mav = new ModelAndView("redirect:/post/listPost");
-        return mav;
+        return postService.updatePost(post);
+    }
+
+    @DeleteMapping("/delete/{postId}")
+    public int deletePost(@PathVariable int postId) throws Exception {
+        return postService.deletePost(postId);
+    }
+
+    @PostMapping("/report/{postId}")
+    public int reportPost(@PathVariable int postId) throws Exception {
+        return postService.reportPost(postId);
     }
 }
