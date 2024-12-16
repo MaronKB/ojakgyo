@@ -119,6 +119,14 @@ public class PostService {
         return jsonObject;
     }
 
+    public JSONObject selectPostListByUserId(String userId, int page) throws Exception {
+        List<PostVO> postList = postDAO.selectPostListByUserId( userId);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("totalPage", (postList.size() / POST_LIST_SIZE) + 1);
+        jsonObject.put("posts", parseListToJSON(postList, page));
+        return jsonObject;
+    }
+
     public JSONObject selectReportedPostListByCategory(String category, int page) throws Exception {
         List<PostVO> postList = postDAO.selectReportedPostListByCategory(category);
         JSONObject jsonObject = new JSONObject();

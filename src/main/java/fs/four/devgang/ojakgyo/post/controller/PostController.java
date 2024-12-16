@@ -44,6 +44,14 @@ public class PostController {
         return postService.selectPostListByCategory(category, page).toJSONString();
     }
 
+    @GetMapping("/id/{userId}")
+    public String listPostByUserId(@PathVariable String userId, HttpServletRequest request) throws Exception {
+        int page = Integer.parseInt(request.getParameter("page"));
+        if (page < 1) page = 1;
+
+        return postService.selectPostListByUserId(userId, page).toJSONString();
+    }
+
     @GetMapping("/reported/{category}")
     public String listReportedPost(@PathVariable String category, HttpServletRequest request) throws Exception {
         int page = Integer.parseInt(request.getParameter("page"));
